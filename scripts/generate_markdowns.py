@@ -163,7 +163,7 @@ def natural_keys(text):
     return test
 
 
-dir = Path().absolute().parent / "tutorials"
+dir = Path(__file__).absolute().parent.parent / "tutorials"
 
 notebooks = [x for x in os.listdir(dir) if x[-6:] == ".ipynb"]
 # sort notebooks based on numbers within name of notebook
@@ -175,7 +175,7 @@ for i, nb in enumerate(notebooks):
     body, resources = e.from_filename(dir / nb)
     print(f"Processing {dir}/{nb}")
 
-    markdowns_path = Path().absolute().parent / "markdowns"
+    markdowns_path = Path(__file__).absolute().parent.parent / "markdowns"
     with open(markdowns_path / f"{i + 1}.md", "w", encoding="utf-8") as f:
         try:
             f.write(headers[i + 1] + "\n\n")
