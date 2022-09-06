@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Something unclear about Haystack? Just ask on Haystack Discussions 😊
+    url: https://github.com/deepset-ai/haystack/discussions/new
+    about: Start a Github discussion with your question
