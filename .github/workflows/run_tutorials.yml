@@ -1,0 +1,13 @@
+name: Run Tutorials
+
+on:
+  workflow_dispatch:  # Activate this workflow manually
+  pull_request:
+    paths:
+      - 'tutorials/*.*'
+
+jobs:
+  run-tutorials:
+     runs-on: ubuntu-latest
+     steps:
+      - uses: actions/checkout@v3
