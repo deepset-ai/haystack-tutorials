@@ -1,0 +1,44 @@
+name: Run Tutorials Nightly
+
+on:
+  workflow_dispatch:  # Activate this workflow manually
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  run-tutorials:
+    runs-on: ubuntu-latest
+    container: deepset/haystack:base-massi-docker
+
+    services:
+      elasticsearch:
+        image: elasticsearch:7.9.2
+        env:
+          discovery.type: "single-node"
+          ES_JAVA_OPTS: "-Xms128m -Xmx256m"
+
+    strategy:
+      max-parallel: 2
+      matrix:
+        notebook:
+          # Note: use only the name of the file without the extension
+          - 01_Basic_QA_Pipeline
+
+    env:
+      ELASTICSEARCH_HOST: "elasticsearch"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install jupyter
+        run: |
+          pip install nbconvert
+
+      - name: Convert notebook to Python
+        run: |
+          jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ./tutorials/${{ matrix.notebook }}.ipynb
+
+      - name: Run the converted notebook
+        run: |
+          python ./tutorials/${{ matrix.notebook }}.py

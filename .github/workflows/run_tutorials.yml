@@ -2,12 +2,53 @@ name: Run Tutorials
 
 on:
   workflow_dispatch:  # Activate this workflow manually
-  pull_request:
-    paths:
-      - 'tutorials/*.*'
+  push:
+    branches:
+      - massi/ci
+
+# pull_request:
+#   paths:
+#     - 'tutorials/*.ipynb'
 
 jobs:
   run-tutorials:
-     runs-on: ubuntu-latest
-     steps:
-      - uses: actions/checkout@v3
+    runs-on: ubuntu-latest
+    container: deepset/haystack:base-massi-docker
+
+    services:
+      elasticsearch:
+        image: elasticsearch:7.9.2
+        env:
+          discovery.type: "single-node"
+          ES_JAVA_OPTS: "-Xms128m -Xmx256m"
+
+    env:
+      ELASTICSEARCH_HOST: "elasticsearch"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install jupyter
+        run: |
+          pip install nbconvert
+
+      - name: Files changed
+        uses: jitterbit/get-changed-files@v1
+        id: files
+        with:
+          format: space-delimited
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Convert notebooks to Python
+        run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            if [[ $changed_file == *".ipynb" ]]; then
+              echo $changed_file
+              jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ${changed_file}
+            fi
+          done
+
+      - name: Run the converted notebooks
+        run: |
+          find ./tutorials -name "*.py" -execdir python {} \;
