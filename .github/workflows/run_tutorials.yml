@@ -2,13 +2,9 @@ name: Run Tutorials
 
 on:
   workflow_dispatch:  # Activate this workflow manually
-  push:
-    branches:
-      - massi/ci
-
-# pull_request:
-#   paths:
-#     - 'tutorials/*.ipynb'
+  pull_request:
+    paths:
+      - 'tutorials/*.ipynb'
 
 jobs:
   run-tutorials:
