@@ -1,0 +1,3 @@
+# Avoid checking in Python files by mistake
+# in the tutorials folder.
+*.py
