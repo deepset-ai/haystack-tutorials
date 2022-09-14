@@ -2,18 +2,20 @@
 
 All of the Haystack tutorials live in the `tutorials` folder in this repo. Each tutorial is an interactive `.ipynb` file that can be ran on Google Colab too. Follow the steps below to add or edit the tutorials 👇
 
-1. Please make sure to follow the [naming convention](#naming-convention) for file names.
-2. Make any changes (editing an existing tutorial or creating a new one) in the `/tutorials` folder by editing or creating `.ipynb` files.
-3. Update the `markdowns` folder to reflect the changes:
-    - Install requirements with `pip install /scripts/requirements.txt`
+1. Prepare your environment:
+   - Install requirements with `pip install requirements.txt`
+   - Install the pre-commit hooks with `pre-commit install`. This utility will run some formatting/checking
+   tasks right before all git commit operations.
+2. Please make sure to follow the [naming convention](#naming-convention) for file names.
+3. Make any changes (editing an existing tutorial or creating a new one) in the `/tutorials` folder by editing or creating `.ipynb` files.
+4. Update the `markdowns` folder to reflect the changes:
     - Run `python /scripts/generate_markdowns.py`
     - This will generate or update the relevant markdown file in `/markdowns`
-4. Create a Pull Request
-5. Wait for the [CI](#ci-continuous-integration) checks to pass
+5. Create a Pull Request
+6. Wait for the [CI](#ci-continuous-integration) checks to pass
     - These checks will pass if the relevant markdown files have been created
-6. Update the [README](./README.md) if necessary.
-6. Wait for a review and merge 🎉 Thank you for contributing 💙
-
+7. Update the [README](./README.md) if necessary.
+8. Wait for a review and merge 🎉 Thank you for contributing 💙
 
 
 # CI (Continuous Integration)
