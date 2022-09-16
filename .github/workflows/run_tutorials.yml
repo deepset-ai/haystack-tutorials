@@ -32,7 +32,7 @@ jobs:
           pip install pyzmq==23.2.1
           pip install nbconvert
           pip install ipython
-          apt install libsndfile1 ffmpeg
+          apt-get update && apt-get install -y libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
 
       - name: Files changed
         uses: jitterbit/get-changed-files@v1
