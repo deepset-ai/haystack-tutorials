@@ -32,6 +32,7 @@ jobs:
           - 12_LFQA
 
     env:
+      HAYSTACK_TELEMETRY_ENABLED: "False"
       ELASTICSEARCH_HOST: "elasticsearch"
 
     steps:
