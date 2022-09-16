@@ -19,13 +19,14 @@ jobs:
           ES_JAVA_OPTS: "-Xms128m -Xmx256m"
 
     env:
+      HAYSTACK_TELEMETRY_ENABLED: "False"
       ELASTICSEARCH_HOST: "elasticsearch"
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install jupyter
+      - name: Install dependencies
         # remove pip install pyzmq when this is resolved https://github.com/zeromq/pyzmq/issues/1764
         run: |
           pip install pyzmq==23.2.1
