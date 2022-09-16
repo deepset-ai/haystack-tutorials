@@ -9,7 +9,7 @@ on:
 jobs:
   run-tutorials:
     runs-on: ubuntu-latest
-    container: deepset/haystack:base-massi-docker
+    container: deepset/haystack:base-cpu-main
 
     services:
       elasticsearch:
@@ -53,4 +53,5 @@ jobs:
         # Note: the `+` at the end of the `find` invocation will make it fail if any
         # of the execs failed, otherwise `find` returns 0 even when the execs fail.
         run: |
+          echo "/opt" >> $GITHUB_PATH
           find ./tutorials -name "*.py" -execdir python {} +;

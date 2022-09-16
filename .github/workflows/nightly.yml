@@ -8,7 +8,7 @@ on:
 jobs:
   run-tutorials:
     runs-on: ubuntu-latest
-    container: deepset/haystack:base-massi-docker
+    container: deepset/haystack:base-cpu-main
 
     services:
       elasticsearch:
@@ -28,6 +28,7 @@ jobs:
           - 05_Evaluation
           - 06_Better_Retrieval_via_Embedding_Retrieval
           - 07_RAG_Generator
+          - 08_Preprocessing
           - 10_Knowledge_Graph
           - 11_Pipelines
           - 12_LFQA
@@ -52,4 +53,5 @@ jobs:
 
       - name: Run the converted notebook
         run: |
+          echo "/opt" >> $GITHUB_PATH
           python ./tutorials/${{ matrix.notebook }}.py
