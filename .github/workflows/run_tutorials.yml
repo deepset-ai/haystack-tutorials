@@ -39,9 +39,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Convert notebooks to Python
+        shell: bash
         run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
-            if [ $changed_file = *".ipynb" ]; then
+            if [[ $changed_file == *".ipynb" ]]; then
               echo $changed_file
               jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ${changed_file}
             fi
