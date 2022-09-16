@@ -21,9 +21,10 @@ jobs:
       max-parallel: 2
       matrix:
         notebook:
-          # Note: use only the name of the file without the extension
+          # Note: use the name of the file without the extension
           - 01_Basic_QA_Pipeline
           - 03_Basic_QA_Pipeline_without_Elasticsearch
+          - 04_FAQ_style_QA
 
     env:
       ELASTICSEARCH_HOST: "elasticsearch"

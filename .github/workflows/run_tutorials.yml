@@ -50,4 +50,4 @@ jobs:
 
       - name: Run the converted notebooks
         run: |
-          find ./tutorials -name "*.py" -execdir python {} \;
+          find ./tutorials -name "*.py" -execdir python {} +;
