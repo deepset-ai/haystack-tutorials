@@ -30,6 +30,7 @@ jobs:
           - 07_RAG_Generator
           - 10_Knowledge_Graph
           - 11_Pipelines
+          - 12_LFQA
 
     env:
       ELASTICSEARCH_HOST: "elasticsearch"
