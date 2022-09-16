@@ -27,6 +27,7 @@ jobs:
           - 04_FAQ_style_QA
           - 05_Evaluation
           - 06_Better_Retrieval_via_Embedding_Retrieval
+          - 07_RAG_Generator
 
     env:
       ELASTICSEARCH_HOST: "elasticsearch"
