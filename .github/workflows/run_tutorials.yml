@@ -30,9 +30,9 @@ jobs:
         # remove pip install pyzmq when this is resolved https://github.com/zeromq/pyzmq/issues/1764
         run: |
           pip install pyzmq==23.2.1
-          pip install nbconvert
-          pip install ipython
+          pip install nbconvert ipython
           apt-get update && apt-get install -y libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
+          pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
 
       - name: Files changed
         uses: jitterbit/get-changed-files@v1
