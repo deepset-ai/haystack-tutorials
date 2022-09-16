@@ -9,7 +9,7 @@ on:
 jobs:
   run-tutorials:
     runs-on: ubuntu-latest
-    container: deepset/haystack:base-massi-docker
+    container: deepset/haystack:base-cpu-main
 
     services:
       elasticsearch:
