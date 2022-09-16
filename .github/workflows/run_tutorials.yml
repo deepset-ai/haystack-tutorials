@@ -26,7 +26,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install jupyter
+        # remove pip install pyzmq when this is resolved https://github.com/zeromq/pyzmq/issues/1764
         run: |
+          pip install pyzmq==23.2.1
           pip install nbconvert
 
       - name: Files changed
