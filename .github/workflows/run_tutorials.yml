@@ -52,4 +52,5 @@ jobs:
         # Note: the `+` at the end of the `find` invocation will make it fail if any
         # of the execs failed, otherwise `find` returns 0 even when the execs fail.
         run: |
+          echo "/opt" >> $GITHUB_PATH
           find ./tutorials -name "*.py" -execdir python {} +;
