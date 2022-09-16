@@ -46,7 +46,6 @@ jobs:
         run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [[ $changed_file == *".ipynb" ]]; then
-              echo $changed_file
               jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ${changed_file}
             fi
           done
@@ -55,5 +54,4 @@ jobs:
         # Note: the `+` at the end of the `find` invocation will make it fail if any
         # of the execs failed, otherwise `find` returns 0 even when the execs fail.
         run: |
-          echo "/opt" >> $GITHUB_PATH
           find ./tutorials -name "*.py" -execdir python {} +;
