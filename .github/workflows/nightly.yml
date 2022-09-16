@@ -33,6 +33,7 @@ jobs:
           - 11_Pipelines
           - 12_LFQA
           - 16_Document_Classifier_at_Index_Time
+          - 17_Audio
 
     env:
       HAYSTACK_TELEMETRY_ENABLED: "False"
@@ -47,6 +48,7 @@ jobs:
         run: |
           pip install pyzmq==23.2.1
           pip install nbconvert
+          pip install ipython
 
       - name: Convert notebook to Python
         run: |
