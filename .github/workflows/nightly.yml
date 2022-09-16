@@ -28,6 +28,7 @@ jobs:
           - 05_Evaluation
           - 06_Better_Retrieval_via_Embedding_Retrieval
           - 07_RAG_Generator
+          - 10_Knowledge_Graph
 
     env:
       ELASTICSEARCH_HOST: "elasticsearch"
