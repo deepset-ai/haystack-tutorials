@@ -29,6 +29,7 @@ jobs:
           - 06_Better_Retrieval_via_Embedding_Retrieval
           - 07_RAG_Generator
           - 10_Knowledge_Graph
+          - 12_LFQA
 
     env:
       ELASTICSEARCH_HOST: "elasticsearch"
