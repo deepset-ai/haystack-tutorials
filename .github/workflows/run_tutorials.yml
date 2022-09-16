@@ -19,6 +19,7 @@ jobs:
           ES_JAVA_OPTS: "-Xms128m -Xmx256m"
 
     env:
+      HAYSTACK_TELEMETRY_ENABLED: "False"
       ELASTICSEARCH_HOST: "elasticsearch"
 
     steps:
