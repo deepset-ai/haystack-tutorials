@@ -1,5 +1,15 @@
 # Contributing to Haystack Tutorials
 
+A contribution to Haystack tutorials may be anything from a suggestion for edits or a new tutorial request to adding a ne tutorial or editing an existing one yourself.
+
+To make a reqoest fo r a new tutorial or to suggest edits/fixes, submit an issue:
+
+**Bug  report:** For any edit suggestions or bug reports.
+
+**New Tutorial Request 📓:** To suggest the inclusion of a new tutorial.
+
+## Contributing Edits or New Tutorials
+
 All of the Haystack tutorials live in the `tutorials` folder in this repo. Each tutorial is an interactive `.ipynb` file that you can run on Google Colab, too. For each `.ipynb` file, we also generate a Markdown file to accompany it.
 
 Here's what you need to do to add or edit tutorials 👇:
