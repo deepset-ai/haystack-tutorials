@@ -273,8 +273,8 @@ sklearn_keyword_classifier.add_node(
 sklearn_keyword_classifier.add_node(component=bm25_retriever, name="BM25Retriever", inputs=["QueryClassifier.output_2"])
 sklearn_keyword_classifier.add_node(component=reader, name="QAReader", inputs=["BM25Retriever", "EmbeddingRetriever"])
 
-# Visualization of the pipeline
-sklearn_keyword_classifier.draw("sklearn_keyword_classifier.png")
+# To generate a visualization of the pipeline, uncomment the following:
+# sklearn_keyword_classifier.draw("sklearn_keyword_classifier.png")
 ```
 
 Below, we can see how this choice affects the branching structure: the keyword query "arya stark father" and the question query "Who is the father of Arya Stark?" generate noticeably different results, a distinction that is likely due to the use of different retrievers for keyword vs. question/statement queries.
@@ -359,8 +359,8 @@ transformer_question_classifier.add_node(
 )
 transformer_question_classifier.add_node(component=reader, name="QAReader", inputs=["QueryClassifier.output_1"])
 
-# Visualization of the pipeline
-transformer_question_classifier.draw("transformer_question_classifier.png")
+# To generate a visualization of the pipeline, uncomment the following:
+# transformer_question_classifier.draw("transformer_question_classifier.png")
 ```
 
 And here are the results of this pipeline: with a question query like "Who is the father of Arya Stark?", we obtain answers from a reader, and with a statement query like "Arya Stark was the daughter of a Lord", we just obtain documents from a retriever.
