@@ -25,6 +25,7 @@ jobs:
           - 01_Basic_QA_Pipeline
           - 03_Basic_QA_Pipeline_without_Elasticsearch
           - 04_FAQ_style_QA
+          - 05_Evaluation
 
     env:
       ELASTICSEARCH_HOST: "elasticsearch"
