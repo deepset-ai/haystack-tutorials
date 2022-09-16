@@ -49,5 +49,7 @@ jobs:
           done
 
       - name: Run the converted notebooks
+        # Note: the `+` at the end of the `find` invocation will make it fail if any
+        # of the execs failed, otherwise `find` returns 0 even when the execs fail.
         run: |
           find ./tutorials -name "*.py" -execdir python {} +;
