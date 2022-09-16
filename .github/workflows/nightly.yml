@@ -28,6 +28,7 @@ jobs:
           - 05_Evaluation
           - 06_Better_Retrieval_via_Embedding_Retrieval
           - 07_RAG_Generator
+          - 08_Preprocessing
 
     env:
       ELASTICSEARCH_HOST: "elasticsearch"
@@ -48,4 +49,5 @@ jobs:
 
       - name: Run the converted notebook
         run: |
+          echo "/opt" >> $GITHUB_PATH
           python ./tutorials/${{ matrix.notebook }}.py
