@@ -25,11 +25,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install jupyter
+      - name: Install dependencies
         # remove pip install pyzmq when this is resolved https://github.com/zeromq/pyzmq/issues/1764
         run: |
+          apt-get update && apt-get install -y libgraphviz-dev && rm -rf /var/lib/apt/lists/*
           pip install pyzmq==23.2.1
           pip install nbconvert
+          pip install pygraphviz
 
       - name: Files changed
         uses: jitterbit/get-changed-files@v1
