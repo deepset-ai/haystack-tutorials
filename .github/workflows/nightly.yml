@@ -32,6 +32,7 @@ jobs:
           - 10_Knowledge_Graph
           - 11_Pipelines
           - 12_LFQA
+          - 16_Document_Classifier_at_Index_Time
 
     env:
       HAYSTACK_TELEMETRY_ENABLED: "False"
