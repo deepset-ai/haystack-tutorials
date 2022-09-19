@@ -9,7 +9,7 @@ on:
 jobs:
   run-tutorials:
     runs-on: ubuntu-latest
-    container: deepset/haystack:base-massi-docker
+    container: deepset/haystack:base-cpu-main
 
     services:
       elasticsearch:
@@ -19,15 +19,20 @@ jobs:
           ES_JAVA_OPTS: "-Xms128m -Xmx256m"
 
     env:
+      HAYSTACK_TELEMETRY_ENABLED: "False"
       ELASTICSEARCH_HOST: "elasticsearch"
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install jupyter
+      - name: Install dependencies
+        # remove pip install pyzmq when this is resolved https://github.com/zeromq/pyzmq/issues/1764
         run: |
-          pip install nbconvert
+          apt-get update && apt-get install -y build-essential gcc libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
+          pip install pyzmq==23.2.1
+          pip install nbconvert ipython
+          pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
 
       - name: Files changed
         uses: jitterbit/get-changed-files@v1
@@ -37,14 +42,16 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Convert notebooks to Python
+        shell: bash
         run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [[ $changed_file == *".ipynb" ]]; then
-              echo $changed_file
               jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ${changed_file}
             fi
           done
 
       - name: Run the converted notebooks
+        # Note: the `+` at the end of the `find` invocation will make it fail if any
+        # of the execs failed, otherwise `find` returns 0 even when the execs fail.
         run: |
-          find ./tutorials -name "*.py" -execdir python {} \;
+          find ./tutorials -name "*.py" -execdir python {} +;

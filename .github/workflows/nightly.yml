@@ -8,7 +8,7 @@ on:
 jobs:
   run-tutorials:
     runs-on: ubuntu-latest
-    container: deepset/haystack:base-massi-docker
+    container: deepset/haystack:base-cpu-main
 
     services:
       elasticsearch:
@@ -21,19 +21,35 @@ jobs:
       max-parallel: 2
       matrix:
         notebook:
-          # Note: use only the name of the file without the extension
+          # Note: use the name of the file without the extension
           - 01_Basic_QA_Pipeline
+          - 03_Basic_QA_Pipeline_without_Elasticsearch
+          - 04_FAQ_style_QA
+          - 05_Evaluation
+          - 06_Better_Retrieval_via_Embedding_Retrieval
+          - 07_RAG_Generator
+          - 08_Preprocessing
+          - 10_Knowledge_Graph
+          - 11_Pipelines
+          - 12_LFQA
+          - 16_Document_Classifier_at_Index_Time
+          - 17_Audio
 
     env:
+      HAYSTACK_TELEMETRY_ENABLED: "False"
       ELASTICSEARCH_HOST: "elasticsearch"
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install jupyter
+      - name: Install dependencies
+        # remove pip install pyzmq when this is resolved https://github.com/zeromq/pyzmq/issues/1764
         run: |
-          pip install nbconvert
+          apt-get update && apt-get install -y build-essential gcc libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
+          pip install pyzmq==23.2.1
+          pip install nbconvert ipython
+          pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
 
       - name: Convert notebook to Python
         run: |
