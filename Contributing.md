@@ -21,7 +21,7 @@ Here's what you need to do to add or edit tutorials 👇:
 2. If you're creating a new tutorial, follow the [naming convention](#naming-convention-for-file-names) for file names.
 3. Edit an existing tutorial or create a new one in the `/tutorials` folder by editing or creating `.ipynb` files.
 4. Pre-commit hooks will ensure the `markdowns` folder reflects your changes but you can update the docs at any time:
-    - Run `python /scripts/generate_markdowns.py`. This generates or updates the relevant markdown file in `/markdowns`.
+    - Run `python /scripts/generate_markdowns.py --all`. This generates or updates the relevant markdown file in `/markdowns`.
 5. Create a pull request.
 6. Wait for the [CI](#ci-continuous-integration) checks to pass.
    These checks pass if the relevant markdown files are created.

@@ -3,6 +3,7 @@
 import re
 import argparse
 import sys
+import glob
 from pathlib import Path
 from typing import Sequence
 
@@ -156,9 +157,7 @@ id: "tutorial18md"
 }
 
 notebook_tutorials_dir = Path(__file__).parent.parent / "tutorials"
-print(notebook_tutorials_dir)
 markdown_tutorials_dir = Path(__file__).parent.parent / "markdowns"
-print(markdown_tutorials_dir)
 
 md_exporter = MarkdownExporter(exclude_output=True)
 
@@ -183,16 +182,22 @@ def generate_markdown_from_notebook(nb_path: str):
 
 
 def main(argv: Sequence[str] = sys.argv):
-    print("here I am!")
     parser = argparse.ArgumentParser()
-    parser.add_argument("filenames", nargs="*", help="Filenames to check.")
+    parser.add_argument("filenames", nargs="*", help="Notebooks filenames")
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Generate markdown version for all the notebooks",
+    )
     args = parser.parse_args(argv)
-    print(args)
 
-    for filename in args.filenames:
+    filenames = args.filenames
+    if args.all:
+        filenames = glob.glob(f"{notebook_tutorials_dir}/*.ipynb")
+
+    for filename in filenames:
         filepath = Path(filename)
         if filepath.parent == notebook_tutorials_dir and filepath.suffix == ".ipynb":
-            print(filepath)
             generate_markdown_from_notebook(str(filepath))
 
     return 0
