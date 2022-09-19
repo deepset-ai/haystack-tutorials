@@ -155,8 +155,11 @@ id: "tutorial18md"
 --->""",
 }
 
-notebook_tutorials_dir = Path(__file__).absolute().parent.parent / "tutorials"
-markdown_tutorials_dir = Path(__file__).absolute().parent.parent / "markdowns"
+notebook_tutorials_dir = Path(__file__).parent.parent / "tutorials"
+print(notebook_tutorials_dir)
+markdown_tutorials_dir = Path(__file__).parent.parent / "markdowns"
+print(markdown_tutorials_dir)
+
 md_exporter = MarkdownExporter(exclude_output=True)
 
 
@@ -189,6 +192,7 @@ def main(argv: Sequence[str] = sys.argv):
     for filename in args.filenames:
         filepath = Path(filename)
         if filepath.parent == notebook_tutorials_dir and filepath.suffix == ".ipynb":
+            print(filepath)
             generate_markdown_from_notebook(str(filepath))
 
     return 0
