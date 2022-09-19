@@ -1,12 +1,12 @@
 # Contributing to Haystack Tutorials
 
-A contribution to Haystack tutorials may be anything from a suggestion for edits or a new tutorial request to adding a ne tutorial or editing an existing one yourself.
+A contribution to Haystack tutorials may be anything from a suggestion for edits or a new tutorial request to adding a new tutorial or editing an existing one yourself.
 
-To make a reqoest fo r a new tutorial or to suggest edits/fixes, submit an issue:
+To make a request for a new tutorial or to suggest edits and fixes, submit an issue and choose the appropriate type:
 
-**Bug  report:** For any edit suggestions or bug reports.
+- **Bug  report:** For any edit suggestions or bug reports.
 
-**New Tutorial Request 📓:** To suggest the inclusion of a new tutorial.
+- **New Tutorial Request 📓:** To suggest that we create a new tutorial.
 
 ## Contributing Edits or New Tutorials
 
