@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 import re
+import argparse
+import sys
+from pathlib import Path
+from typing import Sequence
 
 from nbconvert import MarkdownExporter
-import os
-from pathlib import Path
 
 headers = {
     1: """<!---
@@ -153,34 +155,44 @@ id: "tutorial18md"
 --->""",
 }
 
-
-def atoi(text):
-    return int(text) if text.isdigit() else text
-
-
-def natural_keys(text):
-    test = [atoi(c) for c in re.split("(\d+)", text)]
-    return test
+notebook_tutorials_dir = Path(__file__).absolute().parent.parent / "tutorials"
+markdown_tutorials_dir = Path(__file__).absolute().parent.parent / "markdowns"
+md_exporter = MarkdownExporter(exclude_output=True)
 
 
-dir = Path(__file__).absolute().parent.parent / "tutorials"
-
-notebooks = [x for x in os.listdir(dir) if x[-6:] == ".ipynb"]
-# sort notebooks based on numbers within name of notebook
-notebooks = sorted(notebooks, key=lambda x: natural_keys(x))
+def get_notebook_number(nb_path: str):
+    return int(re.search("\d+", nb_path.split("_")[0]).group(0))
 
 
-e = MarkdownExporter(exclude_output=True)
-for i, nb in enumerate(notebooks):
-    body, resources = e.from_filename(dir / nb)
-    print(f"Processing {dir}/{nb}")
+def generate_markdown_from_notebook(nb_path: str):
+    body, _ = md_exporter.from_filename(nb_path)
+    n = get_notebook_number(nb_path)
+    print(f"Processing {nb_path}")
 
-    markdowns_path = Path(__file__).absolute().parent.parent / "markdowns"
-    with open(markdowns_path / f"{i + 1}.md", "w", encoding="utf-8") as f:
+    with open(markdown_tutorials_dir / f"{n}.md", "w", encoding="utf-8") as f:
         try:
-            f.write(headers[i + 1] + "\n\n")
+            f.write(headers[n] + "\n\n")
         except IndexError as e:
             raise IndexError(
-                "Can't find the header for this tutorial. Have you added it in '.github/utils/convert_notebooks_into_webpages.py'?"
-            )
+                "Can't find the header for this tutorial. Have you added it in 'scripts/generate_markdowns.py'?"
+            ) from e
         f.write(body)
+
+
+def main(argv: Sequence[str] = sys.argv):
+    print("here I am!")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("filenames", nargs="*", help="Filenames to check.")
+    args = parser.parse_args(argv)
+    print(args)
+
+    for filename in args.filenames:
+        filepath = Path(filename)
+        if filepath.parent == notebook_tutorials_dir and filepath.suffix == ".ipynb":
+            generate_markdown_from_notebook(str(filepath))
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

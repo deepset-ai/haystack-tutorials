@@ -13,3 +13,11 @@ repos:
   rev: 22.6.0  # IMPORTANT: keep this aligned with the black version in pyproject.toml
   hooks:
   - id: black-jupyter
+
+- repo: local
+  hooks:
+    - id: tutorials-markdown
+      name: Markdown version of the tutorials
+      entry: python scripts/generate_markdowns.py
+      language: system
+      types: [jupyter]  
