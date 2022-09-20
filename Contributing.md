@@ -15,7 +15,7 @@ All of the Haystack tutorials live in the `tutorials` folder in this repo. Each 
 Here's what you need to do to add or edit tutorials 👇:
 
 1. Prepare your environment:
-   - Install the Python requirements with `pip install requirements.txt`
+   - Install the Python requirements with `pip install -r requirements.txt`
    - Install the pre-commit hooks with `pre-commit install`. This utility will run some formatting/checking
    tasks right before all git commit operations.
 2. If you're creating a new tutorial, follow the [naming convention](#naming-convention-for-file-names) for file names.
