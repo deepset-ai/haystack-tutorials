@@ -12,6 +12,8 @@ This is the repository where we keep all the Haystack tutorials 📓 👇
 
 To contribute to the tutorials please check out our [Contributing Guidelines](./Contributing.md)
 
+[![Run Tutorials Nightly](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/nightly.yml/badge.svg)](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/nightly.yml)
+
 ## Tutorials
 
 1. [Basic QA Pipeline](./tutorials/01_Basic_QA_Pipeline.ipynb)
