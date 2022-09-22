@@ -3,7 +3,6 @@
 import re
 import argparse
 import sys
-import glob
 from pathlib import Path
 from typing import Sequence
 
@@ -156,17 +155,18 @@ id: "tutorial18md"
 --->""",
 }
 
-notebook_tutorials_dir = Path(__file__).parent.parent / "tutorials"
-markdown_tutorials_dir = Path(__file__).parent.parent / "markdowns"
+notebook_tutorials_dir = (Path(__file__).parent.parent / "tutorials").resolve()
+markdown_tutorials_dir = (Path(__file__).parent.parent / "markdowns").resolve()
 
 md_exporter = MarkdownExporter(exclude_output=True)
 
 
-def get_notebook_number(nb_path: str):
-    return int(re.search("\d+", nb_path.split("_")[0]).group(0))
+def get_notebook_number(nb_path):
+    nb_filename = nb_path.stem
+    return int(re.search("\d+", nb_filename.split("_")[0]).group(0))
 
 
-def generate_markdown_from_notebook(nb_path: str):
+def generate_markdown_from_notebook(nb_path):
     body, _ = md_exporter.from_filename(nb_path)
     n = get_notebook_number(nb_path)
     print(f"Processing {nb_path}")
@@ -193,12 +193,12 @@ def main(argv: Sequence[str] = sys.argv):
 
     filenames = args.filenames
     if args.all:
-        filenames = glob.glob(f"{notebook_tutorials_dir}/*.ipynb")
+        filenames = notebook_tutorials_dir.glob("*.ipynb")
 
     for filename in filenames:
-        filepath = Path(filename)
+        filepath = Path(filename).resolve()
         if filepath.parent == notebook_tutorials_dir and filepath.suffix == ".ipynb":
-            generate_markdown_from_notebook(str(filepath))
+            generate_markdown_from_notebook(filepath)
 
     return 0
 
