@@ -53,8 +53,10 @@ jobs:
               "tutorials/18_GPL.ipynb"
           )
           for changed_file in ${{ steps.files.outputs.all }}; do
-            if [[ ! " ${skiplist[*]} " =~ " ${changed_file} " ]]; then
-              jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ${changed_file}
+            if [[ $changed_file == *".ipynb" ]]; then
+              if [[ ! " ${skiplist[*]} " =~ " ${changed_file} " ]]; then
+                jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ${changed_file}
+              fi
             fi
           done
 
