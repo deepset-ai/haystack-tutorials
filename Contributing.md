@@ -14,17 +14,19 @@ All of the Haystack tutorials live in the `tutorials` folder in this repo. Each 
 
 Here's what you need to do to add or edit tutorials 👇:
 
-1. If you're creating a new tutorial, follow the [naming convention](#naming-convention-for-file-names) for file names.
-2. Edit an existing tutorial or create a new one in the `/tutorials` folder by editing or creating `.ipynb` files.
-3. Update the `markdowns` folder to reflect the changes:
-    - Install requirements with `pip install -r scripts/requirements.txt`.
-    - Run `python scripts/generate_markdowns.py`. This generates or updates the relevant markdown file in `/markdowns`.
-4. Create a pull request.
-5. Wait for the [CI](#ci-continuous-integration) checks to pass.
+1. Prepare your environment:
+   - Install the Python requirements with `pip install -r requirements.txt`
+   - Install the pre-commit hooks with `pre-commit install`. This utility will run some formatting/checking
+   tasks right before all git commit operations.
+2. If you're creating a new tutorial, follow the [naming convention](#naming-convention-for-file-names) for file names.
+3. Edit an existing tutorial or create a new one in the `/tutorials` folder by editing or creating `.ipynb` files.
+4. Pre-commit hooks will ensure the `markdowns` folder reflects your changes but you can update the docs at any time:
+    - Run `python /scripts/generate_markdowns.py --all`. This generates or updates the relevant markdown file in `/markdowns`.
+5. Create a pull request.
+6. Wait for the [CI](#ci-continuous-integration) checks to pass.
    These checks pass if the relevant markdown files are created.
-6. Update the [README](./README.md), if necessary.
-6. Wait for a review and merge 🎉. Thank you for contributing 💙.
-
+7. Update the [README](./README.md), if necessary.
+8. Wait for a review and merge 🎉. Thank you for contributing 💙.
 
 
 # Continuous Integration (CI)
