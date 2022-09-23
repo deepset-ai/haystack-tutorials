@@ -10,9 +10,10 @@ repos:
     - id: no-commit-to-branch  # prevents committing to main
 
 - repo: https://github.com/psf/black
-  rev: 22.6.0  # IMPORTANT: keep this aligned with the black version in pyproject.toml
+  rev: 22.6.0
   hooks:
   - id: black-jupyter
+    entry: black --skip-magic-trailing-comma --line-length 120  
 
 - repo: local
   hooks:
