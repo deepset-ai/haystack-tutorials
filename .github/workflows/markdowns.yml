@@ -19,10 +19,10 @@ jobs:
         with:
           python-version: '3.9'
           cache: 'pip' # caching pip dependencies
-      
+
       - name: Install Dependencies and Generate Markdown
         run: |
-          pip install -r scripts/requirements.txt
+          pip install -r requirements.txt
           python scripts/generate_markdowns.py
 
       - name: Status
