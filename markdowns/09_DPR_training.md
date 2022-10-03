@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 9"
-metaTitle: "Training a Dense Passage Retrieval model"
-metaDescription: ""
-slug: "/docs/tutorial9"
-date: "2021-01-08"
-id: "tutorial9md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/09_DPR_training.ipynb
+toc = True
+title = "DPR Training"
+level = "advanced"
+weight = 60
+description = Training a Dense Passage Retriever
+category = "QA"
+aliases = ["/tutorials/09_DPR_training", "/tutorials/DPR_training", "/tutorials/9"]
+---
+    
 
 # Training Your Own "Dense Passage Retrieval" Model
 

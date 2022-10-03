@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 1"
-metaTitle: "Build Your First QA System"
-metaDescription: ""
-slug: "/docs/tutorial1"
-date: "2020-09-03"
-id: "tutorial1md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_Pipeline.ipynb
+toc = True
+title = "Build Your First QA System"
+level = "beginner"
+weight = 10
+description = blabbalbala
+category = "QA"
+aliases = ["/tutorials/01_Basic_QA_Pipeline", "/tutorials/Basic_QA_Pipeline", "/tutorials/1"]
+---
+    
 
 # Build Your First QA System
 

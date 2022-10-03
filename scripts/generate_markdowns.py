@@ -13,6 +13,11 @@ layout = {config["layout"]}
 colab = {config["colab"]}{tutorial["notebook"]}
 toc = {config["toc"]}
 title = "{tutorial["title"]}"
+level = "{tutorial["level"]}"
+weight = {tutorial["weight"]}
+description = {tutorial["description"]}
+category = "QA"
+aliases = ["/tutorials/{tutorial['notebook'][:-6]}", "/tutorials/{tutorial['notebook'][3:-6]}", "/tutorials/{int(tutorial['notebook'][0:2])}"]
 ---
     """
     return frontmatter

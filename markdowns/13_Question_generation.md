@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 13"
-metaTitle: "Question Generation"
-metaDescription: ""
-slug: "/docs/tutorial13"
-date: "2021-08-23"
-id: "tutorial13md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/13_Question_generation.ipynb
+toc = True
+title = "Question Generation"
+level = "intermediate"
+weight = 71
+description = Question Generation
+category = "QA"
+aliases = ["/tutorials/13_Question_generation", "/tutorials/Question_generation", "/tutorials/13"]
+---
+    
 
 # Question Generation
 

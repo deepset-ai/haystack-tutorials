@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 10"
-metaTitle: "Knowledge Graph QA"
-metaDescription: ""
-slug: "/docs/tutorial10"
-date: "2021-04-06"
-id: "tutorial10md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/10_Knowledge_Graph.ipynb
+toc = True
+title = "Knowledge Graphl"
+level = "intermediate"
+weight = 63
+description = Question Answering on Knowledge Graph
+category = "QA"
+aliases = ["/tutorials/10_Knowledge_Graph", "/tutorials/Knowledge_Graph", "/tutorials/10"]
+---
+    
 
 # Question Answering on a Knowledge Graph
 

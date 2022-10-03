@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 4"
-metaTitle: "Utilizing existing FAQs for Question Answering"
-metaDescription: ""
-slug: "/docs/tutorial4"
-date: "2020-09-03"
-id: "tutorial4md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/04_FAQ_style_QA.ipynb
+toc = True
+title = "FAQ Style Question Answering"
+level = "intermediate"
+weight = 15
+description = blabbalbala
+category = "QA"
+aliases = ["/tutorials/04_FAQ_style_QA", "/tutorials/FAQ_style_QA", "/tutorials/4"]
+---
+    
 
 # Utilizing existing FAQs for Question Answering
 

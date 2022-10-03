@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 15"
-metaTitle: "TableQA Tutorial"
-metaDescription: ""
-slug: "/docs/tutorial15"
-date: "2021-10-28"
-id: "tutorial15md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb
+toc = True
+title = "Table QA"
+level = "advanced"
+weight = 120
+description = Table Question Answeting
+category = "QA"
+aliases = ["/tutorials/15_TableQA", "/tutorials/TableQA", "/tutorials/15"]
+---
+    
 
 # Open-Domain QA on Tables
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb)

@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 2"
-metaTitle: "Fine-tuning a model on your own data"
-metaDescription: ""
-slug: "/docs/tutorial2"
-date: "2020-09-03"
-id: "tutorial2md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/02_Finetune_a_model_on_your_data.ipynb
+toc = True
+title = "Fine-Tuning a Model on Your Own Data"
+level = "advanced"
+weight = 50
+description = blabbalbala
+category = "QA"
+aliases = ["/tutorials/02_Finetune_a_model_on_your_data", "/tutorials/Finetune_a_model_on_your_data", "/tutorials/2"]
+---
+    
 
 # Fine-tuning a Model on Your Own Data
 

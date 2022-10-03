@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 7"
-metaTitle: "Generative QA with RAG"
-metaDescription: ""
-slug: "/docs/tutorial7"
-date: "2020-11-12"
-id: "tutorial7md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/07_RAG_Generator.ipynb
+toc = True
+title = "RAG Generator "
+level = "advanced"
+weight = 108
+description = Retrieval Augmented Question Answering
+category = "QA"
+aliases = ["/tutorials/07_RAG_Generator", "/tutorials/RAG_Generator", "/tutorials/7"]
+---
+    
 
 # Generative QA with "Retrieval-Augmented Generation"
 

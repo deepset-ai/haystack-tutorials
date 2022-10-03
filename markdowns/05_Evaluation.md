@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 5"
-metaTitle: "Evaluation of a QA System"
-metaDescription: ""
-slug: "/docs/tutorial5"
-date: "2020-09-03"
-id: "tutorial5md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/05_Evaluation.ipynb
+toc = True
+title = "Evaluation"
+level = "advanced"
+weight = 16
+description = blabbalbala
+category = "QA"
+aliases = ["/tutorials/05_Evaluation", "/tutorials/Evaluation", "/tutorials/5"]
+---
+    
 
 # Evaluation of a Pipeline and its Components
 

@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 3"
-metaTitle: "Build a QA System Without Elasticsearch"
-metaDescription: ""
-slug: "/docs/tutorial3"
-date: "2020-09-03"
-id: "tutorial3md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb
+toc = True
+title = "Build a QA System Without Elasticsearch"
+level = "intermediate"
+weight = 100
+description = blabbalbala
+category = "QA"
+aliases = ["/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch", "/tutorials/Basic_QA_Pipeline_without_Elasticsearch", "/tutorials/3"]
+---
+    
 
 # Build a QA System Without Elasticsearch
 

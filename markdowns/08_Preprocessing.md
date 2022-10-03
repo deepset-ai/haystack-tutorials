@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 8"
-metaTitle: "Preprocessing"
-metaDescription: ""
-slug: "/docs/tutorial8"
-date: "2021-01-08"
-id: "tutorial8md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb
+toc = True
+title = "Preprocessing"
+level = "advanced"
+weight = 55
+description = Preprocessing documents
+category = "QA"
+aliases = ["/tutorials/08_Preprocessing", "/tutorials/Preprocessing", "/tutorials/8"]
+---
+    
 
 # Preprocessing
 

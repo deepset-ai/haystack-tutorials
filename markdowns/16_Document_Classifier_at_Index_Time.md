@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 16"
-metaTitle: "DocumentClassifier at Index Time Tutorial"
-metaDescription: ""
-slug: "/docs/tutorial16"
-date: "2021-11-05"
-id: "tutorial16md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/16_Document_Classifier_at_Index_Time.ipynb
+toc = True
+title = "Document Classifier at Index Time"
+level = "advanced"
+weight = 140
+description = Classify documents at index time
+category = "QA"
+aliases = ["/tutorials/16_Document_Classifier_at_Index_Time", "/tutorials/Document_Classifier_at_Index_Time", "/tutorials/16"]
+---
+    
 
 # Extending your Metadata using DocumentClassifiers at Index Time
 

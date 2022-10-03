@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 6"
-metaTitle: "Better retrieval via Dense Passage Retrieval"
-metaDescription: ""
-slug: "/docs/tutorial6"
-date: "2020-09-03"
-id: "tutorial6md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb
+toc = True
+title = "Embedding Retrieval"
+level = "advanced"
+weight = 53
+description = Better retrieval with the EmbeddingRetriever
+category = "QA"
+aliases = ["/tutorials/06_Better_Retrieval_via_Embedding_Retrieval", "/tutorials/Better_Retrieval_via_Embedding_Retrieval", "/tutorials/6"]
+---
+    
 
 # Better Retrieval via "Embedding Retrieval"
 

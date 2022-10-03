@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 11"
-metaTitle: "Pipelines"
-metaDescription: ""
-slug: "/docs/tutorial11"
-date: "2021-04-06"
-id: "tutorial11md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/11_Pipelines.ipynb
+toc = True
+title = "Pipelines"
+level = "beginner"
+weight = 30
+description = Pipelines
+category = "QA"
+aliases = ["/tutorials/11_Pipelines", "/tutorials/Pipelines", "/tutorials/11"]
+---
+    
 
 # Pipelines Tutorial
 

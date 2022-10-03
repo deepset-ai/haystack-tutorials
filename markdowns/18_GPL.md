@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 18"
-metaTitle: "GPL Domain Adaptation"
-metaDescription: ""
-slug: "/docs/tutorial18"
-date: "2022-06-22"
-id: "tutorial18md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/18_GPL.ipynb
+toc = True
+title = "GPL"
+level = "advanced"
+weight = 145
+description = Generative Pseudo Labelling
+category = "QA"
+aliases = ["/tutorials/18_GPL", "/tutorials/GPL", "/tutorials/18"]
+---
+    
 
 # Generative Pseudo Labeling for Domain Adaptation of Dense Retrievals
 

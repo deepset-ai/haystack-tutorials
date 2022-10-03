@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 14"
-metaTitle: "Query Classifier Tutorial"
-metaDescription: ""
-slug: "/docs/tutorial14"
-date: "2021-08-23"
-id: "tutorial14md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/14_Query_Classifier.ipynb
+toc = True
+title = "Query Classifier"
+level = "intermediate"
+weight = 80
+description = Query Classification
+category = "QA"
+aliases = ["/tutorials/14_Query_Classifier", "/tutorials/Query_Classifier", "/tutorials/14"]
+---
+    
 
 # Query Classifier Tutorial
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/14_Query_Classifier.ipynb)

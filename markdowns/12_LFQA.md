@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 12"
-metaTitle: "Generative QA with LFQA"
-metaDescription: ""
-slug: "/docs/tutorial12"
-date: "2021-04-06"
-id: "tutorial12md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/12_LFQA.ipynb
+toc = True
+title = "LFQA"
+level = "advanced"
+weight = 70
+description = Long Form Question Answering
+category = "QA"
+aliases = ["/tutorials/12_LFQA", "/tutorials/LFQA", "/tutorials/12"]
+---
+    
 
 # Long-Form Question Answering
 

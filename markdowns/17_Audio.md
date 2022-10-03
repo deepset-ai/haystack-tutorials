@@ -1,11 +1,15 @@
-<!---
-title: "Tutorial 17"
-metaTitle: "Audio Tutorial"
-metaDescription: ""
-slug: "/docs/tutorial17"
-date: "2022-06-15"
-id: "tutorial17md"
---->
+---
+layout = tutorial
+colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/17_Audio.ipynb
+toc = True
+title = "Audio"
+level = "intermediate"
+weight = 74
+description = Make your QA pipelines talk!
+category = "QA"
+aliases = ["/tutorials/17_Audio", "/tutorials/Audio", "/tutorials/17"]
+---
+    
 
 # Make Your QA Pipelines Talk!
 

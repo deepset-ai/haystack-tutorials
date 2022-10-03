@@ -6,23 +6,125 @@ colab = "https://colab.research.google.com/github/deepset-ai/haystack-tutorials/
 [[tutorial]]
 title = "Build Your First QA System"
 description = "blabbalbala"
-category = "QA"
 level = "beginner"
 weight = 10
 notebook = "01_Basic_QA_Pipeline.ipynb"
 
 [[tutorial]]
-title = "Fine-tuning a model on your own data"
+title = "Fine-Tuning a Model on Your Own Data"
 description = "blabbalbala"
-category = "QA"
 level = "advanced"
-weight = 20
+weight = 50
 notebook = "02_Finetune_a_model_on_your_data.ipynb"
 
 [[tutorial]]
 title = "Build a QA System Without Elasticsearch"
 description = "blabbalbala"
-category = "QA"
 level = "intermediate"
-weight = 30
+weight = 100
 notebook = "03_Basic_QA_Pipeline_without_Elasticsearch.ipynb"
+
+[[tutorial]]
+title = "FAQ Style Question Answering"
+description = "blabbalbala"
+level = "intermediate"
+weight = 15
+notebook = "04_FAQ_style_QA.ipynb"
+
+[[tutorial]]
+title = "Evaluation"
+description = "blabbalbala"
+level = "advanced"
+weight = 16
+notebook = "05_Evaluation.ipynb"
+
+[[tutorial]]
+title = "Embedding Retrieval"
+description = "Better retrieval with the EmbeddingRetriever"
+level = "advanced"
+weight = 53
+notebook = "06_Better_Retrieval_via_Embedding_Retrieval.ipynb"
+
+[[tutorial]]
+title = "RAG Generator "
+description = "Retrieval Augmented Question Answering"
+level = "advanced"
+weight = 108
+notebook = "07_RAG_Generator.ipynb"
+
+[[tutorial]]
+title = "Preprocessing"
+description = "Preprocessing documents"
+level = "advanced"
+weight = 55
+notebook = "08_Preprocessing.ipynb"
+
+[[tutorial]]
+title = "DPR Training"
+description = "Training a Dense Passage Retriever"
+level = "advanced"
+weight = 60
+notebook = "09_DPR_training.ipynb"
+
+[[tutorial]]
+title = "Knowledge Graphl"
+description = "Question Answering on Knowledge Graph"
+level = "intermediate"
+weight = 63
+notebook = "10_Knowledge_Graph.ipynb"
+
+[[tutorial]]
+title = "Pipelines"
+description = "Pipelines"
+level = "beginner"
+weight = 30
+notebook = "11_Pipelines.ipynb"
+
+[[tutorial]]
+title = "LFQA"
+description = "Long Form Question Answering"
+level = "advanced"
+weight = 70
+notebook = "12_LFQA.ipynb"
+
+[[tutorial]]
+title = "Question Generation"
+description = "Question Generation"
+level = "intermediate"
+weight = 71
+notebook = "13_Question_generation.ipynb"
+
+[[tutorial]]
+title = "Query Classifier"
+description = "Query Classification"
+level = "intermediate"
+weight = 80
+notebook = "14_Query_Classifier.ipynb"
+
+[[tutorial]]
+title = "Table QA"
+description = "Table Question Answeting"
+level = "advanced"
+weight = 120
+notebook = "15_TableQA.ipynb"
+
+[[tutorial]]
+title = "Document Classifier at Index Time"
+description = "Classify documents at index time"
+level = "advanced"
+weight = 140
+notebook = "16_Document_Classifier_at_Index_Time.ipynb"
+
+[[tutorial]]
+title = "Audio"
+description = "Make your QA pipelines talk!"
+level = "intermediate"
+weight = 74
+notebook = "17_Audio.ipynb"
+
+[[tutorial]]
+title = "GPL"
+description = "Generative Pseudo Labelling"
+level = "advanced"
+weight = 145
+notebook = "18_GPL.ipynb"
