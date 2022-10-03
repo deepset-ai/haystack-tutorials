@@ -1,0 +1,28 @@
+[config]
+layout = "tutorial"
+toc = true 
+colab = "https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/"
+
+[[tutorial]]
+title = "Build Your First QA System"
+description = "blabbalbala"
+category = "QA"
+level = "beginner"
+weight = 10
+notebook = "01_Basic_QA_Pipeline.ipynb"
+
+[[tutorial]]
+title = "Fine-tuning a model on your own data"
+description = "blabbalbala"
+category = "QA"
+level = "advanced"
+weight = 20
+notebook = "02_Finetune_a_model_on_your_data.ipynb"
+
+[[tutorial]]
+title = "Build a QA System Without Elasticsearch"
+description = "blabbalbala"
+category = "QA"
+level = "intermediate"
+weight = 30
+notebook = "03_Basic_QA_Pipeline_without_Elasticsearch.ipynb"
