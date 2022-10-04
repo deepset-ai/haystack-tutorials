@@ -2,10 +2,10 @@
 layout = tutorial
 colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/18_GPL.ipynb
 toc = True
-title = "GPL"
+title = "Generative Pseudo Labeling"
 level = "advanced"
-weight = 145
-description = Generative Pseudo Labelling
+weight = 140
+description = Use a Retriever and a query generator to perform unsupervised domain adaptation.
 category = "QA"
 aliases = ["/tutorials/18_GPL", "/tutorials/GPL", "/tutorials/18"]
 ---

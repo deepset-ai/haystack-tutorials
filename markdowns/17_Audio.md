@@ -2,10 +2,10 @@
 layout = tutorial
 colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/17_Audio.ipynb
 toc = True
-title = "Audio"
+title = "Make Your QA Pipelines Talk!"
 level = "intermediate"
-weight = 74
-description = Make your QA pipelines talk!
+weight = 90
+description = Convert text Answers into speech.
 category = "QA"
 aliases = ["/tutorials/17_Audio", "/tutorials/Audio", "/tutorials/17"]
 ---

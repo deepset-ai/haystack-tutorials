@@ -3,9 +3,9 @@ layout = tutorial
 colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/04_FAQ_style_QA.ipynb
 toc = True
 title = "FAQ Style Question Answering"
-level = "intermediate"
-weight = 15
-description = blabbalbala
+level = "beginner"
+weight = 20
+description = Create a smarter way to answer new questions using your existing FAQ documents.
 category = "QA"
 aliases = ["/tutorials/04_FAQ_style_QA", "/tutorials/FAQ_style_QA", "/tutorials/4"]
 ---

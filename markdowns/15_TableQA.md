@@ -4,8 +4,8 @@ colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/b
 toc = True
 title = "Table QA"
 level = "advanced"
-weight = 120
-description = Table Question Answeting
+weight = 130
+description = Perform question answering on tabular data.
 category = "QA"
 aliases = ["/tutorials/15_TableQA", "/tutorials/TableQA", "/tutorials/15"]
 ---

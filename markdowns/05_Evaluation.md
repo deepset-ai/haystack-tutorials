@@ -4,8 +4,8 @@ colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/b
 toc = True
 title = "Evaluation"
 level = "advanced"
-weight = 16
-description = blabbalbala
+weight = 100
+description = Learn how to evaluate the performance of individual nodes as well as entire pipelines.
 category = "QA"
 aliases = ["/tutorials/05_Evaluation", "/tutorials/Evaluation", "/tutorials/5"]
 ---

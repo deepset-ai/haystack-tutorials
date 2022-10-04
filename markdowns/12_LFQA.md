@@ -2,10 +2,10 @@
 layout = tutorial
 colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/12_LFQA.ipynb
 toc = True
-title = "LFQA"
-level = "advanced"
+title = "Long Form Question Answering"
+level = "intermediate"
 weight = 70
-description = Long Form Question Answering
+description = Try out a generative model in place of the extractive Reader.
 category = "QA"
 aliases = ["/tutorials/12_LFQA", "/tutorials/LFQA", "/tutorials/12"]
 ---

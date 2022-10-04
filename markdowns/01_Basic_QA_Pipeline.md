@@ -5,7 +5,7 @@ toc = True
 title = "Build Your First QA System"
 level = "beginner"
 weight = 10
-description = blabbalbala
+description = Get Started by creating a Retriever Reader pipeline.
 category = "QA"
 aliases = ["/tutorials/01_Basic_QA_Pipeline", "/tutorials/Basic_QA_Pipeline", "/tutorials/1"]
 ---

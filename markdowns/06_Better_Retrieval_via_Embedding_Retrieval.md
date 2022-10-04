@@ -3,9 +3,9 @@ layout = tutorial
 colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb
 toc = True
 title = "Embedding Retrieval"
-level = "advanced"
-weight = 53
-description = Better retrieval with the EmbeddingRetriever
+level = "intermediate"
+weight = 55
+description = Use Transformer based dense Retrievers to improve your system’s performance.
 category = "QA"
 aliases = ["/tutorials/06_Better_Retrieval_via_Embedding_Retrieval", "/tutorials/Better_Retrieval_via_Embedding_Retrieval", "/tutorials/6"]
 ---
