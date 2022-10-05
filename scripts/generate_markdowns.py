@@ -1,4 +1,5 @@
 import argparse
+from datetime import date
 import tomli
 from nbconvert import MarkdownExporter
 
@@ -13,6 +14,7 @@ layout = {config["layout"]}
 colab = {config["colab"]}{tutorial["notebook"]}
 toc = {config["toc"]}
 title = "{tutorial["title"]}"
+last_updated = {date.today()}
 level = "{tutorial["level"]}"
 weight = {tutorial["weight"]}
 description = {tutorial["description"]}
@@ -26,8 +28,8 @@ aliases = ["/tutorials/{tutorial['notebook'][:-6]}", "/tutorials/{tutorial['note
 def generate_markdown_from_notebook(config, tutorial, output_path, tutorials_path):
     frontmatter = generate_frontmatter(config, tutorial)
     md_exporter = MarkdownExporter(exclude_output=True)
-    body, _ = md_exporter.from_filename(f"{tutorials_path}/{tutorial['notebook']}")
-    print(f"Processing {tutorials_path}/{tutorial['notebook']}")
+    body, _ = md_exporter.from_filename(f"{tutorials_path}")
+    print(f"Processing {tutorials_path}")
 
     with open(f"{output_path}/{tutorial['notebook'][:-6]}.md", "w", encoding="utf-8") as f:
         try:
@@ -42,9 +44,12 @@ def generate_markdown_from_notebook(config, tutorial, output_path, tutorials_pat
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--index", dest="index")
-    parser.add_argument("--tutorials", dest="tutorials", default="tutorials")
+    parser.add_argument("--notebooks", dest="notebooks", nargs='+', default=[])
     parser.add_argument("--output", dest="output", default="markdowns")
     args = parser.parse_args()
     index = read_index(args.index)
-    for tutorial in index["tutorial"]:
-        generate_markdown_from_notebook(index["config"], tutorial, args.output, args.tutorials)
+
+    for notebook in args.notebooks:
+        for tutorial in index["tutorial"]:
+            if  tutorial["notebook"] in notebook:
+                generate_markdown_from_notebook(index["config"], tutorial, args.output, notebook)
