@@ -1,16 +1,3 @@
-[project]
-name = "haystack-tutorials"
-dynamic = [
-  "version",
-]
-description = "Tutorials for Haystack: Neural Question Answering & Semantic Search at Scale"
-readme = "README.md"
-license = "Apache-2.0"
-requires-python = ">=3.7"
-authors = [
-  { name = "deepset.ai", email = "malte.pietsch@deepset.ai" },
-]
-
 [project.urls]
 "CI: GitHub" = "https://github.com/deepset-ai/haystack-tutorials/actions"
 "GitHub: issues" = "https://github.com/deepset-ai/haystack-tutorials/issues"
