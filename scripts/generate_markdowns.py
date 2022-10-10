@@ -184,11 +184,7 @@ def generate_markdown_from_notebook(nb_path):
 def main(argv: Sequence[str] = sys.argv):
     parser = argparse.ArgumentParser()
     parser.add_argument("filenames", nargs="*", help="Notebooks filenames")
-    parser.add_argument(
-        "--all",
-        action="store_true",
-        help="Generate markdown version for all the notebooks",
-    )
+    parser.add_argument("--all", action="store_true", help="Generate markdown version for all the notebooks")
     args = parser.parse_args(argv)
 
     filenames = args.filenames
