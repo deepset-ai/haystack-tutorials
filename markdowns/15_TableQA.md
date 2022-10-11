@@ -1,13 +1,14 @@
 ---
-layout = tutorial
-colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb
-toc = True
-title = "Table QA"
-level = "advanced"
-weight = 130
-description = Perform question answering on tabular data.
-category = "QA"
-aliases = ["/tutorials/15_TableQA", "/tutorials/TableQA", "/tutorials/15"]
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb
+toc: True
+title: "Table QA"
+last_updated: 2022-10-11
+level: "advanced"
+weight: 130
+description: Perform question answering on tabular data.
+category: "QA"
+aliases: ['/tutorials/table-qa']
 ---
     
 

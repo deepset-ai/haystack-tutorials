@@ -1,13 +1,14 @@
 ---
-layout = tutorial
-colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/16_Document_Classifier_at_Index_Time.ipynb
-toc = True
-title = "Document Classifier at Index Time"
-level = "intermediate"
-weight = 85
-description = Generate and attach classification labels to your Documents when indexing.
-category = "QA"
-aliases = ["/tutorials/16_Document_Classifier_at_Index_Time", "/tutorials/Document_Classifier_at_Index_Time", "/tutorials/16"]
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/16_Document_Classifier_at_Index_Time.ipynb
+toc: True
+title: "Document Classifier at Index Time"
+last_updated: 2022-10-11
+level: "intermediate"
+weight: 85
+description: Generate and attach classification labels to your Documents when indexing.
+category: "QA"
+aliases: ['/tutorials/doc-class-index']
 ---
     
 

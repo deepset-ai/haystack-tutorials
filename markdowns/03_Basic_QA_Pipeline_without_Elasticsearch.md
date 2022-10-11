@@ -1,13 +1,14 @@
 ---
-layout = tutorial
-colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb
-toc = True
-title = "Build a QA System Without Elasticsearch"
-level = "beginner"
-weight = 15
-description = Create a Retriever Reader pipeline that requires no external database dependencies.
-category = "QA"
-aliases = ["/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch", "/tutorials/Basic_QA_Pipeline_without_Elasticsearch", "/tutorials/3"]
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb
+toc: True
+title: "Build a QA System Without Elasticsearch"
+last_updated: 2022-10-11
+level: "beginner"
+weight: 15
+description: Create a Retriever Reader pipeline that requires no external database dependencies.
+category: "QA"
+aliases: ['/tutorials/without-elasticsearch']
 ---
     
 

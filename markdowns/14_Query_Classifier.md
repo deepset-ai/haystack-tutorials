@@ -1,13 +1,14 @@
 ---
-layout = tutorial
-colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/14_Query_Classifier.ipynb
-toc = True
-title = "Query Classifier"
-level = "intermediate"
-weight = 80
-description = Classify incoming queries so that they can be routed to the nodes that are best at handling them.
-category = "QA"
-aliases = ["/tutorials/14_Query_Classifier", "/tutorials/Query_Classifier", "/tutorials/14"]
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/14_Query_Classifier.ipynb
+toc: True
+title: "Query Classifier"
+last_updated: 2022-10-11
+level: "intermediate"
+weight: 80
+description: Classify incoming queries so that they can be routed to the nodes that are best at handling them.
+category: "QA"
+aliases: ['/tutorials/query-classifier']
 ---
     
 

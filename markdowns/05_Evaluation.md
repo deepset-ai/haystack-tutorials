@@ -1,13 +1,14 @@
 ---
-layout = tutorial
-colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/05_Evaluation.ipynb
-toc = True
-title = "Evaluation"
-level = "advanced"
-weight = 100
-description = Learn how to evaluate the performance of individual nodes as well as entire pipelines.
-category = "QA"
-aliases = ["/tutorials/05_Evaluation", "/tutorials/Evaluation", "/tutorials/5"]
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/05_Evaluation.ipynb
+toc: True
+title: "Evaluation"
+last_updated: 2022-10-11
+level: "advanced"
+weight: 100
+description: Learn how to evaluate the performance of individual nodes as well as entire pipelines.
+category: "QA"
+aliases: ['/tutorials/evaluation']
 ---
     
 

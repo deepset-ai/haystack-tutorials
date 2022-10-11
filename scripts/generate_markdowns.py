@@ -9,17 +9,22 @@ def read_index(path):
 
 
 def generate_frontmatter(config, tutorial):
+    aliases = []
+    if "aliases" in tutorial:
+        for alias in tutorial["aliases"]:
+            aliases.append(f"/tutorials/{alias}")
+
     frontmatter = f"""---
-layout = {config["layout"]}
-colab = {config["colab"]}{tutorial["notebook"]}
-toc = {config["toc"]}
-title = "{tutorial["title"]}"
-last_updated = {date.today()}
-level = "{tutorial["level"]}"
-weight = {tutorial["weight"]}
-description = {tutorial["description"]}
-category = "QA"
-aliases = ["/tutorials/{tutorial['notebook'][:-6]}", "/tutorials/{tutorial['notebook'][3:-6]}", "/tutorials/{int(tutorial['notebook'][0:2])}"]
+layout: {config["layout"]}
+colab: {config["colab"]}{tutorial["notebook"]}
+toc: {config["toc"]}
+title: "{tutorial["title"]}"
+last_updated: {date.today()}
+level: "{tutorial["level"]}"
+weight: {tutorial["weight"]}
+description: {tutorial["description"]}
+category: "QA"
+aliases: {aliases}
 ---
     """
     return frontmatter

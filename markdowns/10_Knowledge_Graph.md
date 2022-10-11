@@ -1,13 +1,14 @@
 ---
-layout = tutorial
-colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/10_Knowledge_Graph.ipynb
-toc = True
-title = "Question Answering on a Knowledge Graph"
-level = "advanced"
-weight = 120
-description = Experiment with a question answering system that draws upon knowledge graph.h
-category = "QA"
-aliases = ["/tutorials/10_Knowledge_Graph", "/tutorials/Knowledge_Graph", "/tutorials/10"]
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/10_Knowledge_Graph.ipynb
+toc: True
+title: "Question Answering on a Knowledge Graph"
+last_updated: 2022-10-11
+level: "advanced"
+weight: 120
+description: Experiment with a question answering system that draws upon knowledge graph.h
+category: "QA"
+aliases: ['/tutorials/knowledge-graph']
 ---
     
 

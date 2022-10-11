@@ -1,13 +1,14 @@
 ---
-layout = tutorial
-colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/17_Audio.ipynb
-toc = True
-title = "Make Your QA Pipelines Talk!"
-level = "intermediate"
-weight = 90
-description = Convert text Answers into speech.
-category = "QA"
-aliases = ["/tutorials/17_Audio", "/tutorials/Audio", "/tutorials/17"]
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/17_Audio.ipynb
+toc: True
+title: "Make Your QA Pipelines Talk!"
+last_updated: 2022-10-11
+level: "intermediate"
+weight: 90
+description: Convert text Answers into speech.
+category: "QA"
+aliases: ['/tutorials/audio']
 ---
     
 

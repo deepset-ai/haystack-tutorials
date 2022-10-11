@@ -1,13 +1,14 @@
 ---
-layout = tutorial
-colab = https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb
-toc = True
-title = "Preprocessing"
-level = "beginner"
-weight = 25
-description = Start converting, cleaning, and splitting Documents using Haystack’s preprocessing capabilities.
-category = "QA"
-aliases = ["/tutorials/08_Preprocessing", "/tutorials/Preprocessing", "/tutorials/8"]
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb
+toc: True
+title: "Preprocessing"
+last_updated: 2022-10-11
+level: "beginner"
+weight: 25
+description: Start converting, cleaning, and splitting Documents using Haystack’s preprocessing capabilities.
+category: "QA"
+aliases: ['/tutorials/preprocessing']
 ---
     
 
