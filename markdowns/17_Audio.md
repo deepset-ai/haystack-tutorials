@@ -16,8 +16,6 @@ aliases: ['/tutorials/audio']
 
 <img style="float: right;" src="https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg">
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/17_Audio.ipynb)
-
 Question answering works primarily on text, but Haystack provides some features for audio files that contain speech as well.
 
 In this tutorial, we're going to see how to use `AnswerToSpeech` to convert answers into audio files.

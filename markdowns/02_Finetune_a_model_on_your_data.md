@@ -14,8 +14,6 @@ aliases: ['/tutorials/fine-tuning-a-model']
 
 # Fine-tuning a Model on Your Own Data
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/02_Finetune_a_model_on_your_data.ipynb)
-
 For many use cases it is sufficient to just use one of the existing public models that were trained on SQuAD or other public QA datasets (e.g. Natural Questions).
 However, if you have domain-specific questions, fine-tuning your model on custom examples will very likely boost your performance.
 While this varies by domain, we saw that ~ 2000 examples can easily increase performance by +5-20%.

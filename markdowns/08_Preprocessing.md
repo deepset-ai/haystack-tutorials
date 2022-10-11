@@ -14,8 +14,6 @@ aliases: ['/tutorials/preprocessing']
 
 # Preprocessing
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb)
-
 Haystack includes a suite of tools to extract text from different file types, normalize white space
 and split text into smaller pieces to optimize retrieval.
 These data preprocessing steps can have a big impact on the systems performance and effective handling of data is key to getting the most out of Haystack.

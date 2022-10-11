@@ -14,7 +14,6 @@ aliases: ['/tutorials/retrieval-augmented-generation']
 
 # Generative QA with "Retrieval-Augmented Generation"
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/07_RAG_Generator.ipynb)
 
 While extractive QA highlights the span of text that answers a query,
 generative QA can return a novel text answer that it has composed.

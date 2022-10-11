@@ -14,8 +14,6 @@ aliases: ['/tutorials/knowledge-graph']
 
 # Question Answering on a Knowledge Graph
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/10_Knowledge_Graph.ipynb)
-
 Haystack allows storing and querying knowledge graphs with the help of pre-trained models that translate text queries to SPARQL queries.
 This tutorial demonstrates how to load an existing knowledge graph into haystack, load a pre-trained retriever, and execute text queries on the knowledge graph.
 The training of models that translate text queries into SPARQL queries is currently not supported.

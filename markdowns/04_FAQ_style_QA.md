@@ -14,8 +14,6 @@ aliases: ['/tutorials/existing-faqs']
 
 # Utilizing existing FAQs for Question Answering
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/04_FAQ_style_QA.ipynb)
-
 While *extractive Question Answering* works on pure texts and is therefore more generalizable, there's also a common alternative that utilizes existing FAQ data.
 
 **Pros**:

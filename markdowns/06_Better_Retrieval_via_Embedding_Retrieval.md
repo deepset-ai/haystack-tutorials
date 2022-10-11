@@ -14,8 +14,6 @@ aliases: ['/tutorials/embedding-retrieval']
 
 # Better Retrieval via "Embedding Retrieval"
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb)
-
 ### Importance of Retrievers
 
 The Retriever has a huge impact on the performance of our overall search pipeline.

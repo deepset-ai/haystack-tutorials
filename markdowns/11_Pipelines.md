@@ -14,8 +14,6 @@ aliases: ['/tutorials/pipelines']
 
 # Pipelines Tutorial
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack/blob/main/tutorials/Tutorial11_Pipelines.ipynb)
-
 In this tutorial, you will learn how the `Pipeline` class acts as a connector between all the different
 building blocks that are found in FARM. Whether you are using a Reader, Generator, Summarizer
 or Retriever (or 2), the `Pipeline` class will help you build a Directed Acyclic Graph (DAG) that

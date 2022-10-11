@@ -16,8 +16,6 @@ aliases: ['/tutorials/first-qa-system']
 
 <img style="float: right;" src="https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg">
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_Pipeline.ipynb)
-
 Question Answering can be used in a variety of use cases. A very common one:  Using it to navigate through complex knowledge bases or long documents ("search setting").
 
 A "knowledge base" could for example be your website, an internal wiki or a collection of financial reports. 

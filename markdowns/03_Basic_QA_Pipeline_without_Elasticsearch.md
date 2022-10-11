@@ -14,8 +14,6 @@ aliases: ['/tutorials/without-elasticsearch']
 
 # Build a QA System Without Elasticsearch
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb)
-
 Haystack provides alternatives to Elasticsearch for developing quick prototypes.
 
 You can use an `InMemoryDocumentStore` or a `SQLDocumentStore`(with SQLite) as the document store.
