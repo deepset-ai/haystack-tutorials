@@ -54,7 +54,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
     index = read_index(args.index)
 
+    nb_to_config = {cfg["notebook"]: cfg for cfg in index["tutorial"]}
+        
     for notebook in args.notebooks:
-        for tutorial in index["tutorial"]:
-            if  tutorial["notebook"] in notebook:
-                generate_markdown_from_notebook(index["config"], tutorial, args.output, notebook)
+        nb_name = notebook.split('/')[-1]
+        tutorial_cfg = nb_to_config.get(nb_name)
+        if tutorial_cfg:
+            generate_markdown_from_notebook(index["config"], tutorial_cfg, args.output, notebook)

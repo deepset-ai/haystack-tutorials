@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb
 toc: True
 title: "Build a QA System Without Elasticsearch"
-last_updated: 2022-10-11
+last_updated: 2022-10-12
 level: "beginner"
 weight: 15
 description: Create a Retriever Reader pipeline that requires no external database dependencies.
