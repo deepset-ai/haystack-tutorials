@@ -20,10 +20,17 @@ jobs:
           python-version: '3.9'
           cache: 'pip' # caching pip dependencies
 
+      - name: Files changed
+        uses: jitterbit/get-changed-files@v1
+        id: changed_files
+        with:
+          format: space-delimited
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Install Dependencies and Generate Markdown
         run: |
           pip install -r requirements.txt
-          python scripts/generate_markdowns.py --index index.toml --output markdowns
+          python scripts/generate_markdowns.py --index index.toml --output markdowns --tutorial ${{ steps.changed_files.outputs.all }}
 
       - name: Status
         run: |
