@@ -28,7 +28,7 @@ notebook = "03_Basic_QA_Pipeline_without_Elasticsearch.ipynb"
 aliases = ["without-elasticsearch"]
 
 [[tutorial]]
-title = "FAQ Style Question Answering"
+title = "Utilizing Existing FAQs for Question Answering"
 description = "Create a smarter way to answer new questions using your existing FAQ documents."
 level = "beginner"
 weight = 20
@@ -36,7 +36,7 @@ notebook = "04_FAQ_style_QA.ipynb"
 aliases = ["existing-faqs"]
 
 [[tutorial]]
-title = "Evaluation"
+title = "Evaluation of a QA System"
 description = "Learn how to evaluate the performance of individual nodes as well as entire pipelines."
 level = "advanced"
 weight = 100
@@ -44,7 +44,7 @@ notebook = "05_Evaluation.ipynb"
 aliases = ["evaluation"]
 
 [[tutorial]]
-title = "Embedding Retrieval"
+title = "Better Retrieval with Embedding Retrieval"
 description = "Use Transformer based dense Retrievers to improve your system’s performance."
 level = "intermediate"
 weight = 55
@@ -60,7 +60,7 @@ notebook = "07_RAG_Generator.ipynb"
 aliases = ["retrieval-augmented-generation"]
 
 [[tutorial]]
-title = "Preprocessing"
+title = "Preprocessing Your Documents"
 description = "Start converting, cleaning, and splitting Documents using Haystack’s preprocessing capabilities."
 level = "beginner"
 weight = 25
@@ -68,7 +68,7 @@ notebook = "08_Preprocessing.ipynb"
 aliases = ["preprocessing"]
 
 [[tutorial]]
-title = "Training Your Own Dense Passage Retriever Model"
+title = "Training Your Own Dense Passage Retrieval Model"
 description = "Learn about training a Dense Passage Retrieval model and the data needed to do so."
 level = "advanced"
 weight = 110
@@ -84,7 +84,7 @@ notebook = "10_Knowledge_Graph.ipynb"
 aliases = ["knowledge-graph"]
 
 [[tutorial]]
-title = "Pipelines"
+title = "How to Use Pipelines"
 description = "Learn about the many ways which you can route queries through the nodes in a pipeline."
 level = "intermediate"
 weight = 65
@@ -92,7 +92,7 @@ notebook = "11_Pipelines.ipynb"
 aliases = ["pipelines"]
 
 [[tutorial]]
-title = "Long Form Question Answering"
+title = "Generatice QA with LFQA"
 description = "Try out a generative model in place of the extractive Reader."
 level = "intermediate"
 weight = 70
@@ -116,7 +116,7 @@ notebook = "14_Query_Classifier.ipynb"
 aliases = ["query-classifier"]
 
 [[tutorial]]
-title = "Table QA"
+title = "Open-Domain QA on Tables"
 description = "Perform question answering on tabular data."
 level = "advanced"
 weight = 130
@@ -124,7 +124,7 @@ notebook = "15_TableQA.ipynb"
 aliases = ["table-qa"]
 
 [[tutorial]]
-title = "Document Classifier at Index Time"
+title = "Document Classification at Index Time"
 description = "Generate and attach classification labels to your Documents when indexing."
 level = "intermediate"
 weight = 85
@@ -140,7 +140,7 @@ notebook = "17_Audio.ipynb"
 aliases = ["audio"]
 
 [[tutorial]]
-title = "Generative Pseudo Labeling"
+title = "Generative Pseudo Labeling for Domain Adaptation"
 description = "Use a Retriever and a query generator to perform unsupervised domain adaptation."
 level = "advanced"
 weight = 140
