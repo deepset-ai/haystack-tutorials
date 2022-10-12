@@ -21,7 +21,7 @@ jobs:
           cache: 'pip' # caching pip dependencies
 
       - name: Get changed notebooks
-        id: changed-files-specific
+        id: changed-files
         uses: tj-actions/changed-files@v32
         with:
           files: |
