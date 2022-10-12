@@ -20,12 +20,12 @@ jobs:
           python-version: '3.9'
           cache: 'pip' # caching pip dependencies
 
-      - name: Files changed
-        uses: jitterbit/get-changed-files@v1
-        id: changed_files
+      - name: Get changed notebooks
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v32
         with:
-          format: space-delimited
-          token: ${{ secrets.GITHUB_TOKEN }}
+          files: |
+            tutorials/*.ipynb
 
       - name: Install Dependencies and Generate Markdown
         run: |
