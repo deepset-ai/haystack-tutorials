@@ -37,7 +37,7 @@ If all goes well, at the bottom of your PR page, you should see something like t
 
 ![](https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/ci-success.png)
 
-If you see some red checks, then something didn't work and you need to take some action. The most likely reason is that the `.md` file accompanying the `.ipynb` tutorial hasn't been updated or created. You can try to run repeat step 3 in [Contributing to Haystack Tutorials](#contributing-to-haystack-tutorials).
+If you see some red checks, then something didn't work and you need to take some action. The most likely reason is that the `.md` file accompanying the `.ipynb` tutorial hasn't been updated or created. You can try to run repeat step 4 in [Contributing to Haystack Tutorials](#contributing-to-haystack-tutorials).
 
 # Naming Convention for File Names
 
