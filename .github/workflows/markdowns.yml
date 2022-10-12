@@ -30,7 +30,7 @@ jobs:
       - name: Install Dependencies and Generate Markdown
         run: |
           pip install -r requirements.txt
-          python scripts/generate_markdowns.py --index index.toml --output markdowns --notebooks ${{ steps.changed_files.outputs.all }}
+          python scripts/generate_markdowns.py --index index.toml --output markdowns --notebooks ${{ steps.changed-files.outputs.all_changed_files }}
 
       - name: Status
         run: |
