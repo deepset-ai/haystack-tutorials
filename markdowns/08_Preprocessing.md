@@ -1,15 +1,18 @@
-<!---
-title: "Tutorial 8"
-metaTitle: "Preprocessing"
-metaDescription: ""
-slug: "/docs/tutorial8"
-date: "2021-01-08"
-id: "tutorial8md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb
+toc: True
+title: "Preprocessing Your Documents"
+last_updated: 2022-10-12
+level: "beginner"
+weight: 25
+description: Start converting, cleaning, and splitting Documents using Haystack’s preprocessing capabilities.
+category: "QA"
+aliases: ['/tutorials/preprocessing']
+---
+    
 
 # Preprocessing
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb)
 
 Haystack includes a suite of tools to extract text from different file types, normalize white space
 and split text into smaller pieces to optimize retrieval.

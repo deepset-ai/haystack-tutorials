@@ -1,22 +1,23 @@
-<!---
-title: "Tutorial 11"
-metaTitle: "Pipelines"
-metaDescription: ""
-slug: "/docs/tutorial11"
-date: "2021-04-06"
-id: "tutorial11md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/11_Pipelines.ipynb
+toc: True
+title: "How to Use Pipelines"
+last_updated: 2022-10-12
+level: "intermediate"
+weight: 65
+description: Learn about the many ways which you can route queries through the nodes in a pipeline.
+category: "QA"
+aliases: ['/tutorials/pipelines']
+---
+    
 
 # Pipelines Tutorial
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack/blob/main/tutorials/Tutorial11_Pipelines.ipynb)
 
 In this tutorial, you will learn how the `Pipeline` class acts as a connector between all the different
 building blocks that are found in FARM. Whether you are using a Reader, Generator, Summarizer
 or Retriever (or 2), the `Pipeline` class will help you build a Directed Acyclic Graph (DAG) that
 determines how to route the output of one component into the input of another.
-
-
 
 
 ## Setting Up the Environment

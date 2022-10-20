@@ -1,15 +1,18 @@
-<!---
-title: "Tutorial 18"
-metaTitle: "GPL Domain Adaptation"
-metaDescription: ""
-slug: "/docs/tutorial18"
-date: "2022-06-22"
-id: "tutorial18md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/18_GPL.ipynb
+toc: True
+title: "Generative Pseudo Labeling for Domain Adaptation"
+last_updated: 2022-10-12
+level: "advanced"
+weight: 140
+description: Use a Retriever and a query generator to perform unsupervised domain adaptation.
+category: "QA"
+aliases: ['/tutorials/gpl']
+---
+    
 
 # Generative Pseudo Labeling for Domain Adaptation of Dense Retrievals
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/18_GPL.ipynb)
 
 *Note: Adapted to Haystack from Nils Reimers' original [notebook](https://colab.research.google.com/gist/jamescalam/d2c888775c87f9882bb7c379a96adbc8/gpl-domain-adaptation.ipynb#scrollTo=183ff7ab)
 

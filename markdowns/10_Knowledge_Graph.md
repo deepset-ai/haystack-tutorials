@@ -1,15 +1,18 @@
-<!---
-title: "Tutorial 10"
-metaTitle: "Knowledge Graph QA"
-metaDescription: ""
-slug: "/docs/tutorial10"
-date: "2021-04-06"
-id: "tutorial10md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/10_Knowledge_Graph.ipynb
+toc: True
+title: "Question Answering on a Knowledge Graph"
+last_updated: 2022-10-12
+level: "advanced"
+weight: 120
+description: Experiment with a question answering system that draws upon knowledge graph.h
+category: "QA"
+aliases: ['/tutorials/knowledge-graph']
+---
+    
 
 # Question Answering on a Knowledge Graph
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/10_Knowledge_Graph.ipynb)
 
 Haystack allows storing and querying knowledge graphs with the help of pre-trained models that translate text queries to SPARQL queries.
 This tutorial demonstrates how to load an existing knowledge graph into haystack, load a pre-trained retriever, and execute text queries on the knowledge graph.

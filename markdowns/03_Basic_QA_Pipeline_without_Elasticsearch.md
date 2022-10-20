@@ -1,15 +1,18 @@
-<!---
-title: "Tutorial 3"
-metaTitle: "Build a QA System Without Elasticsearch"
-metaDescription: ""
-slug: "/docs/tutorial3"
-date: "2020-09-03"
-id: "tutorial3md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb
+toc: True
+title: "Build a QA System Without Elasticsearch"
+last_updated: 2022-10-12
+level: "beginner"
+weight: 15
+description: Create a Retriever Reader pipeline that requires no external database dependencies.
+category: "QA"
+aliases: ['/tutorials/without-elasticsearch']
+---
+    
 
 # Build a QA System Without Elasticsearch
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb)
 
 Haystack provides alternatives to Elasticsearch for developing quick prototypes.
 

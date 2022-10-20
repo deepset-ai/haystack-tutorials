@@ -1,17 +1,20 @@
-<!---
-title: "Tutorial 1"
-metaTitle: "Build Your First QA System"
-metaDescription: ""
-slug: "/docs/tutorial1"
-date: "2020-09-03"
-id: "tutorial1md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_Pipeline.ipynb
+toc: True
+title: "Build Your First QA System"
+last_updated: 2022-10-12
+level: "beginner"
+weight: 10
+description: Get Started by creating a Retriever Reader pipeline.
+category: "QA"
+aliases: ['/tutorials/first-qa-system']
+---
+    
 
 # Build Your First QA System
 
 <img style="float: right;" src="https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg">
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_Pipeline.ipynb)
 
 Question Answering can be used in a variety of use cases. A very common one:  Using it to navigate through complex knowledge bases or long documents ("search setting").
 
