@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/05_Evaluation.ipynb
 toc: True
 title: "Evaluation of a QA System"
-last_updated: 2022-10-12
+last_updated: 2022-10-24
 level: "advanced"
 weight: 100
 description: Learn how to evaluate the performance of individual nodes as well as entire pipelines.

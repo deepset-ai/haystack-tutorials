@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/18_GPL.ipynb
 toc: True
 title: "Generative Pseudo Labeling for Domain Adaptation"
-last_updated: 2022-10-12
+last_updated: 2022-10-24
 level: "advanced"
 weight: 140
 description: Use a Retriever and a query generator to perform unsupervised domain adaptation.

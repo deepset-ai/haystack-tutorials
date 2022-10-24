@@ -1,7 +1,9 @@
 import argparse
 from datetime import date
+from bs4 import Tag
 import tomli
 from nbconvert import MarkdownExporter
+from nbconvert.preprocessors import TagRemovePreprocessor
 
 def read_index(path):
     with open(path, "rb") as f:
@@ -32,7 +34,10 @@ aliases: {aliases}
 
 def generate_markdown_from_notebook(config, tutorial, output_path, tutorials_path):
     frontmatter = generate_frontmatter(config, tutorial)
+    preprocessor = TagRemovePreprocessor()
+    preprocessor.remove_cell_tags = ("skip")
     md_exporter = MarkdownExporter(exclude_output=True)
+    md_exporter.register_preprocessor(preprocessor, True)
     body, _ = md_exporter.from_filename(f"{tutorials_path}")
     print(f"Processing {tutorials_path}")
 
