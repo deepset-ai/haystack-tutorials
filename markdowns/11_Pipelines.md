@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/11_Pipelines.ipynb
 toc: True
 title: "How to Use Pipelines"
-last_updated: 2022-10-12
+last_updated: 2022-10-26
 level: "intermediate"
 weight: 65
 description: Learn about the many ways which you can route queries through the nodes in a pipeline.
@@ -256,7 +256,7 @@ print_answers(res, details="minimum")
 Pipelines offer a very simple way to ensemble together different components.
 In this example, we are going to combine the power of an `EmbeddingRetriever`
 with the keyword based `BM25Retriever`.
-See our [documentation](https://haystack.deepset.ai/docs/latest/retrievermd) to understand why
+See our [documentation](https://docs.haystack.deepset.ai/docs/retriever) to understand why
 we might want to combine a dense and sparse retriever.
 
 ![image](https://github.com/deepset-ai/haystack/blob/main/docs/img/tutorial11_custompipelines_pipeline_ensemble.png?raw=true)
@@ -380,7 +380,7 @@ print_answers(res_2)
 ## Evaluation Nodes
 
 We have also designed a set of nodes that can be used to evaluate the performance of a system.
-Have a look at our [tutorial](https://haystack.deepset.ai/docs/latest/tutorial5md) to get hands on with the code and learn more about Evaluation Nodes!
+Have a look at our [tutorial](https://haystack.deepset.ai/tutorials/evaluation) to get hands on with the code and learn more about Evaluation Nodes!
 
 ## Debugging Pipelines
 
