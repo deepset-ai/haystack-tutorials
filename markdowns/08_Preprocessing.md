@@ -110,7 +110,7 @@ The PreProcessor class is designed to help you clean text and split text into se
 File splitting can have a very significant impact on the system's performance and is absolutely mandatory for Dense Passage Retrieval models.
 In general, we recommend you split the text from your files into small documents of around 100 words for dense retrieval methods
 and no more than 10,000 words for sparse methods.
-Have a look at the [Preprocessing]hhttps://docs.haystack.deepset.ai/docs/preprocessor)
+Have a look at the [Preprocessing](https://docs.haystack.deepset.ai/docs/preprocessor)
 and [Optimization](https://docs.haystack.deepset.ai/docs/optimization) pages on our website for more details.
 
 
