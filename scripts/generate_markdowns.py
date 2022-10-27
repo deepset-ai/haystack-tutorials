@@ -1,179 +1,44 @@
-#!/usr/bin/env python3
-
-import re
 import argparse
-import sys
-from pathlib import Path
-from typing import Sequence
-
+from datetime import date
+import tomli
 from nbconvert import MarkdownExporter
 
-headers = {
-    1: """<!---
-title: "Tutorial 1"
-metaTitle: "Build Your First QA System"
-metaDescription: ""
-slug: "/docs/tutorial1"
-date: "2020-09-03"
-id: "tutorial1md"
---->""",
-    2: """<!---
-title: "Tutorial 2"
-metaTitle: "Fine-tuning a model on your own data"
-metaDescription: ""
-slug: "/docs/tutorial2"
-date: "2020-09-03"
-id: "tutorial2md"
---->""",
-    3: """<!---
-title: "Tutorial 3"
-metaTitle: "Build a QA System Without Elasticsearch"
-metaDescription: ""
-slug: "/docs/tutorial3"
-date: "2020-09-03"
-id: "tutorial3md"
---->""",
-    4: """<!---
-title: "Tutorial 4"
-metaTitle: "Utilizing existing FAQs for Question Answering"
-metaDescription: ""
-slug: "/docs/tutorial4"
-date: "2020-09-03"
-id: "tutorial4md"
---->""",
-    5: """<!---
-title: "Tutorial 5"
-metaTitle: "Evaluation of a QA System"
-metaDescription: ""
-slug: "/docs/tutorial5"
-date: "2020-09-03"
-id: "tutorial5md"
---->""",
-    6: """<!---
-title: "Tutorial 6"
-metaTitle: "Better retrieval via Dense Passage Retrieval"
-metaDescription: ""
-slug: "/docs/tutorial6"
-date: "2020-09-03"
-id: "tutorial6md"
---->""",
-    7: """<!---
-title: "Tutorial 7"
-metaTitle: "Generative QA with RAG"
-metaDescription: ""
-slug: "/docs/tutorial7"
-date: "2020-11-12"
-id: "tutorial7md"
---->""",
-    8: """<!---
-title: "Tutorial 8"
-metaTitle: "Preprocessing"
-metaDescription: ""
-slug: "/docs/tutorial8"
-date: "2021-01-08"
-id: "tutorial8md"
---->""",
-    9: """<!---
-title: "Tutorial 9"
-metaTitle: "Training a Dense Passage Retrieval model"
-metaDescription: ""
-slug: "/docs/tutorial9"
-date: "2021-01-08"
-id: "tutorial9md"
---->""",
-    10: """<!---
-title: "Tutorial 10"
-metaTitle: "Knowledge Graph QA"
-metaDescription: ""
-slug: "/docs/tutorial10"
-date: "2021-04-06"
-id: "tutorial10md"
---->""",
-    11: """<!---
-title: "Tutorial 11"
-metaTitle: "Pipelines"
-metaDescription: ""
-slug: "/docs/tutorial11"
-date: "2021-04-06"
-id: "tutorial11md"
---->""",
-    12: """<!---
-title: "Tutorial 12"
-metaTitle: "Generative QA with LFQA"
-metaDescription: ""
-slug: "/docs/tutorial12"
-date: "2021-04-06"
-id: "tutorial12md"
---->""",
-    13: """<!---
-title: "Tutorial 13"
-metaTitle: "Question Generation"
-metaDescription: ""
-slug: "/docs/tutorial13"
-date: "2021-08-23"
-id: "tutorial13md"
---->""",
-    14: """<!---
-title: "Tutorial 14"
-metaTitle: "Query Classifier Tutorial"
-metaDescription: ""
-slug: "/docs/tutorial14"
-date: "2021-08-23"
-id: "tutorial14md"
---->""",
-    15: """<!---
-title: "Tutorial 15"
-metaTitle: "TableQA Tutorial"
-metaDescription: ""
-slug: "/docs/tutorial15"
-date: "2021-10-28"
-id: "tutorial15md"
---->""",
-    16: """<!---
-title: "Tutorial 16"
-metaTitle: "DocumentClassifier at Index Time Tutorial"
-metaDescription: ""
-slug: "/docs/tutorial16"
-date: "2021-11-05"
-id: "tutorial16md"
---->""",
-    17: """<!---
-title: "Tutorial 17"
-metaTitle: "Audio Tutorial"
-metaDescription: ""
-slug: "/docs/tutorial17"
-date: "2022-06-15"
-id: "tutorial17md"
---->""",
-    18: """<!---
-title: "Tutorial 18"
-metaTitle: "GPL Domain Adaptation"
-metaDescription: ""
-slug: "/docs/tutorial18"
-date: "2022-06-22"
-id: "tutorial18md"
---->""",
-}
-
-notebook_tutorials_dir = (Path(__file__).parent.parent / "tutorials").resolve()
-markdown_tutorials_dir = (Path(__file__).parent.parent / "markdowns").resolve()
-
-md_exporter = MarkdownExporter(exclude_output=True)
+def read_index(path):
+    with open(path, "rb") as f:
+        return tomli.load(f)
 
 
-def get_notebook_number(nb_path):
-    nb_filename = nb_path.stem
-    return int(re.search("\d+", nb_filename.split("_")[0]).group(0))
+def generate_frontmatter(config, tutorial):
+    aliases = []
+    if "aliases" in tutorial:
+        for alias in tutorial["aliases"]:
+            aliases.append(f"/tutorials/{alias}")
+
+    frontmatter = f"""---
+layout: {config["layout"]}
+colab: {config["colab"]}{tutorial["notebook"]}
+toc: {config["toc"]}
+title: "{tutorial["title"]}"
+last_updated: {date.today()}
+level: "{tutorial["level"]}"
+weight: {tutorial["weight"]}
+description: {tutorial["description"]}
+category: "QA"
+aliases: {aliases}
+---
+    """
+    return frontmatter
 
 
-def generate_markdown_from_notebook(nb_path):
-    body, _ = md_exporter.from_filename(nb_path)
-    n = get_notebook_number(nb_path)
-    print(f"Processing {nb_path}")
+def generate_markdown_from_notebook(config, tutorial, output_path, tutorials_path):
+    frontmatter = generate_frontmatter(config, tutorial)
+    md_exporter = MarkdownExporter(exclude_output=True)
+    body, _ = md_exporter.from_filename(f"{tutorials_path}")
+    print(f"Processing {tutorials_path}")
 
-    with open(markdown_tutorials_dir / f"{n}.md", "w", encoding="utf-8") as f:
+    with open(f"{output_path}/{tutorial['notebook'][:-6]}.md", "w", encoding="utf-8") as f:
         try:
-            f.write(headers[n] + "\n\n")
+            f.write(frontmatter + "\n\n")
         except IndexError as e:
             raise IndexError(
                 "Can't find the header for this tutorial. Have you added it in 'scripts/generate_markdowns.py'?"
@@ -181,23 +46,18 @@ def generate_markdown_from_notebook(nb_path):
         f.write(body)
 
 
-def main(argv: Sequence[str] = sys.argv):
-    parser = argparse.ArgumentParser()
-    parser.add_argument("filenames", nargs="*", help="Notebooks filenames")
-    parser.add_argument("--all", action="store_true", help="Generate markdown version for all the notebooks")
-    args = parser.parse_args(argv)
-
-    filenames = args.filenames
-    if args.all:
-        filenames = notebook_tutorials_dir.glob("*.ipynb")
-
-    for filename in filenames:
-        filepath = Path(filename).resolve()
-        if filepath.parent == notebook_tutorials_dir and filepath.suffix == ".ipynb":
-            generate_markdown_from_notebook(filepath)
-
-    return 0
-
-
 if __name__ == "__main__":
-    raise SystemExit(main())
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--index", dest="index")
+    parser.add_argument("--notebooks", dest="notebooks", nargs='+', default=[])
+    parser.add_argument("--output", dest="output", default="markdowns")
+    args = parser.parse_args()
+    index = read_index(args.index)
+
+    nb_to_config = {cfg["notebook"]: cfg for cfg in index["tutorial"]}
+        
+    for notebook in args.notebooks:
+        nb_name = notebook.split('/')[-1]
+        tutorial_cfg = nb_to_config.get(nb_name)
+        if tutorial_cfg:
+            generate_markdown_from_notebook(index["config"], tutorial_cfg, args.output, notebook)

@@ -1,15 +1,19 @@
-<!---
-title: "Tutorial 7"
-metaTitle: "Generative QA with RAG"
-metaDescription: ""
-slug: "/docs/tutorial7"
-date: "2020-11-12"
-id: "tutorial7md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/07_RAG_Generator.ipynb
+toc: True
+title: "Generative QA with Retrieval-Augmented Generation"
+last_updated: 2022-10-12
+level: "intermediate"
+weight: 60
+description: Try out a generative model in place of the extractive Reader.
+category: "QA"
+aliases: ['/tutorials/retrieval-augmented-generation']
+---
+    
 
 # Generative QA with "Retrieval-Augmented Generation"
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/07_RAG_Generator.ipynb)
 
 While extractive QA highlights the span of text that answers a query,
 generative QA can return a novel text answer that it has composed.

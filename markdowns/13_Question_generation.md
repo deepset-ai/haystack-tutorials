@@ -1,15 +1,18 @@
-<!---
-title: "Tutorial 13"
-metaTitle: "Question Generation"
-metaDescription: ""
-slug: "/docs/tutorial13"
-date: "2021-08-23"
-id: "tutorial13md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/13_Question_generation.ipynb
+toc: True
+title: "Question Generation"
+last_updated: 2022-10-12
+level: "intermediate"
+weight: 75
+description: Generate a set of questions that can be answered by a given Document.
+category: "QA"
+aliases: ['/tutorials/question-generation']
+---
+    
 
 # Question Generation
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/13_Question_generation.ipynb)
 
 This is a bare bones tutorial showing what is possible with the QuestionGenerator Nodes and Pipelines which automatically
 generate questions which the question generation model thinks can be answered by a given document.

@@ -1,15 +1,18 @@
-<!---
-title: "Tutorial 6"
-metaTitle: "Better retrieval via Dense Passage Retrieval"
-metaDescription: ""
-slug: "/docs/tutorial6"
-date: "2020-09-03"
-id: "tutorial6md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb
+toc: True
+title: "Better Retrieval with Embedding Retrieval"
+last_updated: 2022-10-12
+level: "intermediate"
+weight: 55
+description: Use Transformer based dense Retrievers to improve your system’s performance.
+category: "QA"
+aliases: ['/tutorials/embedding-retrieval']
+---
+    
 
 # Better Retrieval via "Embedding Retrieval"
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb)
 
 ### Importance of Retrievers
 

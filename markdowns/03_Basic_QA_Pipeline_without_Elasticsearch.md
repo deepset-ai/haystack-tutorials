@@ -1,15 +1,18 @@
-<!---
-title: "Tutorial 3"
-metaTitle: "Build a QA System Without Elasticsearch"
-metaDescription: ""
-slug: "/docs/tutorial3"
-date: "2020-09-03"
-id: "tutorial3md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb
+toc: True
+title: "Build a QA System Without Elasticsearch"
+last_updated: 2022-10-26
+level: "beginner"
+weight: 15
+description: Create a Retriever Reader pipeline that requires no external database dependencies.
+category: "QA"
+aliases: ['/tutorials/without-elasticsearch']
+---
+    
 
 # Build a QA System Without Elasticsearch
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb)
 
 Haystack provides alternatives to Elasticsearch for developing quick prototypes.
 
@@ -174,7 +177,7 @@ Alternatively, we can use a Transformers reader:
 With a Haystack `Pipeline` you can stick together your building blocks to a search pipeline.
 Under the hood, `Pipelines` are Directed Acyclic Graphs (DAGs) that you can easily customize for your own use cases.
 To speed things up, Haystack also comes with a few predefined Pipelines. One of them is the `ExtractiveQAPipeline` that combines a retriever and a reader to answer our questions.
-You can learn more about `Pipelines` in the [docs](https://haystack.deepset.ai/docs/latest/pipelinesmd).
+You can learn more about `Pipelines` in the [docs](https://haystack.deepset.ai/docs/latest/pipelines).
 
 
 ```python
