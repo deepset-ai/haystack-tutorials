@@ -19,6 +19,7 @@ jobs:
 
     strategy:
       max-parallel: 2
+      fail-fast: false
       matrix:
         notebook:
           # Note: use the name of the file without the extension
