@@ -37,7 +37,7 @@ pip install farm-haystack[colab]
 ```
 
 
-```
+```python
 import logging
 
 logging.basicConfig(format="%(levelname)s - %(name)s -  %(message)s", level=logging.WARNING)
@@ -49,7 +49,7 @@ logging.getLogger("haystack").setLevel(level=logging.INFO)
 A DocumentStore contains Documents, which in this case are references to the images that Haystack will compare with your query. Here we are using the InMemoryDocumentStore since it requires no external dependencies. To learn more about the DocumentStore and the different types of external databases that we support, see [DocumentStore](https://docs.haystack.deepset.ai/docs/document_store).
 
 
-```
+```python
 from haystack.document_stores import InMemoryDocumentStore
 
 document_store = InMemoryDocumentStore(embedding_dim=512)
@@ -60,7 +60,7 @@ document_store = InMemoryDocumentStore(embedding_dim=512)
 Download 18 sample images of different animals from . You can find them in data/tutorial19/spirit-animals/ as a set of .jpg files.
 
 
-```
+```python
 from haystack.utils import fetch_archive_from_http
 
 doc_dir = "data/tutorial19"
@@ -74,7 +74,7 @@ fetch_archive_from_http(
 Add the images you just downloaded into Haystack Document objects and write them into the DocumentStore.
 
 
-```
+```python
 import os
 
 from haystack import Document
@@ -92,7 +92,7 @@ document_store.write_documents(images)
 Retrievers sift through all the images and return only those that are relevant based on the input query. Here we are using the OpenAI CLIP model to embed images. For more details on supported modalities, see [MultiModalRetriever](https://docs.haystack.deepset.ai/docs/retriever#multimodal-retrieval).
 
 
-```
+```python
 from haystack.nodes.retriever.multimodal import MultiModalRetriever
 
 retriever_text_to_image = MultiModalRetriever(
@@ -110,7 +110,7 @@ document_store.update_embeddings(retriever=retriever_text_to_image)
 We use a generic Pipeline that uses MultiModalRetriever as node and creates a search pipeline. This search pipeline allows us to query the image database with text queries and returns most relevant images.
 
 
-```
+```python
 from haystack import Pipeline
 
 pipeline = Pipeline()
@@ -123,7 +123,7 @@ pipeline.add_node(component=retriever_text_to_image, name="retriever_text_to_ima
 Use the pipeline `run()` method to query the images in the document store. The query argument is where you type your text query. Additionally, you can set the number of images you want the MultiModalRetriever to return using the `top-k` parameter. To learn more about setting arguments, see [Pipeline Arguments](https://docs.haystack.deepset.ai/docs/pipelines#arguments).
 
 
-```
+```python
 results = pipeline.run(query="Animal who lives in the water",
                        params={"retriever_text_to_image": {"top_k": 3}})
 
@@ -147,7 +147,7 @@ You can also vizualize these images with their score easily with below code.
 
 
 
-```
+```python
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageOps
 from IPython.display import display, Image as IPImage
