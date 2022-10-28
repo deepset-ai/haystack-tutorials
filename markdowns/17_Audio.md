@@ -1,17 +1,20 @@
-<!---
-title: "Tutorial 17"
-metaTitle: "Audio Tutorial"
-metaDescription: ""
-slug: "/docs/tutorial17"
-date: "2022-06-15"
-id: "tutorial17md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/17_Audio.ipynb
+toc: True
+title: "Make Your QA Pipelines Talk!"
+last_updated: 2022-10-12
+level: "intermediate"
+weight: 90
+description: Convert text Answers into speech.
+category: "QA"
+aliases: ['/tutorials/audio']
+---
+    
 
 # Make Your QA Pipelines Talk!
 
 <img style="float: right;" src="https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg">
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/17_Audio.ipynb)
 
 Question answering works primarily on text, but Haystack provides some features for audio files that contain speech as well.
 

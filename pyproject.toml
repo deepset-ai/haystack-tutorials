@@ -1,0 +1,8 @@
+[project.urls]
+"CI: GitHub" = "https://github.com/deepset-ai/haystack-tutorials/actions"
+"GitHub: issues" = "https://github.com/deepset-ai/haystack-tutorials/issues"
+"GitHub: repo" = "https://github.com/deepset-ai/haystack-tutorials"
+
+[tool.black]
+line-length = 120
+skip_magic_trailing_comma = true  # For compatibility with pydoc>=4.6, check if still needed.

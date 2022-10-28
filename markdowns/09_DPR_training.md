@@ -1,15 +1,18 @@
-<!---
-title: "Tutorial 9"
-metaTitle: "Training a Dense Passage Retrieval model"
-metaDescription: ""
-slug: "/docs/tutorial9"
-date: "2021-01-08"
-id: "tutorial9md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/09_DPR_training.ipynb
+toc: True
+title: "Training Your Own Dense Passage Retrieval Model"
+last_updated: 2022-10-12
+level: "advanced"
+weight: 110
+description: Learn about training a Dense Passage Retrieval model and the data needed to do so.
+category: "QA"
+aliases: ['/tutorials/train-dpr']
+---
+    
 
 # Training Your Own "Dense Passage Retrieval" Model
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/09_DPR_training.ipynb)
 
 Haystack contains all the tools needed to train your own Dense Passage Retrieval model.
 This tutorial will guide you through the steps required to create a retriever that is specifically tailored to your domain.

@@ -1,0 +1,17 @@
+name: Publish tutorials on Haystack Home
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  publish-tutorials:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: trigger-hook
+        run: |
+          curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK }}
