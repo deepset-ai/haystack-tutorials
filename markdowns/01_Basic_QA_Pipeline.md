@@ -12,7 +12,7 @@ aliases: ['/tutorials/first-qa-system']
 ---
     
 
-# TEST Build Your First QA System
+# Build Your First QA System
 
 <img style="float: right;" src="https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg">
 
