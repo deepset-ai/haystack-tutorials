@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/02_Finetune_a_model_on_your_data.ipynb
 toc: True
 title: "Fine-Tuning a Model on Your Own Data"
-last_updated: 2022-10-12
+last_updated: 2022-10-31
 level: "intermediate"
 weight: 50
 description: Improve the performance of your Reader by performing fine-tuning.
@@ -12,7 +12,7 @@ aliases: ['/tutorials/fine-tuning-a-model']
 ---
     
 
-# Fine-tuning a Model on Your Own Data
+# TEST Fine-tuning a Model on Your Own Data
 
 For many use cases it is sufficient to just use one of the existing public models that were trained on SQuAD or other public QA datasets (e.g. Natural Questions).
 However, if you have domain-specific questions, fine-tuning your model on custom examples will very likely boost your performance.

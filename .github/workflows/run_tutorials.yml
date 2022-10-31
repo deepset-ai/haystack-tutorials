@@ -34,12 +34,9 @@ jobs:
           pip install nbconvert ipython
           pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
 
-      - name: Files changed
-        uses: jitterbit/get-changed-files@v1
+      - name: Get changed files
         id: files
-        with:
-          format: space-delimited
-          token: ${{ secrets.GITHUB_TOKEN }}
+        uses: tj-actions/changed-files@v32
 
       - name: Convert notebooks to Python
         shell: bash
@@ -51,7 +48,7 @@ jobs:
               "tutorials/14_Query_Classifier.ipynb"
               "tutorials/18_GPL.ipynb"
           )
-          for changed_file in ${{ steps.files.outputs.all }}; do
+          for changed_file in ${{ steps.files.outputs.all_changed_files }}; do
             if [[ $changed_file == *".ipynb" ]]; then
               if [[ ! " ${skiplist[*]} " =~ " ${changed_file} " ]]; then
                 jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ${changed_file}
