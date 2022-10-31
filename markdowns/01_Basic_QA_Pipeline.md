@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_Pipeline.ipynb
 toc: True
 title: "Build Your First QA System"
-last_updated: 2022-10-31
+last_updated: 2022-10-12
 level: "beginner"
 weight: 10
 description: Get Started by creating a Retriever Reader pipeline.
@@ -115,7 +115,6 @@ The `ElasticsearchDocumentStore` class will try to open a connection in the cons
 
 ```python
 import time
-
 time.sleep(30)
 ```
 
@@ -240,7 +239,6 @@ Alternative:
 
 ```python
 from haystack.nodes import TransformersReader
-
 # reader = TransformersReader(model_name_or_path="distilbert-base-uncased-distilled-squad", tokenizer="distilbert-base-uncased", use_gpu=-1)
 ```
 
