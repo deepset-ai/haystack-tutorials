@@ -18,7 +18,7 @@ repos:
   hooks:
     - id: tutorials-markdown
       name: Markdown version of the tutorials
-      entry: python scripts/generate_markdowns.py
+      entry: python scripts/generate_markdowns.py --notebooks
       language: system
       types: [jupyter]  
       
