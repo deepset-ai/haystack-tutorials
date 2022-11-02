@@ -92,7 +92,7 @@ notebook = "11_Pipelines.ipynb"
 aliases = ["pipelines"]
 
 [[tutorial]]
-title = "Generatice QA with LFQA"
+title = "Generative QA with LFQA"
 description = "Try out a generative model in place of the extractive Reader."
 level = "intermediate"
 weight = 70
