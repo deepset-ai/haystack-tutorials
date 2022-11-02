@@ -22,6 +22,10 @@ aliases: ['/tutorials/multimodal']
 
 **Goal**: After completing this tutorial, you will have learned about the MultiModalRetriever, and built a simple retrieval pipeline that searches for relevant images given a text query.
 
+To make this pipeline work, we first need to embed the images from the dataset using a transformer model. These image embeddings are representative of respective image's content. These embeddings lie in a high dimensional vector space. Then we embed the text query using the same transformer model (i.e. OpenAI CLIP). Because we use the same transformer model, these text embeddings also exist in the same space as the image embeddings. Finally we perform nearest neighbours search to retrieve relevant images for our text query.
+
+Let's go and build a Text-to-Image search pipeline using a small animal dataset!
+
 ## Preparing the Colab Environment
 
 - [Enable GPU Runtime in GPU](https://docs.haystack.deepset.ai/v5.2-unstable/docs/enable-gpu-runtime-in-colab)
