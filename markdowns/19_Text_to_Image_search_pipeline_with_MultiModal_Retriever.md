@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb
 toc: True
 title: "Text-to-Image search pipeline with MultiModal Retriever"
-last_updated: 2022-11-02
+last_updated: 2022-11-03
 level: "intermediate"
 weight: 95
 description: Use a MultiModalRetriever to build a cross modal search pipeline.
@@ -21,6 +21,10 @@ aliases: ['/tutorials/multimodal']
 **Nodes Used**: InMemoryDocumentStore, MultiModalRetriever
 
 **Goal**: After completing this tutorial, you will have learned about the MultiModalRetriever, and built a simple retrieval pipeline that searches for relevant images given a text query.
+
+To make this pipeline work, we first need to embed the images from the dataset using a transformer model. These image embeddings are representative of the respective image's content. These embeddings lie in a high-dimensional vector space. Then we embed the text query using the same transformer model (i.e. OpenAI CLIP). Because we use the same transformer model, these text embeddings also exist in the same space as the image embeddings. Finally, we perform nearest neighbor search to retrieve relevant images for our text query.
+
+Let's go and build a Text-to-Image search pipeline using a small animal dataset!
 
 ## Preparing the Colab Environment
 
@@ -44,10 +48,12 @@ A DocumentStore contains Documents, which in this case are references to the ima
 ```python
 from haystack.document_stores import InMemoryDocumentStore
 
+# Here we initialize the DocumentStore with 512 dims 
+# as we will use it to store 512 dim image embeddings 
 document_store = InMemoryDocumentStore(embedding_dim=512)
 ```
 
-# Downloading data
+# Downloading Data
 
 Download 18 sample images of different animals from . You can find them in data/tutorial19/spirit-animals/ as a set of .jpg files.
 
@@ -91,7 +97,7 @@ retriever_text_to_image = MultiModalRetriever(
     document_store=document_store,
     query_embedding_model = "sentence-transformers/clip-ViT-B-32",
     query_type="text",
-    document_embedding_models = {"image": "sentence-transformers/clip-ViT-B-32"} #, "text": "sentence-transformers/clip-ViT-B-32"},
+    document_embedding_models = {"image": "sentence-transformers/clip-ViT-B-32"}
 )
 
 document_store.update_embeddings(retriever=retriever_text_to_image)
