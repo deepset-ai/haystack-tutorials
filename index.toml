@@ -148,8 +148,8 @@ notebook = "18_GPL.ipynb"
 aliases = ["gpl"]
 
 [[tutorial]]
-title = "Text-to-Image search pipeline with MultiModal Retriever"
-description = "Use a MultiModalRetriever to build a cross modal search pipeline."
+title = "Text-To-Image Search Pipeline with Multimodal Retriever"
+description = "Use a MultiModalRetriever to build a cross-modal search pipeline."
 level = "intermediate"
 weight = 95
 notebook = "19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"

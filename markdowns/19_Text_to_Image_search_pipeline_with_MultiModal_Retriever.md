@@ -2,11 +2,11 @@
 layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb
 toc: True
-title: "Text-to-Image search pipeline with MultiModal Retriever"
+title: "Text-To-Image Search Pipeline with Multimodal Retriever"
 last_updated: 2022-11-03
 level: "intermediate"
 weight: 95
-description: Use a MultiModalRetriever to build a cross modal search pipeline.
+description: Use a MultiModalRetriever to build a cross-modal search pipeline.
 category: "QA"
 aliases: ['/tutorials/multimodal']
 ---
@@ -20,7 +20,7 @@ aliases: ['/tutorials/multimodal']
 
 **Nodes Used**: InMemoryDocumentStore, MultiModalRetriever
 
-**Goal**: After completing this tutorial, you will have learned about the MultiModalRetriever, and built a simple retrieval pipeline that searches for relevant images given a text query.
+**Goal**: After completing this tutorial, you will have built a search system that retrieves images as answers to a text query.
 
 To make this pipeline work, we first need to embed the images from the dataset using a transformer model. These image embeddings are representative of the respective image's content. These embeddings lie in a high-dimensional vector space. Then we embed the text query using the same transformer model (i.e. OpenAI CLIP). Because we use the same transformer model, these text embeddings also exist in the same space as the image embeddings. Finally, we perform a nearest neighbor search to retrieve relevant images for our text query.
 
@@ -31,6 +31,8 @@ Let's go and build a Text-to-Image search pipeline using a small animal dataset!
 - [Enable GPU Runtime in GPU](https://docs.haystack.deepset.ai/v5.2-unstable/docs/enable-gpu-runtime-in-colab)
 - [Check if GPU is Enabled](https://docs.haystack.deepset.ai/v5.2-unstable/docs/check-if-gpu-is-enabled)
 - [Set logging level to INFO](https://docs.haystack.deepset.ai/v5.2-unstable/docs/set-the-logging-level)
+
+# Installing Haystack
 
 
 ```bash
@@ -48,14 +50,14 @@ A DocumentStore contains Documents, which in this case are references to the ima
 ```python
 from haystack.document_stores import InMemoryDocumentStore
 
-# Here we initialize the DocumentStore with 512 dims 
-# as we will use it to store 512 dim image embeddings 
+# Here Here we initialize the DocumentStore to store 512 dim image embeddings 
+# obtained using OpenAI CLIP model
 document_store = InMemoryDocumentStore(embedding_dim=512)
 ```
 
 # Downloading Data
 
-Download 18 sample images of different animals from . You can find them in data/tutorial19/spirit-animals/ as a set of .jpg files.
+Download 18 sample images of different animals and store it. You can find them in data/tutorial19/spirit-animals/ as a set of .jpg files.
 
 
 ```python
@@ -103,9 +105,9 @@ retriever_text_to_image = MultiModalRetriever(
 document_store.update_embeddings(retriever=retriever_text_to_image)
 ```
 
-# Creating the MultiModal search Pipeline
+# Creating the MultiModal Search Pipeline
 
-We are populating a Pipeline with a MultiModalRetriever node. This search pipeline queries the image database with text and returns the most relevant images.
+We are populating a pipeline with a MultiModalRetriever node. This search pipeline queries the image database with text and returns the most relevant images.
 
 
 ```python
@@ -130,6 +132,7 @@ results = pipeline.run(
     params={"retriever_text_to_image": {"top_k": 3}}
 )
 
+# Sort the results based on the scores
 results = sorted(results["documents"], key=lambda d: d.score, reverse=True)
 
 for doc in results:
@@ -140,11 +143,11 @@ Here are some more query strings you could try out:
 
 1.   King of the Jungle
 2.   Fastest animal
-3.   Bird who can see clearly even in the dark
+3.   Bird that can see clearly even in the dark
 
 
 
-You can also vizualize these images with their score easily with below code.
+You can also easily vizualize these images together with their score using this code:
 
 
 
@@ -172,6 +175,8 @@ scores = [doc.score for doc in results]
 for ima, score in zip(images_array, scores):
     display_img_array(ima, score)
 ```
+
+Congratulations! You've created a search system that returns images of animals in answer to a text query.
 
 ## About us
 
