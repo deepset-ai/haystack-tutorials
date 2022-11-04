@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb
 toc: True
 title: "Text-To-Image Search Pipeline with Multimodal Retriever"
-last_updated: 2022-11-03
+last_updated: 2022-11-04
 level: "intermediate"
 weight: 95
 description: Use a MultiModalRetriever to build a cross-modal search pipeline.
@@ -16,15 +16,17 @@ aliases: ['/tutorials/multimodal']
 
 **Time to complete**: 20 minutes
 
-**Prerequisites**: Prepare the Colab environment (see links below).
+**Prerequisites**: This tutorial assumes basic knowledge of Haystack Retrievers and Pipelines. If you want to learn about them, have a look at our tutorials on [Build Your First QA System](https://github.com/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_Pipeline.ipynb) and [Fine-Tuning a Model on Your Own Data](https://github.com/deepset-ai/haystack-tutorials/blob/main/tutorials/02_Finetune_a_model_on_your_data.ipynb).
+
+Prepare the Colab environment (see links below).
 
 **Nodes Used**: InMemoryDocumentStore, MultiModalRetriever
 
 **Goal**: After completing this tutorial, you will have built a search system that retrieves images as answers to a text query.
 
-To make this pipeline work, we first need to embed the images from the dataset using a transformer model. These image embeddings are representative of the respective image's content. These embeddings lie in a high-dimensional vector space. Then we embed the text query using the same transformer model (i.e. OpenAI CLIP). Because we use the same transformer model, these text embeddings also exist in the same space as the image embeddings. Finally, we perform a nearest neighbor search to retrieve relevant images for our text query.
+**Description**: In this tutorial, you'll download a set of images that you'll then turn into embeddings using a transformers model, OpenAI CLIP. You'll then use the same model to embed the text query. Finally, you'll perform a nearest neighbor search to retrieve the images relevant to the text query.
 
-Let's go and build a Text-to-Image search pipeline using a small animal dataset!
+Let's build a text-to-image search pipeline using a small animal dataset!
 
 ## Preparing the Colab Environment
 
@@ -44,7 +46,9 @@ pip install farm-haystack[colab]
 
 # Initializing the DocumentStore
 
-A DocumentStore contains Documents, which in this case are references to the images that Haystack will compare with your query. Here we are using the InMemoryDocumentStore since it requires no external dependencies. To learn more about the DocumentStore and the different types of external databases that we support, see [DocumentStore](https://docs.haystack.deepset.ai/docs/document_store).
+A DocumentStore stores references to the images that Haystack will compare with your query. But before it can do that, you need to initialize it. In this tutorial, you'll use the InMemoryDocumentStore.
+
+If you want to learn more, see [DocumentStore](https://docs.haystack.deepset.ai/docs/document_store).
 
 
 ```python
@@ -87,9 +91,17 @@ images = [
 document_store.write_documents(images)
 ```
 
+You have successfully stored your images in the DocumentStore.
+
+
+
 # Initializing the Retriever
 
-Retrievers sift through all the images and return only those that are relevant based on the input query. Here we are using the [OpenAI CLIP model](https://github.com/openai/CLIP/blob/main/model-card.md) to embed images. For more details on supported modalities, see [MultiModalRetriever](https://docs.haystack.deepset.ai/docs/retriever#multimodal-retrieval).
+Retrievers sift through all the images and return only those that are relevant to the query. To run a search on images, you'll use the MultiModalRetriever with the [OpenAI CLIP model](https://github.com/openai/CLIP/blob/main/model-card.md). 
+
+For more details on supported modalities, see [MultiModalRetriever](https://docs.haystack.deepset.ai/docs/retriever#multimodal-retrieval).
+
+Before adding the Retriever to your pipeline, let's configure its parameters
 
 
 ```python
@@ -102,8 +114,11 @@ retriever_text_to_image = MultiModalRetriever(
     document_embedding_models = {"image": "sentence-transformers/clip-ViT-B-32"}
 )
 
+# Now let's turns our images into embeddings and store them in the DocumentStore.
 document_store.update_embeddings(retriever=retriever_text_to_image)
 ```
+
+ Your retriever is now ready for search!
 
 # Creating the MultiModal Search Pipeline
 
@@ -121,6 +136,8 @@ pipeline.add_node(
 )
 ```
 
+Now, you have a pipeline that uses the MultiModalRetriever and takes a text query as input. Let's try it out.
+
 # Searching Through the Images
 
 Use the pipeline `run()` method to query the images in the DocumentStore. The query argument is where you type your text query. Additionally, you can set the number of images you want the MultiModalRetriever to return using the `top-k` parameter. To learn more about setting arguments, see [Pipeline Arguments](https://docs.haystack.deepset.ai/docs/pipelines#arguments).
@@ -128,7 +145,7 @@ Use the pipeline `run()` method to query the images in the DocumentStore. The qu
 
 ```python
 results = pipeline.run(
-    query="Animal who lives in the water",
+    query="Animal that lives in the water",
     params={"retriever_text_to_image": {"top_k": 3}}
 )
 
