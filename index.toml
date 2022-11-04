@@ -146,3 +146,11 @@ level = "advanced"
 weight = 140
 notebook = "18_GPL.ipynb"
 aliases = ["gpl"]
+
+[[tutorial]]
+title = "Haystack with REST API"
+description = "Create a production-ready pipeline and interact with REST API"
+level = "intermediate"
+weight = 67
+notebook = "20_REST_API.ipynb"
+aliases = ["rest-api"]
