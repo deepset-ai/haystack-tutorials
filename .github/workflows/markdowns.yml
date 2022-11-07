@@ -22,7 +22,7 @@ jobs:
 
       - name: Get changed notebooks
         id: changed-files
-        uses: tj-actions/changed-files@v32
+        uses: tj-actions/changed-files@v34
         with:
           files: |
             tutorials/*.ipynb
