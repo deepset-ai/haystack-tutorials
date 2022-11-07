@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb
 toc: True
 title: "Text-To-Image Search Pipeline with Multimodal Retriever"
-last_updated: 2022-11-04
+last_updated: 2022-11-07
 level: "intermediate"
 weight: 95
 description: Use a MultiModalRetriever to build a cross-modal search pipeline.
@@ -114,7 +114,7 @@ retriever_text_to_image = MultiModalRetriever(
     document_embedding_models = {"image": "sentence-transformers/clip-ViT-B-32"}
 )
 
-# Now let's turns our images into embeddings and store them in the DocumentStore.
+# Now let's turn our images into embeddings and store them in the DocumentStore.
 document_store.update_embeddings(retriever=retriever_text_to_image)
 ```
 
