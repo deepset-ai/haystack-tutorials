@@ -23,7 +23,7 @@ Here's what you need to do to add or edit tutorials 👇:
    - Add your new tutorial to [index.toml](/index.toml). Here, `weight` is the order in which your tutorial appears. For example, a tutorial with `weight = 15` comes after a tutorial with `weight = 10` and before `20`.
 3. Edit an existing tutorial or create a new one in the `/tutorials` folder by editing or creating `.ipynb` files.
 4. Pre-commit hooks will ensure the `markdowns` folder reflects your changes but you can update the docs at any time:
-    - Run `python /scripts/generate_markdowns.py index.toml --notebooks /tutorials/your-tutorial.ipynb --output /markdowns`. This generates or updates the relevant markdown file in `/markdowns`.
+    - Run `python scripts/generate_markdowns.py --index index.toml --notebooks tutorials/your-tutorial.ipynb --output markdowns/`. This generates or updates the relevant markdown file in `/markdowns`.
 5. Create a pull request.
 6. Wait for the [CI](#ci-continuous-integration) checks to pass.
    These checks pass if the relevant markdown files are created.
