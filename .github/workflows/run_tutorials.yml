@@ -23,23 +23,20 @@ jobs:
       ELASTICSEARCH_HOST: "elasticsearch"
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
       - name: Install dependencies
-        # remove pip install pyzmq when this is resolved https://github.com/zeromq/pyzmq/issues/1764
         run: |
-          apt-get update && apt-get install -y build-essential gcc libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
-          pip install pyzmq==23.2.1
+          apt-get update && apt-get install -y git build-essential gcc libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
           pip install nbconvert ipython
           pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
 
-      - name: Files changed
-        uses: jitterbit/get-changed-files@v1
-        id: files
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          format: space-delimited
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 2
+
+      - name: Get changed files
+        id: files
+        uses: tj-actions/changed-files@v34
 
       - name: Convert notebooks to Python
         shell: bash
@@ -51,7 +48,7 @@ jobs:
               "tutorials/14_Query_Classifier.ipynb"
               "tutorials/18_GPL.ipynb"
           )
-          for changed_file in ${{ steps.files.outputs.all }}; do
+          for changed_file in ${{ steps.files.outputs.all_changed_files }}; do
             if [[ $changed_file == *".ipynb" ]]; then
               if [[ ! " ${skiplist[*]} " =~ " ${changed_file} " ]]; then
                 jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ${changed_file}

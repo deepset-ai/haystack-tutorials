@@ -1,15 +1,18 @@
-<!---
-title: "Tutorial 8"
-metaTitle: "Preprocessing"
-metaDescription: ""
-slug: "/docs/tutorial8"
-date: "2021-01-08"
-id: "tutorial8md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb
+toc: True
+title: "Preprocessing Your Documents"
+last_updated: 2022-10-26
+level: "beginner"
+weight: 25
+description: Start converting, cleaning, and splitting Documents using Haystack’s preprocessing capabilities.
+category: "QA"
+aliases: ['/tutorials/preprocessing']
+---
+    
 
 # Preprocessing
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb)
 
 Haystack includes a suite of tools to extract text from different file types, normalize white space
 and split text into smaller pieces to optimize retrieval.
@@ -107,8 +110,8 @@ The PreProcessor class is designed to help you clean text and split text into se
 File splitting can have a very significant impact on the system's performance and is absolutely mandatory for Dense Passage Retrieval models.
 In general, we recommend you split the text from your files into small documents of around 100 words for dense retrieval methods
 and no more than 10,000 words for sparse methods.
-Have a look at the [Preprocessing](https://haystack.deepset.ai/docs/latest/preprocessingmd)
-and [Optimization](https://haystack.deepset.ai/docs/latest/optimizationmd) pages on our website for more details.
+Have a look at the [Preprocessing](https://docs.haystack.deepset.ai/docs/preprocessor)
+and [Optimization](https://docs.haystack.deepset.ai/docs/optimization) pages on our website for more details.
 
 
 ```python

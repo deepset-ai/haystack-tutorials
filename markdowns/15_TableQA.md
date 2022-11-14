@@ -1,14 +1,18 @@
-<!---
-title: "Tutorial 15"
-metaTitle: "TableQA Tutorial"
-metaDescription: ""
-slug: "/docs/tutorial15"
-date: "2021-10-28"
-id: "tutorial15md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb
+toc: True
+title: "Open-Domain QA on Tables"
+last_updated: 2022-10-31
+level: "advanced"
+weight: 130
+description: Perform question answering on tabular data.
+category: "QA"
+aliases: ['/tutorials/table-qa']
+---
+    
 
 # Open-Domain QA on Tables
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb)
 
 This tutorial shows you how to perform question-answering on tables using the `EmbeddingRetriever` or `BM25Retriever` as retriever node and the `TableReader` as reader node.
 
@@ -39,8 +43,23 @@ pip install --upgrade pip
 pip install git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[colab]
 
 # Install pygraphviz for visualization of Pipelines
-!apt install libgraphviz-dev
-!pip install pygraphviz
+apt install libgraphviz-dev
+pip install pygraphviz
+```
+
+
+```python
+# The TaPAs-based TableReader requires the torch-scatter library
+import torch
+
+torch_version = torch.__version__
+```
+
+
+```bash
+%%bash -s "$torch_version"
+
+pip install torch-scatter -f https://data.pyg.org/whl/torch-$1.html
 ```
 
 ## Logging

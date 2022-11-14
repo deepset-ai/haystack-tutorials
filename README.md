@@ -13,6 +13,7 @@ This is the repository where we keep all the Haystack tutorials 📓 👇 These 
 To contribute to the tutorials please check out our [Contributing Guidelines](./Contributing.md)
 
 [![Run Tutorials Nightly](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/nightly.yml/badge.svg)](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/nightly.yml)
+[![Publish tutorials on Haystack Home](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/publish_tutorials.yml/badge.svg)](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/publish_tutorials.yml)
 
 ## Tutorials
 
@@ -34,6 +35,5 @@ To contribute to the tutorials please check out our [Contributing Guidelines](./
 16. [Document Classifier at Index Time](./tutorials/16_Document_Classifier_at_Index_Time.ipynb)
 17. [Audio](./tutorials/17_Audio.ipynb)
 18. [Generative Pseudo Labeling](./tutorials/18_GPL.ipynb)
-19. x
-20. x
+19. [Text-to-Image search](./tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb)
 21. [Distill a Reader](./tutorials/04_distill_a_reader.ipynb)

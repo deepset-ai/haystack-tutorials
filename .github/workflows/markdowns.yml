@@ -20,10 +20,17 @@ jobs:
           python-version: '3.9'
           cache: 'pip' # caching pip dependencies
 
+      - name: Get changed notebooks
+        id: changed-files
+        uses: tj-actions/changed-files@v34
+        with:
+          files: |
+            tutorials/*.ipynb
+
       - name: Install Dependencies and Generate Markdown
         run: |
           pip install -r requirements.txt
-          python scripts/generate_markdowns.py
+          python scripts/generate_markdowns.py --index index.toml --output markdowns --notebooks ${{ steps.changed-files.outputs.all_changed_files }}
 
       - name: Status
         run: |
@@ -33,13 +40,13 @@ jobs:
             echo "#"
             echo "# CHECK FAILED! You need to update the static version of the tutorials."
             echo "#"
-            echo "# Please run the tutorials documentation update script:"
+            echo "# Please run the tutorials markdown update script:"
             echo "#"
-            echo "#    python .github/utils/convert_notebooks_into_webpages.py"
+            echo "#    python scripts/generate_markdowns.py --index index.toml --output markdowns --notebooks ..."
             echo "#"
-            echo "# or see https://github.com/deepset-ai/haystack/blob/main/CONTRIBUTING.md for help."
+            echo "# or see https://github.com/deepset-ai/haystack-tutorials/blob/main/CONTRIBUTING.md for help."
             echo "#"
-            echo "# If you have further problems, please open an issue: https://github.com/deepset-ai/haystack/issues"
+            echo "# If you have further problems, please open an issue: https://github.com/deepset-ai/haystack-tutorials/issues"
             echo "#"
             echo "##################################################################################################"
             exit 1

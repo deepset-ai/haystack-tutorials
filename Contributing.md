@@ -18,10 +18,12 @@ Here's what you need to do to add or edit tutorials 👇:
    - Install the Python requirements with `pip install -r requirements.txt`
    - Install the pre-commit hooks with `pre-commit install`. This utility will run some formatting/checking
    tasks right before all git commit operations.
-2. If you're creating a new tutorial, follow the [naming convention](#naming-convention-for-file-names) for file names.
+2. If you're creating a new tutorial:
+   - Follow the [naming convention](#naming-convention-for-file-names) for file names.
+   - Add your new tutorial to [index.toml](/index.toml). Here, `weight` is the order in which your tutorial appears. For example, a tutorial with `weight = 15` comes after a tutorial with `weight = 10` and before `20`.
 3. Edit an existing tutorial or create a new one in the `/tutorials` folder by editing or creating `.ipynb` files.
 4. Pre-commit hooks will ensure the `markdowns` folder reflects your changes but you can update the docs at any time:
-    - Run `python /scripts/generate_markdowns.py --all`. This generates or updates the relevant markdown file in `/markdowns`.
+    - Run `python scripts/generate_markdowns.py --index index.toml --notebooks tutorials/your-tutorial.ipynb --output markdowns/`. This generates or updates the relevant markdown file in `/markdowns`.
 5. Create a pull request.
 6. Wait for the [CI](#ci-continuous-integration) checks to pass.
    These checks pass if the relevant markdown files are created.
@@ -37,7 +39,7 @@ If all goes well, at the bottom of your PR page, you should see something like t
 
 ![](https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/ci-success.png)
 
-If you see some red checks, then something didn't work and you need to take some action. The most likely reason is that the `.md` file accompanying the `.ipynb` tutorial hasn't been updated or created. You can try to run repeat step 3 in [Contributing to Haystack Tutorials](#contributing-to-haystack-tutorials).
+If you see some red checks, then something didn't work and you need to take some action. The most likely reason is that the `.md` file accompanying the `.ipynb` tutorial hasn't been updated or created. You can try to run repeat step 4 in [Contributing to Haystack Tutorials](#contributing-to-haystack-tutorials).
 
 # Naming Convention for File Names
 

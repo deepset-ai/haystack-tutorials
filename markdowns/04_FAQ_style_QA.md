@@ -1,15 +1,18 @@
-<!---
-title: "Tutorial 4"
-metaTitle: "Utilizing existing FAQs for Question Answering"
-metaDescription: ""
-slug: "/docs/tutorial4"
-date: "2020-09-03"
-id: "tutorial4md"
---->
+---
+layout: tutorial
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/04_FAQ_style_QA.ipynb
+toc: True
+title: "Utilizing Existing FAQs for Question Answering"
+last_updated: 2022-10-12
+level: "beginner"
+weight: 20
+description: Create a smarter way to answer new questions using your existing FAQ documents.
+category: "QA"
+aliases: ['/tutorials/existing-faqs']
+---
+    
 
 # Utilizing existing FAQs for Question Answering
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/04_FAQ_style_QA.ipynb)
 
 While *extractive Question Answering* works on pure texts and is therefore more generalizable, there's also a common alternative that utilizes existing FAQ data.
 
