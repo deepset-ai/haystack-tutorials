@@ -16,9 +16,9 @@ To contribute to the tutorials please check out our [Contributing Guidelines](./
 
 ## Tutorials
 
-1. [Basic QA Pipeline](./tutorials/01_Basic_QA_Pipeline.ipynb)
-2. [Fine Tune a Model on Your Data](./tutorials/02_Finetune_a_model_on_your_data.ipynb)
-3. [Basic QA Pipeline Without Elasticsearch](./tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb)
+1. [Build Your First Question Answering System](./tutorials/01_build_your_first_question_answering_system.ipynb)
+2. [Build a Scalable Question Answering System](./tutorials/02_build_a_scalable_question_answering_system.ipynb)
+3. [Fine-Tune a Reader](./tutorials/03_finetune_a_reader.ipynb)
 4. [FAQ Style QA](./tutorials/04_FAQ_style_QA.ipynb)
 5. [Evaluation](./tutorials/05_Evaluation.ipynb)
 6. [Better Retrieval via Embedding Retrieval](./tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb)
@@ -34,3 +34,6 @@ To contribute to the tutorials please check out our [Contributing Guidelines](./
 16. [Document Classifier at Index Time](./tutorials/16_Document_Classifier_at_Index_Time.ipynb)
 17. [Audio](./tutorials/17_Audio.ipynb)
 18. [Generative Pseudo Labeling](./tutorials/18_GPL.ipynb)
+19. x
+20. x
+21. [Distill a Reader](./tutorials/04_distill_a_reader.ipynb)
