@@ -4,28 +4,28 @@ toc = true
 colab = "https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/"
 
 [[tutorial]]
-title = "Build Your First QA System"
+title = "Build Your First Question Answering System"
 description = "Get Started by creating a Retriever Reader pipeline."
 level = "beginner"
 weight = 10
-notebook = "01_Basic_QA_Pipeline.ipynb"
-aliases = ["first-qa-system"]
+notebook = "01_build_your_first_question_answering_system.ipynb"
+aliases = ["first-qa-system", "01_Basic_QA_Pipeline.ipynb"]
 
 [[tutorial]]
-title = "Fine-Tuning a Model on Your Own Data"
+title = "Build a Scalable Question Answering System"
+description = "Create a scalable Retriever Reader pipeline with an Elasticsearch Document Store."
+level = "beginner"
+weight = 15
+notebook = "02_build_a_scalable_question_answering_system.ipynb"
+aliases = ["without-elasticsearch", "03_Basic_QA_Pipeline_without_Elasticsearch.ipynb", "scalable-qa-system"]
+
+[[tutorial]]
+title = "Fine-Tune a Reader"
 description = "Improve the performance of your Reader by performing fine-tuning."
 level = "intermediate"
 weight = 50
-notebook = "02_Finetune_a_model_on_your_data.ipynb"
-aliases = ["fine-tuning-a-model"]
-
-[[tutorial]]
-title = "Build a QA System Without Elasticsearch"
-description = "Create a Retriever Reader pipeline that requires no external database dependencies."
-level = "beginner"
-weight = 15
-notebook = "03_Basic_QA_Pipeline_without_Elasticsearch.ipynb"
-aliases = ["without-elasticsearch"]
+notebook = "03_finetune_a_reader.ipynb"
+aliases = ["fine-tuning-a-model", "02_Finetune_a_model_on_your_data.ipynb", "fine-tune-reader"]
 
 [[tutorial]]
 title = "Utilizing Existing FAQs for Question Answering"
@@ -154,3 +154,11 @@ level = "intermediate"
 weight = 95
 notebook = "19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
 aliases = ["multimodal"]
+
+[[tutorial]]
+title = "Distill a Reader"
+description = "Transfer a Reader's question answering ability to a smaller more efficient model."
+level = "intermediate"
+weight = 115
+notebook = "21_distill_a_reader.ipynb"
+aliases = ["distill-reader"]
