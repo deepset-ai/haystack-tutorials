@@ -157,7 +157,7 @@ aliases = ["multimodal"]
 
 [[tutorial]]
 title = "Distill a Reader"
-description = "Transfer a Reader's question answering ability to a smaller more efficient model."
+description = "Transfer a Reader's question answering ability to a smaller, more efficient model."
 level = "intermediate"
 weight = 115
 notebook = "21_distill_a_reader.ipynb"
