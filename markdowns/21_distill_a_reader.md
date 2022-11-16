@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/21_distill_a_reader.ipynb
 toc: True
 title: "Distill a Reader"
-last_updated: 2022-11-14
+last_updated: 2022-11-16
 level: "intermediate"
 weight: 115
-description: Transfer a Reader's question answering ability to a smaller more efficient model.
+description: Transfer a Reader's question answering ability to a smaller, more efficient model.
 category: "QA"
 aliases: ['/tutorials/distill-reader']
 ---
     
 
-# Distill a Reader
+# Tutorial: Distill a Reader
 
 - **Level**: Advanced
 - **Time to complete**: 30 minutes

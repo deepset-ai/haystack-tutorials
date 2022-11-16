@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_build_your_first_question_answering_system.ipynb
 toc: True
 title: "Build Your First Question Answering System"
-last_updated: 2022-11-14
+last_updated: 2022-11-16
 level: "beginner"
 weight: 10
 description: Get Started by creating a Retriever Reader pipeline.
@@ -12,7 +12,7 @@ aliases: ['/tutorials/first-qa-system', '/tutorials/01_Basic_QA_Pipeline.ipynb']
 ---
     
 
-# Build Your First Question Answering System
+# Tutorial: Build Your First Question Answering System
 
 - **Level**: Beginner
 - **Time to complete**: 15 minutes
@@ -22,11 +22,11 @@ aliases: ['/tutorials/first-qa-system', '/tutorials/01_Basic_QA_Pipeline.ipynb']
 
 ## Overview
 
-Learn how to set up a question answering system that can search through complex knowledge bases and highlight answers to questions such as "Who is the father of Arya Stark?" In this tutorial, we will work on a set of Wikipedia pages about Game of Thrones, but you can adapt it to search through internal wikis or a collection of financial reports, for example.
+Let's learn how to build a question answering system using Haystack's DocumentStore, Retriever, and Reader. Given a question like "Who is the father of Arya Stark?", this program will search through a knowledge base and look for a fitting answer.
 
-This tutorial will introduce you to all the concepts needed to build such a question answering system. However, certain setup steps, such as Document preparation and indexing as well as pipeline initialization, are simplified so that you can get started quicker.
+While the documents we are using in this tutorial are all to do with Game of Thrones, the question answering system can work in many domains if you provide the documents. For example, you could add your company's internal wikis, or a collection of financial reports and still receive answers to questions on these topics.
 
-Let's learn how to build a question answering system and discover more about the marvellous seven kingdoms!
+To help you get started quicker, we have simplified certain steps in this tutorial. For example, Document preparation and pipeline initialization are handled by ready-made classes that replace lines of initialization code. But don't worry! This doesn't affect how well the question answering system performs.
 
 
 ## Preparing the Colab Environment

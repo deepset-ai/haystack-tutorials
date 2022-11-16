@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_finetune_a_reader.ipynb
 toc: True
 title: "Fine-Tune a Reader"
-last_updated: 2022-11-14
+last_updated: 2022-11-16
 level: "intermediate"
 weight: 50
 description: Improve the performance of your Reader by performing fine-tuning.
@@ -12,16 +12,16 @@ aliases: ['/tutorials/fine-tuning-a-model', '/tutorials/02_Finetune_a_model_on_y
 ---
     
 
-# Fine-Tune a Reader
+# Tutorial: Fine-Tune a Reader to Improve its Performance
 
 - **Level**: Intermediate
 - **Time to complete**: 20 minutes
 - **Nodes Used**: `FARMReader`
-- **Goal**: Learn how to improve the performance of a Reader model by performing fine-tuning.
+- **Goal**: Learn how to improve the performance of a DistilBERT Reader model by performing further training on the SQuAD dataset.
 
 ## Overview
 
-Fine-tuning can improve your Reader's performance on question answering, especially if you're working with very specific domains. While many of the existing public models trained public question answering datasets are enough for most use cases, fine-tuning can help your model understand the phrases and terms specific to your field. While this varies for each domain and dataset, we've had cases where ~2000 examples increased performance by as much as +5-20%. After completing this tutorial, you will have all the tools needed to fine-tune a pretrained model on your own dataset.
+Fine-tuning can improve your Reader's performance on question answering, especially if you're working with very specific domains. While many of the existing public models trained on public question answering datasets are enough for most use cases, fine-tuning can help your model understand the phrases and terms specific to your field. While this varies for each domain and dataset, we've had cases where ~2000 examples increased performance by as much as +5-20%. After completing this tutorial, you will have all the tools needed to fine-tune a pretrained model on your own dataset.
 
 ## Preparing the Colab Environment
 
@@ -45,7 +45,7 @@ pip install farm-haystack[colab]
 
 ## Creating Training Data
 
-To start fine-tuning your Reader model, you need question answering data in the [SQuAD](https://rajpurkar.github.io/SQuAD-explorer/) format. One sample from this data should contain a question, a text answer, and the document in which this answer can be found.
+To start fine-tuning your Reader model, you need question answering data in the [SQuAD](https://rajpurkar.github.io/SQuAD-explorer/) format. One sample from this data should contain a question, a text answer, and the document containing the answer.
 
 You can start generating your own training data using one of the two tools that we offer:
 

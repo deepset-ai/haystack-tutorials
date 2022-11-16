@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/02_build_a_scalable_question_answering_system.ipynb
 toc: True
 title: "Build a Scalable Question Answering System"
-last_updated: 2022-11-14
+last_updated: 2022-11-16
 level: "beginner"
 weight: 15
-description: Create a scalable Retriever Reader pipeline with an Elasticsearch Document Store.
+description: Create a scalable Retriever-Reader pipeline with an Elasticsearch DocumentStore.
 category: "QA"
 aliases: ['/tutorials/without-elasticsearch', '/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb', '/tutorials/scalable-qa-system']
 ---
     
 
-# Build a Scalable Question Answering System
+# Tutorial: Build a Scalable Question Answering System
 
 - **Level**: Beginner
 - **Time to complete**: 20 minutes
