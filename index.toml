@@ -13,7 +13,7 @@ aliases = ["first-qa-system", "01_Basic_QA_Pipeline.ipynb"]
 
 [[tutorial]]
 title = "Build a Scalable Question Answering System"
-description = "Create a scalable Retriever Reader pipeline with an Elasticsearch Document Store."
+description = "Create a scalable Retriever-Reader pipeline with an Elasticsearch DocumentStore."
 level = "beginner"
 weight = 15
 notebook = "02_build_a_scalable_question_answering_system.ipynb"
