@@ -31,8 +31,10 @@ Let's learn how to build a question answering system and discover more about the
 
 ## Preparing the Colab Environment
 
-- [Enabling the GPU in Colab](https://docs.haystack.deepset.ai/docs/enabling-gpu-acceleration#enabling-the-gpu-in-colab)
-- [Set logging level to INFO](https://docs.haystack.deepset.ai/docs/faq#why-is-haystack-not-logging-everything-to-the-console)
+- [Enable GPU Runtime in GPU](https://docs.haystack.deepset.ai/docs/enable-gpu-runtime-in-colab)
+- [Check if GPU is Enabled](https://docs.haystack.deepset.ai/docs/check-if-gpu-is-enabled)
+- [Set logging level to INFO](https://docs.haystack.deepset.ai/docs/set-the-logging-level)
+
 
 ## Installing Haystack
 
