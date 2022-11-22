@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb
 toc: True
 title: "Preprocessing Your Documents"
-last_updated: 2022-10-26
+last_updated: 2022-11-22
 level: "beginner"
 weight: 25
 description: Start converting, cleaning, and splitting Documents using Haystack’s preprocessing capabilities.
@@ -38,12 +38,12 @@ pip install --upgrade pip
 pip install git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[colab,ocr]
 
 # For Colab/linux based machines:
-!wget https://dl.xpdfreader.com/xpdf-tools-linux-4.04.tar.gz
-!tar -xvf xpdf-tools-linux-4.04.tar.gz && sudo cp xpdf-tools-linux-4.04/bin64/pdftotext /usr/local/bin
+wget https://dl.xpdfreader.com/xpdf-tools-linux-4.04.tar.gz
+tar -xvf xpdf-tools-linux-4.04.tar.gz && sudo cp xpdf-tools-linux-4.04/bin64/pdftotext /usr/local/bin
 
 # For macOS machines:
-# !wget https://dl.xpdfreader.com/xpdf-tools-mac-4.03.tar.gz
-# !tar -xvf xpdf-tools-mac-4.03.tar.gz && sudo cp xpdf-tools-mac-4.03/bin64/pdftotext /usr/local/bin
+# wget https://dl.xpdfreader.com/xpdf-tools-mac-4.03.tar.gz
+# tar -xvf xpdf-tools-mac-4.03.tar.gz && sudo cp xpdf-tools-mac-4.03/bin64/pdftotext /usr/local/bin
 ```
 
 ## Logging
