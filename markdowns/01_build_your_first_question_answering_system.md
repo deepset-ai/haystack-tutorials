@@ -80,8 +80,7 @@ fetch_archive_from_http(
 
 ```python
 import os
-from haystack.pipelines.standard_pipelines import TextIndexingPipeline
-# from text_indexing_pipeline import TextIndexingPipeline
+from haystack.pipelines import TextIndexingPipeline
 
 files_to_index = [doc_dir + "/" + f for f in os.listdir(doc_dir)]
 indexing_pipeline = TextIndexingPipeline(document_store)
@@ -100,9 +99,9 @@ Retrievers sift through all the Documents and return only those that it thinks m
 
 
 ```python
-from haystack.nodes import TfidfRetriever
+from haystack.nodes import BM25Retriever
 
-retriever = TfidfRetriever(document_store=document_store)
+retriever = BM25Retriever(document_store=document_store)
 ```
 
 ## Initializing the Reader
