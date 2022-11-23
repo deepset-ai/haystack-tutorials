@@ -36,3 +36,4 @@ To contribute to the tutorials please check out our [Contributing Guidelines](./
 17. [Audio](./tutorials/17_Audio.ipynb)
 18. [Generative Pseudo Labeling](./tutorials/18_GPL.ipynb)
 19. [Text-to-Image search](./tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb)
+20. [REST API](./tutorials/20_REST_API.ipynb)

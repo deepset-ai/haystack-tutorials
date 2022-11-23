@@ -157,8 +157,8 @@ aliases = ["multimodal"]
 
 [[tutorial]]
 title = "Haystack with REST API"
-description = "Create a production-ready pipeline and interact with REST API"
-level = "intermediate"
-weight = 67
+description = "Create a production-ready pipeline and interact with REST API."
+level = "advanced"
+weight = 115
 notebook = "20_REST_API.ipynb"
 aliases = ["rest-api"]

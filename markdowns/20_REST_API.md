@@ -4,9 +4,9 @@ colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/bl
 toc: True
 title: "Haystack with REST API"
 last_updated: 2022-11-23
-level: "intermediate"
-weight: 67
-description: Create a production-ready pipeline and interact with REST API
+level: "advanced"
+weight: 115
+description: Create a production-ready pipeline and interact with REST API.
 category: "QA"
 aliases: ['/tutorials/rest-api']
 ---
