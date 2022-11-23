@@ -35,3 +35,4 @@ To contribute to the tutorials please check out our [Contributing Guidelines](./
 16. [Document Classifier at Index Time](./tutorials/16_Document_Classifier_at_Index_Time.ipynb)
 17. [Audio](./tutorials/17_Audio.ipynb)
 18. [Generative Pseudo Labeling](./tutorials/18_GPL.ipynb)
+19. [Text-to-Image search](./tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb)

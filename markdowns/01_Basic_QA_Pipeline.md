@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_Pipeline.ipynb
 toc: True
 title: "Build Your First QA System"
-last_updated: 2022-10-12
+last_updated: 2022-11-07
 level: "beginner"
 weight: 10
 description: Get Started by creating a Retriever Reader pipeline.
@@ -247,7 +247,7 @@ from haystack.nodes import TransformersReader
 With a Haystack `Pipeline` you can stick together your building blocks to a search pipeline.
 Under the hood, `Pipelines` are Directed Acyclic Graphs (DAGs) that you can easily customize for your own use cases.
 To speed things up, Haystack also comes with a few predefined Pipelines. One of them is the `ExtractiveQAPipeline` that combines a retriever and a reader to answer our questions.
-You can learn more about `Pipelines` in the [docs](https://haystack.deepset.ai/docs/latest/pipelinesmd).
+You can learn more about `Pipelines` in the [docs](https://haystack.deepset.ai/docs/latest/pipelines).
 
 
 ```python
