@@ -56,7 +56,7 @@ A DocumentStore stores the Documents that the question answering system uses to 
 ```python
 from haystack.document_stores import InMemoryDocumentStore
 
-document_store = InMemoryDocumentStore()
+document_store = InMemoryDocumentStore(use_bm25=True)
 ```
 
 ## Preparing Documents
