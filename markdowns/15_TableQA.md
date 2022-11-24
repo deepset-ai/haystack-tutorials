@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb
 toc: True
 title: "Open-Domain QA on Tables"
-last_updated: 2022-10-31
+last_updated: 2022-11-24
 level: "advanced"
 weight: 130
 description: Perform question answering on tabular data.
 category: "QA"
 aliases: ['/tutorials/table-qa']
+download: "/downloads/15_TableQA.ipynb"
 ---
     
 
-# Open-Domain QA on Tables
 
 This tutorial shows you how to perform question-answering on tables using the `EmbeddingRetriever` or `BM25Retriever` as retriever node and the `TableReader` as reader node.
 

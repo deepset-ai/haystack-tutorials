@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/05_Evaluation.ipynb
 toc: True
 title: "Evaluation of a QA System"
-last_updated: 2022-10-12
+last_updated: 2022-11-24
 level: "advanced"
 weight: 100
 description: Learn how to evaluate the performance of individual nodes as well as entire pipelines.
 category: "QA"
 aliases: ['/tutorials/evaluation']
+download: "/downloads/05_Evaluation.ipynb"
 ---
     
 
-# Evaluation of a Pipeline and its Components
 
 To be able to make a statement about the quality of results a question-answering pipeline or any other pipeline in haystack produces, it is important to evaluate it. Furthermore, evaluation allows determining which components of the pipeline can be improved.
 The results of the evaluation can be saved as CSV files, which contain all the information to calculate additional metrics later on or inspect individual predictions.

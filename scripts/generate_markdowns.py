@@ -27,7 +27,7 @@ weight: {tutorial["weight"]}
 description: {tutorial["description"]}
 category: "QA"
 aliases: {aliases}
-download: "downloads/{tutorial["notebook"]}"
+download: "/downloads/{tutorial["notebook"]}"
 ---
     """
     return frontmatter
