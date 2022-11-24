@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/04_FAQ_style_QA.ipynb
 toc: True
 title: "Utilizing Existing FAQs for Question Answering"
-last_updated: 2022-10-12
+last_updated: 2022-11-24
 level: "beginner"
 weight: 20
 description: Create a smarter way to answer new questions using your existing FAQ documents.
 category: "QA"
 aliases: ['/tutorials/existing-faqs']
+download: "/downloads/04_FAQ_style_QA.ipynb"
 ---
     
 
-# Utilizing existing FAQs for Question Answering
 
 While *extractive Question Answering* works on pure texts and is therefore more generalizable, there's also a common alternative that utilizes existing FAQ data.
 
