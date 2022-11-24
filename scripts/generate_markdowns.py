@@ -36,8 +36,8 @@ def generate_markdown_from_notebook(config, tutorial, output_path, tutorials_pat
     md_exporter = MarkdownExporter(exclude_output=True)
     body, _ = md_exporter.from_filename(f"{tutorials_path}")
     print(f"Processing {tutorials_path}")
-
-    with open(f"{output_path}/{tutorial['notebook'][:-6]}.md", "w", encoding="utf-8") as f:
+    filename = tutorial.get('slug', tutorial['notebook'][:-6])
+    with open(f"{output_path}/{filename}.md", "w", encoding="utf-8") as f:
         try:
             f.write(frontmatter + "\n\n")
         except IndexError as e:

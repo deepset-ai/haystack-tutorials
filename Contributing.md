@@ -30,6 +30,12 @@ Here's what you need to do to add or edit tutorials 👇:
 7. Update the [README](./README.md), if necessary.
 8. Wait for a review and merge 🎉. Thank you for contributing 💙.
 
+## Slugs
+
+The default behaviour for markdown files is that it gets the same name as the corresponfing `.ipynb` notebook of that tutorial. The name of the markdown file is also the location at which the tutorial will appear on the website. 
+For example, "01_Basic_QA_Pipeline" will be on https://haystack.deepset.ai/tutorials/01_basic_qa_pipeline
+
+In `index.toml` you have the option of adding an optional `slug` entry for a tutorial which will generate the correspoinding markdown under the name you give for the `slug`. This is useful for scenarios where you are updating a tutorial to the point where it makes sense that the name of the `.ipynb` file changes, but you would still like people to access the tutorial on the same URL.
 
 # Continuous Integration (CI)
 
