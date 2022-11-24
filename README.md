@@ -16,23 +16,24 @@ To contribute to the tutorials please check out our [Contributing Guidelines](./
 [![Publish tutorials on Haystack Home](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/publish_tutorials.yml/badge.svg)](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/publish_tutorials.yml)
 
 ## Tutorials
-
-1. [Basic QA Pipeline](./tutorials/01_Basic_QA_Pipeline.ipynb)
-2. [Fine Tune a Model on Your Data](./tutorials/02_Finetune_a_model_on_your_data.ipynb)
-3. [Basic QA Pipeline Without Elasticsearch](./tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb)
-4. [FAQ Style QA](./tutorials/04_FAQ_style_QA.ipynb)
-5. [Evaluation](./tutorials/05_Evaluation.ipynb)
-6. [Better Retrieval via Embedding Retrieval](./tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb)
-7. [RAG Generator](./tutorials/07_RAG_Generator.ipynb)
-8. [Preprocessing](./tutorials/08_Preprocessing.ipynb)
-9. [DPR Training](./tutorials/09_DPR_training.ipynb)
-10. [Knowledge Graph](./tutorials/10_Knowledge_Graph.ipynb)
-11. [Pipelines](./tutorials/11_Pipelines.ipynb)
-12. [Long-Form Question Answering](./tutorials/12_LFQA.ipynb)
-13. [Question Generation](./tutorials/13_Question_generation.ipynb)
-14. [Query Classifier](./tutorials/14_Query_Classifier.ipynb)
-15. [Table QA](./tutorials/15_TableQA.ipynb)
-16. [Document Classifier at Index Time](./tutorials/16_Document_Classifier_at_Index_Time.ipynb)
-17. [Audio](./tutorials/17_Audio.ipynb)
-18. [Generative Pseudo Labeling](./tutorials/18_GPL.ipynb)
-19. [Text-to-Image search](./tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb)
+| Name | Colab | Source Code |
+|---   |---    |---          |
+|Basic QA Pipeline|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_Pipeline.ipynb)|[Source Code](./tutorials/01_Basic_QA_Pipeline.ipynb)|
+|Fine Tune a Model on Your Data|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/02_Finetune_a_model_on_your_data.ipynb)|[Source Code](./tutorials/02_Finetune_a_model_on_your_data.ipynb)|
+|Basic QA Pipeline Without Elasticsearch|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb)|[Source Code](./tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb)|
+|FAQ Style QA|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/04_FAQ_style_QA.ipynb)|[Source Code](./tutorials/04_FAQ_style_QA.ipynb)|
+|Evaluation|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/05_Evaluation.ipynb)|[Source Code](./tutorials/05_Evaluation.ipynb)|
+|Better Retrieval via Embedding Retrieval|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb)|[Source Code](./tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb)|
+|RAG Generator|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/07_RAG_Generator.ipynb)|[Source Code](./tutorials/07_RAG_Generator.ipynb)|
+|Preprocessing|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb)|[Source Code](./tutorials/08_Preprocessing.ipynb)|
+|DPR Training|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/09_DPR_training.ipynb)|[Source Code](./tutorials/09_DPR_training.ipynb)|
+|Knowledge Graph|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/10_Knowledge_Graph.ipynb)|[Source Code](./tutorials/10_Knowledge_Graph.ipynb)|
+|Pipelines|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/11_Pipelines.ipynb)|[Source Code](./tutorials/11_Pipelines.ipynb)|
+|Long-Form Question Answering|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/12_LFQA.ipynb)|[Source Code](./tutorials/12_LFQA.ipynb)|
+|Question Generation|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/13_Question_generation.ipynb)|[Source Code](./tutorials/13_Question_generation.ipynb)|
+|Query Classifier|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/14_Query_Classifier.ipynb)|[Source Code](./tutorials/14_Query_Classifier.ipynb)|
+|Table QA|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb)|[Source Code](./tutorials/15_TableQA.ipynb)|
+|Document Classifier at Index Time|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/16_Document_Classifier_at_Index_Time.ipynb)|[Source Code](./tutorials/16_Document_Classifier_at_Index_Time.ipynb)|
+|Audio|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/17_Audio.ipynb)|[Source Code](./tutorials/17_Audio.ipynb)|
+|Generative Pseudo Labeling|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/18_GPL.ipynb)|[Source Code](./tutorials/18_GPL.ipynb)|
+|Text-to-Image search|[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb)|[Source Code](./tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb)|
