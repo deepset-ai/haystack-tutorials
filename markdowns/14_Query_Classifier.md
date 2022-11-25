@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/14_Query_Classifier.ipynb
 toc: True
 title: "Query Classifier"
-last_updated: 2022-10-12
+last_updated: 2022-11-24
 level: "intermediate"
 weight: 80
 description: Classify incoming queries so that they can be routed to the nodes that are best at handling them.
 category: "QA"
 aliases: ['/tutorials/query-classifier']
+download: "/downloads/14_Query_Classifier.ipynb"
 ---
     
 
-# Query Classifier Tutorial
 
 One of the great benefits of using state-of-the-art NLP models like those available in Haystack is that it allows users to state their queries as *plain natural language questions*: rather than trying to come up with just the right set of keywords to find the answer to their question, users can simply ask their question in much the same way that they would ask it of a (very knowledgeable!) person.
 

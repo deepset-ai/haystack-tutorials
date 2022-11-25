@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/16_Document_Classifier_at_Index_Time.ipynb
 toc: True
 title: "Document Classification at Index Time"
-last_updated: 2022-10-12
+last_updated: 2022-11-24
 level: "intermediate"
 weight: 85
 description: Generate and attach classification labels to your Documents when indexing.
 category: "QA"
 aliases: ['/tutorials/doc-class-index']
+download: "/downloads/16_Document_Classifier_at_Index_Time.ipynb"
 ---
     
 
-# Extending your Metadata using DocumentClassifiers at Index Time
 
 With DocumentClassifier it's possible to automatically enrich your documents with categories, sentiments, topics or whatever metadata you like. This metadata could be used for efficient filtering or further processing. Say you have some categories your users typically filter on. If the documents are tagged manually with these categories, you could automate this process by training a model. Or you can leverage the full power and flexibility of zero shot classification. All you need to do is pass your categories to the classifier, no labels required. This tutorial shows how to integrate it in your indexing pipeline.
 

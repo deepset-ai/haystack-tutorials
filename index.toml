@@ -10,6 +10,7 @@ level = "beginner"
 weight = 10
 notebook = "01_Basic_QA_Pipeline.ipynb"
 aliases = ["first-qa-system"]
+slug = "01_Basic_QA_Pipeline"
 
 [[tutorial]]
 title = "Fine-Tuning a Model on Your Own Data"
