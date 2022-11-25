@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/20_REST_API.ipynb
 toc: True
 title: "Haystack with REST API"
-last_updated: 2022-11-23
+last_updated: 2022-11-25
 level: "advanced"
 weight: 115
 description: Create a production-ready pipeline and interact with REST API.
@@ -22,19 +22,17 @@ aliases: ['/tutorials/rest-api']
 
 ## Overview
 
-Haystack enables you to apply the latest NLP technology to your own data and create production-ready applications. Building an end-to-end NLP application requires the combination of multiple concepts. Here are those consepts:
+Haystack enables you to apply the latest NLP technology to your own data and create production-ready applications. Building an end-to-end NLP application requires the combination of multiple concepts. Here are those concepts:
 * **DocumentStore** stores the data. You will use Elasticsearch for this tutorial.
-* **Haystack** pipelines convert documents, index them to DocumentStore, and run NLP tasks such as question answering and document search.
-* **REST API** interacts with Haystack and other applications to pass query and response between them.
+* **Haystack** pipelines convert files into [Documents](https://docs.haystack.deepset.ai/docs/documents_answers_labels#document), index them to DocumentStore, and run NLP tasks such as question answering and document search.
+* **REST API** allows other applications to interact with Haystack by handling their queries and returning responses.
 * **Docker** simplifies the environment set-up needed to have Elasticsearch running.
 
 This tutorial introduces you to all the concepts needed to build an end-to-end document search application. After completing this tutorial, you will have learned how to create a pipeline YAML file, index files and query your application using REST API.
 
 ## Preparing the Environment
 
-1. Update or install Docker and Docker Compose, then launch Docker:
-
-Set up Docker to start an Elasticsearch container. 
+1. Update or install Docker and Docker Compose, and launch Docker.
 
 
 ```bash
@@ -44,7 +42,7 @@ apt-get update && apt-get install docker && apt-get install docker-compose
 service docker start
 ```
 
-2. Install Haystack:
+2. Install Haystack.
 
 Install the latest version of Haystack from the main branch and all its dependencies. REST API and `xpdf` are also required.  
 
@@ -59,7 +57,7 @@ pip install -e rest_api/
 brew install xpdf # required for PDFToTextConverter node
 ```
 
-3. Clone Haystack repository:
+3. Clone Haystack repository.
 
 Haystack provides a `docker-compose.yml` file that defines a container for Elasticsearch. Clone the Haystack repository to be able to run the `docker-compose.yml` file locally. 
 
@@ -70,9 +68,9 @@ Haystack provides a `docker-compose.yml` file that defines a container for Elast
 git clone https://github.com/deepset-ai/haystack.git
 ```
 
-4. Update the `docker-compose.yml` file:
+4. Update the `docker-compose.yml` file.
 
-The current `docker-compose.yml` file has basic settings and it also provides an image for Elasticsearch container which needs to change. For that, go to `docker-compose.yml` and convert `image: "deepset/elasticsearch-countries-and-capitals"` line into `image: "docker.elastic.co/elasticsearch/elasticsearch:7.9.2"`. The new image is going to provide an empty Elasticsearch instance instead of an instance with some indexed articles about countries and capital cities. 
+The current `docker-compose.yml` file has basic settings and it also provides an image for Elasticsearch container which needs to change. For that, go to `docker-compose.yml` and replace `image: "deepset/elasticsearch-countries-and-capitals"` with `image: "docker.elastic.co/elasticsearch/elasticsearch:7.9.2"`. The new image is going to provide an empty Elasticsearch instance instead of an instance with some indexed articles about countries and capital cities. 
 
 
 ```yaml
@@ -94,9 +92,9 @@ services:
   ...
 ```
 
-5. Launch Elasticsearch:
+5. Launch Elasticsearch.
 
-Go to the directory where `docker-compose.yml` is and start the Elasticsearch container. You might have realised that there are settings for haystack and ui containers provided in the `docker-compose.yml`. They are not necessary for in this tutorial. Run `docker-compose up` with `elasticsearch` argument so that only the Elasticsearch container launches.
+Go to the directory where `docker-compose.yml` is and start the Elasticsearch container. You might have realised that there are settings for haystack and ui containers provided in the `docker-compose.yml`. They are not necessary for in this tutorial. Run `docker-compose up` with the `elasticsearch` argument so that only the Elasticsearch container launches.
 
 
 ```bash
@@ -106,7 +104,7 @@ cd haystack
 docker-compose up elasticsearch
 ```
 
-6. Check Elasticsearch health
+6. Check Elasticsearch health.
 
 Launching Elasticsearch takes some time, so, make sure you have a `healthy` Elasticsearch container before continuing. You can check the container health with the `docker ps` command. A `healthy` container should have a healthy status on port 9200.
 
@@ -121,11 +119,11 @@ docker ps
 
 ## Create Pipeline YAML File
 
-YAML files are widely used for confugurations. Haystack enables defining pipelines as YAML files and `load_from_yaml` method loads pipelines from YAML file. In a YAML file, `components` section defines all pipeline nodes and `pipelines` section defines how these nodes are connected to each other to form a pipeline. Let's start with defining query and indexing pipelines.
+YAML files are widely used for configurations. Haystack enables defining pipelines as YAML files and the `load_from_yaml()` method loads pipelines from YAML file. In a YAML file, the `components` section defines all pipeline nodes and `pipelines` section defines how these nodes are connected to each other to form a pipeline. Let's start with defining query and indexing pipelines.
 
-1. Create a Document Search Pipeline
+1. Create a document search pipeline.
 
-As the query pipeline, you will create a Document Search pipeline from scratch. Create a new file named `document-search.haystack-pipeline.yml` in `/pipeline` folder under `/rest_api` in Haystack code base. Then, update `PIPELINE_YAML_PATH` value in `rest_api/config.py` with the new file name. `PIPELINE_YAML_PATH` will tell the REST API which YAML file to run. 
+To act as your query pipeline, you will design a document search pipeline from scratch. Create a new file named `document-search.haystack-pipeline.yml` in `/pipeline` folder under `/rest_api` in the Haystack code base. Then, update the `PIPELINE_YAML_PATH` value in `rest_api/config.py` with the new file name. `PIPELINE_YAML_PATH` variable will tell the REST API which YAML file to run. 
 
 ```python
 PIPELINE_YAML_PATH = os.getenv(
@@ -133,7 +131,7 @@ PIPELINE_YAML_PATH = os.getenv(
 )
 ```
 
-A document search pipeline requires a DocumentStore and a Retriever. Use `ElasticsearchDocumentStore` and `EmbeddingRetriever` for these nodes respectively and define them under `components`. For each component, `type` needs to refer to a pipeline node in Haystack, `name` refers how these nodes are called in the pipeline YAML, and `params` is used for the parameters that can be provided. As Retriever parameters, provide `document_store`, `embedding_model` and a `top_k` value. 
+A document search pipeline requires a DocumentStore and a Retriever. Use `ElasticsearchDocumentStore` and `EmbeddingRetriever` for these nodes respectively and define them under `components`. For each component, `type` needs to refer to a node class in Haystack, `name` refers how these nodes are called in the pipeline YAML, and `params` is used for the parameters that can be provided to the node. As Retriever parameters, provide `document_store`, `embedding_model` and a `top_k` value.
 
 ```yaml
 components:
@@ -157,7 +155,7 @@ pipelines:
         inputs: [Query]
 ```
 
-2. Create an Indexing Pipeline
+2. Create an indexing pipeline.
 
 You can define an indexing pipeline in the same pipeline YAML file and index your documents to Elasticsearch through REST API. For that, create `FileTypeClassifier`, `TextConverter`, `PDFToTextConverter`, and last, `PreProcessor` nodes with parameters to split documents. 
 
@@ -200,7 +198,7 @@ pipelines:
         inputs: [Retriever]
 ```
 
-After completing query and indexing pipelines, add `version: ignore` to the top of the file and the pipeline YAML file is ready to run by Haystack API.
+After completing query and indexing pipelines, add `version: ignore` to the top of the file. Now, the pipeline YAML is completed.
 
 ```yaml
 version: ignore
@@ -249,9 +247,11 @@ pipelines:
         inputs: [Retriever]
 ```
 
+Feel free to play with the pipeline setup later on. Add or remove some nodes, change the parameters or add new ones. Check out [Haystack API Reference](https://docs.haystack.deepset.ai/reference/answer-generator-api) for more options on nodes and parameters.
+
 ## Start Haystack API
 
-Now, you can start the REST API server running the pipelines above with gunicorn server. When the startup completed, you will see it running on port 8000.
+Now, you can start the REST API server running the pipelines above with gunicorn server. When the startup is complete, you will see it running on port 8000.
 
 
 ```bash
@@ -260,7 +260,7 @@ Now, you can start the REST API server running the pipelines above with gunicorn
 gunicorn rest_api.application:app -b 0.0.0.0:8000 -k uvicorn.workers.UvicornWorker -t 300
 ```
 
-Before continuing, test if everything is okay with the Haystack API by sending a cURL request to `/initialized` endpoint. You can use command line of your computer or tools like [Postman](https://www.postman.com/) to send cURL requests. If there is no problem, you will get a response as `true`.
+Before continuing, test if everything is okay with the Haystack API by sending a cURL request to the `/initialized` endpoint. You can use command line of your computer or tools like [Postman](https://www.postman.com/) to send cURL requests. If there is no problem, you will get a response as `true`.
 
 
 ```bash
@@ -273,13 +273,13 @@ curl --request GET http://127.0.0.1:8000/initialized
 
 Right now, the Elasticsearch instance is empty. Haystack API provides a `/file-upload` endpoint to upload files to Elasticsearch using the indexing pipeline defined in the pipeline YAML. After indexing files to Elasticsearch, you will be able to perform document search.
 
-1. Download Example Files
+1. Download example files.
 
 Download the [example files](https://s3.eu-central-1.amazonaws.com/deepset.ai-farm-qa/datasets/documents/article_txt_countries_and_capitals.zip) you will be indexing to Elasticsearch. In the folder, there are text files about countries and capitals crawled from [Wikipedia](https://en.wikipedia.org/wiki/Category:Lists_of_countries_by_continent).
 
-2. Index Files to Elasticsearch
+2. Index files to Elasticsearch.
 
-You can send cURL requests to `/file-upload` endpoint to upload files to Elasticsearch instance. Replace `<PATH_TO_FOLDER>` with the path to the example files on your computer and send the POST request. If the file is successfully uploaded, you will get a response as `null`.
+You can send cURL requests to the `/file-upload` endpoint to upload files to the Elasticsearch instance. Replace `<PATH_TO_FOLDER>` with the path to the example files on your computer and send the POST request. If the file is successfully uploaded, you will get a response as `null`.
 
 
 ```bash
@@ -293,7 +293,7 @@ curl --request POST \
      --form meta=null
 ```
 
-However, this method is not convenient to upload multiple files to Elasticsearch instance as replacing the file names in the request by hand is difficult. Instead, create a python file in the folder that you keep the example files, put the code below into the python file, and run the python script. This python code takes the name of every file in the folder and sends the POST request to the url `http://127.0.0.1:8000/file-upload`. With the `print(response.text, ":", file_name)` line, you will be able to see the names of all indexed files. Make sure you see the "Completed" text before continuing. 
+However, this method is not convenient for uploading multiple files to the Elasticsearch instance as replacing the file names in the request by hand is difficult. Instead, create a python file in the folder that you keep the example files, put the code below into the python file, and run the python script. This python code takes the name of every file in the folder and sends the POST request to the url `http://127.0.0.1:8000/file-upload`. With the `print(response.text, ":", file_name)` line, you will be able to see the names of all indexed files. Make sure you see the "Completed" text before continuing. 
 
 ```python
 import os
@@ -329,7 +329,7 @@ curl --request POST \
      }'
 ```
 
- As response, you will get a `QueryResponse` object consists of `query`, `answers`, and `documents`. Related [Documents](https://docs.haystack.deepset.ai/docs/documents_answers_labels#document) to your query will be under `documents` attribute of the object.
+ As response, you will get a `QueryResponse` object consists of `query`, `answers`, and `documents`. Related Documents to your query will be under the `documents` attribute of the object.
 
  ```bash
 {
