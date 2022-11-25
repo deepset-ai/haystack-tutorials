@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb
 toc: True
 title: "Text-To-Image Search Pipeline with Multimodal Retriever"
-last_updated: 2022-11-24
+last_updated: 2022-11-25
 level: "intermediate"
 weight: 95
 description: Use a MultiModalRetriever to build a cross-modal search pipeline.
 category: "QA"
 aliases: ['/tutorials/multimodal']
+download: "/downloads/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
 ---
     
 
-# Text-To-Image Search Pipeline with Multimodal Retriever
 
 **Level**: Intermediate
 
