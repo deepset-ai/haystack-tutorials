@@ -26,7 +26,7 @@ title = "Build a Scalable Question Answering System"
 description = "Create a scalable Retriever Reader pipeline that uses an ElasticsearchDocumentStore."
 level = "beginner"
 weight = 15
-notebook = "03_build_a_scalable_question_answering_system.ipynb.ipynb"
+notebook = "03_build_a_scalable_question_answering_system.ipynb"
 aliases = ["without-elasticsearch"]
 slug = "03_scalable_qa_pipeline"
 
