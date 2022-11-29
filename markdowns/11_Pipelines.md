@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/11_Pipelines.ipynb
 toc: True
 title: "How to Use Pipelines"
-last_updated: 2022-10-28
+last_updated: 2022-11-24
 level: "intermediate"
 weight: 65
 description: Learn about the many ways which you can route queries through the nodes in a pipeline.
 category: "QA"
 aliases: ['/tutorials/pipelines']
+download: "/downloads/11_Pipelines.ipynb"
 ---
     
 
-# Pipelines Tutorial
 
 In this tutorial, you will learn how the `Pipeline` class acts as a connector between all the different
 building blocks that are found in FARM. Whether you are using a Reader, Generator, Summarizer

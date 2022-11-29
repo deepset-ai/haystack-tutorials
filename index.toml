@@ -8,24 +8,25 @@ title = "Build Your First Question Answering System"
 description = "Get Started by creating a Retriever Reader pipeline."
 level = "beginner"
 weight = 10
-notebook = "01_build_your_first_question_answering_system.ipynb"
-aliases = ["first-qa-system", "01_Basic_QA_Pipeline.ipynb"]
-
-[[tutorial]]
-title = "Build a Scalable Question Answering System"
-description = "Create a scalable Retriever-Reader pipeline with an Elasticsearch DocumentStore."
-level = "beginner"
-weight = 15
-notebook = "02_build_a_scalable_question_answering_system.ipynb"
-aliases = ["without-elasticsearch", "03_Basic_QA_Pipeline_without_Elasticsearch.ipynb", "scalable-qa-system"]
+notebook = "01_Basic_QA_Pipeline.ipynb"
+aliases = ["first-qa-system"]
+slug = "01_Basic_QA_Pipeline"
 
 [[tutorial]]
 title = "Fine-Tune a Reader"
 description = "Improve the performance of your Reader by performing fine-tuning."
 level = "intermediate"
 weight = 50
-notebook = "03_finetune_a_reader.ipynb"
-aliases = ["fine-tuning-a-model", "02_Finetune_a_model_on_your_data.ipynb", "fine-tune-reader"]
+notebook = "02_Finetune_a_model_on_your_data.ipynb"
+aliases = ["fine-tuning-a-model"]
+
+[[tutorial]]
+title = "Build a QA System Without Elasticsearch"
+description = "Create a Retriever Reader pipeline that requires no external database dependencies."
+level = "beginner"
+weight = 15
+notebook = "03_Basic_QA_Pipeline_without_Elasticsearch.ipynb"
+aliases = ["without-elasticsearch"]
 
 [[tutorial]]
 title = "Utilizing Existing FAQs for Question Answering"

@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/17_Audio.ipynb
 toc: True
 title: "Make Your QA Pipelines Talk!"
-last_updated: 2022-10-12
+last_updated: 2022-11-24
 level: "intermediate"
 weight: 90
 description: Convert text Answers into speech.
 category: "QA"
 aliases: ['/tutorials/audio']
+download: "/downloads/17_Audio.ipynb"
 ---
     
 
-# Make Your QA Pipelines Talk!
 
 <img style="float: right;" src="https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg">
 

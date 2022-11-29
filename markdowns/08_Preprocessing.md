@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb
 toc: True
 title: "Preprocessing Your Documents"
-last_updated: 2022-10-26
+last_updated: 2022-11-24
 level: "beginner"
 weight: 25
 description: Start converting, cleaning, and splitting Documents using Haystack’s preprocessing capabilities.
 category: "QA"
 aliases: ['/tutorials/preprocessing']
+download: "/downloads/08_Preprocessing.ipynb"
 ---
     
 
-# Preprocessing
 
 Haystack includes a suite of tools to extract text from different file types, normalize white space
 and split text into smaller pieces to optimize retrieval.
@@ -30,6 +30,16 @@ docs = [
 
 This tutorial will show you all the tools that Haystack provides to help you cast your data into this format.
 
+### Prepare environment
+
+#### Colab: Enable the GPU runtime
+Make sure you enable the GPU runtime to experience decent speed in this tutorial.
+**Runtime -> Change Runtime type -> Hardware accelerator -> GPU**
+
+<img src="https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/colab_gpu_runtime.jpg">
+
+You can double check whether the GPU runtime is enabled with the following command:
+
 
 ```bash
 %%bash
@@ -38,12 +48,12 @@ pip install --upgrade pip
 pip install git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[colab,ocr]
 
 # For Colab/linux based machines:
-!wget https://dl.xpdfreader.com/xpdf-tools-linux-4.04.tar.gz
-!tar -xvf xpdf-tools-linux-4.04.tar.gz && sudo cp xpdf-tools-linux-4.04/bin64/pdftotext /usr/local/bin
+wget https://dl.xpdfreader.com/xpdf-tools-linux-4.04.tar.gz
+tar -xvf xpdf-tools-linux-4.04.tar.gz && sudo cp xpdf-tools-linux-4.04/bin64/pdftotext /usr/local/bin
 
 # For macOS machines:
-# !wget https://dl.xpdfreader.com/xpdf-tools-mac-4.03.tar.gz
-# !tar -xvf xpdf-tools-mac-4.03.tar.gz && sudo cp xpdf-tools-mac-4.03/bin64/pdftotext /usr/local/bin
+# wget https://dl.xpdfreader.com/xpdf-tools-mac-4.03.tar.gz
+# tar -xvf xpdf-tools-mac-4.03.tar.gz && sudo cp xpdf-tools-mac-4.03/bin64/pdftotext /usr/local/bin
 ```
 
 ## Logging
