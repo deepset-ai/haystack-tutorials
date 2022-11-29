@@ -10,7 +10,7 @@ To make a request for a new tutorial or to suggest edits and fixes, submit an is
 
 ## Contributing Edits or New Tutorials
 
-All of the Haystack tutorials live in the `tutorials` folder in this repo. Each tutorial is an interactive `.ipynb` file that you can run on Google Colab, too. For each `.ipynb` file, we also generate a Markdown file to accompany it.
+All of the Haystack tutorials live in the `tutorials` folder in this repo. Each tutorial is an interactive `.ipynb` file and we generate a Markdown file to accompany it.
 
 Here's what you need to do to add or edit tutorials 👇:
 
@@ -20,7 +20,7 @@ Here's what you need to do to add or edit tutorials 👇:
    tasks right before all git commit operations.
 2. If you're creating a new tutorial:
    - Follow the [naming convention](#naming-convention-for-file-names) for file names.
-   - Add your new tutorial to [index.toml](/index.toml). Here, `weight` is the order in which your tutorial appears. For example, a tutorial with `weight = 15` comes after a tutorial with `weight = 10` and before `20`.
+   - Add your new tutorial to [index.toml](/index.toml). Here, `weight` is the order in which your tutorial appears. For example, a tutorial with `weight = 15` comes after a tutorial with `weight = 10` and before `20`. Each tutorial comes with a Google Colab link and `Open in Colab` button on the top of the tutorial by default. If your new tutorial cannot be run on Google Colab, set `colab = false` not to display `Open in Colab` button on top the tutorial.
 3. Edit an existing tutorial or copy the [tutorial template](/tutorials/template.ipynb) to create a new tutorial. 
 4. Pre-commit hooks will ensure the `markdowns` folder reflects your changes but you can update the docs at any time:
     - Run `python scripts/generate_markdowns.py --index index.toml --notebooks tutorials/your-tutorial.ipynb --output markdowns/`. This generates or updates the relevant markdown file in `/markdowns`.
