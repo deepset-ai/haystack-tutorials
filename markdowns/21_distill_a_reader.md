@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/21_distill_a_reader.ipynb
 toc: True
 title: "Distill a Reader"
-last_updated: 2022-11-16
+last_updated: 2022-11-30
 level: "intermediate"
 weight: 115
 description: Transfer a Reader's question answering ability to a smaller, more efficient model.
 category: "QA"
 aliases: ['/tutorials/distill-reader']
+download: "/downloads/21_distill_a_reader.ipynb"
 ---
     
 
-# Tutorial: Distill a Reader
 
 - **Level**: Advanced
 - **Time to complete**: 30 minutes
@@ -160,6 +160,6 @@ Some of our other work:
 - [GermanQuAD and GermanDPR](https://deepset.ai/germanquad)
 
 Get in touch:
-[Twitter](https://twitter.com/deepset_ai) | [LinkedIn](https://www.linkedin.com/company/deepset-ai/) | [Discord](https://haystack.deepset.ai/community/join) | [GitHub Discussions](https://github.com/deepset-ai/haystack/discussions) | [Website](https://deepset.ai)
+[Twitter](https://twitter.com/deepset_ai) | [LinkedIn](https://www.linkedin.com/company/deepset-ai/) | [Discord](https://haystack.deepset.ai/community) | [GitHub Discussions](https://github.com/deepset-ai/haystack/discussions) | [Website](https://deepset.ai)
 
 By the way: [we're hiring!](https://www.deepset.ai/jobs)

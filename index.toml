@@ -9,8 +9,8 @@ description = "Get Started by creating a Retriever Reader pipeline."
 level = "beginner"
 weight = 10
 notebook = "01_build_your_first_question_answering_system.ipynb"
-aliases = ["first-qa-system"]
-slug = "01_basic_qa_pipeline"
+aliases = ["first-qa-system", "without-elasticsearch", "03_Basic_QA_Pipeline_without_Elasticsearch"]
+slug = "01_Basic_QA_Pipeline"
 
 [[tutorial]]
 title = "Fine-Tune a Reader"
@@ -18,8 +18,8 @@ description = "Improve the performance of your Reader by performing fine-tuning.
 level = "intermediate"
 weight = 50
 notebook = "02_finetune_a_reader.ipynb"
-aliases = ["fine-tuning-a-model", "02_finetune_a_model_on_your_data", "fine-tune-a-model"]
-slug = "02_finetune_a_model_on_your_data"
+aliases = ["fine-tuning-a-model"]
+slug = "02_Finetune_a_model_on_your_data"
 
 [[tutorial]]
 title = "Build a Scalable Question Answering System"
@@ -27,8 +27,8 @@ description = "Create a scalable Retriever Reader pipeline that uses an Elastics
 level = "beginner"
 weight = 15
 notebook = "03_build_a_scalable_question_answering_system.ipynb"
-aliases = ["without-elasticsearch"]
-slug = "03_scalable_qa_pipeline"
+aliases = []
+slug = "03_Scalable_QA_Pipeline"
 
 [[tutorial]]
 title = "Utilizing Existing FAQs for Question Answering"
