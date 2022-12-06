@@ -98,7 +98,7 @@ As an alternative, you can cast you text data into [Document objects](https://do
 
 ## Initializing the Retriever
 
-Retrievers sift through all the Documents and return only those that it thinks might be relevant to the question. Here we are using the TF-IDF algorithm. For more Retriever options, see [Retriever](https://haystack.deepset.ai/pipeline_nodes/retriever).
+A Retriever sifts through all the Documents and returns only those that it thinks might be relevant to the question. Here we are using the TF-IDF algorithm. For more Retriever options, see [Retriever](https://haystack.deepset.ai/pipeline_nodes/retriever).
 
 
 ```python
