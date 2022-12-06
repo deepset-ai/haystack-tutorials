@@ -18,7 +18,7 @@ def generate_frontmatter(config, tutorial):
 
     frontmatter = f"""---
 layout: {config["layout"]}
-colab: {config["colab"]}{tutorial["notebook"]}
+colab: {tutorial.get("colab", f'{config["colab"]}{tutorial["notebook"]}')}
 toc: {config["toc"]}
 title: "{tutorial["title"]}"
 last_updated: {date.today()}
@@ -39,7 +39,7 @@ def generate_markdown_from_notebook(config, tutorial, output_path, tutorials_pat
     body, _ = md_exporter.from_filename(f"{tutorials_path}")
     body = get_lines(body, start=1)
     print(f"Processing {tutorials_path}")
-    filename = tutorial.get('slug', tutorial['notebook'][:-6])
+    filename = tutorial.get("slug", tutorial["notebook"][:-6])
     with open(f"{output_path}/{filename}.md", "w", encoding="utf-8") as f:
         try:
             f.write(frontmatter + "\n\n")
