@@ -52,11 +52,13 @@ pip install farm-haystack[colab]
 
 A DocumentStore stores the Documents that the question answering system uses to find answers to your questions. Here we are using the `InMemoryDocumentStore` which is the simplest DocumentStore to get started with. It requires no external dependencies and is a good option for smaller projects and debugging. However, it does not scale up so well to larger Document collections. To learn more about the DocumentStore and the different types of external databases that we support, see [DocumentStore](https://docs.haystack.deepset.ai/docs/document_store).
 
+Let's initialize the DocumentStore and enable it to work with the BM25Retriever:
+
 
 ```python
 from haystack.document_stores import InMemoryDocumentStore
 
-document_store = InMemoryDocumentStore()
+document_store = InMemoryDocumentStore(use_bm25=True)
 ```
 
 ## Preparing Documents
