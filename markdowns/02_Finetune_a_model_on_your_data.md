@@ -1,161 +1,113 @@
 ---
 layout: tutorial
-colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/02_Finetune_a_model_on_your_data.ipynb
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/02_finetune_a_reader.ipynb
 toc: True
-title: "Fine-Tuning a Model on Your Own Data"
-last_updated: 2022-11-24
+title: "Fine-Tune a Reader"
+last_updated: 2022-11-30
 level: "intermediate"
 weight: 50
 description: Improve the performance of your Reader by performing fine-tuning.
 category: "QA"
 aliases: ['/tutorials/fine-tuning-a-model']
-download: "/downloads/02_Finetune_a_model_on_your_data.ipynb"
+download: "/downloads/02_finetune_a_reader.ipynb"
 ---
     
 
 
-For many use cases it is sufficient to just use one of the existing public models that were trained on SQuAD or other public QA datasets (e.g. Natural Questions).
-However, if you have domain-specific questions, fine-tuning your model on custom examples will very likely boost your performance.
-While this varies by domain, we saw that ~ 2000 examples can easily increase performance by +5-20%.
+- **Level**: Intermediate
+- **Time to complete**: 20 minutes
+- **Nodes Used**: `FARMReader`
+- **Goal**: Learn how to improve the performance of a DistilBERT Reader model by performing further training on the SQuAD dataset.
 
-This tutorial shows you how to fine-tune a pretrained model on your own dataset.
+## Overview
 
-### Prepare environment
+Fine-tuning can improve your Reader's performance on question answering, especially if you're working with very specific domains. While many of the existing public models trained on public question answering datasets are enough for most use cases, fine-tuning can help your model understand the phrases and terms specific to your field. While this varies for each domain and dataset, we've had cases where ~2000 examples increased performance by as much as +5-20%. After completing this tutorial, you will have all the tools needed to fine-tune a pretrained model on your own dataset.
 
-#### Colab: Enable the GPU runtime
-Make sure you enable the GPU runtime to experience decent speed in this tutorial.
-**Runtime -> Change Runtime type -> Hardware accelerator -> GPU**
+## Preparing the Colab Environment
 
-<img src="https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/colab_gpu_runtime.jpg">
+- [Enable GPU Runtime in GPU](https://docs.haystack.deepset.ai/docs/enable-gpu-runtime-in-colab)
+- [Check if GPU is Enabled](https://docs.haystack.deepset.ai/docs/check-if-gpu-is-enabled)
+- [Set logging level to INFO](https://docs.haystack.deepset.ai/docs/set-the-logging-level)
 
 
-```python
-# Make sure you have a GPU running
-!nvidia-smi
+## Installing Haystack
+
+To start, let's install the latest release of Haystack with `pip`:
+
+
+```bash
+%%bash
+
+pip install --upgrade pip
+pip install farm-haystack[colab]
 ```
 
 
-```python
-# Install the latest release of Haystack in your own environment
-#! pip install farm-haystack
+## Creating Training Data
 
-# Install the latest main of Haystack
-!pip install --upgrade pip
-!pip install git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[colab]
-```
+To start fine-tuning your Reader model, you need question answering data in the [SQuAD](https://rajpurkar.github.io/SQuAD-explorer/) format. One sample from this data should contain a question, a text answer, and the document containing the answer.
 
-## Logging
+You can start generating your own training data using one of the two tools that we offer:
 
-We configure how logging messages should be displayed and which log level should be used before importing Haystack.
-Example log message:
-INFO - haystack.utils.preprocessing -  Converting data/tutorial1/218_Olenna_Tyrell.txt
-Default log level in basicConfig is WARNING so the explicit parameter is not necessary but can be changed easily:
+1. **Annotation Tool**: You can use the deepset [Annotation Tool](https://haystack.deepset.ai/guides/annotation) to write questions and highlight answers in a document. The tool supports structuring your workflow with organizations, projects, and users. You can then export the question-answer pairs in the SQuAD format that is compatible with fine-tuning in Haystack.
+
+2. **Feedback Mechanism**: In a production system, you can collect users' feedback to model predictions with Haystack's [REST API interface](https://github.com/deepset-ai/haystack#rest-api) and use this as training data. To learn how to interact with the user feedback endpoints, see [User Feedback](https://docs.haystack.deepset.ai/docs/domain_adaptation#user-feedback).
 
 
-```python
-import logging
 
-logging.basicConfig(format="%(levelname)s - %(name)s -  %(message)s", level=logging.WARNING)
-logging.getLogger("haystack").setLevel(logging.INFO)
-```
+## Fine-tuning the Reader
+
+1. Initialize the Reader, supplying the name of the base model you wish to improve.
 
 
 ```python
 from haystack.nodes import FARMReader
-from haystack.utils import fetch_archive_from_http
-```
 
-
-## Create Training Data
-
-There are two ways to generate training data
-
-1. **Annotation**: You can use the [annotation tool](https://haystack.deepset.ai/guides/annotation) to label your data, i.e. highlighting answers to your questions in a document. The tool supports structuring your workflow with organizations, projects, and users. The labels can be exported in SQuAD format that is compatible for training with Haystack.
-
-![Snapshot of the annotation tool](https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/annotation_tool.png)
-
-2. **Feedback**: For production systems, you can collect training data from direct user feedback via Haystack's [REST API interface](https://github.com/deepset-ai/haystack#rest-api). This includes a customizable user feedback API for providing feedback on the answer returned by the API. The API provides a feedback export endpoint to obtain the feedback data for fine-tuning your model further.
-
-
-## Fine-tune your model
-
-Once you have collected training data, you can fine-tune your base models.
-We initialize a reader as a base model and fine-tune it on our own custom dataset (should be in SQuAD-like format).
-We recommend using a base model that was trained on SQuAD or a similar QA dataset before to benefit from Transfer Learning effects.
-
-**Recommendation**: Run training on a GPU.
-If you are using Colab: Enable this in the menu "Runtime" > "Change Runtime type" > Select "GPU" in dropdown.
-Then change the `use_gpu` arguments below to `True`
-
-
-```python
 reader = FARMReader(model_name_or_path="distilbert-base-uncased-distilled-squad", use_gpu=True)
-data_dir = "data/squad20"
-# data_dir = "PATH/TO_YOUR/TRAIN_DATA"
-reader.train(data_dir=data_dir, train_filename="dev-v2.0.json", use_gpu=True, n_epochs=1, save_dir="my_model")
 ```
+
+We recommend using a model that was trained on SQuAD or a similar question answering dataset to benefit from transfer learning effects. In this tutorial, we are using [distilbert-base-uncased-distilled-squad](https://huggingface.co/distilbert-base-uncased-distilled-squadbase), a base-sized DistilBERT model that was trained on SQuAD. To learn more about what model works best for your use case, see [Models](https://haystack.deepset.ai/pipeline_nodes/reader#models).
+
+2. Provide the SQuAD format training data to the `Reader.train()` method.
 
 
 ```python
-# Saving the model happens automatically at the end of training into the `save_dir` you specified
-# However, you could also save a reader manually again via:
+data_dir = "data/squad20"
+reader.train(
+    data_dir=data_dir,
+    train_filename="dev-v2.0.json",
+    use_gpu=True,
+    n_epochs=1,
+    save_dir="my_model"
+)
+```
+
+With the default parameters above, we are starting with a base model trained on the SQuAD training dataset and we are further fine-tuning it on the SQuAD development dataset. To fine-tune the model for your domain, replace `train_filename` with your domain-specific dataset.
+
+To perform evaluation over the course of fine-tuning, see [FARMReader.train() API](https://docs.haystack.deepset.ai/reference/reader-api#farmreadertrain) for the relevant arguments.
+
+## Saving and Loading
+
+The model is automatically saved at the end of fine-tuning in the `save_dir` that you specified.
+However, you can also manually save the Reader again by running:
+
+
+```python
 reader.save(directory="my_model")
 ```
 
+To load a saved model, run:
+
 
 ```python
-# If you want to load it at a later point, just do:
 new_reader = FARMReader(model_name_or_path="my_model")
 ```
 
-## Distill your model
-In this case, we have used "distilbert-base-uncased" as our base model. This model was trained using a process called distillation. In this process, a bigger model is trained first and is used to train a smaller model which increases its accuracy. This is why "distilbert-base-uncased" can achieve quite competitive performance while being very small.
+# Next Steps
 
-Sometimes, however, you can't use an already distilled model and have to distil it yourself. For this case, haystack has implemented [distillation features](https://haystack.deepset.ai/guides/model-distillation).
+Now that you have a model with improved performance, why not transfer its question answering capabilities into a smaller, faster model? Starting with this new model, you can use model distillation to create a more efficient model with only a slight tradeoff in performance. To learn more, see [Distil a Reader](https://haystack.deepset.ai/tutorials/04_distil_a_reader).
 
-### Augmenting your training data
-To get the most out of model distillation, we recommend increasing the size of your training data by using data augmentation. You can do this by running the [`augment_squad.py` script](https://github.com/deepset-ai/haystack/blob/main/haystack/utils/augment_squad.py):
-
-
-```python
-# Downloading script
-!wget https://raw.githubusercontent.com/deepset-ai/haystack/main/haystack/utils/augment_squad.py
-
-doc_dir = "data/tutorial2"
-
-# Downloading smaller glove vector file (only for demonstration purposes)
-glove_url = "https://nlp.stanford.edu/data/glove.6B.zip"
-fetch_archive_from_http(url=glove_url, output_dir=doc_dir)
-
-# Downloading very small dataset to make tutorial faster (please use a bigger dataset for real use cases)
-s3_url = "https://s3.eu-central-1.amazonaws.com/deepset.ai-farm-qa/datasets/documents/squad_small.json.zip"
-fetch_archive_from_http(url=s3_url, output_dir=doc_dir)
-
-# Just replace the path with your dataset and adjust the output (also please remove glove path to use bigger glove vector file)
-!python augment_squad.py --squad_path squad_small.json --output_path augmented_dataset.json --multiplication_factor 2 --glove_path glove.6B.300d.txt
-```
-
-In this case, we use a multiplication factor of 2 to keep this example lightweight. Usually you would use a factor like 20 depending on the size of your training data. Augmenting this small dataset with a multiplication factor of 2, should take about 5 to 10 minutes to run on one V100 GPU.
-
-### Running distillation
-Distillation in haystack is done in two steps: First, you run intermediate layer distillation on the augmented dataset to ensure the two models behave similarly. After that, you run the prediction layer distillation on the non-augmented dataset to optimize the model for your specific task.
-
-If you want, you can leave out the intermediate layer distillation step and only run the prediction layer distillation. This way you also do not need to perform data augmentation. However, this will make the model significantly less accurate.
-
-
-```python
-# Loading a fine-tuned model as teacher e.g. "deepset/​bert-​base-​uncased-​squad2"
-teacher = FARMReader(model_name_or_path="my_model", use_gpu=True)
-
-# You can use any pre-trained language model as teacher that uses the same tokenizer as the teacher model.
-# The number of the layers in the teacher model also needs to be a multiple of the number of the layers in the student.
-student = FARMReader(model_name_or_path="huawei-noah/TinyBERT_General_6L_768D", use_gpu=True)
-
-student.distil_intermediate_layers_from(teacher, data_dir=".", train_filename="augmented_dataset.json", use_gpu=True)
-student.distil_prediction_layer_from(teacher, data_dir="data/squad20", train_filename="dev-v2.0.json", use_gpu=True)
-
-student.save(directory="my_distilled_model")
-```
+To learn how to measure the performance of these Reader models, see [Evaluate a Reader model](https://haystack.deepset.ai/tutorials/05_evaluate_a_reader).
 
 ## About us
 
@@ -167,9 +119,8 @@ Our focus: Industry specific language models & large scale QA systems.
 Some of our other work: 
 - [German BERT](https://deepset.ai/german-bert)
 - [GermanQuAD and GermanDPR](https://deepset.ai/germanquad)
-- [FARM](https://github.com/deepset-ai/FARM)
 
 Get in touch:
-[Twitter](https://twitter.com/deepset_ai) | [LinkedIn](https://www.linkedin.com/company/deepset-ai/) | [Discord](https://haystack.deepset.ai/community/join) | [GitHub Discussions](https://github.com/deepset-ai/haystack/discussions) | [Website](https://deepset.ai)
+[Twitter](https://twitter.com/deepset_ai) | [LinkedIn](https://www.linkedin.com/company/deepset-ai/) | [Discord](https://haystack.deepset.ai/community) | [GitHub Discussions](https://github.com/deepset-ai/haystack/discussions) | [Website](https://deepset.ai)
 
 By the way: [we're hiring!](https://www.deepset.ai/jobs)
