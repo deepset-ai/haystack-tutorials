@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/13_Question_generation.ipynb
 toc: True
 title: "Question Generation"
-last_updated: 2022-11-24
+last_updated: 2022-12-07
 level: "intermediate"
 weight: 75
 description: Generate a set of questions that can be answered by a given Document.
@@ -55,7 +55,7 @@ logging.getLogger("haystack").setLevel(logging.INFO)
 # Imports needed to run this notebook
 
 from pprint import pprint
-from tqdm import tqdm
+from tqdm.auto import tqdm
 from haystack.nodes import QuestionGenerator, BM25Retriever, FARMReader
 from haystack.document_stores import ElasticsearchDocumentStore
 from haystack.pipelines import (
