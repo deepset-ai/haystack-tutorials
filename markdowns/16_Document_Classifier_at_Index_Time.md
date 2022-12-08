@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/16_Document_Classifier_at_Index_Time.ipynb
 toc: True
 title: "Document Classification at Index Time"
-last_updated: 2022-11-24
+last_updated: 2022-12-08
 level: "intermediate"
 weight: 85
 description: Generate and attach classification labels to your Documents when indexing.
@@ -151,7 +151,7 @@ If Docker is not readily available in your environment (e.g. in Colab notebooks)
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.2-linux-x86_64.tar.gz -q
 tar -xzf elasticsearch-7.9.2-linux-x86_64.tar.gz
 chown -R daemon:daemon elasticsearch-7.9.2
-sudo -u daemon -- elasticsearch-7.9.2/bin/elasticsearch -d
+
 ```
 
 
