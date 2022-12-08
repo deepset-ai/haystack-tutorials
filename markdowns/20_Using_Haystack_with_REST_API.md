@@ -36,10 +36,7 @@ This tutorial introduces you to all the concepts needed to build an end-to-end d
 
 If you installed Docker Desktop, you just need to start the application. Run `docker info` to see if Docker is up and running.
 
-
 ```bash
-%%bash
-
 docker info
 ```
 
@@ -47,10 +44,7 @@ docker info
 
 Haystack provides a `docker-compose.yml` file that defines services for Haystack API and Elasticsearch. Clone the Haystack repository to be able to run the `docker-compose.yml` file locally. 
 
-
 ```bash
-%%bash
-
 git clone https://github.com/deepset-ai/haystack.git
 ```
 
@@ -204,19 +198,13 @@ Feel free to play with the pipeline setup later on. Add or remove some nodes, ch
 
 Pipelines are ready. Now, go to the directory where `docker-compose.yml` is and run `docker-compose up`. This command will install all necessary packages, set up the environment, and launch both Elasticsearch and Haystack API. 
 
-
 ```bash
-%%bash
-
 docker-compose up
 ```
 
 Before continuing, test if everything is OK with the Haystack API by sending a cURL request to the `/initialized` endpoint. You can use the command line of your computer or tools like [Postman](https://www.postman.com/) to send cURL requests. If everything works fine, you will get `true` as a response.
 
-
 ```bash
-%%bash
-
 curl --request GET http://127.0.0.1:8000/initialized
 ```
 
@@ -232,10 +220,7 @@ Download the [example files](https://s3.eu-central-1.amazonaws.com/deepset.ai-fa
 
 You can send cURL requests to the `/file-upload` endpoint to upload files to the Elasticsearch instance. Replace `<PATH_TO_FOLDER>` with the path to the example files on your computer and send the POST request. If the file is successfully uploaded, you will get `null` as a response.
 
-
 ```bash
-%%bash
-
 curl --request POST \
      --url http://127.0.0.1:8000/file-upload \
      --header 'accept: application/json' \
@@ -267,10 +252,7 @@ print("Completed")
 
 The application is ready! Send a cURL request to retrieve documents about _"climate in Scandinavia"_. 
 
-
 ```bash
-%%bash
-
 curl --request POST \
      --url http://127.0.0.1:8000/query \
      --header 'accept: application/json' \
