@@ -156,9 +156,9 @@ notebook = "19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
 aliases = ["multimodal"]
 
 [[tutorial]]
-title = "Haystack with REST API"
-description = "Create a production-ready pipeline and interact with REST API."
+title = "Using Haystack with REST API"
+description = "Create a production-ready pipeline and interact with Haystack REST API."
 level = "advanced"
 weight = 115
-notebook = "20_REST_API.ipynb"
-aliases = ["rest-api"]
+notebook = "20_Using_Haystack_with_REST_API.ipynb"
+aliases = ["using-haystack-with-rest-api"]
