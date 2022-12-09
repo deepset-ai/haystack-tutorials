@@ -44,7 +44,7 @@ jobs:
             echo "#"
             echo "#    python scripts/generate_markdowns.py --index index.toml --output markdowns --notebooks ..."
             echo "#"
-            echo "# or see https://github.com/deepset-ai/haystack-tutorials/blob/main/CONTRIBUTING.md for help."
+            echo "# or see https://github.com/deepset-ai/haystack-tutorials/blob/main/Contributing.md for help."
             echo "#"
             echo "# If you have further problems, please open an issue: https://github.com/deepset-ai/haystack-tutorials/issues"
             echo "#"

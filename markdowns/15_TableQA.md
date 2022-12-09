@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb
 toc: True
 title: "Open-Domain QA on Tables"
-last_updated: 2022-11-24
+last_updated: 2022-12-08
 level: "advanced"
 weight: 130
 description: Perform question answering on tabular data.
@@ -99,7 +99,7 @@ If Docker is not readily available in your environment (e.g. in Colab notebooks)
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.2-linux-x86_64.tar.gz -q
 tar -xzf elasticsearch-7.9.2-linux-x86_64.tar.gz
 chown -R daemon:daemon elasticsearch-7.9.2
-sudo -u daemon -- elasticsearch-7.9.2/bin/elasticsearch -d
+
 ```
 
 

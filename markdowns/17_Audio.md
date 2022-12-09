@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/17_Audio.ipynb
 toc: True
 title: "Make Your QA Pipelines Talk!"
-last_updated: 2022-11-24
+last_updated: 2022-12-08
 level: "intermediate"
 weight: 90
 description: Convert text Answers into speech.
@@ -84,7 +84,7 @@ If Docker is not readily available in your environment (e.g. in Colab notebooks)
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.2-linux-x86_64.tar.gz -q
 tar -xzf elasticsearch-7.9.2-linux-x86_64.tar.gz
 chown -R daemon:daemon elasticsearch-7.9.2
-sudo -u daemon -- elasticsearch-7.9.2/bin/elasticsearch -d
+
 ```
 
 
