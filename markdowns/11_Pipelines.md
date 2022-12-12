@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/11_Pipelines.ipynb
 toc: True
 title: "How to Use Pipelines"
-last_updated: 2022-12-08
+last_updated: 2022-12-09
 level: "intermediate"
 weight: 65
 description: Learn about the many ways which you can route queries through the nodes in a pipeline.
@@ -211,7 +211,7 @@ Haystack features prebuilt pipelines to do:
 - generative QA (GenerativeQAPipeline)
 - FAQ style QA (FAQPipeline)
 - translated search (TranslationWrapperPipeline)
-To find out more about these pipelines, have a look at our [documentation](https://haystack.deepset.ai/docs/latest/pipelinesmd)
+To find out more about these pipelines, have a look at our [documentation](https://docs.haystack.deepset.ai/docs/pipelines)
 
 
 With any Pipeline, whether prebuilt or custom constructed,
@@ -466,6 +466,6 @@ Some of our other work:
 - [FARM](https://github.com/deepset-ai/FARM)
 
 Get in touch:
-[Twitter](https://twitter.com/deepset_ai) | [LinkedIn](https://www.linkedin.com/company/deepset-ai/) | [Discord](https://haystack.deepset.ai/community/join) | [GitHub Discussions](https://github.com/deepset-ai/haystack/discussions) | [Website](https://deepset.ai)
+[Twitter](https://twitter.com/deepset_ai) | [LinkedIn](https://www.linkedin.com/company/deepset-ai/) | [Discord](https://haystack.deepset.ai/community) | [GitHub Discussions](https://github.com/deepset-ai/haystack/discussions) | [Website](https://deepset.ai)
 
 By the way: [we're hiring!](https://www.deepset.ai/jobs)
