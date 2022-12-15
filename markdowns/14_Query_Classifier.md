@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/14_Query_Classifier.ipynb
 toc: True
 title: "Query Classifier"
-last_updated: 2022-11-24
+last_updated: 2022-12-15
 level: "intermediate"
 weight: 80
 description: Classify incoming queries so that they can be routed to the nodes that are best at handling them.
@@ -199,11 +199,7 @@ Next we fetch some data&mdash;for our example we'll use pages from the Game of T
 
 
 ```python
-from haystack.utils import (
-    fetch_archive_from_http,
-    convert_files_to_docs,
-    clean_wiki_text,
-)
+from haystack.utils import fetch_archive_from_http, convert_files_to_docs, clean_wiki_text
 
 # Download and prepare data - 517 Wikipedia articles for Game of Thrones
 doc_dir = "data/tutorial14"
@@ -449,7 +445,7 @@ pd.DataFrame.from_dict(sent_results)
 You can also perform zero-shot classification by providing a suitable base transformer model and **choosing** the classes the model should predict.
 For example, we may be interested in whether the user query is related to music or cinema.
 
-*In this case, the `labels` parameter is a list containing the candidate classes.*
+In this case, the `labels` parameter is a list containing the candidate classes.
 
 
 ```python
