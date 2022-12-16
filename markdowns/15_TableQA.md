@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb
 toc: True
 title: "Open-Domain QA on Tables"
-last_updated: 2022-12-08
+last_updated: 2022-12-15
 level: "advanced"
 weight: 130
 description: Perform question answering on tabular data.
@@ -45,21 +45,6 @@ pip install git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[col
 # Install pygraphviz for visualization of Pipelines
 apt install libgraphviz-dev
 pip install pygraphviz
-```
-
-
-```python
-# The TaPAs-based TableReader requires the torch-scatter library
-import torch
-
-torch_version = torch.__version__
-```
-
-
-```bash
-%%bash -s "$torch_version"
-
-pip install torch-scatter -f https://data.pyg.org/whl/torch-$1.html
 ```
 
 ## Logging
