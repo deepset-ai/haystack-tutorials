@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/14_Query_Classifier.ipynb
 toc: True
 title: "Query Classifier"
-last_updated: 2022-12-15
+last_updated: 2022-12-22
 level: "intermediate"
 weight: 80
 description: Classify incoming queries so that they can be routed to the nodes that are best at handling them.
@@ -185,7 +185,7 @@ If Docker is not readily available in your environment (e.g. in Colab notebooks)
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.2-linux-x86_64.tar.gz -q
 tar -xzf elasticsearch-7.9.2-linux-x86_64.tar.gz
 chown -R daemon:daemon elasticsearch-7.9.2
-sudo -u daemon -- elasticsearch-7.9.2/bin/elasticsearch -d
+
 ```
 
 
