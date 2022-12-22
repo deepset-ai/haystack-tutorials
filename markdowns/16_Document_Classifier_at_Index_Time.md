@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/16_Document_Classifier_at_Index_Time.ipynb
 toc: True
 title: "Document Classification at Index Time"
-last_updated: 2022-12-08
+last_updated: 2022-12-22
 level: "intermediate"
 weight: 85
 description: Generate and attach classification labels to your Documents when indexing.
@@ -30,8 +30,8 @@ This tutorial will show you how to integrate a classification model into your pr
 pip install --upgrade pip
 pip install git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[colab,ocr]
 
-!wget --no-check-certificate https://dl.xpdfreader.com/xpdf-tools-linux-4.04.tar.gz
-!tar -xvf xpdf-tools-linux-4.04.tar.gz && sudo cp xpdf-tools-linux-4.04/bin64/pdftotext /usr/local/bin
+wget --no-check-certificate https://dl.xpdfreader.com/xpdf-tools-linux-4.04.tar.gz
+tar -xvf xpdf-tools-linux-4.04.tar.gz && sudo cp xpdf-tools-linux-4.04/bin64/pdftotext /usr/local/bin
 
 apt install libgraphviz-dev
 pip install pygraphviz
