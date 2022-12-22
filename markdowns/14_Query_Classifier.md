@@ -299,6 +299,8 @@ The above example uses an `SklearnQueryClassifier`, but of course we can do prec
 
 
 ```python
+from haystack.nodes import TransformersQueryClassifier
+
 # Here we build the pipeline
 transformer_keyword_classifier = Pipeline()
 transformer_keyword_classifier.add_node(
@@ -398,8 +400,6 @@ The first label we provide corresponds to output_1, the second label to output_2
 
 
 ```python
-from haystack.nodes import TransformersQueryClassifier
-
 # Remember to compile a list with the exact model labels
 # The first label you provide corresponds to output_1, the second label to output_2, and so on.
 labels = ["LABEL_0", "LABEL_1", "LABEL_2"]
