@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/14_Query_Classifier.ipynb
 toc: True
 title: "Query Classifier"
-last_updated: 2022-10-12
+last_updated: 2022-12-22
 level: "intermediate"
 weight: 80
 description: Classify incoming queries so that they can be routed to the nodes that are best at handling them.
 category: "QA"
 aliases: ['/tutorials/query-classifier']
+download: "/downloads/14_Query_Classifier.ipynb"
 ---
     
 
-# Query Classifier Tutorial
 
 One of the great benefits of using state-of-the-art NLP models like those available in Haystack is that it allows users to state their queries as *plain natural language questions*: rather than trying to come up with just the right set of keywords to find the answer to their question, users can simply ask their question in much the same way that they would ask it of a (very knowledgeable!) person.
 
@@ -44,20 +44,27 @@ Make sure you enable the GPU runtime to experience decent speed in this tutorial
 
 <img src="https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/colab_gpu_runtime.jpg">
 
+You can double check whether the GPU runtime is enabled with the following command:
+
+
+```bash
+%%bash
+
+nvidia-smi
+```
+
 Next we make sure the latest version of Haystack is installed:
 
 
-```python
-# Install the latest release of Haystack in your own environment
-#! pip install farm-haystack
+```bash
+%%bash
 
-# Install the latest main of Haystack (Colab)
-!pip install --upgrade pip
-!pip install git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[colab]
+pip install --upgrade pip
+pip install git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[colab]
 
 # Install these to allow pipeline visualization
-!apt install libgraphviz-dev
-!pip install pygraphviz
+apt install libgraphviz-dev
+pip install pygraphviz
 ```
 
 ### Logging
@@ -156,38 +163,43 @@ And as we see, the question "Who was the father of Arya Stark" is sent to branch
 
 Now let's see how we can use query classifiers in a question-answering (QA) pipeline. We start by initiating Elasticsearch:
 
+#### Start an Elasticsearch server
+You can start Elasticsearch on your local machine instance using Docker. If Docker is not readily available in your environment (eg., in Colab notebooks), then you can manually download and execute Elasticsearch from source.
+
 
 ```python
-# In Colab / No Docker environments: Start Elasticsearch from source
-! wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.2-linux-x86_64.tar.gz -q
-! tar -xzf elasticsearch-7.9.2-linux-x86_64.tar.gz
-! chown -R daemon:daemon elasticsearch-7.9.2
+# Recommended: Start Elasticsearch using Docker via the Haystack utility function
+from haystack.utils import launch_es
 
-import os
-from subprocess import Popen, PIPE, STDOUT
+launch_es()
+```
 
-es_server = Popen(
-    ["elasticsearch-7.9.2/bin/elasticsearch"], stdout=PIPE, stderr=STDOUT, preexec_fn=lambda: os.setuid(1)  # as daemon
-)
-# wait until ES has started
-! sleep 30
+#### Start an Elasticsearch server in Colab
+
+If Docker is not readily available in your environment (e.g. in Colab notebooks), then you can manually download and execute Elasticsearch from source.
+
+
+```bash
+%%bash
+
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.2-linux-x86_64.tar.gz -q
+tar -xzf elasticsearch-7.9.2-linux-x86_64.tar.gz
+chown -R daemon:daemon elasticsearch-7.9.2
+
+```
+
+
+```bash
+%%bash --bg
+
+sudo -u daemon -- elasticsearch-7.9.2/bin/elasticsearch
 ```
 
 Next we fetch some data&mdash;for our example we'll use pages from the Game of Thrones wiki&mdash;and index it in our `DocumentStore`:
 
 
 ```python
-from haystack.utils import (
-    print_answers,
-    print_documents,
-    fetch_archive_from_http,
-    convert_files_to_docs,
-    clean_wiki_text,
-    launch_es,
-)
-from haystack.pipelines import Pipeline
-from haystack.document_stores import ElasticsearchDocumentStore
-from haystack.nodes import BM25Retriever, EmbeddingRetriever, FARMReader, TransformersQueryClassifier
+from haystack.utils import fetch_archive_from_http, convert_files_to_docs, clean_wiki_text
 
 # Download and prepare data - 517 Wikipedia articles for Game of Thrones
 doc_dir = "data/tutorial14"
@@ -196,9 +208,23 @@ fetch_archive_from_http(url=s3_url, output_dir=doc_dir)
 
 # convert files to dicts containing documents that can be indexed to our datastore
 got_docs = convert_files_to_docs(dir_path=doc_dir, clean_func=clean_wiki_text, split_paragraphs=True)
+```
 
-# Initialize DocumentStore and index documents
-# launch_es() # Uncomment this line for local Elasticsearch
+
+```python
+import os
+import time
+
+from haystack.document_stores import ElasticsearchDocumentStore
+
+
+# Wait 30 seconds only to be sure Elasticsearch is ready before continuing
+time.sleep(30)
+
+# Get the host where Elasticsearch is running, default to localhost
+host = os.environ.get("ELASTICSEARCH_HOST", "localhost")
+
+
 document_store = ElasticsearchDocumentStore()
 document_store.delete_documents()
 document_store.write_documents(got_docs)
@@ -212,6 +238,9 @@ We start by initializing our retrievers and reader:
 
 
 ```python
+from haystack.nodes import BM25Retriever, EmbeddingRetriever, FARMReader
+
+
 # Initialize sparse retriever for keyword queries
 bm25_retriever = BM25Retriever(document_store=document_store)
 
@@ -228,6 +257,9 @@ Now we define our pipeline. As promised, the question/statement branch `output_1
 
 
 ```python
+from haystack.pipelines import Pipeline
+
+
 # Here we build the pipeline
 sklearn_keyword_classifier = Pipeline()
 sklearn_keyword_classifier.add_node(component=SklearnQueryClassifier(), name="QueryClassifier", inputs=["Query"])
@@ -237,14 +269,17 @@ sklearn_keyword_classifier.add_node(
 sklearn_keyword_classifier.add_node(component=bm25_retriever, name="BM25Retriever", inputs=["QueryClassifier.output_2"])
 sklearn_keyword_classifier.add_node(component=reader, name="QAReader", inputs=["BM25Retriever", "EmbeddingRetriever"])
 
-# Visualization of the pipeline
-sklearn_keyword_classifier.draw("sklearn_keyword_classifier.png")
+# To generate a visualization of the pipeline, uncomment the following:
+# sklearn_keyword_classifier.draw("sklearn_keyword_classifier.png")
 ```
 
 Below, we can see how this choice affects the branching structure: the keyword query "arya stark father" and the question query "Who is the father of Arya Stark?" generate noticeably different results, a distinction that is likely due to the use of different retrievers for keyword vs. question/statement queries.
 
 
 ```python
+from haystack.utils import print_answers
+
+
 # Useful for framing headers
 equal_line = "=" * 30
 
@@ -264,6 +299,8 @@ The above example uses an `SklearnQueryClassifier`, but of course we can do prec
 
 
 ```python
+from haystack.nodes import TransformersQueryClassifier
+
 # Here we build the pipeline
 transformer_keyword_classifier = Pipeline()
 transformer_keyword_classifier.add_node(
@@ -320,14 +357,17 @@ transformer_question_classifier.add_node(
 )
 transformer_question_classifier.add_node(component=reader, name="QAReader", inputs=["QueryClassifier.output_1"])
 
-# Visualization of the pipeline
-transformer_question_classifier.draw("transformer_question_classifier.png")
+# To generate a visualization of the pipeline, uncomment the following:
+# transformer_question_classifier.draw("transformer_question_classifier.png")
 ```
 
 And here are the results of this pipeline: with a question query like "Who is the father of Arya Stark?", we obtain answers from a reader, and with a statement query like "Arya Stark was the daughter of a Lord", we just obtain documents from a retriever.
 
 
 ```python
+from haystack.utils import print_documents
+
+
 # Useful for framing headers
 equal_line = "=" * 30
 
@@ -360,8 +400,6 @@ The first label we provide corresponds to output_1, the second label to output_2
 
 
 ```python
-from haystack.nodes import TransformersQueryClassifier
-
 # Remember to compile a list with the exact model labels
 # The first label you provide corresponds to output_1, the second label to output_2, and so on.
 labels = ["LABEL_0", "LABEL_1", "LABEL_2"]
@@ -407,7 +445,7 @@ pd.DataFrame.from_dict(sent_results)
 You can also perform zero-shot classification by providing a suitable base transformer model and **choosing** the classes the model should predict.
 For example, we may be interested in whether the user query is related to music or cinema.
 
-*In this case, the `labels` parameter is a list containing the candidate classes.*
+In this case, the `labels` parameter is a list containing the candidate classes.
 
 
 ```python

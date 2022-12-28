@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/02_Finetune_a_model_on_your_data.ipynb
 toc: True
 title: "Fine-Tuning a Model on Your Own Data"
-last_updated: 2022-10-12
+last_updated: 2022-12-06
 level: "intermediate"
 weight: 50
 description: Improve the performance of your Reader by performing fine-tuning.
 category: "QA"
 aliases: ['/tutorials/fine-tuning-a-model']
+download: "/downloads/02_Finetune_a_model_on_your_data.ipynb"
 ---
     
 
-# Fine-tuning a Model on Your Own Data
 
 For many use cases it is sufficient to just use one of the existing public models that were trained on SQuAD or other public QA datasets (e.g. Natural Questions).
 However, if you have domain-specific questions, fine-tuning your model on custom examples will very likely boost your performance.
@@ -121,18 +121,19 @@ To get the most out of model distillation, we recommend increasing the size of y
 # Downloading script
 !wget https://raw.githubusercontent.com/deepset-ai/haystack/main/haystack/utils/augment_squad.py
 
-doc_dir = "data/tutorial2"
+glove_dir = "data/tutorial2/gloves"
+squad_dir = "data/tutorial2/squad_small"
 
 # Downloading smaller glove vector file (only for demonstration purposes)
 glove_url = "https://nlp.stanford.edu/data/glove.6B.zip"
-fetch_archive_from_http(url=glove_url, output_dir=doc_dir)
+fetch_archive_from_http(url=glove_url, output_dir=glove_dir)
 
 # Downloading very small dataset to make tutorial faster (please use a bigger dataset for real use cases)
 s3_url = "https://s3.eu-central-1.amazonaws.com/deepset.ai-farm-qa/datasets/documents/squad_small.json.zip"
-fetch_archive_from_http(url=s3_url, output_dir=doc_dir)
+fetch_archive_from_http(url=s3_url, output_dir=squad_dir)
 
 # Just replace the path with your dataset and adjust the output (also please remove glove path to use bigger glove vector file)
-!python augment_squad.py --squad_path squad_small.json --output_path augmented_dataset.json --multiplication_factor 2 --glove_path glove.6B.300d.txt
+!python augment_squad.py --squad_path data/tutorial2/squad_small/squad_small.json --output_path augmented_dataset.json --multiplication_factor 2 --glove_path data/tutorial2/gloves/glove.6B.300d.txt
 ```
 
 In this case, we use a multiplication factor of 2 to keep this example lightweight. Usually you would use a factor like 20 depending on the size of your training data. Augmenting this small dataset with a multiplication factor of 2, should take about 5 to 10 minutes to run on one V100 GPU.

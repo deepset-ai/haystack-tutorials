@@ -10,7 +10,7 @@ To make a request for a new tutorial or to suggest edits and fixes, submit an is
 
 ## Contributing Edits or New Tutorials
 
-All of the Haystack tutorials live in the `tutorials` folder in this repo. Each tutorial is an interactive `.ipynb` file that you can run on Google Colab, too. For each `.ipynb` file, we also generate a Markdown file to accompany it.
+All of the Haystack tutorials live in the `tutorials` folder in this repo. Each tutorial is an interactive `.ipynb` file and we generate a Markdown file to accompany it.
 
 Here's what you need to do to add or edit tutorials 👇:
 
@@ -20,7 +20,7 @@ Here's what you need to do to add or edit tutorials 👇:
    tasks right before all git commit operations.
 2. If you're creating a new tutorial:
    - Follow the [naming convention](#naming-convention-for-file-names) for file names.
-   - Add your new tutorial to [index.toml](/index.toml). Here, `weight` is the order in which your tutorial appears. For example, a tutorial with `weight = 15` comes after a tutorial with `weight = 10` and before `20`.
+   - Add your new tutorial to [index.toml](/index.toml). Here, `weight` is the order in which your tutorial appears. For example, a tutorial with `weight = 15` comes after a tutorial with `weight = 10` and before `20`. Each tutorial comes with a Google Colab link and `Open in Colab` button on the top of the tutorial by default. If your new tutorial cannot be run on Google Colab, set `colab = false` not to display `Open in Colab` button on top the tutorial.
 3. Edit an existing tutorial or copy the [tutorial template](/tutorials/template.ipynb) to create a new tutorial. 
 4. Pre-commit hooks will ensure the `markdowns` folder reflects your changes but you can update the docs at any time:
     - Run `python scripts/generate_markdowns.py --index index.toml --notebooks tutorials/your-tutorial.ipynb --output markdowns/`. This generates or updates the relevant markdown file in `/markdowns`.
@@ -30,6 +30,12 @@ Here's what you need to do to add or edit tutorials 👇:
 7. Update the [README](./README.md), if necessary.
 8. Wait for a review and merge 🎉. Thank you for contributing 💙.
 
+## Slugs
+
+The default behaviour for markdown files is that it gets the same name as the corresponfing `.ipynb` notebook of that tutorial. The name of the markdown file is also the location at which the tutorial will appear on the website. 
+For example, "01_Basic_QA_Pipeline" will be on https://haystack.deepset.ai/tutorials/01_basic_qa_pipeline
+
+In `index.toml` you have the option of adding an optional `slug` entry for a tutorial which will generate the correspoinding markdown under the name you give for the `slug`. This is useful for scenarios where you are updating a tutorial to the point where it makes sense that the name of the `.ipynb` file changes, but you would still like people to access the tutorial on the same URL.
 
 # Continuous Integration (CI)
 

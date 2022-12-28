@@ -3,14 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb
 toc: True
 title: "Text-To-Image Search Pipeline with Multimodal Retriever"
-last_updated: 2022-11-07
+last_updated: 2022-11-25
 level: "intermediate"
 weight: 95
 description: Use a MultiModalRetriever to build a cross-modal search pipeline.
 category: "QA"
 aliases: ['/tutorials/multimodal']
+download: "/downloads/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
 ---
     
+
 
 **Level**: Intermediate
 
@@ -34,7 +36,7 @@ Let's build a text-to-image search pipeline using a small animal dataset!
 - [Check if GPU is Enabled](https://docs.haystack.deepset.ai/v5.2-unstable/docs/check-if-gpu-is-enabled)
 - [Set logging level to INFO](https://docs.haystack.deepset.ai/v5.2-unstable/docs/set-the-logging-level)
 
-# Installing Haystack
+## Installing Haystack
 
 
 ```bash
@@ -44,7 +46,7 @@ pip install --upgrade pip
 pip install farm-haystack[colab]
 ```
 
-# Initializing the DocumentStore
+## Initializing the DocumentStore
 
 A DocumentStore stores references to the images that Haystack will compare with your query. But before it can do that, you need to initialize it. In this tutorial, you'll use the InMemoryDocumentStore.
 
@@ -54,12 +56,12 @@ If you want to learn more, see [DocumentStore](https://docs.haystack.deepset.ai/
 ```python
 from haystack.document_stores import InMemoryDocumentStore
 
-# Here Here we initialize the DocumentStore to store 512 dim image embeddings 
+# Here Here we initialize the DocumentStore to store 512 dim image embeddings
 # obtained using OpenAI CLIP model
 document_store = InMemoryDocumentStore(embedding_dim=512)
 ```
 
-# Downloading Data
+## Downloading Data
 
 Download 18 sample images of different animals and store it. You can find them in data/tutorial19/spirit-animals/ as a set of .jpg files.
 
@@ -71,7 +73,7 @@ doc_dir = "data/tutorial19"
 
 fetch_archive_from_http(
     url="https://s3.eu-central-1.amazonaws.com/deepset.ai-farm-qa/datasets/documents/spirit-animals.zip",
-    output_dir=doc_dir
+    output_dir=doc_dir,
 )
 ```
 
@@ -95,7 +97,7 @@ You have successfully stored your images in the DocumentStore.
 
 
 
-# Initializing the Retriever
+## Initializing the Retriever
 
 Retrievers sift through all the images and return only those that are relevant to the query. To run a search on images, you'll use the MultiModalRetriever with the [OpenAI CLIP model](https://github.com/openai/CLIP/blob/main/model-card.md). 
 
@@ -109,9 +111,9 @@ from haystack.nodes.retriever.multimodal import MultiModalRetriever
 
 retriever_text_to_image = MultiModalRetriever(
     document_store=document_store,
-    query_embedding_model = "sentence-transformers/clip-ViT-B-32",
+    query_embedding_model="sentence-transformers/clip-ViT-B-32",
     query_type="text",
-    document_embedding_models = {"image": "sentence-transformers/clip-ViT-B-32"}
+    document_embedding_models={"image": "sentence-transformers/clip-ViT-B-32"},
 )
 
 # Now let's turn our images into embeddings and store them in the DocumentStore.
@@ -120,7 +122,7 @@ document_store.update_embeddings(retriever=retriever_text_to_image)
 
  Your retriever is now ready for search!
 
-# Creating the MultiModal Search Pipeline
+## Creating the MultiModal Search Pipeline
 
 We are populating a pipeline with a MultiModalRetriever node. This search pipeline queries the image database with text and returns the most relevant images.
 
@@ -129,25 +131,18 @@ We are populating a pipeline with a MultiModalRetriever node. This search pipeli
 from haystack import Pipeline
 
 pipeline = Pipeline()
-pipeline.add_node(
-    component=retriever_text_to_image, 
-    name="retriever_text_to_image", 
-    inputs=["Query"]
-)
+pipeline.add_node(component=retriever_text_to_image, name="retriever_text_to_image", inputs=["Query"])
 ```
 
 Now, you have a pipeline that uses the MultiModalRetriever and takes a text query as input. Let's try it out.
 
-# Searching Through the Images
+## Searching Through the Images
 
 Use the pipeline `run()` method to query the images in the DocumentStore. The query argument is where you type your text query. Additionally, you can set the number of images you want the MultiModalRetriever to return using the `top-k` parameter. To learn more about setting arguments, see [Pipeline Arguments](https://docs.haystack.deepset.ai/docs/pipelines#arguments).
 
 
 ```python
-results = pipeline.run(
-    query="Animal that lives in the water",
-    params={"retriever_text_to_image": {"top_k": 3}}
-)
+results = pipeline.run(query="Animal that lives in the water", params={"retriever_text_to_image": {"top_k": 3}})
 
 # Sort the results based on the scores
 results = sorted(results["documents"], key=lambda d: d.score, reverse=True)
@@ -175,17 +170,19 @@ from io import BytesIO
 from PIL import Image, ImageDraw, ImageOps
 from IPython.display import display, Image as IPImage
 
+
 def display_img_array(ima, score):
     im = Image.open(ima)
-    img_with_border = ImageOps.expand(im ,border=20, fill='white')
+    img_with_border = ImageOps.expand(im, border=20, fill="white")
 
     # Add Text to an image
     img = ImageDraw.Draw(img_with_border)
     img.text((20, 0), f"Score: {score},    Path: {ima}", fill=(0, 0, 0))
 
     bio = BytesIO()
-    img_with_border.save(bio, format='png')
-    display(IPImage(bio.getvalue(), format='png'))
+    img_with_border.save(bio, format="png")
+    display(IPImage(bio.getvalue(), format="png"))
+
 
 images_array = [doc.content for doc in results]
 scores = [doc.score for doc in results]

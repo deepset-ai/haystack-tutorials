@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb
 toc: True
 title: "Open-Domain QA on Tables"
-last_updated: 2022-10-31
+last_updated: 2022-12-15
 level: "advanced"
 weight: 130
 description: Perform question answering on tabular data.
 category: "QA"
 aliases: ['/tutorials/table-qa']
+download: "/downloads/15_TableQA.ipynb"
 ---
     
 
-# Open-Domain QA on Tables
 
 This tutorial shows you how to perform question-answering on tables using the `EmbeddingRetriever` or `BM25Retriever` as retriever node and the `TableReader` as reader node.
 
@@ -45,21 +45,6 @@ pip install git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[col
 # Install pygraphviz for visualization of Pipelines
 apt install libgraphviz-dev
 pip install pygraphviz
-```
-
-
-```python
-# The TaPAs-based TableReader requires the torch-scatter library
-import torch
-
-torch_version = torch.__version__
-```
-
-
-```bash
-%%bash -s "$torch_version"
-
-pip install torch-scatter -f https://data.pyg.org/whl/torch-$1.html
 ```
 
 ## Logging
@@ -99,7 +84,7 @@ If Docker is not readily available in your environment (e.g. in Colab notebooks)
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.2-linux-x86_64.tar.gz -q
 tar -xzf elasticsearch-7.9.2-linux-x86_64.tar.gz
 chown -R daemon:daemon elasticsearch-7.9.2
-sudo -u daemon -- elasticsearch-7.9.2/bin/elasticsearch -d
+
 ```
 
 

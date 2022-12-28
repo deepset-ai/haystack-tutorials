@@ -3,16 +3,16 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/04_FAQ_style_QA.ipynb
 toc: True
 title: "Utilizing Existing FAQs for Question Answering"
-last_updated: 2022-10-12
+last_updated: 2022-12-08
 level: "beginner"
 weight: 20
 description: Create a smarter way to answer new questions using your existing FAQ documents.
 category: "QA"
 aliases: ['/tutorials/existing-faqs']
+download: "/downloads/04_FAQ_style_QA.ipynb"
 ---
     
 
-# Utilizing existing FAQs for Question Answering
 
 While *extractive Question Answering* works on pure texts and is therefore more generalizable, there's also a common alternative that utilizes existing FAQ data.
 
@@ -92,7 +92,7 @@ If Docker is not readily available in your environment (e.g. in Colab notebooks)
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.2-linux-x86_64.tar.gz -q
 tar -xzf elasticsearch-7.9.2-linux-x86_64.tar.gz
 chown -R daemon:daemon elasticsearch-7.9.2
-sudo -u daemon -- elasticsearch-7.9.2/bin/elasticsearch -d
+
 ```
 
 
