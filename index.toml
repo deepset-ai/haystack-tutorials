@@ -163,3 +163,4 @@ level = "advanced"
 weight = 115
 notebook = "20_Using_Haystack_with_REST_API.ipynb"
 aliases = ["using-haystack-with-rest-api"]
+colab = false

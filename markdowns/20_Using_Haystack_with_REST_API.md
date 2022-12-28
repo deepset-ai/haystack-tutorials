@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/20_Using_Haystack_with_REST_API.ipynb
+colab: False
 toc: True
 title: "Using Haystack with REST API"
 last_updated: 2022-12-28
@@ -9,10 +9,10 @@ weight: 115
 description: Create a production-ready pipeline and interact with Haystack REST API.
 category: "QA"
 aliases: ['/tutorials/using-haystack-with-rest-api']
+download: "/downloads/20_Using_Haystack_with_REST_API.ipynb"
 ---
     
 
-# Tutorial: Using Haystack with REST API
 
 - **Level**: Advanced
 - **Time to complete**: 30 minutes
