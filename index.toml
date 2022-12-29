@@ -4,11 +4,11 @@ toc = true
 colab = "https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/"
 
 [[tutorial]]
-title = "Build Your First QA System"
+title = "Build Your First Question Answering System"
 description = "Get Started by creating a Retriever Reader pipeline."
 level = "beginner"
 weight = 10
-notebook = "01_Basic_QA_pipeline.ipynb"
+notebook = "01_Basic_QA_Pipeline.ipynb"
 aliases = ["first-qa-system", "without-elasticsearch", "03_basic_qa_pipeline_without_elasticsearch"]
 
 [[tutorial]]
@@ -20,8 +20,8 @@ notebook = "02_Finetune_a_model_on_your_data.ipynb"
 aliases = ["fine-tuning-a-model"]
 
 [[tutorial]]
-title = "Build a QA System Without Elasticsearch"
-description = "Create a Retriever Reader pipeline that requires no external database dependencies."
+title = "Build a Scalable Question Answering System"
+description = "Create a scalable Retriever Reader pipeline that uses an ElasticsearchDocumentStore."
 level = "beginner"
 weight = 15
 notebook = "03_Scalable_QA_System.ipynb"
