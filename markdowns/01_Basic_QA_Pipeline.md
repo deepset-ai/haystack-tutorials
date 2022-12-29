@@ -3,16 +3,18 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_build_your_first_question_answering_system.ipynb
 toc: True
 title: "Build Your First Question Answering System"
-last_updated: 2022-11-30
+last_updated: 2022-12-29
 level: "beginner"
 weight: 10
 description: Get Started by creating a Retriever Reader pipeline.
 category: "QA"
-aliases: ['/tutorials/first-qa-system', '/tutorials/without-elasticsearch', '/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch']
+aliases: ['/tutorials/first-qa-system', '/tutorials/without-elasticsearch', '/tutorials/03_basic_qa_pipeline_without_elasticsearch']
 download: "/downloads/01_build_your_first_question_answering_system.ipynb"
 ---
     
 
+
+> We've modified this first tutorial to make it simpler to start with. If you're looking for a Question Answering tutorial that uses a DocumentStore such as Elasticsearch, go to our new [Build a Scalable Question Answering System](https://haystack.deepset.ai/tutorials/03_Scalable_QA_System) tutorial
 
 - **Level**: Beginner
 - **Time to complete**: 15 minutes
@@ -52,13 +54,11 @@ pip install farm-haystack[colab]
 
 A DocumentStore stores the Documents that the question answering system uses to find answers to your questions. Here we are using the `InMemoryDocumentStore` which is the simplest DocumentStore to get started with. It requires no external dependencies and is a good option for smaller projects and debugging. However, it does not scale up so well to larger Document collections. To learn more about the DocumentStore and the different types of external databases that we support, see [DocumentStore](https://docs.haystack.deepset.ai/docs/document_store).
 
-Let's initialize the DocumentStore and enable it to work with the BM25Retriever:
-
 
 ```python
 from haystack.document_stores import InMemoryDocumentStore
 
-document_store = InMemoryDocumentStore(use_bm25=True)
+document_store = InMemoryDocumentStore()
 ```
 
 ## Preparing Documents
@@ -98,13 +98,13 @@ As an alternative, you can cast you text data into [Document objects](https://do
 
 ## Initializing the Retriever
 
-A Retriever sifts through all the Documents and returns only those that it thinks might be relevant to the question. Here we are using the TF-IDF algorithm. For more Retriever options, see [Retriever](https://haystack.deepset.ai/pipeline_nodes/retriever).
+Retrievers sift through all the Documents and return only those that it thinks might be relevant to the question. Here we are using the BM25 algorithm. For more Retriever options, see [Retriever](https://docs.haystack.deepset.ai/docs/retriever).
 
 
 ```python
-from haystack.nodes import TfidfRetriever
+from haystack.nodes import BM25Retriever
 
-retriever = TfidfRetriever(document_store=document_store)
+retriever = BM25Retriever(document_store=document_store)
 ```
 
 ## Initializing the Reader
@@ -175,7 +175,7 @@ And there you have it! Congratulations on building your first machine learning b
 
 # Next Steps
 
-Check out [Build a Scalable Question Answering System](https://haystack.deepset.ai/tutorials/02_build_a_scalable_question_answering_system) to learn how to make a more advanced question answering system that uses an Elasticsearch backed DocumentStore and makes more use of the flexibility that pipelines offer.
+Check out [Build a Scalable Question Answering System](https://haystack.deepset.ai/tutorials/03_Scalable_QA_System) to learn how to make a more advanced question answering system that uses an Elasticsearch backed DocumentStore and makes more use of the flexibility that pipelines offer.
 
 ## About us
 

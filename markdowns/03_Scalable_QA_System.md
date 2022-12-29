@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_build_a_scalable_question_answering_system.ipynb
 toc: True
 title: "Build a Scalable Question Answering System"
-last_updated: 2022-11-30
+last_updated: 2022-12-29
 level: "beginner"
 weight: 15
 description: Create a scalable Retriever Reader pipeline that uses an ElasticsearchDocumentStore.
@@ -22,18 +22,16 @@ download: "/downloads/03_build_a_scalable_question_answering_system.ipynb"
 
 ## Overview
 
-Learn how to set up a question answering system that can search through complex knowledge bases and highlight answers to questions such as "Who is the father of Arya Stark?" In this tutorial, we will work on a set of Wikipedia pages about Game of Thrones, but you can adapt it to search through internal wikis or a collection of financial reports, for example.
+Learn how to set up a question answering system that can search through complex knowledge bases and highlight answers to questions such as "Who is the father of Arya Stark?". In this tutorial, we'll work on a set of Wikipedia pages about Game of Thrones, but you can adapt it to search through internal wikis or a collection of financial reports, for example.
 
 This tutorial introduces you to all the concepts needed to build such a question answering system. It also uses Haystack components, such as indexing pipelines, querying pipelines, and DocumentStores backed by external database services.
 
-Let's learn how to build a question answering system and discover more about the marvellous seven kingdoms!
+Let's learn how to build a question answering system and discover more about the marvelous seven kingdoms!
 
 
 ## Preparing the Colab Environment
 
-- [Enable GPU Runtime in GPU](https://docs.haystack.deepset.ai/docs/enable-gpu-runtime-in-colab)
-- [Check if GPU is Enabled](https://docs.haystack.deepset.ai/docs/check-if-gpu-is-enabled)
-- [Set logging level to INFO](https://docs.haystack.deepset.ai/docs/set-the-logging-level)
+[Enable GPU Runtime in GPU](https://docs.haystack.deepset.ai/docs/enabling-gpu-acceleration#enabling-the-gpu-in-colab)
 
 
 ## Installing Haystack
@@ -46,6 +44,16 @@ To start, let's install the latest release of Haystack with `pip`:
 
 pip install --upgrade pip
 pip install farm-haystack[colab]
+```
+
+Set the logging level to INFO:
+
+
+```python
+import logging
+
+logging.basicConfig(format="%(levelname)s - %(name)s -  %(message)s", level=logging.WARNING)
+logging.getLogger("haystack").setLevel(logging.INFO)
 ```
 
 ## Initializing the ElasticsearchDocumentStore
@@ -87,6 +95,12 @@ time.sleep(30)
 
 
 ```python
+from haystack.utils import launch_es
+launch_es()
+```
+
+
+```python
 import os
 from haystack.document_stores import ElasticsearchDocumentStore
 
@@ -112,12 +126,14 @@ Once these nodes are combined into a pipeline, the pipeline will ingest `.txt` f
 
 
 ```python
+from datasets import load_dataset
+
 from haystack.utils import fetch_archive_from_http
 
 doc_dir = "data/build_a_scalable_question_answering_system"
 
 fetch_archive_from_http(
-    url="https://s3.eu-central-1.amazonaws.com/deepset.ai-farm-qa/datasets/documents/wiki_gameofthrones_txt1.zip",
+    url="https://s3.eu-central-1.amazonaws.com/deepset.ai-farm-qa/datasets/documents/wiki_gameofthrones_txt3.zip", 
     output_dir=doc_dir
 )
 ```

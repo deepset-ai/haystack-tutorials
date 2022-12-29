@@ -9,7 +9,7 @@ description = "Get Started by creating a Retriever Reader pipeline."
 level = "beginner"
 weight = 10
 notebook = "01_build_your_first_question_answering_system.ipynb"
-aliases = ["first-qa-system", "without-elasticsearch", "03_Basic_QA_Pipeline_without_Elasticsearch"]
+aliases = ["first-qa-system", "without-elasticsearch", "03_basic_qa_pipeline_without_elasticsearch"]
 slug = "01_Basic_QA_Pipeline"
 
 [[tutorial]]
@@ -28,7 +28,7 @@ level = "beginner"
 weight = 15
 notebook = "03_build_a_scalable_question_answering_system.ipynb"
 aliases = []
-slug = "03_Scalable_QA_Pipeline"
+slug = "03_Scalable_QA_System"
 
 [[tutorial]]
 title = "Utilizing Existing FAQs for Question Answering"
