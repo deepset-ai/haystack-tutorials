@@ -1,193 +1,104 @@
 ---
 layout: tutorial
-colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_Pipeline.ipynb
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_pipeline.ipynb
 toc: True
 title: "Build Your First QA System"
-last_updated: 2022-11-24
+last_updated: 2022-12-29
 level: "beginner"
 weight: 10
 description: Get Started by creating a Retriever Reader pipeline.
 category: "QA"
-aliases: ['/tutorials/first-qa-system']
-download: "/downloads/01_Basic_QA_Pipeline.ipynb"
+aliases: ['/tutorials/first-qa-system', '/tutorials/without-elasticsearch', '/tutorials/03_basic_qa_pipeline_without_elasticsearch']
+download: "/downloads/01_Basic_QA_pipeline.ipynb"
 ---
     
 
 
-<img style="float: right;" src="https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg">
+> We've modified this first tutorial to make it simpler to start with. If you're looking for a Question Answering tutorial that uses a DocumentStore such as Elasticsearch, go to our new [Build a Scalable Question Answering System](https://haystack.deepset.ai/tutorials/03_Scalable_QA_System) tutorial
 
-Question Answering can be used in a variety of use cases. A very common one:  Using it to navigate through complex knowledge bases or long documents ("search setting").
-
-A "knowledge base" could for example be your website, an internal wiki or a collection of financial reports. 
-In this tutorial we will work on a slightly different domain: "Game of Thrones". 
-
-Let's see how we can use a bunch of Wikipedia articles to answer a variety of questions about the 
-marvellous seven kingdoms.
+- **Level**: Beginner
+- **Time to complete**: 15 minutes
+- **Nodes Used**: `InMemoryDocumentStore`, `BM25Retriever`, `FARMReader`
+- **Goal**: After completing this tutorial, you will have learned about the Reader and Retriever, and built a question answering pipeline that can answer questions about the Game of Thrones series.
 
 
-### Prepare environment
+## Overview
 
-#### Colab: Enable the GPU runtime
-Make sure you enable the GPU runtime to experience decent speed in this tutorial.
-**Runtime -> Change Runtime type -> Hardware accelerator -> GPU**
+Let's learn how to build a question answering system using Haystack's DocumentStore, Retriever, and Reader. Given a question like "Who is the father of Arya Stark?", this program will search through a knowledge base and look for a fitting answer.
 
-<img src="https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/colab_gpu_runtime.jpg">
+While the documents we are using in this tutorial are all to do with Game of Thrones, the question answering system can work in many domains if you provide the documents. For example, you could add your company's internal wikis, or a collection of financial reports and still receive answers to questions on these topics.
 
-You can double check whether the GPU runtime is enabled with the following command:
+To help you get started quicker, we have simplified certain steps in this tutorial. For example, Document preparation and pipeline initialization are handled by ready-made classes that replace lines of initialization code. But don't worry! This doesn't affect how well the question answering system performs.
 
 
-```bash
-%%bash
+## Preparing the Colab Environment
 
-nvidia-smi
-```
+- [Enable GPU Runtime in GPU](https://docs.haystack.deepset.ai/docs/enable-gpu-runtime-in-colab)
+- [Check if GPU is Enabled](https://docs.haystack.deepset.ai/docs/check-if-gpu-is-enabled)
+- [Set logging level to INFO](https://docs.haystack.deepset.ai/docs/set-the-logging-level)
 
-To start, install the latest release of Haystack with `pip`:
+
+## Installing Haystack
+
+To start, let's install the latest release of Haystack with `pip`:
 
 
 ```bash
 %%bash
 
 pip install --upgrade pip
-pip install git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[colab]
+pip install farm-haystack[colab]
 ```
 
-## Logging
+## Initializing the DocumentStore
 
-We configure how logging messages should be displayed and which log level should be used before importing Haystack.
-Example log message:
-INFO - haystack.utils.preprocessing -  Converting data/tutorial1/218_Olenna_Tyrell.txt
-Default log level in basicConfig is WARNING so the explicit parameter is not necessary but can be changed easily:
+A DocumentStore stores the Documents that the question answering system uses to find answers to your questions. Here we are using the `InMemoryDocumentStore` which is the simplest DocumentStore to get started with. It requires no external dependencies and is a good option for smaller projects and debugging. However, it does not scale up so well to larger Document collections. To learn more about the DocumentStore and the different types of external databases that we support, see [DocumentStore](https://docs.haystack.deepset.ai/docs/document_store).
 
 
 ```python
-import logging
+from haystack.document_stores import InMemoryDocumentStore
 
-logging.basicConfig(format="%(levelname)s - %(name)s -  %(message)s", level=logging.WARNING)
-logging.getLogger("haystack").setLevel(logging.INFO)
+document_store = InMemoryDocumentStore(use_bm25=True)
 ```
 
-## Document Store
+## Preparing Documents
 
-Haystack finds answers to queries within the documents stored in a `DocumentStore`. The current implementations of `DocumentStore` include `ElasticsearchDocumentStore`, `FAISSDocumentStore`,  `SQLDocumentStore`, and `InMemoryDocumentStore`.
-
-**Here:** We recommended Elasticsearch as it comes preloaded with features like [full-text queries](https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html), [BM25 retrieval](https://www.elastic.co/elasticon/conf/2016/sf/improved-text-scoring-with-bm25), and [vector storage for text embeddings](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/dense-vector.html).
-
-**Alternatives:** If you are unable to setup an Elasticsearch instance, then follow the [Tutorial 3](https://github.com/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Basic_QA_Pipeline_without_Elasticsearch.ipynb) for using SQL/InMemory document stores.
-
-**Hint**: This tutorial creates a new document store instance with Wikipedia articles on Game of Thrones. However, you can configure Haystack to work with your existing document stores.
-
-### Start an Elasticsearch server locally
-You can start Elasticsearch on your local machine instance using Docker. If Docker is not readily available in your environment (e.g. in Colab notebooks), then you can manually download and execute Elasticsearch from source.
+1. Download 517 articles from the Game of Thrones Wikipedia. You can find them in `data/tutorial1` as a set of `.txt` files.
 
 
 ```python
-# Recommended: Start Elasticsearch using Docker via the Haystack utility function
-from haystack.utils import launch_es
+from haystack.utils import fetch_archive_from_http
 
-launch_es()
+doc_dir = "data/build_your_first_question_answering_system"
+
+fetch_archive_from_http(
+    url="https://s3.eu-central-1.amazonaws.com/deepset.ai-farm-qa/datasets/documents/wiki_gameofthrones_txt1.zip",
+    output_dir=doc_dir
+)
 ```
 
-### Start an Elasticsearch server in Colab
-
-If Docker is not readily available in your environment (e.g. in Colab notebooks), then you can manually download and execute Elasticsearch from source.
-
-
-```bash
-%%bash
-
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.2-linux-x86_64.tar.gz -q
-tar -xzf elasticsearch-7.9.2-linux-x86_64.tar.gz
-chown -R daemon:daemon elasticsearch-7.9.2
-```
-
-
-```bash
-%%bash --bg
-
-sudo -u daemon -- elasticsearch-7.9.2/bin/elasticsearch
-```
-
-### Create the Document Store
-
-The `ElasticsearchDocumentStore` class will try to open a connection in the constructor, here we wait 30 seconds only to be sure Elasticsearch is ready before continuing:
-
-
-```python
-import time
-time.sleep(30)
-```
-
-Finally, we create the Document Store instance:
+2. Use the `TextIndexingPipeline` to convert the files you just downloaded into Haystack [Document objects](https://docs.haystack.deepset.ai/docs/documents_answers_labels#document) and write them into the DocumentStore.
 
 
 ```python
 import os
-from haystack.document_stores import ElasticsearchDocumentStore
+from haystack.pipelines.standard_pipelines import TextIndexingPipeline
+# from text_indexing_pipeline import TextIndexingPipeline
 
-# Get the host where Elasticsearch is running, default to localhost
-host = os.environ.get("ELASTICSEARCH_HOST", "localhost")
-document_store = ElasticsearchDocumentStore(host=host, username="", password="", index="document")
+files_to_index = [doc_dir + "/" + f for f in os.listdir(doc_dir)]
+indexing_pipeline = TextIndexingPipeline(document_store)
+indexing_pipeline.run_batch(file_paths=files_to_index)
+
+
 ```
 
-## Preprocessing of documents
+While the default code in this tutorial uses Game of Thrones data, you can also supply your own `.txt` files and index them in the same way.
 
-Haystack provides a customizable pipeline for:
- - converting files into texts
- - cleaning texts
- - splitting texts
- - writing them to a Document Store
+As an alternative, you can cast you text data into [Document objects](https://docs.haystack.deepset.ai/docs/documents_answers_labels#document) and write them into the DocumentStore using `DocumentStore.write_documents()`.
 
-In this tutorial, we download Wikipedia articles about Game of Thrones, apply a basic cleaning function, and index them in Elasticsearch.
+## Initializing the Retriever
 
-
-```python
-from haystack.utils import clean_wiki_text, convert_files_to_docs, fetch_archive_from_http
-
-
-# Let's first fetch some documents that we want to query
-# Here: 517 Wikipedia articles for Game of Thrones
-doc_dir = "data/tutorial1"
-s3_url = "https://s3.eu-central-1.amazonaws.com/deepset.ai-farm-qa/datasets/documents/wiki_gameofthrones_txt1.zip"
-fetch_archive_from_http(url=s3_url, output_dir=doc_dir)
-
-# Convert files to dicts
-# You can optionally supply a cleaning function that is applied to each doc (e.g. to remove footers)
-# It must take a str as input, and return a str.
-docs = convert_files_to_docs(dir_path=doc_dir, clean_func=clean_wiki_text, split_paragraphs=True)
-
-# We now have a list of dictionaries that we can write to our document store.
-# If your texts come from a different source (e.g. a DB), you can of course skip convert_files_to_dicts() and create the dictionaries yourself.
-# The default format here is:
-# {
-#    'content': "<DOCUMENT_TEXT_HERE>",
-#    'meta': {'name': "<DOCUMENT_NAME_HERE>", ...}
-# }
-# (Optionally: you can also add more key-value-pairs here, that will be indexed as fields in Elasticsearch and
-# can be accessed later for filtering or shown in the responses of the Pipeline)
-
-# Let's have a look at the first 3 entries:
-print(docs[:3])
-
-# Now, let's write the dicts containing documents to our DB.
-document_store.write_documents(docs)
-```
-
-## Initialize Retriever, Reader & Pipeline
-
-### Retriever
-
-Retrievers help narrowing down the scope for the Reader to smaller units of text where a given question could be answered.
-They use some simple but fast algorithm.
-
-**Here:** We use Elasticsearch's default BM25 algorithm
-
-**Alternatives:**
-
-- Customize the `BM25Retriever`with custom queries (e.g. boosting) and filters
-- Use `TfidfRetriever` in combination with a SQL or InMemory Document store for simple prototyping and debugging
-- Use `EmbeddingRetriever` to find candidate documents based on the similarity of embeddings (e.g. created via Sentence-BERT)
-- Use `DensePassageRetriever` to use different embedding models for passage and query (see Tutorial 6)
+Retrievers sift through all the Documents and return only those that it thinks might be relevant to the question. Here we are using the BM25 algorithm. For more Retriever options, see [Retriever](https://docs.haystack.deepset.ai/docs/retriever).
 
 
 ```python
@@ -196,58 +107,20 @@ from haystack.nodes import BM25Retriever
 retriever = BM25Retriever(document_store=document_store)
 ```
 
+## Initializing the Reader
 
-```python
-# Alternative: An in-memory TfidfRetriever based on Pandas dataframes for building quick-prototypes with SQLite document store.
-
-# from haystack.nodes import TfidfRetriever
-# retriever = TfidfRetriever(document_store=document_store)
-```
-
-### Reader
-
-A Reader scans the texts returned by retrievers in detail and extracts the k best answers. They are based
-on powerful, but slower deep learning models.
-
-Haystack currently supports Readers based on the frameworks FARM and Transformers.
-With both you can either load a local model or one from Hugging Face's model hub (https://huggingface.co/models).
-
-**Here:** a medium sized RoBERTa QA model using a Reader based on FARM (https://huggingface.co/deepset/roberta-base-squad2)
-
-**Alternatives (Reader):** TransformersReader (leveraging the `pipeline` of the Transformers package)
-
-**Alternatives (Models):** e.g. "distilbert-base-uncased-distilled-squad" (fast) or "deepset/bert-large-uncased-whole-word-masking-squad2" (good accuracy)
-
-**Hint:** You can adjust the model to return "no answer possible" with the no_ans_boost. Higher values mean the model prefers "no answer possible"
-
-#### FARMReader
+A Reader scans the texts returned by Retrievers in detail and extracts the top answer candidates. Readers are based on powerful deep learning models but are much slower than Retrievers at processing the same amount of text. Here we are using a base sized RoBERTa question answering model called [`deepset/roberta-base-squad2`](https://huggingface.co/deepset/roberta-base-squad2). To find out what model works best for your use case, see [Models](https://haystack.deepset.ai/pipeline_nodes/reader#models).
 
 
 ```python
 from haystack.nodes import FARMReader
 
-# Load a  local model or any of the QA models on
-# Hugging Face's model hub (https://huggingface.co/models)
-
 reader = FARMReader(model_name_or_path="deepset/roberta-base-squad2", use_gpu=True)
 ```
 
-#### TransformersReader
+## Creating the Retriever-Reader Pipeline
 
-Alternative:
-
-
-```python
-from haystack.nodes import TransformersReader
-# reader = TransformersReader(model_name_or_path="distilbert-base-uncased-distilled-squad", tokenizer="distilbert-base-uncased", use_gpu=-1)
-```
-
-### Pipeline
-
-With a Haystack `Pipeline` you can stick together your building blocks to a search pipeline.
-Under the hood, `Pipelines` are Directed Acyclic Graphs (DAGs) that you can easily customize for your own use cases.
-To speed things up, Haystack also comes with a few predefined Pipelines. One of them is the `ExtractiveQAPipeline` that combines a retriever and a reader to answer our questions.
-You can learn more about `Pipelines` in the [docs](https://haystack.deepset.ai/docs/latest/pipelines).
+The `ExtractiveQAPipeline` connects the Reader and Retriever. The combination of the two speeds up processing because the Reader only processes the Documents that the Retriever has passed on.
 
 
 ```python
@@ -256,58 +129,53 @@ from haystack.pipelines import ExtractiveQAPipeline
 pipe = ExtractiveQAPipeline(reader, retriever)
 ```
 
-## Voilà! Ask a question!
+## Asking a Question
+
+1. Use the pipeline `run()` method to ask a question. The query argument is where you type your question. Additionally, you can set the number of documents you want the Reader and Retriever to return using the `top-k` parameter. To learn more about setting arguments, see [Arguments](https://docs.haystack.deepset.ai/docs/pipelines#arguments). To understand the importance of the `top-k` parameter, see [Choosing the Right top-k Values](https://docs.haystack.deepset.ai/docs/optimization#choosing-the-right-top-k-values).
+
 
 
 ```python
-# You can configure how many candidates the Reader and Retriever shall return
-# The higher top_k_retriever, the better (but also the slower) your answers.
 prediction = pipe.run(
-    query="Who is the father of Arya Stark?", params={"Retriever": {"top_k": 10}, "Reader": {"top_k": 5}}
+    query="Who is the father of Arya Stark?",
+    params={
+        "Retriever": {"top_k": 10},
+        "Reader": {"top_k": 5}
+    }
 )
 ```
 
+Here are some questions you could try out:
+- Who is the father of Arya Stark?
+- Who created the Dothraki vocabulary?
+- Who is the sister of Sansa?
 
-```python
-# prediction = pipe.run(query="Who created the Dothraki vocabulary?", params={"Reader": {"top_k": 5}})
-# prediction = pipe.run(query="Who is the sister of Sansa?", params={"Reader": {"top_k": 5}})
-```
-
-Now you can either print the object directly:
+2. The answers returned by the pipeline can be printed out directly:
 
 
 ```python
 from pprint import pprint
 
 pprint(prediction)
-
-# Sample output:
-# {
-#     'answers': [ <Answer: answer='Eddard', type='extractive', score=0.9919578731060028, offsets_in_document=[{'start': 608, 'end': 615}], offsets_in_context=[{'start': 72, 'end': 79}], document_id='cc75f739897ecbf8c14657b13dda890e', meta={'name': '454_Music_of_Game_of_Thrones.txt'}}, context='...' >,
-#                  <Answer: answer='Ned', type='extractive', score=0.9767240881919861, offsets_in_document=[{'start': 3687, 'end': 3801}], offsets_in_context=[{'start': 18, 'end': 132}], document_id='9acf17ec9083c4022f69eb4a37187080', meta={'name': '454_Music_of_Game_of_Thrones.txt'}}, context='...' >,
-#                  ...
-#                ]
-#     'documents': [ <Document: content_type='text', score=0.8034909798951382, meta={'name': '332_Sansa_Stark.txt'}, embedding=None, id=d1f36ec7170e4c46cde65787fe125dfe', content='\n===\'\'A Game of Thrones\'\'===\nSansa Stark begins the novel by being betrothed to Crown ...'>,
-#                    <Document: content_type='text', score=0.8002150354529785, meta={'name': '191_Gendry.txt'}, embedding=None, id='dd4e070a22896afa81748d6510006d2', 'content='\n===Season 2===\nGendry travels North with Yoren and other Night's Watch recruits, including Arya ...'>,
-#                    ...
-#                  ],
-#     'no_ans_gap':  11.688868522644043,
-#     'node_id': 'Reader',
-#     'params': {'Reader': {'top_k': 5}, 'Retriever': {'top_k': 5}},
-#     'query': 'Who is the father of Arya Stark?',
-#     'root_node': 'Query'
-# }
 ```
 
-Or use a util to simplify the output:
+3. Simplify the printed answers:
 
 
 ```python
 from haystack.utils import print_answers
 
-# Change `minimum` to `medium` or `all` to raise the level of detail
-print_answers(prediction, details="minimum")
+print_answers(
+    prediction,
+    details="minimum" ## Choose from `minimum`, `medium` and `all`
+)
 ```
+
+And there you have it! Congratulations on building your first machine learning based question answering system!
+
+# Next Steps
+
+Check out [Build a Scalable Question Answering System](https://haystack.deepset.ai/tutorials/03_Scalable_QA_System) to learn how to make a more advanced question answering system that uses an Elasticsearch backed DocumentStore and makes more use of the flexibility that pipelines offer.
 
 ## About us
 
@@ -319,10 +187,9 @@ Our focus: Industry specific language models & large scale QA systems.
 Some of our other work: 
 - [German BERT](https://deepset.ai/german-bert)
 - [GermanQuAD and GermanDPR](https://deepset.ai/germanquad)
-- [FARM](https://github.com/deepset-ai/FARM)
 
 Get in touch:
-[Twitter](https://twitter.com/deepset_ai) | [LinkedIn](https://www.linkedin.com/company/deepset-ai/) | [Discord](https://haystack.deepset.ai/community/join) | [GitHub Discussions](https://github.com/deepset-ai/haystack/discussions) | [Website](https://deepset.ai)
+[Twitter](https://twitter.com/deepset_ai) | [LinkedIn](https://www.linkedin.com/company/deepset-ai/) | [Discord](https://haystack.deepset.ai/community) | [GitHub Discussions](https://github.com/deepset-ai/haystack/discussions) | [Website](https://deepset.ai)
 
 By the way: [we're hiring!](https://www.deepset.ai/jobs)
 
