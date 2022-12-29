@@ -1,15 +1,15 @@
 ---
 layout: tutorial
-colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_pipeline.ipynb
+colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_Pipeline.ipynb
 toc: True
-title: "Build Your First QA System"
+title: "Build Your First Question Answering System"
 last_updated: 2022-12-29
 level: "beginner"
 weight: 10
 description: Get Started by creating a Retriever Reader pipeline.
 category: "QA"
 aliases: ['/tutorials/first-qa-system', '/tutorials/without-elasticsearch', '/tutorials/03_basic_qa_pipeline_without_elasticsearch']
-download: "/downloads/01_Basic_QA_pipeline.ipynb"
+download: "/downloads/01_Basic_QA_Pipeline.ipynb"
 ---
     
 
