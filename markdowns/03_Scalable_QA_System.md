@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Scalable_QA_System.ipynb
 toc: True
 title: "Build a Scalable Question Answering System"
-last_updated: 2022-12-29
+last_updated: 2022-12-30
 level: "beginner"
 weight: 15
 description: Create a scalable Retriever Reader pipeline that uses an ElasticsearchDocumentStore.
@@ -31,7 +31,7 @@ Let's learn how to build a question answering system and discover more about the
 
 ## Preparing the Colab Environment
 
-[Enable GPU Runtime in GPU](https://docs.haystack.deepset.ai/docs/enabling-gpu-acceleration#enabling-the-gpu-in-colab)
+- [Enable GPU Runtime in GPU](https://docs.haystack.deepset.ai/docs/enabling-gpu-acceleration#enabling-the-gpu-in-colab)
 
 
 ## Installing Haystack
