@@ -3,7 +3,7 @@ layout: tutorial
 colab: False
 toc: True
 title: "Using Haystack with REST API"
-last_updated: 2022-12-28
+last_updated: 2022-12-30
 level: "advanced"
 weight: 115
 description: Create a production-ready pipeline and interact with Haystack REST API.
@@ -49,7 +49,7 @@ curl --output docker-compose.yml https://raw.githubusercontent.com/deepset-ai/ha
 ```
 
 Here's how the `/doc-search` folder should look like:
-```txt
+```
 /doc-search
 └── docker-compose.yml
 ```
@@ -62,7 +62,7 @@ YAML files are widely used for configurations and Haystack makes no exception: y
 
 Time to design a document search pipeline from scratch. This will be your query pipeline. Create a new file named `document-search.haystack-pipeline.yml` in newly created `doc-search` folder. The compose file and the new pipeline YAML file should be on the same level in the directory.
 
-```txt
+```
 /doc-search
 ├── docker-compose.yml
 └── document-search.haystack-pipeline.yml
@@ -222,7 +222,7 @@ Right now, the Elasticsearch instance is empty. Haystack API provides a `/file-u
 
 Download the [example files](https://s3.eu-central-1.amazonaws.com/deepset.ai-farm-qa/datasets/documents/article_txt_countries_and_capitals.zip) into the `doc-search` folder. In the downloaded zip file, there are text files about countries and capitals crawled from [Wikipedia](https://en.wikipedia.org/wiki/Category:Lists_of_countries_by_continent).
 
-```txt
+```
 /doc-search
 ├── docker-compose.yml
 ├── document-search.haystack-pipeline.yml
