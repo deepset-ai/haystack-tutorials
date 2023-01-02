@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Scalable_QA_System.ipynb
 toc: True
 title: "Build a Scalable Question Answering System"
-last_updated: 2022-12-30
+last_updated: 2023-01-02
 level: "beginner"
 weight: 15
 description: Create a scalable Retriever Reader pipeline that uses an ElasticsearchDocumentStore.
@@ -31,7 +31,7 @@ Let's learn how to build a question answering system and discover more about the
 
 ## Preparing the Colab Environment
 
-- [Enable GPU Runtime in GPU](https://docs.haystack.deepset.ai/docs/enabling-gpu-acceleration#enabling-the-gpu-in-colab)
+- [Enable GPU Runtime](https://docs.haystack.deepset.ai/docs/enabling-gpu-acceleration#enabling-the-gpu-in-colab)
 
 
 ## Installing Haystack
@@ -58,9 +58,9 @@ logging.getLogger("haystack").setLevel(logging.INFO)
 
 ## Initializing the ElasticsearchDocumentStore
 
-A DocumentStore stores the Documents that the question answering system uses to find answers to your questions. Here, we're using the `ElasticsearchDocumentStore` which connects to a running Elasticsearch service which is a fast and scalable text focused storage option. This service runs independently from Haystack and persists even after the Haystack program has finished running. To learn more about the DocumentStore and the different types of external databases that we support, see [DocumentStore](https://docs.haystack.deepset.ai/docs/document_store).
+A DocumentStore stores the Documents that the question answering system uses to find answers to your questions. Here, we're using the [`ElasticsearchDocumentStore`](https://docs.haystack.deepset.ai/reference/document-store-api#module-elasticsearch) which connects to a running Elasticsearch service. It's a fast and scalable text-focused storage option. This service runs independently from Haystack and persists even after the Haystack program has finished running. To learn more about the DocumentStore and the different types of external databases that we support, see [DocumentStore](https://docs.haystack.deepset.ai/docs/document_store).
 
-1. Download, extract, and set the permissions for the Elasticsearch installation image.
+1. Download, extract, and set the permissions for the Elasticsearch installation image:
 
 
 ```bash
@@ -71,7 +71,7 @@ tar -xzf elasticsearch-7.9.2-linux-x86_64.tar.gz
 chown -R daemon:daemon elasticsearch-7.9.2
 ```
 
-2. Start the server.
+2. Start the server:
 
 
 ```bash
@@ -82,7 +82,7 @@ sudo -u daemon -- elasticsearch-7.9.2/bin/elasticsearch
 
 If you are working in an environment where Docker is available, you can also start Elasticsearch using Docker. You can do this manually, or using our [`launch_es()`](https://docs.haystack.deepset.ai/reference/utils-api#module-doc_store) utility function.
 
-3. Wait 30s to ensure that the server has fully started up.
+3. Wait 30 seconds for the server to fully start up:
 
 
 ```python
@@ -90,7 +90,7 @@ import time
 time.sleep(30)
 ```
 
-4. Initialize the [`ElasticsearchDocumentStore`](https://docs.haystack.deepset.ai/reference/document-store-api#module-elasticsearch).
+4. Initialize the ElasticsearchDocumentStore:
 
 
 
@@ -115,14 +115,16 @@ document_store = ElasticsearchDocumentStore(
 )
 ```
 
+ElasticsearchDocumentStore is up and running and ready to store the Documents.
+
 ## Indexing Documents with a Pipeline
 
-The indexing pipeline turns your files into Document objects and writes them to the DocumentStore. Our indexing pipeline will have two nodes: `TextConverter` which turns `.txt` files into Haystack `Document` objects and `PreProcessor` which cleans and splits the text within a `Document`.
+The next step is adding the files to the DocumentStore. The indexing pipeline turns your files into Document objects and writes them to the DocumentStore. Our indexing pipeline will have two nodes: `TextConverter`, which turns `.txt` files into Haystack `Document` objects, and `PreProcessor`, which cleans and splits the text within a `Document`.
 
-Once these nodes are combined into a pipeline, the pipeline will ingest `.txt` file paths, preprocess them, and write them into the DocumentStore.
+Once we combine these nodes into a pipeline, the pipeline will ingest `.txt` file paths, preprocess them, and write them into the DocumentStore.
 
 
-1. Download 517 articles from the Game of Thrones Wikipedia. You can find them in `data/build_a_scalable_question_answering_system` as a set of `.txt` files.
+1. Download 517 articles from the Game of Thrones Wikipedia. You can find them in *data/build_a_scalable_question_answering_system* as a set of *.txt* files.
 
 
 ```python
@@ -138,7 +140,7 @@ fetch_archive_from_http(
 )
 ```
 
-2. Initialize the pipeline, TextConverter, and PreProcessor.
+2. Initialize the pipeline, TextConverter, and PreProcessor:
 
 
 ```python
@@ -161,7 +163,7 @@ preprocessor = PreProcessor(
 
 To learn more about the parameters of the `PreProcessor`, see [Usage](https://docs.haystack.deepset.ai/docs/preprocessor#usage). To understand why document splitting is important for your question answering system's performance, see [Document Length](https://docs.haystack.deepset.ai/docs/optimization#document-length).
 
-2. Add the nodes into an indexing pipeline. You should provide the `name` or `name`s of preceding nodes as the `input` argument. Note that in an indexing pipeline, the input to the first node is "File".
+2. Add the nodes into an indexing pipeline. You should provide the `name` or `name`s of preceding nodes as the `input` argument. Note that in an indexing pipeline, the input to the first node is `File`.
 
 
 ```python
@@ -173,7 +175,7 @@ indexing_pipeline.add_node(component=document_store, name="DocumentStore", input
 
 ```
 
-3. Run the indexing pipeline to write the text data into the DocumentStore.
+3. Run the indexing pipeline to write the text data into the DocumentStore:
 
 
 ```python
@@ -181,13 +183,15 @@ files_to_index = [doc_dir + "/" + f for f in os.listdir(doc_dir)]
 indexing_pipeline.run_batch(file_paths=files_to_index)
 ```
 
-While the default code in this tutorial uses Game of Thrones data, you can also supply your own `.txt` files and index them in the same way.
+The code in this tutorial uses Game of Thrones data, but you can also supply your own `.txt` files and index them in the same way.
 
 As an alternative, you can cast you text data into [Document objects](https://docs.haystack.deepset.ai/docs/documents_answers_labels#document) and write them into the DocumentStore using [`DocumentStore.write_documents()`](https://docs.haystack.deepset.ai/reference/document-store-api#basedocumentstorewrite_documents).
 
+Now that the Documents are in the DocumentStore, let's initialize the nodes we want to use in our query pipeline.
+
 ## Initializing the Retriever
 
-Retrievers sift through all the Documents and return only those that are relevant to the question. Here we are using the BM25Retriever. For more Retriever options, see [Retriever](https://haystack.deepset.ai/pipeline_nodes/retriever).
+Our query pipeline is going to use a Retriever, so we need to initialize it. A Retriever sifts through all the Documents and returns only those that are relevant to the question. This tutorial uses the BM25Retriever. This is the recommended Retriever for a question answering system like the one we're creating. For more Retriever options, see [Retriever](https://docs.haystack.deepset.ai/docs/retriever).
 
 
 ```python
@@ -196,9 +200,11 @@ from haystack.nodes import BM25Retriever
 retriever = BM25Retriever(document_store=document_store)
 ```
 
+The BM25Retriever is initialized and ready for the pipeline.
+
 ## Initializing the Reader
 
-A Reader scans the texts returned by Retrievers in detail and extracts the top answer candidates. Readers are based on powerful deep learning models but are much slower than Retrievers at processing the same amount of text. Here we are using a base-sized RoBERTa question answering model called [`deepset/roberta-base-squad2`](https://huggingface.co/deepset/roberta-base-squad2). To find out what model works best for your use case, see [Models](https://haystack.deepset.ai/pipeline_nodes/reader#models).
+Our query pipeline also needs a Reader, so we'll initialize it next. A Reader scans the texts it received from the Retriever and extracts the top answer candidates. Readers are based on powerful deep learning models but are much slower than Retrievers at processing the same amount of text. This tutorials uses a FARMReader with a base-sized RoBERTa question answering model called [`deepset/roberta-base-squad2`](https://huggingface.co/deepset/roberta-base-squad2). It's a good all-round model to start with. To find a model that's best for your use case, see [Models](https://docs.haystack.deepset.ai/docs/reader#models).
 
 
 ```python
@@ -209,9 +215,9 @@ reader = FARMReader(model_name_or_path="deepset/roberta-base-squad2", use_gpu=Tr
 
 ## Creating the Retriever-Reader Pipeline
 
-You can combine the Reader and Retriever in a querying pipeline using the `Pipeline` class. The combination of the two speeds up processing because the Reader only processes the Documents that the Retriever has passed on. 
+You can combine the Reader and Retriever in a querying pipeline using the `Pipeline` class. The combination of the two speeds up processing because the Reader only processes the Documents that it received from the Retriever. 
 
-1. Initialize the `Pipeline` object and add the Retriever and Reader as nodes. You should provide the `name` or `name`s of preceding nodes as the input argument. Note that in a querying pipeline, the input to the first node is "Query".
+Initialize the `Pipeline` object and add the Retriever and Reader as nodes. You should provide the `name` or `name`s of preceding nodes as the input argument. Note that in a querying pipeline, the input to the first node is `Query`.
 
 
 ```python
@@ -223,9 +229,11 @@ querying_pipeline.add_node(component=reader, name="Reader", inputs=["Retriever"]
 
 ```
 
+That's it! Your pipeline's ready to answer your questions!
+
 ## Asking a Question
 
-1. Use the pipeline `run()` method to ask a question. The query argument is where you type your question. Additionally, you can set the number of documents you want the Reader and Retriever to return using the `top-k` parameter. To learn more about setting arguments, see [Arguments](https://docs.haystack.deepset.ai/docs/pipelines#arguments). To understand the importance of the `top-k` parameter, see [Choosing the Right top-k Values](https://docs.haystack.deepset.ai/docs/optimization#choosing-the-right-top-k-values).
+1. Use the pipeline's `run()` method to ask a question. The query argument is where you type your question. Additionally, you can set the number of documents you want the Reader and Retriever to return using the `top-k` parameter. To learn more about setting arguments, see [Arguments](https://docs.haystack.deepset.ai/docs/pipelines#arguments). To understand the importance of the `top-k` parameter, see [Choosing the Right top-k Values](https://docs.haystack.deepset.ai/docs/optimization#choosing-the-right-top-k-values).
 
 
 
@@ -239,14 +247,12 @@ prediction = querying_pipeline.run(
 )
 ```
 
-
-
 Here are some questions you could try out:
 - Who is the father of Arya Stark?
 - Who created the Dothraki vocabulary?
 - Who is the sister of Sansa?
 
-2. You can directly print out the answers returned by the pipeline:
+2. Print out the answers the pipeline returns:
 
 
 ```python
