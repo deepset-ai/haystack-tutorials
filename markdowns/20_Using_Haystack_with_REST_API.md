@@ -3,7 +3,7 @@ layout: tutorial
 colab: False
 toc: True
 title: "Using Haystack with REST API"
-last_updated: 2023-01-04
+last_updated: 2023-01-10
 level: "advanced"
 weight: 115
 description: Create a production-ready pipeline and interact with Haystack REST API.
@@ -16,9 +16,9 @@ download: "/downloads/20_Using_Haystack_with_REST_API.ipynb"
 
 - **Level**: Advanced
 - **Time to complete**: 30 minutes
-- **Prerequisites**: Basic understanding of Docker, basic knowledge of Haystack pipelines 
+- **Prerequisites**: Basic understanding of Docker and basic knowledge of Haystack pipelines. 
 - **Nodes Used**: `ElasticsearchDocumentStore`, `EmbeddingRetriever`
-- **Goal**: After completing this tutorial, you will have learned how to create a pipeline YAML file, index files, and how to query your pipeline using REST API.
+- **Goal**: After you complete this tutorial, you will have learned how to interact with Haystack through REST API.
 
 ## Overview
 
@@ -42,12 +42,12 @@ If you installed Docker Desktop, just start the application. Run `docker info` t
    ```
 
 2. Download the *docker-compose.yml* file. Haystack provides a *docker-compose.yml* file that defines services for Haystack API and Elasticsearch. 
-    1. Create a new folder called *doc-search*.
+    1. Create a new folder called *doc-search* in a directory where you want to keep all tutorial related files.
     2. Save the latest [*docker-compose.yml*](https://github.com/deepset-ai/haystack/blob/main/docker-compose.yml) file from GitHub into the folder. To save the *docker-compose.yml* file into the directory directly, run:
 
-    ```bash
-    curl --output docker-compose.yml https://raw.githubusercontent.com/deepset-ai/haystack/main/docker-compose.yml
-    ```
+         ```bash
+         curl --output docker-compose.yml https://raw.githubusercontent.com/deepset-ai/haystack/main/docker-compose.yml
+         ```
 
     Here's what the */doc-search* folder should look like:
     ```
@@ -70,7 +70,7 @@ You can define components and pipelines using YAML code that Haystack translates
       └── document-search.haystack-pipeline.yml
       ```
 
-   2. Provide the path to *document-search.haystack-pipeline.yml* as the `volume` value in the *docker-compose.yml* file. The path must be relative to *docker-compose.yml*. As both files are in the same directory, the source value will be `./`. 
+   2. Provide the path to *document-search.haystack-pipeline.yml* as the `volume` source value in the *docker-compose.yml* file. The path must be relative to *docker-compose.yml*. As both files are in the same directory, the source value will be `./`. 
 
       ```yaml
       haystack-api:
@@ -91,10 +91,10 @@ You can define components and pipelines using YAML code that Haystack translates
 
       ```yaml
       components:
-        - name: DocumentStore #How you want to call this node here
-          type: ElasticsearchDocumentStore #This is the Haystack node class
-          params: #The node parameters
-            embedding_dim: 384 #This parameter is required for the embedding_model
+        - name: DocumentStore # How you want to call this node here
+          type: ElasticsearchDocumentStore # This is the Haystack node class
+          params: # The node parameters
+            embedding_dim: 384 # This parameter is required for the embedding_model
         - name: Retriever
           type: EmbeddingRetriever
           params:
@@ -125,7 +125,7 @@ You can define components and pipelines using YAML code that Haystack translates
           type: TextConverter
         - name: Preprocessor
           type: PreProcessor
-          params: #These parameters define how you want to split your documents
+          params: # These parameters define how you want to split your documents
             split_by: word
             split_length: 250
             split_overlap: 30 
@@ -151,10 +151,10 @@ You can define components and pipelines using YAML code that Haystack translates
               inputs: [Retriever]
       ```
 
-3. After creating query and indexing pipelines, add `version: ignore` to the top of the file. Now, the pipeline YAML is ready.
+3. After creating query and indexing pipelines, add `version: 1.12.1` to the top of the file. This is the Haystack version that comes with the Docker image in the *docker-compose.yml*. Now, the pipeline YAML is ready.
 
 ```yaml
-version: ignore
+version: 1.12.1
 
 components:
   - name: DocumentStore
@@ -215,7 +215,8 @@ Pipelines are ready. Now it's time to start Elasticsearch and Haystack API.
    curl --request GET http://127.0.0.1:8000/initialized
    ```
 
-Both containers are initialized. Time to fill your DocumentStore with files.
+
+Both containers are initialized. Time to fill your DocumentStore with files.  
 
 ## Indexing Files to Elasticsearch
 
@@ -277,14 +278,14 @@ As a response, you will get a `QueryResponse` object consisting of `query`, `ans
   "answers": [],
   "documents": [
     {
-      "id": "52937ad257317032b9aed9750b5fcbb7",
-      "content": "Even though temperature patterns differ between north and south, the summer climate is surprisingly similar all through the entire country in spite of the large latitudinal differences. This is due to the south's being surrounded by a greater mass of water, with the wider Baltic Sea and the Atlantic air passing over lowland areas from the south-west. ...",
+      "id": "24904f783ea4b90a47c33434a3e9df7a",
+      "content": "Because of Sweden's high latitude, the length of daylight varies greatly. North of the Arctic Circle, the sun never sets for part of each summer, and it never rises for part of each winter. In the capital, Stockholm, daylight lasts for more than 18 hours in late June but only around 6 hours in late December. Sweden receives between 1,100 and 1,900 hours of sunshine annually...",
       "content_type": "text",
       "meta": {
-        "_split_id": 7,
+        "_split_id": 33,
         "name": "43_Sweden.txt"
       },
-      "score": 0.569930352925387
+      "score": 0.5017639926813274
     },
     ...
   ]
@@ -306,7 +307,7 @@ Some of our other work:
 - [FARM](https://github.com/deepset-ai/FARM)
 
 Get in touch:
-[Twitter](https://twitter.com/deepset_ai) | [LinkedIn](https://www.linkedin.com/company/deepset-ai/) | [Discord](https://haystack.deepset.ai/community/join) | [GitHub Discussions](https://github.com/deepset-ai/haystack/discussions) | [Website](https://deepset.ai)
+[Twitter](https://twitter.com/deepset_ai) | [LinkedIn](https://www.linkedin.com/company/deepset-ai/) | [Discord](https://haystack.deepset.ai/community) | [GitHub Discussions](https://github.com/deepset-ai/haystack/discussions) | [Website](https://deepset.ai)
 
 By the way: [we're hiring!](https://www.deepset.ai/jobs)
 
