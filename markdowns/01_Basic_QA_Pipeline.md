@@ -47,10 +47,7 @@ pip install --upgrade pip
 pip install farm-haystack[colab]
 ```
 
-
-```python
 Set the logging level to INFO:
-```
 
 
 ```python
