@@ -3,7 +3,7 @@ layout: tutorial
 colab: False
 toc: True
 title: "Using Haystack with REST API"
-last_updated: 2023-01-10
+last_updated: 2023-01-11
 level: "advanced"
 weight: 115
 description: Create a production-ready pipeline and interact with Haystack REST API.
@@ -256,7 +256,7 @@ Right now, your Elasticsearch instance is empty. Haystack API provides a `/file-
              --form meta=null \;
    ```
 
-## Asking a Question
+## Querying Your Pipeline
 
 That's it, the application is ready! Send another POST request to retrieve documents about _"climate in Scandinavia"_: 
 
