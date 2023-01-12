@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Scalable_QA_System.ipynb
 toc: True
 title: "Build a Scalable Question Answering System"
-last_updated: 2023-01-02
+last_updated: 2023-01-12
 level: "beginner"
 weight: 15
 description: Create a scalable Retriever Reader pipeline that uses an ElasticsearchDocumentStore.
@@ -277,7 +277,7 @@ And there you have it! Congratulations on building a scalable machine learning b
 
 # Next Steps
 
-To learn how to improve the performance of the Reader, see [Fine-Tune a Reader](https://haystack.deepset.ai/tutorials/03_fine_tune_a_reader).
+To learn how to improve the performance of the Reader, see [Fine-Tune a Reader](https://haystack.deepset.ai/tutorials/02_finetune_a_model_on_your_data).
 
 ## About us
 
