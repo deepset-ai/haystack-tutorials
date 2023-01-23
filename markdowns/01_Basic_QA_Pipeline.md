@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_Pipeline.ipynb
 toc: True
 title: "Build Your First Question Answering System"
-last_updated: 2023-01-11
+last_updated: 2023-01-23
 level: "beginner"
 weight: 10
 description: Get Started by creating a Retriever Reader pipeline.
@@ -196,7 +196,7 @@ And there you have it! Congratulations on building your first machine learning b
 
 # Next Steps
 
-Check out [Build a Scalable Question Answering System](https://haystack.deepset.ai/tutorials/03_Scalable_QA_System) to learn how to make a more advanced question answering system that uses an Elasticsearch backed DocumentStore and makes more use of the flexibility that pipelines offer.
+Check out [Build a Scalable Question Answering System](https://haystack.deepset.ai/tutorials/03_scalable_qa_system) to learn how to make a more advanced question answering system that uses an Elasticsearch backed DocumentStore and makes more use of the flexibility that pipelines offer.
 
 ## About us
 
