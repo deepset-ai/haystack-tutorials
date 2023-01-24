@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Scalable_QA_System.ipynb
 toc: True
 title: "Build a Scalable Question Answering System"
-last_updated: 2023-01-12
+last_updated: 2023-01-24
 level: "beginner"
 weight: 15
 description: Create a scalable Retriever Reader pipeline that uses an ElasticsearchDocumentStore.
@@ -128,8 +128,6 @@ Once we combine these nodes into a pipeline, the pipeline will ingest `.txt` fil
 
 
 ```python
-from datasets import load_dataset
-
 from haystack.utils import fetch_archive_from_http
 
 doc_dir = "data/build_a_scalable_question_answering_system"
