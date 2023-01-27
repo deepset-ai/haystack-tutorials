@@ -105,7 +105,6 @@ sudo -u daemon -- elasticsearch-7.9.2/bin/elasticsearch
 ### Init the DocumentStore
 In contrast to Tutorial 1 (Build your first QA system), we:
 
-* specify the name of our `text_field` in Elasticsearch that we want to return as an answer
 * specify the name of our `embedding_field` in Elasticsearch where we'll store the embedding of our question and that is used later for calculating our similarity to the incoming user question
 * set `excluded_meta_data=["question_emb"]` so that we don't return the huge embedding vectors in our search results
 
