@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/18_GPL.ipynb
 toc: True
 title: "Generative Pseudo Labeling for Domain Adaptation"
-last_updated: 2022-11-24
+last_updated: 2023-02-02
 level: "advanced"
 weight: 140
 description: Use a Retriever and a query generator to perform unsupervised domain adaptation.
@@ -49,7 +49,7 @@ If we search again with the updated model, we get the search results we would ex
 Make sure you enable the GPU runtime to experience decent speed in this tutorial.
 **Runtime -> Change Runtime type -> Hardware accelerator -> GPU**
 
-<img src="https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/colab_gpu_runtime.jpg">
+<img src="https://github.com/deepset-ai/haystack-tutorials/raw/main/tutorials/img/colab_gpu_runtime.jpg">
 
 
 

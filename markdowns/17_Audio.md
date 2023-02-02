@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/17_Audio.ipynb
 toc: True
 title: "Make Your QA Pipelines Talk!"
-last_updated: 2022-12-08
+last_updated: 2023-02-02
 level: "intermediate"
 weight: 90
 description: Convert text Answers into speech.
@@ -26,7 +26,7 @@ In this tutorial, we're going to see how to use `AnswerToSpeech` to convert answ
 Make sure you enable the GPU runtime to experience decent speed in this tutorial.
 **Runtime -> Change Runtime type -> Hardware accelerator -> GPU**
 
-<img src="https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/colab_gpu_runtime.jpg">
+<img src="https://github.com/deepset-ai/haystack-tutorials/raw/main/tutorials/img/colab_gpu_runtime.jpg">
 
 You can double check whether the GPU runtime is enabled with the following command:
 

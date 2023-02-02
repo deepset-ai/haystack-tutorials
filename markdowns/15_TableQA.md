@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb
 toc: True
 title: "Open-Domain QA on Tables"
-last_updated: 2022-12-15
+last_updated: 2023-02-02
 level: "advanced"
 weight: 130
 description: Perform question answering on tabular data.
@@ -22,7 +22,7 @@ This tutorial shows you how to perform question-answering on tables using the `E
 Make sure you enable the GPU runtime to experience decent speed in this tutorial.
 **Runtime -> Change Runtime type -> Hardware accelerator -> GPU**
 
-<img src="https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/colab_gpu_runtime.jpg">
+<img src="https://github.com/deepset-ai/haystack-tutorials/raw/main/tutorials/img/colab_gpu_runtime.jpg">
 
 You can double check whether the GPU runtime is enabled with the following command:
 

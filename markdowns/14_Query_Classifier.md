@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/14_Query_Classifier.ipynb
 toc: True
 title: "Query Classifier"
-last_updated: 2023-01-11
+last_updated: 2023-02-02
 level: "intermediate"
 weight: 80
 description: Classify incoming queries so that they can be routed to the nodes that are best at handling them.
@@ -42,7 +42,7 @@ With all of that explanation out of the way, let's dive in!
 Make sure you enable the GPU runtime to experience decent speed in this tutorial.  
 **Runtime -> Change Runtime type -> Hardware accelerator -> GPU**
 
-<img src="https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/colab_gpu_runtime.jpg">
+<img src="https://github.com/deepset-ai/haystack-tutorials/raw/main/tutorials/img/colab_gpu_runtime.jpg">
 
 You can double check whether the GPU runtime is enabled with the following command:
 

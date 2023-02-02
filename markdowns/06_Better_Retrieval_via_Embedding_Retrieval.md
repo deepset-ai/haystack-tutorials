@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb
 toc: True
 title: "Better Retrieval with Embedding Retrieval"
-last_updated: 2022-11-24
+last_updated: 2023-02-02
 level: "intermediate"
 weight: 55
 description: Use Transformer based dense Retrievers to improve your system’s performance.
@@ -60,7 +60,7 @@ Some models have been fine-tuned on massive Information Retrieval data and can b
 Make sure you enable the GPU runtime to experience decent speed in this tutorial.
 **Runtime -> Change Runtime type -> Hardware accelerator -> GPU**
 
-<img src="https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/colab_gpu_runtime.jpg">
+<img src="https://github.com/deepset-ai/haystack-tutorials/raw/main/tutorials/img/colab_gpu_runtime.jpg">
 
 You can double check whether the GPU runtime is enabled with the following command:
 
