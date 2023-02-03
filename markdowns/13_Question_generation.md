@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/13_Question_generation.ipynb
 toc: True
 title: "Question Generation"
-last_updated: 2023-02-02
+last_updated: 2023-02-03
 level: "intermediate"
 weight: 75
 description: Generate a set of questions that can be answered by a given Document.

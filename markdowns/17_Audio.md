@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/17_Audio.ipynb
 toc: True
 title: "Make Your QA Pipelines Talk!"
-last_updated: 2023-02-02
+last_updated: 2023-02-03
 level: "intermediate"
 weight: 90
 description: Convert text Answers into speech.
