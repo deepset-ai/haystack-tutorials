@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/04_FAQ_style_QA.ipynb
 toc: True
 title: "Utilizing Existing FAQs for Question Answering"
-last_updated: 2023-01-27
+last_updated: 2023-02-03
 level: "beginner"
 weight: 20
 description: Create a smarter way to answer new questions using your existing FAQ documents.
@@ -34,7 +34,7 @@ In some use cases, a combination of extractive QA and FAQ-style can also be an i
 Make sure you enable the GPU runtime to experience decent speed in this tutorial.
 **Runtime -> Change Runtime type -> Hardware accelerator -> GPU**
 
-<img src="https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/colab_gpu_runtime.jpg">
+<img src="https://github.com/deepset-ai/haystack-tutorials/raw/main/tutorials/img/colab_gpu_runtime.jpg">
 
 You can double check whether the GPU runtime is enabled with the following command:
 

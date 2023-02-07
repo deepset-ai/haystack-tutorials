@@ -34,9 +34,13 @@ jobs:
         with:
           fetch-depth: 2
 
+      # See https://github.com/actions/runner-images/issues/6775
+      - name: Change Owner of Container Working Directory
+        run: chown root:root .
+
       - name: Get changed files
         id: files
-        uses: tj-actions/changed-files@v34
+        uses: tj-actions/changed-files@v35
 
       - name: Convert notebooks to Python
         shell: bash

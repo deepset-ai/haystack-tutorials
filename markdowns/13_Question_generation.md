@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/13_Question_generation.ipynb
 toc: True
 title: "Question Generation"
-last_updated: 2022-12-07
+last_updated: 2023-02-03
 level: "intermediate"
 weight: 75
 description: Generate a set of questions that can be answered by a given Document.
@@ -23,7 +23,7 @@ generate questions which the question generation model thinks can be answered by
 Make sure you enable the GPU runtime to experience decent speed in this tutorial.  
 **Runtime -> Change Runtime type -> Hardware accelerator -> GPU**
 
-<img src="https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/colab_gpu_runtime.jpg">
+<img src="https://github.com/deepset-ai/haystack-tutorials/raw/main/tutorials/img/colab_gpu_runtime.jpg">
 
 
 ```python

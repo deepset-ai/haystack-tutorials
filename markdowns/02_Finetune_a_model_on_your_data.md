@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/02_Finetune_a_model_on_your_data.ipynb
 toc: True
 title: "Fine-Tuning a Model on Your Own Data"
-last_updated: 2022-12-06
+last_updated: 2023-02-03
 level: "intermediate"
 weight: 50
 description: Improve the performance of your Reader by performing fine-tuning.
@@ -26,7 +26,7 @@ This tutorial shows you how to fine-tune a pretrained model on your own dataset.
 Make sure you enable the GPU runtime to experience decent speed in this tutorial.
 **Runtime -> Change Runtime type -> Hardware accelerator -> GPU**
 
-<img src="https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/colab_gpu_runtime.jpg">
+<img src="https://github.com/deepset-ai/haystack-tutorials/raw/main/tutorials/img/colab_gpu_runtime.jpg">
 
 
 ```python
@@ -72,7 +72,7 @@ There are two ways to generate training data
 
 1. **Annotation**: You can use the [annotation tool](https://haystack.deepset.ai/guides/annotation) to label your data, i.e. highlighting answers to your questions in a document. The tool supports structuring your workflow with organizations, projects, and users. The labels can be exported in SQuAD format that is compatible for training with Haystack.
 
-![Snapshot of the annotation tool](https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/annotation_tool.png)
+![Snapshot of the annotation tool](https://github.com/deepset-ai/haystack-tutorials/raw/main/tutorials/img/annotation_tool.png)
 
 2. **Feedback**: For production systems, you can collect training data from direct user feedback via Haystack's [REST API interface](https://github.com/deepset-ai/haystack#rest-api). This includes a customizable user feedback API for providing feedback on the answer returned by the API. The API provides a feedback export endpoint to obtain the feedback data for fine-tuning your model further.
 

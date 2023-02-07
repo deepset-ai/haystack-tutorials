@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/05_Evaluation.ipynb
 toc: True
 title: "Evaluation of a QA System"
-last_updated: 2022-11-24
+last_updated: 2023-02-03
 level: "advanced"
 weight: 100
 description: Learn how to evaluate the performance of individual nodes as well as entire pipelines.
@@ -23,7 +23,7 @@ The results of the evaluation can be saved as CSV files, which contain all the i
 Make sure you enable the GPU runtime to experience decent speed in this tutorial.
 **Runtime -> Change Runtime type -> Hardware accelerator -> GPU**
 
-<img src="https://raw.githubusercontent.com/deepset-ai/haystack/main/docs/img/colab_gpu_runtime.jpg">
+<img src="https://github.com/deepset-ai/haystack-tutorials/raw/main/tutorials/img/colab_gpu_runtime.jpg">
 
 You can double check whether the GPU runtime is enabled with the following command:
 
