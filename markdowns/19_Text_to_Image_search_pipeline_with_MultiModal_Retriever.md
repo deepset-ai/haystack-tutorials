@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb
 toc: True
 title: "Text-To-Image Search Pipeline with Multimodal Retriever"
-last_updated: 2022-11-25
+last_updated: 2023-02-08
 level: "intermediate"
 weight: 95
 description: Use a MultiModalRetriever to build a cross-modal search pipeline.
@@ -32,9 +32,8 @@ Let's build a text-to-image search pipeline using a small animal dataset!
 
 ## Preparing the Colab Environment
 
-- [Enable GPU Runtime in GPU](https://docs.haystack.deepset.ai/v5.2-unstable/docs/enable-gpu-runtime-in-colab)
-- [Check if GPU is Enabled](https://docs.haystack.deepset.ai/v5.2-unstable/docs/check-if-gpu-is-enabled)
-- [Set logging level to INFO](https://docs.haystack.deepset.ai/v5.2-unstable/docs/set-the-logging-level)
+- [Enable GPU Runtime in Colab](https://docs.haystack.deepset.ai/docs/enabling-gpu-acceleration#enabling-the-gpu-in-colab)
+- [Set logging level to INFO](https://docs.haystack.deepset.ai/docs/log-level)
 
 ## Installing Haystack
 
