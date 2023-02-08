@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+new: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/12_LFQA.ipynb
 toc: True
 title: "Generative QA with LFQA"

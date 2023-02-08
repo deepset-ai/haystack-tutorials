@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+new: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/04_FAQ_style_QA.ipynb
 toc: True
 title: "Utilizing Existing FAQs for Question Answering"

@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+new: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/16_Document_Classifier_at_Index_Time.ipynb
 toc: True
 title: "Document Classification at Index Time"

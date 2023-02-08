@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+new: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb
 toc: True
 title: "Preprocessing Your Documents"

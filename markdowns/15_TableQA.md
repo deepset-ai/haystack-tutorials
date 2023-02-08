@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+new: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb
 toc: True
 title: "Open-Domain QA on Tables"

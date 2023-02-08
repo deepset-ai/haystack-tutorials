@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+new: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/18_GPL.ipynb
 toc: True
 title: "Generative Pseudo Labeling for Domain Adaptation"
