@@ -178,7 +178,7 @@ QUESTIONS = [
 Now let's run our system!
 The retriever will pick out a small subset of documents that it finds relevant.
 These are used to condition the generator as it generates the answer.
-What it should return then are novel text spans that form and answer to your question!
+What it should return then are novel text spans that form an answer to your question!
 
 
 ```python
