@@ -3,7 +3,7 @@ layout: tutorial
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/14_Query_Classifier.ipynb
 toc: True
 title: "Query Classifier"
-last_updated: 2023-02-03
+last_updated: 2023-02-09
 level: "intermediate"
 weight: 80
 description: Classify incoming queries so that they can be routed to the nodes that are best at handling them.
@@ -389,7 +389,7 @@ print_documents(res_2)
 For example, we may be interested in detecting the sentiment or classifying the topics.  We can do this by loading a custom classification model from the Hugging Face Hub or by using zero-shot classification.
 
 #### Custom classification model vs zero-shot classification
-- Rraditional text classification models are trained to predict one of a few "hard-coded" classes and require a dedicated training dataset. In the Hugging Face Hub, you can find many pre-trained models, maybe even related to your domain of interest.
+- Traditional text classification models are trained to predict one of a few "hard-coded" classes and require a dedicated training dataset. In the Hugging Face Hub, you can find many pre-trained models, maybe even related to your domain of interest.
 - Zero-shot classification is very versatile: by choosing a suitable base transformer, you can classify the text without any training dataset. You just have to provide the candidate categories.
 
 #### Using custom classification models
