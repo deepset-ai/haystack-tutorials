@@ -163,3 +163,11 @@ weight = 115
 notebook = "20_Using_Haystack_with_REST_API.ipynb"
 aliases = ["using-haystack-with-rest-api"]
 colab = false
+
+[[tutorial]]
+title = "The Basics of PromptNode"
+description = "Use large language models for various NLP tasks"
+level = "beginner"
+weight = 45
+notebook = "21_Prompt_Node.ipynb"
+aliases = ["basics-of-prompt-node"]
