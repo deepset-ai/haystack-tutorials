@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-new: False
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/07_RAG_Generator.ipynb
 toc: True
 title: "Generative QA with Retrieval-Augmented Generation"

@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-new: True
+featured: True
 colab: False
 toc: True
 title: "Using Haystack with REST API"

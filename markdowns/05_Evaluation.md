@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-new: False
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/05_Evaluation.ipynb
 toc: True
 title: "Evaluation of a QA System"

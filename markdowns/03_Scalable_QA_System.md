@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-new: False
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Scalable_QA_System.ipynb
 toc: True
 title: "Build a Scalable Question Answering System"

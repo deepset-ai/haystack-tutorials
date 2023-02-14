@@ -167,4 +167,4 @@ notebook = "20_Using_Haystack_with_REST_API.ipynb"
 aliases = ["using-haystack-with-rest-api"]
 colab = false
 completion_time = "30 min"
-new = true
+featured = true

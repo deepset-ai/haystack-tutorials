@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-new: False
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/14_Query_Classifier.ipynb
 toc: True
 title: "Query Classifier"

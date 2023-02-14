@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-new: False
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_Basic_QA_Pipeline.ipynb
 toc: True
 title: "Build Your First Question Answering System"

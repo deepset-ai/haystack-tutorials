@@ -18,7 +18,7 @@ def generate_frontmatter(config, tutorial):
 
     frontmatter = f"""---
 layout: {config["layout"]}
-new: {tutorial.get("new", False)}
+featured: {tutorial.get("featured", False)}
 colab: {tutorial.get("colab", f'{config["colab"]}{tutorial["notebook"]}')}
 toc: {config["toc"]}
 title: "{tutorial["title"]}"
