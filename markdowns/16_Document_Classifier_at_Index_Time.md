@@ -11,6 +11,7 @@ description: Generate and attach classification labels to your Documents when in
 category: "QA"
 aliases: ['/tutorials/doc-class-index']
 download: "/downloads/16_Document_Classifier_at_Index_Time.ipynb"
+completion_time: False
 ---
     
 

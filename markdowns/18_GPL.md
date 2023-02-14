@@ -11,6 +11,7 @@ description: Use a Retriever and a query generator to perform unsupervised domai
 category: "QA"
 aliases: ['/tutorials/gpl']
 download: "/downloads/18_GPL.ipynb"
+completion_time: False
 ---
     
 

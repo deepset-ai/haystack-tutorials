@@ -11,6 +11,7 @@ description: Convert text Answers into speech.
 category: "QA"
 aliases: ['/tutorials/audio']
 download: "/downloads/17_Audio.ipynb"
+completion_time: False
 ---
     
 

@@ -11,6 +11,7 @@ description: Create a scalable Retriever Reader pipeline that uses an Elasticsea
 category: "QA"
 aliases: []
 download: "/downloads/03_Scalable_QA_System.ipynb"
+completion_time: 20 min
 ---
     
 

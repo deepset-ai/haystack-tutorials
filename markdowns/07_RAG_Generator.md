@@ -11,6 +11,7 @@ description: Try out a generative model in place of the extractive Reader.
 category: "QA"
 aliases: ['/tutorials/retrieval-augmented-generation']
 download: "/downloads/07_RAG_Generator.ipynb"
+completion_time: False
 ---
     
 

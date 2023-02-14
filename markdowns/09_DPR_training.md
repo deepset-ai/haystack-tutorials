@@ -11,6 +11,7 @@ description: Learn about training a Dense Passage Retrieval model and the data n
 category: "QA"
 aliases: ['/tutorials/train-dpr']
 download: "/downloads/09_DPR_training.ipynb"
+completion_time: False
 ---
     
 

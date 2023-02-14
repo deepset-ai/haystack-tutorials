@@ -11,6 +11,7 @@ description: Try out a generative model in place of the extractive Reader.
 category: "QA"
 aliases: ['/tutorials/lfqa']
 download: "/downloads/12_LFQA.ipynb"
+completion_time: False
 ---
     
 

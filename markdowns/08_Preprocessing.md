@@ -11,6 +11,7 @@ description: Start converting, cleaning, and splitting Documents using Haystackâ
 category: "QA"
 aliases: ['/tutorials/preprocessing']
 download: "/downloads/08_Preprocessing.ipynb"
+completion_time: False
 ---
     
 

@@ -11,6 +11,7 @@ description: Perform question answering on tabular data.
 category: "QA"
 aliases: ['/tutorials/table-qa']
 download: "/downloads/15_TableQA.ipynb"
+completion_time: False
 ---
     
 

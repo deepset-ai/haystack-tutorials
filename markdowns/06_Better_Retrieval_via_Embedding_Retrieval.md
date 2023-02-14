@@ -11,6 +11,7 @@ description: Use Transformer based dense Retrievers to improve your system’s p
 category: "QA"
 aliases: ['/tutorials/embedding-retrieval']
 download: "/downloads/06_Better_Retrieval_via_Embedding_Retrieval.ipynb"
+completion_time: False
 ---
     
 

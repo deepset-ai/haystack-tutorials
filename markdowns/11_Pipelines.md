@@ -11,6 +11,7 @@ description: Learn about the many ways which you can route queries through the n
 category: "QA"
 aliases: ['/tutorials/pipelines']
 download: "/downloads/11_Pipelines.ipynb"
+completion_time: False
 ---
     
 

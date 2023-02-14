@@ -11,6 +11,7 @@ description: Improve the performance of your Reader by performing fine-tuning.
 category: "QA"
 aliases: ['/tutorials/fine-tuning-a-model']
 download: "/downloads/02_Finetune_a_model_on_your_data.ipynb"
+completion_time: False
 ---
     
 

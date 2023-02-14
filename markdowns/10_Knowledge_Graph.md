@@ -11,6 +11,7 @@ description: Experiment with a question answering system that draws upon knowled
 category: "QA"
 aliases: ['/tutorials/knowledge-graph']
 download: "/downloads/10_Knowledge_Graph.ipynb"
+completion_time: False
 ---
     
 

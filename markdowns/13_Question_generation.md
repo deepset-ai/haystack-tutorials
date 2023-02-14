@@ -11,6 +11,7 @@ description: Generate a set of questions that can be answered by a given Documen
 category: "QA"
 aliases: ['/tutorials/question-generation']
 download: "/downloads/13_Question_generation.ipynb"
+completion_time: False
 ---
     
 

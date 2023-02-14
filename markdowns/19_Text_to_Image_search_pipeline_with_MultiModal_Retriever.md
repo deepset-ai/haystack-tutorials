@@ -11,6 +11,7 @@ description: Use a MultiModalRetriever to build a cross-modal search pipeline.
 category: "QA"
 aliases: ['/tutorials/multimodal']
 download: "/downloads/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
+completion_time: 20 min
 ---
     
 
