@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: True
 colab: False
 toc: True
 title: "Using Haystack with REST API"
@@ -10,6 +11,7 @@ description: Create a production-ready pipeline and interact with Haystack REST 
 category: "QA"
 aliases: ['/tutorials/using-haystack-with-rest-api']
 download: "/downloads/20_Using_Haystack_with_REST_API.ipynb"
+completion_time: 30 min
 ---
     
 

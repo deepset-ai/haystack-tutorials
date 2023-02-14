@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/04_FAQ_style_QA.ipynb
 toc: True
 title: "Utilizing Existing FAQs for Question Answering"
@@ -10,6 +11,7 @@ description: Create a smarter way to answer new questions using your existing FA
 category: "QA"
 aliases: ['/tutorials/existing-faqs']
 download: "/downloads/04_FAQ_style_QA.ipynb"
+completion_time: False
 ---
     
 

@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb
 toc: True
 title: "Preprocessing Your Documents"
@@ -10,6 +11,7 @@ description: Start converting, cleaning, and splitting Documents using Haystackâ
 category: "QA"
 aliases: ['/tutorials/preprocessing']
 download: "/downloads/08_Preprocessing.ipynb"
+completion_time: False
 ---
     
 

@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb
 toc: True
 title: "Open-Domain QA on Tables"
@@ -10,6 +11,7 @@ description: Perform question answering on tabular data.
 category: "QA"
 aliases: ['/tutorials/table-qa']
 download: "/downloads/15_TableQA.ipynb"
+completion_time: False
 ---
     
 

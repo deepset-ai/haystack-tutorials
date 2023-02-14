@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/09_DPR_training.ipynb
 toc: True
 title: "Training Your Own Dense Passage Retrieval Model"
@@ -10,6 +11,7 @@ description: Learn about training a Dense Passage Retrieval model and the data n
 category: "QA"
 aliases: ['/tutorials/train-dpr']
 download: "/downloads/09_DPR_training.ipynb"
+completion_time: False
 ---
     
 

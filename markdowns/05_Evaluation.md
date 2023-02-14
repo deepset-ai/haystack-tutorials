@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/05_Evaluation.ipynb
 toc: True
 title: "Evaluation of a QA System"
@@ -10,6 +11,7 @@ description: Learn how to evaluate the performance of individual nodes as well a
 category: "QA"
 aliases: ['/tutorials/evaluation']
 download: "/downloads/05_Evaluation.ipynb"
+completion_time: False
 ---
     
 

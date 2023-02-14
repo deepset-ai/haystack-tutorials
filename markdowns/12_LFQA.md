@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/12_LFQA.ipynb
 toc: True
 title: "Generative QA with LFQA"
@@ -10,6 +11,7 @@ description: Try out a generative model in place of the extractive Reader.
 category: "QA"
 aliases: ['/tutorials/lfqa']
 download: "/downloads/12_LFQA.ipynb"
+completion_time: False
 ---
     
 

@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Scalable_QA_System.ipynb
 toc: True
 title: "Build a Scalable Question Answering System"
@@ -10,6 +11,7 @@ description: Create a scalable Retriever Reader pipeline that uses an Elasticsea
 category: "QA"
 aliases: []
 download: "/downloads/03_Scalable_QA_System.ipynb"
+completion_time: 20 min
 ---
     
 

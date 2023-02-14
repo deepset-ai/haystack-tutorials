@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/07_RAG_Generator.ipynb
 toc: True
 title: "Generative QA with Retrieval-Augmented Generation"
@@ -10,6 +11,7 @@ description: Try out a generative model in place of the extractive Reader.
 category: "QA"
 aliases: ['/tutorials/retrieval-augmented-generation']
 download: "/downloads/07_RAG_Generator.ipynb"
+completion_time: False
 ---
     
 
