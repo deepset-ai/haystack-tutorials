@@ -53,16 +53,10 @@ Set the logging level to INFO:
 
 
 ```python
-from haystack.telemetry import tutorial_running
 import logging
 
 logging.basicConfig(format="%(levelname)s - %(name)s -  %(message)s", level=logging.WARNING)
 logging.getLogger("haystack").setLevel(logging.INFO)
-
-# Knowing you're using this tutorial helps us decide where to invest our efforts to build a better product
-# but you can always opt out by commenting the following line. See https://docs.haystack.deepset.ai/docs/telemetry for 
-# more details.
-tutorial_running("1")
 ```
 
 ## Initializing the DocumentStore
