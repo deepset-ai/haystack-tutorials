@@ -60,9 +60,9 @@ prompt_node = PromptNode(model_name_or_path="google/flan-t5-large")
 ```
 
 > If you want to use PromptNode with an OpenAI model, change the model name and provide an `api_key`. 
-```python
-prompt_node = PromptNode(model_name_or_path="text-davinci-003", api_key=<YOUR_API_KEY>)
-```
+> ```python
+> prompt_node = PromptNode(model_name_or_path="text-davinci-003", api_key=<YOUR_API_KEY>)
+> ```
 
 2. Ask a question. `google/flan-t5-large` can answer general questions.
 
@@ -179,10 +179,10 @@ prompt_node.prompt(prompt_template=title_generator, news=news)
 ```
 
 > If you add a custom template to the template list, call `add_prompt_template()` with the `PromptTemplate` object and you can start using the template only with its `name`. 
-```python
-prompt_node.add_prompt_template(PromptTemplate(name="give-a-title", prompt_text="Provide a short, descriptive title for the given piece of news. News: $news; Title:"))
-prompt_node.prompt(prompt_template="give-a-title", news=news)
-```
+> ```python
+> prompt_node.add_prompt_template(PromptTemplate(name="give-a-title", prompt_text="Provide a short, descriptive title for the given piece of news. News: $news; Title:"))
+> prompt_node.prompt(prompt_template="give-a-title", news=news)
+> ```
 
 You can customize PromptTemplates as much as you want according to your needs Let's try to categorize the news and see how you can customize the prompt further. 
 
