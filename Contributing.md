@@ -25,7 +25,7 @@ Here's what you need to do to add or edit tutorials 👇:
    - After the tutorial is complete, add necessary information to [index.toml](/index.toml). Here, `weight` is the order in which your tutorial appears. For example, a tutorial with `weight = 15` comes after a tutorial with `weight = 10` and before `20`. Each tutorial comes with a Google Colab link and `Open in Colab` button on the top of the tutorial by default. If your new tutorial cannot be run on Google Colab, set `colab = false` not to display `Open in Colab` button on top the tutorial.
 3. If you're **editing** an existing tutorial:
    - Make necessary changes in the `.ipynb` file of the tutorial and save them. You don't need to make changes in the markdown file. 
-4. Pre-commit hooks will generate a corresponding `.md` file in `/markdowns` folder. Don't forget to add the new `.md` file to your `commit`. If you can't see any changes in `/markdowns`, run `python scripts/generate_markdowns.py --index index.toml --notebooks tutorials/your-tutorial.ipynb --output markdowns/` manually. This generates or updates the relevant markdown file.
+4. Run `python scripts/generate_markdowns.py --index index.toml --notebooks tutorials/your-tutorial.ipynb --output markdowns/`. This generates or updates the relevant markdown file. Pre-commit hooks will ensure the `markdowns` folder reflects your changes. Don't forget to add changed files to your commit if pre-commit hooks updated `.ipynb` or `.md` files.
 5. Create a pull request.
 6. Wait for the [CI](#ci-continuous-integration) checks to pass.
    These checks pass if the relevant markdown files are created.
