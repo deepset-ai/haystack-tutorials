@@ -19,7 +19,7 @@ completion_time: 15 min
 - **Level**: Intermediate
 - **Time to complete**: 15 minutes
 - **Nodes Used**: `FARMReader`
-- **Goal**: After completing this tutorial, you will have learned hot to fine-tune a pretrained Reader model with your own data.
+- **Goal**: After completing this tutorial, you will have learned how to fine-tune a pretrained Reader model with your own data.
 
 ## Overview
 
