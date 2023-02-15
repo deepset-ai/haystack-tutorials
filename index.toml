@@ -167,13 +167,14 @@ notebook = "20_Using_Haystack_with_REST_API.ipynb"
 aliases = ["using-haystack-with-rest-api"]
 colab = false
 completion_time = "30 min"
-featured = true
 
 [[tutorial]]
-title = "The Basics of PromptNode"
-description = "Use large language models for various NLP tasks"
-level = "beginner"
-weight = 45
-notebook = "21_Prompt_Node.ipynb"
-aliases = ["basics-of-prompt-node"]
+title = "Customizing PromptNode for NLP Tasks"
+description = "Use PromptNode and PromptTemplate for your custom NLP tasks"
+level = "intermediate"
+weight = 57
+notebook = "21_Customizing_PromptNode.ipynb"
+aliases = ["customizing-promptnode"]
+completion_time = "20 min"
+featured = true
 
