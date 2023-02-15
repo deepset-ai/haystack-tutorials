@@ -19,6 +19,7 @@ level = "intermediate"
 weight = 50
 notebook = "02_Finetune_a_model_on_your_data.ipynb"
 aliases = ["fine-tuning-a-model"]
+completion_time = "15 min"
 
 [[tutorial]]
 title = "Build a Scalable Question Answering System"
