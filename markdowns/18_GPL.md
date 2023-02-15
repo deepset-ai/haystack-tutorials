@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/18_GPL.ipynb
 toc: True
 title: "Generative Pseudo Labeling for Domain Adaptation"
@@ -10,6 +11,7 @@ description: Use a Retriever and a query generator to perform unsupervised domai
 category: "QA"
 aliases: ['/tutorials/gpl']
 download: "/downloads/18_GPL.ipynb"
+completion_time: False
 ---
     
 

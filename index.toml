@@ -10,6 +10,7 @@ level = "beginner"
 weight = 10
 notebook = "01_Basic_QA_Pipeline.ipynb"
 aliases = ["first-qa-system", "without-elasticsearch", "03_basic_qa_pipeline_without_elasticsearch"]
+completion_time = "15 min"
 
 [[tutorial]]
 title = "Fine-Tuning a Model on Your Own Data"
@@ -26,6 +27,7 @@ level = "beginner"
 weight = 15
 notebook = "03_Scalable_QA_System.ipynb"
 aliases = []
+completion_time = "20 min"
 
 [[tutorial]]
 title = "Utilizing Existing FAQs for Question Answering"
@@ -154,6 +156,7 @@ level = "intermediate"
 weight = 95
 notebook = "19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
 aliases = ["multimodal"]
+completion_time = "20 min"
 
 [[tutorial]]
 title = "Using Haystack with REST API"
@@ -163,6 +166,8 @@ weight = 115
 notebook = "20_Using_Haystack_with_REST_API.ipynb"
 aliases = ["using-haystack-with-rest-api"]
 colab = false
+completion_time = "30 min"
+featured = true
 
 [[tutorial]]
 title = "The Basics of PromptNode"
@@ -171,3 +176,4 @@ level = "beginner"
 weight = 45
 notebook = "21_Prompt_Node.ipynb"
 aliases = ["basics-of-prompt-node"]
+

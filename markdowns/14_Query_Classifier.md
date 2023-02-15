@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/14_Query_Classifier.ipynb
 toc: True
 title: "Query Classifier"
@@ -10,6 +11,7 @@ description: Classify incoming queries so that they can be routed to the nodes t
 category: "QA"
 aliases: ['/tutorials/query-classifier']
 download: "/downloads/14_Query_Classifier.ipynb"
+completion_time: False
 ---
     
 

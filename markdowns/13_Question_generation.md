@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/13_Question_generation.ipynb
 toc: True
 title: "Question Generation"
@@ -10,6 +11,7 @@ description: Generate a set of questions that can be answered by a given Documen
 category: "QA"
 aliases: ['/tutorials/question-generation']
 download: "/downloads/13_Question_generation.ipynb"
+completion_time: False
 ---
     
 

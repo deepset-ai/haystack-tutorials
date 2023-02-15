@@ -1,20 +1,22 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/12_LFQA.ipynb
 toc: True
 title: "Generative QA with LFQA"
-last_updated: 2023-02-03
+last_updated: 2023-02-13
 level: "intermediate"
 weight: 70
 description: Try out a generative model in place of the extractive Reader.
 category: "QA"
 aliases: ['/tutorials/lfqa']
 download: "/downloads/12_LFQA.ipynb"
+completion_time: False
 ---
     
 
 
-Follow this tutorial to learn how to build and use a pipeline for Long-Form Question Answering (LFQA). LFQA is a variety of the generative question answering task. LFQA systems query large document stores for relevant information and then use this information to generate accurate, multi-sentence answers. In a regular question answering system, the retrieved documents related to the query (context passages) act as source tokens for extracted answers. In an LFQS system, context passages provide the context the system uses to generate original, abstractive, long-form answers.
+Follow this tutorial to learn how to build and use a pipeline for Long-Form Question Answering (LFQA). LFQA is a variety of the generative question answering task. LFQA systems query large document stores for relevant information and then use this information to generate accurate, multi-sentence answers. In a regular question answering system, the retrieved documents related to the query (context passages) act as source tokens for extracted answers. In an LFQA system, context passages provide the context the system uses to generate original, abstractive, long-form answers.
 
 ### Prepare environment
 

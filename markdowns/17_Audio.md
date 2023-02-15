@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/17_Audio.ipynb
 toc: True
 title: "Make Your QA Pipelines Talk!"
@@ -10,6 +11,7 @@ description: Convert text Answers into speech.
 category: "QA"
 aliases: ['/tutorials/audio']
 download: "/downloads/17_Audio.ipynb"
+completion_time: False
 ---
     
 

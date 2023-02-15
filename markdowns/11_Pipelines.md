@@ -1,5 +1,6 @@
 ---
 layout: tutorial
+featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/11_Pipelines.ipynb
 toc: True
 title: "How to Use Pipelines"
@@ -10,6 +11,7 @@ description: Learn about the many ways which you can route queries through the n
 category: "QA"
 aliases: ['/tutorials/pipelines']
 download: "/downloads/11_Pipelines.ipynb"
+completion_time: False
 ---
     
 

@@ -18,6 +18,7 @@ def generate_frontmatter(config, tutorial):
 
     frontmatter = f"""---
 layout: {config["layout"]}
+featured: {tutorial.get("featured", False)}
 colab: {tutorial.get("colab", f'{config["colab"]}{tutorial["notebook"]}')}
 toc: {config["toc"]}
 title: "{tutorial["title"]}"
@@ -28,6 +29,7 @@ description: {tutorial["description"]}
 category: "QA"
 aliases: {aliases}
 download: "/downloads/{tutorial["notebook"]}"
+completion_time: {tutorial.get("completion_time", False)}
 ---
     """
     return frontmatter
@@ -58,10 +60,18 @@ if __name__ == "__main__":
     args = parser.parse_args()
     index = read_index(args.index)
 
-    nb_to_config = {cfg["notebook"]: cfg for cfg in index["tutorial"]}
+    if args.notebooks == ["all"]:
+        print("got here!")
+        for config in index["tutorial"]:
+            notebook = "tutorials/" + config["notebook"]
+            print(notebook)
+            generate_markdown_from_notebook(index["config"], config, args.output, notebook)
 
-    for notebook in args.notebooks:
-        nb_name = notebook.split("/")[-1]
-        tutorial_cfg = nb_to_config.get(nb_name)
-        if tutorial_cfg:
-            generate_markdown_from_notebook(index["config"], tutorial_cfg, args.output, notebook)
+    else:
+        nb_to_config = {cfg["notebook"]: cfg for cfg in index["tutorial"]}
+            
+        for notebook in args.notebooks:
+            nb_name = notebook.split("/")[-1]
+            tutorial_cfg = nb_to_config.get(nb_name)
+            if tutorial_cfg:
+                generate_markdown_from_notebook(index["config"], tutorial_cfg, args.output, notebook)
