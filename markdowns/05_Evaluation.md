@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/evaluation']
 download: "/downloads/05_Evaluation.ipynb"
 completion_time: False
+created_at: 2021-08-12
 ---
     
 

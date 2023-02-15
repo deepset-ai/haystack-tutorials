@@ -12,6 +12,7 @@ category: "QA"
 aliases: []
 download: "/downloads/03_Scalable_QA_System.ipynb"
 completion_time: 20 min
+created_at: 2023-11-01
 ---
     
 

@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/knowledge-graph']
 download: "/downloads/10_Knowledge_Graph.ipynb"
 completion_time: False
+created_at: 2021-08-12
 ---
     
 

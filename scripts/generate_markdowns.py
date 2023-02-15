@@ -30,6 +30,7 @@ category: "QA"
 aliases: {aliases}
 download: "/downloads/{tutorial["notebook"]}"
 completion_time: {tutorial.get("completion_time", False)}
+created_at: {tutorial["created_at"]}
 ---
     """
     return frontmatter
@@ -61,7 +62,6 @@ if __name__ == "__main__":
     index = read_index(args.index)
 
     if args.notebooks == ["all"]:
-        print("got here!")
         for config in index["tutorial"]:
             notebook = "tutorials/" + config["notebook"]
             print(notebook)
