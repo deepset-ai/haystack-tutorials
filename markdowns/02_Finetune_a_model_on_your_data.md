@@ -111,14 +111,14 @@ fetch_archive_from_http(
 reader.train(data_dir=data_dir, train_filename="squad20/dev-v2.0.json", use_gpu=True, n_epochs=1, save_dir="my_model")
 ```
 
-3. Now initialize a new reader with your fine-tuned model
+4. Now initialize a new reader with your fine-tuned model
 
 
 ```python
 new_reader = FARMReader(model_name_or_path="my_model")
 ```
 
-4. Finaly, try using the `new_reader` that was initialized with your fine-tuned model.
+5. Finaly, try using the `new_reader` that was initialized with your fine-tuned model.
 
 
 ```python
