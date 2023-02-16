@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/pipelines']
 download: "/downloads/11_Pipelines.ipynb"
 completion_time: False
+created_at: 2021-08-12
 ---
     
 

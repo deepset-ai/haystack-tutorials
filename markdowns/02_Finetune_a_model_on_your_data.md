@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/fine-tuning-a-model']
 download: "/downloads/02_Finetune_a_model_on_your_data.ipynb"
 completion_time: 15 min
+created_at: 2021-08-12
 ---
     
 

@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/existing-faqs']
 download: "/downloads/04_FAQ_style_QA.ipynb"
 completion_time: False
+created_at: 2021-08-12
 ---
     
 

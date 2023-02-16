@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/embedding-retrieval']
 download: "/downloads/06_Better_Retrieval_via_Embedding_Retrieval.ipynb"
 completion_time: False
+created_at: 2022-03-08
 ---
     
 

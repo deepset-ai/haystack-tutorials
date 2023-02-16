@@ -11,6 +11,7 @@ weight = 10
 notebook = "01_Basic_QA_Pipeline.ipynb"
 aliases = ["first-qa-system", "without-elasticsearch", "03_basic_qa_pipeline_without_elasticsearch"]
 completion_time = "15 min"
+created_at = 2023-11-01
 
 [[tutorial]]
 title = "Fine-Tuning a Model on Your Own Data"
@@ -20,6 +21,7 @@ weight = 50
 notebook = "02_Finetune_a_model_on_your_data.ipynb"
 aliases = ["fine-tuning-a-model"]
 completion_time = "15 min"
+created_at = 2021-08-12
 
 [[tutorial]]
 title = "Build a Scalable Question Answering System"
@@ -29,6 +31,7 @@ weight = 15
 notebook = "03_Scalable_QA_System.ipynb"
 aliases = []
 completion_time = "20 min"
+created_at = 2023-11-01
 
 [[tutorial]]
 title = "Utilizing Existing FAQs for Question Answering"
@@ -37,6 +40,7 @@ level = "beginner"
 weight = 20
 notebook = "04_FAQ_style_QA.ipynb"
 aliases = ["existing-faqs"]
+created_at = 2021-08-12
 
 [[tutorial]]
 title = "Evaluation of a QA System"
@@ -45,6 +49,7 @@ level = "advanced"
 weight = 100
 notebook = "05_Evaluation.ipynb"
 aliases = ["evaluation"]
+created_at = 2021-08-12
 
 [[tutorial]]
 title = "Better Retrieval with Embedding Retrieval"
@@ -53,6 +58,7 @@ level = "intermediate"
 weight = 55
 notebook = "06_Better_Retrieval_via_Embedding_Retrieval.ipynb"
 aliases = ["embedding-retrieval"]
+created_at = 2022-03-08
 
 [[tutorial]]
 title = "Generative QA with Retrieval-Augmented Generation"
@@ -61,6 +67,7 @@ level = "intermediate"
 weight = 60
 notebook = "07_RAG_Generator.ipynb"
 aliases = ["retrieval-augmented-generation"]
+created_at = 2021-08-12
 
 [[tutorial]]
 title = "Preprocessing Your Documents"
@@ -69,6 +76,7 @@ level = "beginner"
 weight = 25
 notebook = "08_Preprocessing.ipynb"
 aliases = ["preprocessing"]
+created_at = 2021-08-12
 
 [[tutorial]]
 title = "Training Your Own Dense Passage Retrieval Model"
@@ -77,6 +85,7 @@ level = "advanced"
 weight = 110
 notebook = "09_DPR_training.ipynb"
 aliases = ["train-dpr"]
+created_at = 2021-08-12
 
 [[tutorial]]
 title = "Question Answering on a Knowledge Graph"
@@ -85,6 +94,7 @@ level = "advanced"
 weight = 120
 notebook = "10_Knowledge_Graph.ipynb"
 aliases = ["knowledge-graph"]
+created_at = 2021-08-12
 
 [[tutorial]]
 title = "How to Use Pipelines"
@@ -93,6 +103,7 @@ level = "intermediate"
 weight = 65
 notebook = "11_Pipelines.ipynb"
 aliases = ["pipelines"]
+created_at = 2021-08-12
 
 [[tutorial]]
 title = "Generative QA with LFQA"
@@ -101,6 +112,7 @@ level = "intermediate"
 weight = 70
 notebook = "12_LFQA.ipynb"
 aliases = ["lfqa"]
+created_at = 2021-08-12
 
 [[tutorial]]
 title = "Question Generation"
@@ -109,6 +121,7 @@ level = "intermediate"
 weight = 75
 notebook = "13_Question_generation.ipynb"
 aliases = ["question-generation"]
+created_at = 2021-08-12
 
 [[tutorial]]
 title = "Query Classifier"
@@ -117,6 +130,7 @@ level = "intermediate"
 weight = 80
 notebook = "14_Query_Classifier.ipynb"
 aliases = ["query-classifier"]
+created_at = 2021-08-12
 
 [[tutorial]]
 title = "Open-Domain QA on Tables"
@@ -125,6 +139,7 @@ level = "advanced"
 weight = 130
 notebook = "15_TableQA.ipynb"
 aliases = ["table-qa"]
+created_at = 2021-08-12
 
 [[tutorial]]
 title = "Document Classification at Index Time"
@@ -133,6 +148,7 @@ level = "intermediate"
 weight = 85
 notebook = "16_Document_Classifier_at_Index_Time.ipynb"
 aliases = ["doc-class-index"]
+created_at = 2021-08-12
 
 [[tutorial]]
 title = "Make Your QA Pipelines Talk!"
@@ -141,6 +157,7 @@ level = "intermediate"
 weight = 90
 notebook = "17_Audio.ipynb"
 aliases = ["audio"]
+created_at = 2022-06-07
 
 [[tutorial]]
 title = "Generative Pseudo Labeling for Domain Adaptation"
@@ -149,6 +166,7 @@ level = "advanced"
 weight = 140
 notebook = "18_GPL.ipynb"
 aliases = ["gpl"]
+created_at = 2022-06-07
 
 [[tutorial]]
 title = "Text-To-Image Search Pipeline with Multimodal Retriever"
@@ -158,6 +176,7 @@ weight = 95
 notebook = "19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
 aliases = ["multimodal"]
 completion_time = "20 min"
+created_at = 2022-07-11
 
 [[tutorial]]
 title = "Using Haystack with REST API"
@@ -169,3 +188,4 @@ aliases = ["using-haystack-with-rest-api"]
 colab = false
 completion_time = "30 min"
 featured = true
+created_at = 2023-11-01

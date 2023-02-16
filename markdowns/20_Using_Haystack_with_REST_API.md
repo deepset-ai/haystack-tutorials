@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/using-haystack-with-rest-api']
 download: "/downloads/20_Using_Haystack_with_REST_API.ipynb"
 completion_time: 30 min
+created_at: 2023-11-01
 ---
     
 
