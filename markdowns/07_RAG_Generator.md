@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/retrieval-augmented-generation']
 download: "/downloads/07_RAG_Generator.ipynb"
 completion_time: False
+created_at: 2021-08-12
 ---
     
 

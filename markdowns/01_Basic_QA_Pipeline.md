@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/first-qa-system', '/tutorials/without-elasticsearch', '/tutorials/03_basic_qa_pipeline_without_elasticsearch']
 download: "/downloads/01_Basic_QA_Pipeline.ipynb"
 completion_time: 15 min
+created_at: 2023-11-01
 ---
     
 

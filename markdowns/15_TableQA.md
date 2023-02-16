@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/table-qa']
 download: "/downloads/15_TableQA.ipynb"
 completion_time: False
+created_at: 2021-08-12
 ---
     
 
