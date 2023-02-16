@@ -4,14 +4,15 @@ featured: True
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/21_Customizing_PromptNode.ipynb
 toc: True
 title: "Customizing PromptNode for NLP Tasks"
-last_updated: 2023-02-15
+last_updated: 2023-02-16
 level: "intermediate"
 weight: 57
 description: Use PromptNode and PromptTemplate for your custom NLP tasks
 category: "QA"
 aliases: ['/tutorials/customizing-promptnode']
 download: "/downloads/21_Customizing_PromptNode.ipynb"
-completion_time: 20 min
+completion_time: False
+created_at: 2023-02-16
 ---
     
 
@@ -19,13 +20,13 @@ completion_time: 20 min
 - **Level**: Intermediate
 - **Time to complete**: 20 minutes
 - **Nodes Used**: `PromptNode`, `PromptTemplate`
-- **Goal**: After completing this tutorial, you will have learned about how to use PromptNode and PromptTemplate for your custom NLP tasks.
+- **Goal**: After completing this tutorial, you will have learned the basics of using PromptNode and PromptTemplates and you'll have added titles to articles from The Guardian and categorized them. 
 
 ## Overview
 
-Learn how to summarize, categorize your documents and find a suitable title for them with large language models using PromptNode and PromptTemplate. In this tutorial, we'll use news from [The Guardian](https://www.theguardian.com/international) as documents but you can use any text you want.  
+Use large language models (LLMs) through PromptNode and PromptTemplate to summarize and categorize your documents, and find a suitable title for them. In this tutorial, we'll use news from [The Guardian](https://www.theguardian.com/international) as documents, but you can replace them with any text you want.  
 
-This tutorial will introduce you to the basics of LLMs and PromptNode, showcase the pre-defined "summarization" template and explain how to use PromptTemplate to find titles for documents and categorize them with custom prompts.
+This tutorial introduces you to the basics of LLMs and PromptNode, showcases the pre-defined "summarization" template, and explains how to use PromptTemplate to generate titles for documents and categorize them with custom prompts.
 
 ## Preparing the Colab Environment
 
@@ -44,27 +45,29 @@ pip install --upgrade pip
 pip install farm-haystack[colab]
 ```
 
-## Using PromptNode as a Stand-Alone Node
+## Trying Out PromptNode
 
 The PromptNode is the central abstraction in Haystack's large language model (LLM) support. It uses [`google/flan-t5-base`](https://huggingface.co/google/flan-t5-base) model by default, but you can replace the default model with a flan-t5 model of a different size such as `google/flan-t5-large` or a model by OpenAI such as `text-davinci-003`.
 
-Large language models are huge models trained on enormous amounts of data. That’s why these models have general knowledge of the world, so you can ask them anything and they will be able to answer. Let's initialize a PromptNode and see how we can prompt large language models:
+[Large language models](https://docs.haystack.deepset.ai/docs/language_models#large-language-models-llms) are huge models trained on enormous amounts of data. That’s why these models have general knowledge of the world, so you can ask them anything and they will be able to answer.
 
-1. Initialize a PromptNode instance. For this tutorial, we'll use [`google/flan-t5-large`](https://huggingface.co/google/flan-t5-large) as our large language model.
+As a warm-up, let's initialize PromptNode and see what it can do when run stand-alone: 
+
+1. Initialize a PromptNode instance with [`google/flan-t5-large`](https://huggingface.co/google/flan-t5-large):
 
 
 ```python
-from haystack.nodes.prompt import PromptNode
+from haystack.nodes import PromptNode
 
 prompt_node = PromptNode(model_name_or_path="google/flan-t5-large")
 ```
 
-> If you want to use PromptNode with an OpenAI model, change the model name and provide an `api_key`. 
+> Note: To use PromptNode with an OpenAI model, change the model name and provide an `api_key`: 
 > ```python
 > prompt_node = PromptNode(model_name_or_path="text-davinci-003", api_key=<YOUR_API_KEY>)
 > ```
 
-2. Ask a question. `google/flan-t5-large` can answer general questions.
+2. Ask any general question that comes to your mind, for example:
 
 
 ```python
@@ -76,23 +79,23 @@ prompt_node("What is the capital of Germany?")
 prompt_node("What is the highest mountain?")
 ```
 
-3. The `google/flan-t5-large` was trained on school math word problems dataset named [GSM8K](https://huggingface.co/datasets/gsm8k). That's why this model can answer basic math questions.
+As `google/flan-t5-large` was trained on school math problems dataset named [GSM8K](https://huggingface.co/datasets/gsm8k) you can also ask some basic math questions:
 
 
 ```python
 prompt_node("If Bob is 20 and Sara is 11, who is older?")
 ```
 
-Let's see how we can use PromptNode for more advanced tasks.
+Now that you've initialized PromptNode and saw how it works, let's see how we can use it for more advanced tasks.
 
-## Using PromptNode With a Template
+## Summarizing Documents with PromptNode
 
-PromptNode comes with out-of-the-box prompt templates to quickly interact with the large language model. These templates can perform multiple tasks, such as summarization, question answering, question generation, and more, using a single, unified model within the Haystack framework. To use these templates, just provide the documents and additional necessary information  the PromptNode. 
+PromptNode comes with out-of-the-box prompt templates that can perform multiple tasks, such as summarization, question answering, question generation, and more. To use a templates, just provide its name to the PromptNode. 
 
-Let's see how we can use PromptNode to generate summary of news.
+For this task, we'll use the summarization template and news from The Guardian. Let's see how to do it.
 
 
-1. Define news to use as `documents` for the PromptNode. We'll use these documents for the rest of the tutorial.
+1. Define news to use as `documents` for the PromptNode. We'll use these documents throughout the whole tutorial.
 
 
 ```python
@@ -135,33 +138,33 @@ news = [news_economics, news_science, news_culture, news_sport]
 
 > The token limit for `google/flan-t5-large` is 512. So, all news pieces should be shorter than the limit.
 
-2. List pre-defined templates using `get_prompt_template_names()` method. All templates come with necessary prompts to perform these tasks. 
+2. List pre-defined templates using the `get_prompt_template_names()` method. All templates come with the prompts needed to perform these tasks. 
 
 
 ```python
 prompt_node.get_prompt_template_names()
 ```
 
-3. Use `summarization` template and generate a summary for each piece of news:
+3. Use the `summarization` template to generate a summary for each piece of news:
 
 
 ```python
 prompt_node.prompt(prompt_template="summarization", documents=news)
 ```
 
-Now you know how to use PromptNode. Let's see how we can create a custom template for other tasks.
+Here you go! You have generated summaries of your news articles. But we're missing titles for them. Let's see how PromptNode can help us there.
 
-## Using PromptNode with a Custom Template
+## Generating Titles for News Articles with a Custom Template
 
-The biggest benefit of PromptNode is that you can use it to define and add additional prompt templates. Defining additional prompt templates makes it possible to extend the model's capabilities and use it for a broader range of NLP tasks in Haystack. 
+The biggest benefit of PromptNode is its versatility. You can use it to perform practically any NLP task if you define your own prompt templates for them. By creating your prompt templates, you can extend the model's capabilities and use it for a broader range of NLP tasks in Haystack. 
 
 You can define custom templates for each NLP task and register them with PromptNode. Let's create a custom template to generate descriptive titles for news:
 
-1. Initialize a `PromptTemplate` instance. We need `name` parameter to refer to the prompt template and `prompt_text` parameter to define the prompt. We include the parameters for the prompt in `promp_text` with a `$` sign in front of the parameter name. For the new `give-a-title` template, we only need `$news` parameter.
+1. Initialize a `PromptTemplate` instance. Give your template a `name` and define the prompt in `prompt_text`. To define any parameters for the prompt, add them to the `prompt_text` preceded by the `$` sign. We need a template to generate titles for our news articles. We'll call it `give-a-title`. The only parameter we need is `$news`, so let's add it to the `prompt_text`:
 
 
 ```python
-from haystack.nodes.prompt import PromptTemplate
+from haystack.nodes import PromptTemplate
 
 title_generator = PromptTemplate(
     name="give-a-title",
@@ -169,7 +172,7 @@ title_generator = PromptTemplate(
 )
 ```
 
-2. To use the new template, pass the new `title_generator` as the `prompt_template` to the `prompt()` method.
+2. To use the new template, pass `title_generator` as the `prompt_template` to the `prompt()` method:
 
 
 
@@ -178,15 +181,19 @@ title_generator = PromptTemplate(
 prompt_node.prompt(prompt_template=title_generator, news=news)
 ```
 
-> If you add a custom template to the template list, call `add_prompt_template()` with the `PromptTemplate` object and you can start using the template only with its `name`. 
+> Note: To add a custom template to the template list, call `add_prompt_template()` with the `PromptTemplate` object pass the template contents to it. Once you do this, the next time you want to use this template, just call its name: 
 > ```python
 > prompt_node.add_prompt_template(PromptTemplate(name="give-a-title", prompt_text="Provide a short, descriptive title for the given piece of news. News: $news; Title:"))
 > prompt_node.prompt(prompt_template="give-a-title", news=news)
 > ```
 
-You can customize PromptTemplates as much as you want according to your needs Let's try to categorize the news and see how you can customize the prompt further. 
+There you go! You should have the titles for your news articles ready. Let's now categorize them.
 
-1. Create another PromptTemplate called `categorize-news`. In the `prompt_text`, define `$news` parameter, give categories and ask model not to categorize the news if it doesn't fit in the provided category list: 
+## Categorizing Documents with PromptNode
+
+You can customize PromptTemplates as much as you need. Let's try to create a template to categorize the news articles. 
+
+1. Create another PromptTemplate called `categorize-news`. In the `prompt_text`, define the `$news` parameter, specify the categories you want to use, and ask the model not to categorize the news if it doesn't fit in the provided category list: 
 
 
 ```python
@@ -196,14 +203,14 @@ news_categorizer = PromptTemplate(
 )
 ```
 
-2. Run the `prompt()` method with `news_categorizer` template.
+2. Run the `prompt()` method with the `news_categorizer` template:
 
 
 ```python
 prompt_node.prompt(prompt_template=news_categorizer, news=news)
 ```
 
-And that's it! Now you know how to use PromptNode and create custom prompts with PromptTemplate.
+Congratulations! You've summarized your documents, generated titles for them, and put them into categories, all using custom prompt templates. 
 
 ## About us
 
@@ -218,7 +225,7 @@ Some of our other work:
 - [GermanQuAD and GermanDPR](https://deepset.ai/germanquad)
 
 Get in touch:
-[Twitter](https://twitter.com/deepset_ai) | [LinkedIn](https://www.linkedin.com/company/deepset-ai/) | [Discord](https://haystack.deepset.ai/community/join) | [GitHub Discussions](https://github.com/deepset-ai/haystack/discussions) | [Website](https://deepset.ai)
+[Twitter](https://twitter.com/deepset_ai) | [LinkedIn](https://www.linkedin.com/company/deepset-ai/) | [Discord](https://discord.com/invite/VBpFzsgRVF) | [GitHub Discussions](https://github.com/deepset-ai/haystack/discussions) | [Haystack Website](https://deepset.ai)
 
 By the way: [we're hiring!](https://www.deepset.ai/jobs)
 

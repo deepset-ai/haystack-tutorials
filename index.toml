@@ -11,7 +11,7 @@ weight = 10
 notebook = "01_Basic_QA_Pipeline.ipynb"
 aliases = ["first-qa-system", "without-elasticsearch", "03_basic_qa_pipeline_without_elasticsearch"]
 completion_time = "15 min"
-created_at = 2023-11-01
+created_at = 2023-01-11
 
 [[tutorial]]
 title = "Fine-Tuning a Model on Your Own Data"
@@ -30,7 +30,7 @@ weight = 15
 notebook = "03_Scalable_QA_System.ipynb"
 aliases = []
 completion_time = "20 min"
-created_at = 2023-11-01
+created_at = 2023-01-11
 
 [[tutorial]]
 title = "Utilizing Existing FAQs for Question Answering"
@@ -186,7 +186,7 @@ notebook = "20_Using_Haystack_with_REST_API.ipynb"
 aliases = ["using-haystack-with-rest-api"]
 colab = false
 completion_time = "30 min"
-created_at = 2023-11-01
+created_at = 2023-01-11
 
 [[tutorial]]
 title = "Customizing PromptNode for NLP Tasks"
@@ -195,5 +195,5 @@ level = "intermediate"
 weight = 57
 notebook = "21_Customizing_PromptNode.ipynb"
 aliases = ["customizing-promptnode"]
-completion_time = "20 min"
+created_at = 2023-02-16
 featured = true
