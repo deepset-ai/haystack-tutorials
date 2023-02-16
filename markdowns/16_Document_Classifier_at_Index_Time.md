@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/doc-class-index']
 download: "/downloads/16_Document_Classifier_at_Index_Time.ipynb"
 completion_time: False
+created_at: 2021-08-12
 ---
     
 

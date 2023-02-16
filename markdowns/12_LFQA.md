@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/lfqa']
 download: "/downloads/12_LFQA.ipynb"
 completion_time: False
+created_at: 2021-08-12
 ---
     
 

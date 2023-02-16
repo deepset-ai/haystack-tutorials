@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/multimodal']
 download: "/downloads/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
 completion_time: 20 min
+created_at: 2022-07-11
 ---
     
 

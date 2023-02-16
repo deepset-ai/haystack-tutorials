@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/train-dpr']
 download: "/downloads/09_DPR_training.ipynb"
 completion_time: False
+created_at: 2021-08-12
 ---
     
 

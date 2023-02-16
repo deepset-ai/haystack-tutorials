@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/gpl']
 download: "/downloads/18_GPL.ipynb"
 completion_time: False
+created_at: 2022-06-07
 ---
     
 

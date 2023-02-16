@@ -12,6 +12,7 @@ category: "QA"
 aliases: ['/tutorials/query-classifier']
 download: "/downloads/14_Query_Classifier.ipynb"
 completion_time: False
+created_at: 2021-08-12
 ---
     
 
