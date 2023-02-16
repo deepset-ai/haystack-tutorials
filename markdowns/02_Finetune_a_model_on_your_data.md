@@ -4,7 +4,7 @@ featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/02_Finetune_a_model_on_your_data.ipynb
 toc: True
 title: "Fine-Tuning a Model on Your Own Data"
-last_updated: 2023-02-15
+last_updated: 2023-02-16
 level: "intermediate"
 weight: 50
 description: Improve the performance of your Reader by performing fine-tuning.
