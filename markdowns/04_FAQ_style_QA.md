@@ -4,7 +4,7 @@ featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/04_FAQ_style_QA.ipynb
 toc: True
 title: "Utilizing Existing FAQs for Question Answering"
-last_updated: 2023-02-03
+last_updated: 2023-02-17
 level: "beginner"
 weight: 20
 description: Create a smarter way to answer new questions using your existing FAQ documents.
@@ -16,7 +16,12 @@ created_at: 2021-08-12
 ---
     
 
+- **Level**: Beginner
+- **Time to complete**: 15 minutes
+- **Nodes Used**: `InMemoryDocumentStore`, `EmbeddingRetriever`
+- **Goal**: Learn how to use the `EmbeddingRetriever` in a `FAQPipeline` to answer incoming questions by matching them to the most similar questions in your existing FAQ.
 
+# Overview
 While *extractive Question Answering* works on pure texts and is therefore more generalizable, there's also a common alternative that utilizes existing FAQ data.
 
 **Pros**:
@@ -73,67 +78,14 @@ logging.basicConfig(format="%(levelname)s - %(name)s -  %(message)s", level=logg
 logging.getLogger("haystack").setLevel(logging.INFO)
 ```
 
-### Start an Elasticsearch server
-You can start Elasticsearch on your local machine instance using Docker. If Docker is not readily available in your environment (eg., in Colab notebooks), then you can manually download and execute Elasticsearch from source.
+### Create a simple DocumentStore
+The InMemoryDocumentStore is good for quick development and prototyping. For more scalable options, check-out the [docs](https://docs.haystack.deepset.ai/docs/document_store).
 
 
 ```python
-# Recommended: Start Elasticsearch using Docker via the Haystack utility function
-from haystack.utils import launch_es
+from haystack.document_stores import InMemoryDocumentStore
 
-launch_es()
-```
-
-### Start an Elasticsearch server in Colab
-
-If Docker is not readily available in your environment (e.g. in Colab notebooks), then you can manually download and execute Elasticsearch from source.
-
-
-```bash
-%%bash
-
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.2-linux-x86_64.tar.gz -q
-tar -xzf elasticsearch-7.9.2-linux-x86_64.tar.gz
-chown -R daemon:daemon elasticsearch-7.9.2
-
-```
-
-
-```bash
-%%bash --bg
-
-sudo -u daemon -- elasticsearch-7.9.2/bin/elasticsearch
-```
-
-### Init the DocumentStore
-In contrast to Tutorial 1 (Build your first QA system), we:
-
-* specify the name of our `embedding_field` in Elasticsearch where we'll store the embedding of our question and that is used later for calculating our similarity to the incoming user question
-* set `excluded_meta_data=["question_emb"]` so that we don't return the huge embedding vectors in our search results
-
-
-```python
-import os
-import time
-
-from haystack.document_stores import ElasticsearchDocumentStore
-
-# Wait 30 seconds only to be sure Elasticsearch is ready before continuing
-time.sleep(30)
-
-# Get the host where Elasticsearch is running, default to localhost
-host = os.environ.get("ELASTICSEARCH_HOST", "localhost")
-
-document_store = ElasticsearchDocumentStore(
-    host=host,
-    username="",
-    password="",
-    index="document",
-    embedding_field="question_emb",
-    embedding_dim=384,
-    excluded_meta_data=["question_emb"],
-    similarity="cosine",
-)
+document_store = InMemoryDocumentStore()
 ```
 
 ### Create a Retriever using embeddings
@@ -153,7 +105,7 @@ retriever = EmbeddingRetriever(
 ```
 
 ### Prepare & Index FAQ data
-We create a pandas dataframe containing some FAQ data (i.e curated pairs of question + answer) and index those in elasticsearch.
+We create a pandas dataframe containing some FAQ data (i.e curated pairs of question + answer) and index those in our documentstore.
 Here: We download some question-answer pairs related to COVID-19
 
 
@@ -175,9 +127,11 @@ df.fillna(value="", inplace=True)
 df["question"] = df["question"].apply(lambda x: x.strip())
 print(df.head())
 
-# Get embeddings for our questions from the FAQs
+# Create embeddings for our questions from the FAQs
+# In contrast to most other search use cases, we don't create the embeddings here from the content of our documents,
+# but rather from the additional text field "question" as we want to match "incoming question" <-> "stored question".
 questions = list(df["question"].values)
-df["question_emb"] = retriever.embed_queries(queries=questions).tolist()
+df["embedding"] = retriever.embed_queries(queries=questions).tolist()
 df = df.rename(columns={"question": "content"})
 
 # Convert Dataframe to list of dicts and index them in our DocumentStore
@@ -199,7 +153,9 @@ pipe = FAQPipeline(retriever=retriever)
 ```python
 from haystack.utils import print_answers
 
-prediction = pipe.run(query="How is the virus spreading?", params={"Retriever": {"top_k": 10}})
+# Run any question and change top_k to see more or less answers
+prediction = pipe.run(query="How is the virus spreading?", params={"Retriever": {"top_k": 1}})
+
 print_answers(prediction, details="medium")
 ```
 
