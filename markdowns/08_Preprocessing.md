@@ -4,7 +4,7 @@ featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb
 toc: True
 title: "Preprocessing Your Documents"
-last_updated: 2022-11-25
+last_updated: 2023-02-20
 level: "beginner"
 weight: 25
 description: Start converting, cleaning, and splitting Documents using Haystack’s preprocessing capabilities.
@@ -21,7 +21,7 @@ Haystack includes a suite of tools to extract text from different file types, no
 and split text into smaller pieces to optimize retrieval.
 These data preprocessing steps can have a big impact on the systems performance and effective handling of data is key to getting the most out of Haystack.
 
-Ultimately, Haystack expects data to be provided as a list documents in the following dictionary format:
+Ultimately, Haystack expects data to be provided as a list of documents in the following dictionary format:
 ``` python
 docs = [
     {
