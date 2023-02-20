@@ -4,7 +4,6 @@ featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/11_Pipelines.ipynb
 toc: True
 title: "How to Use Pipelines"
-last_updated: 2022-12-09
 level: "intermediate"
 weight: 65
 description: Learn about the many ways which you can route queries through the nodes in a pipeline.

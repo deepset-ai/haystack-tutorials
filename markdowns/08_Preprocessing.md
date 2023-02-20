@@ -4,7 +4,6 @@ featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/08_Preprocessing.ipynb
 toc: True
 title: "Preprocessing Your Documents"
-last_updated: 2023-02-20
 level: "beginner"
 weight: 25
 description: Start converting, cleaning, and splitting Documents using Haystack’s preprocessing capabilities.

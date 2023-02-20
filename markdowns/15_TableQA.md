@@ -4,7 +4,6 @@ featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/15_TableQA.ipynb
 toc: True
 title: "Open-Domain QA on Tables"
-last_updated: 2023-02-03
 level: "advanced"
 weight: 130
 description: Perform question answering on tabular data.

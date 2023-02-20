@@ -1,5 +1,4 @@
 import argparse
-from datetime import date
 import tomli
 from nbconvert import MarkdownExporter
 from nbconvert.filters.strings import get_lines
@@ -22,7 +21,6 @@ featured: {tutorial.get("featured", False)}
 colab: {tutorial.get("colab", f'{config["colab"]}{tutorial["notebook"]}')}
 toc: {config["toc"]}
 title: "{tutorial["title"]}"
-last_updated: {date.today()}
 level: "{tutorial["level"]}"
 weight: {tutorial["weight"]}
 description: {tutorial["description"]}
@@ -69,7 +67,7 @@ if __name__ == "__main__":
 
     else:
         nb_to_config = {cfg["notebook"]: cfg for cfg in index["tutorial"]}
-            
+
         for notebook in args.notebooks:
             nb_name = notebook.split("/")[-1]
             tutorial_cfg = nb_to_config.get(nb_name)
