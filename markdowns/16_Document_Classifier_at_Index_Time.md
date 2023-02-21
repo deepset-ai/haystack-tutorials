@@ -4,7 +4,6 @@ featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/16_Document_Classifier_at_Index_Time.ipynb
 toc: True
 title: "Document Classification at Index Time"
-last_updated: 2022-12-22
 level: "intermediate"
 weight: 85
 description: Generate and attach classification labels to your Documents when indexing.

@@ -4,7 +4,6 @@ featured: False
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/03_Scalable_QA_System.ipynb
 toc: True
 title: "Build a Scalable Question Answering System"
-last_updated: 2023-01-24
 level: "beginner"
 weight: 15
 description: Create a scalable Retriever Reader pipeline that uses an ElasticsearchDocumentStore.

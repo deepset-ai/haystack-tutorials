@@ -4,7 +4,6 @@ featured: True
 colab: https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/21_Customizing_PromptNode.ipynb
 toc: True
 title: "Customizing PromptNode for NLP Tasks"
-last_updated: 2023-02-16
 level: "intermediate"
 weight: 57
 description: Use PromptNode and PromptTemplate for your custom NLP tasks

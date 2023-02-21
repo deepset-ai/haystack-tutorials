@@ -4,7 +4,6 @@ featured: False
 colab: False
 toc: True
 title: "Using Haystack with REST API"
-last_updated: 2023-01-11
 level: "advanced"
 weight: 115
 description: Create a production-ready pipeline and interact with Haystack REST API.
