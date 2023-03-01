@@ -27,7 +27,7 @@ featured: {tutorial.get("featured", False)}
 colab: {tutorial.get("colab", f'{config["colab"]}{tutorial["notebook"]}')}
 toc: {config["toc"]}
 title: "{tutorial["title"]}"
-last_updated: {last_commit_date}
+lastmod: {last_commit_date}
 level: "{tutorial["level"]}"
 weight: {tutorial["weight"]}
 description: {tutorial["description"]}
