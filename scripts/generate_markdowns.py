@@ -2,6 +2,7 @@ import argparse
 import tomli
 from nbconvert import MarkdownExporter
 from nbconvert.filters.strings import get_lines
+from subprocess import check_output
 
 
 def read_index(path):
@@ -13,7 +14,12 @@ def generate_frontmatter(config, tutorial):
     aliases = []
     if "aliases" in tutorial:
         for alias in tutorial["aliases"]:
+            print("alias", alias)
             aliases.append(f"/tutorials/{alias}")
+
+    last_commit_date = check_output(
+        f'git log -1 --pretty=format:"%ci" tutorials/{tutorial["notebook"]}'.split()
+    ).decode()[1:11]
 
     frontmatter = f"""---
 layout: {config["layout"]}
@@ -21,6 +27,7 @@ featured: {tutorial.get("featured", False)}
 colab: {tutorial.get("colab", f'{config["colab"]}{tutorial["notebook"]}')}
 toc: {config["toc"]}
 title: "{tutorial["title"]}"
+last_updated: {last_commit_date}
 level: "{tutorial["level"]}"
 weight: {tutorial["weight"]}
 description: {tutorial["description"]}
