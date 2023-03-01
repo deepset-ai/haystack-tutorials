@@ -14,7 +14,6 @@ def generate_frontmatter(config, tutorial):
     aliases = []
     if "aliases" in tutorial:
         for alias in tutorial["aliases"]:
-            print("alias", alias)
             aliases.append(f"/tutorials/{alias}")
 
     last_commit_date = check_output(
@@ -38,6 +37,7 @@ completion_time: {tutorial.get("completion_time", False)}
 created_at: {tutorial["created_at"]}
 ---
     """
+    print(frontmatter)
     return frontmatter
 
 
