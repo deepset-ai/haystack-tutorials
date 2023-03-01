@@ -16,9 +16,9 @@ def generate_frontmatter(config, tutorial):
         for alias in tutorial["aliases"]:
             aliases.append(f"/tutorials/{alias}")
 
-    last_commit_date = check_output(
-        f'git log -1 --pretty=format:"%ci" tutorials/{tutorial["notebook"]}'.split()
-    ).decode()[1:11]
+    last_commit_date = (
+        check_output(f'git log -1 --pretty=format:"%cs" tutorials/{tutorial["notebook"]}'.split()).decode().strip()
+    )
 
     frontmatter = f"""---
 layout: {config["layout"]}
