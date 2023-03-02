@@ -13,12 +13,4 @@ repos:
   rev: 22.6.0
   hooks:
   - id: black-jupyter
-
-- repo: local
-  hooks:
-    - id: tutorials-markdown
-      name: Markdown version of the tutorials
-      entry: python scripts/generate_markdowns.py --notebooks
-      language: system
-      types: [jupyter]  
       
