@@ -197,3 +197,13 @@ notebook = "21_Customizing_PromptNode.ipynb"
 aliases = ["customizing-promptnode"]
 created_at = 2023-02-16
 featured = true
+
+[[tutorial]]
+title = "Answering Multihop Questions with Agents"
+description = "Use Agent to answer multihop questions with extractive models"
+level = "intermediate"
+weight = 63
+notebook = "23_Answering_Multihop_Questions_with_Agents.ipynb"
+aliases = []
+created_at = 2023-03-13
+featured = true
