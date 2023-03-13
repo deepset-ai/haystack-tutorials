@@ -32,9 +32,9 @@ Here's what you need to do to add or edit tutorials 👇:
 
 ## Slugs
 
-By default, the name of each tutorial is also the location at which the tutorial will appear on the website. For example, "01_Basic_QA_Pipeline" will be on https://haystack.deepset.ai/tutorials/01_basic_qa_pipeline.
+By default, the name of each tutorial becomes the slug of its page on the website. For example, "01_Basic_QA_Pipeline" will be on https://haystack.deepset.ai/tutorials/01_basic_qa_pipeline.
 
-In `index.toml` you have the option of adding an optional `slug` entry for a tutorial to give a different location than its full name. Adding a slug is also useful for scenarios where you are updating a tutorial to the point where it makes sense that the name of the `.ipynb` file changes, but you would still like people to access the tutorial on the same URL.
+In `index.toml`,  you can optionally add a `slug` entry for a tutorial to use a custom slug. Adding a slug is also useful if you're updating a tutorial to the point where it makes sense for the name of the `.ipynb` file to change, but you still want people to access the tutorial under the same URL.
 
 # Continuous Integration (CI)
 
