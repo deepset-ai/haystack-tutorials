@@ -200,10 +200,11 @@ featured = true
 
 [[tutorial]]
 title = "Creating a Generative QA Pipeline with PromptNode"
-description = "Learn the basics of Shaper and use PromptNode in a pipeline."
+description = "Use a large language model in your search system through PromptNode and Shaper."
 level = "advanced"
 weight = 105
-notebook = "22_PromptNode_with_Shaper.ipynb"
-aliases = ["promptnode-with-shaper"]
-created_at = 2023-03-10
+notebook = "22_Pipeline_with_PromptNode.ipynb"
+aliases = ["pipeline-with-promptnode"]
+completion_time = "15 min"
+created_at = 2023-03-13
 featured = true
