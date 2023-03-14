@@ -197,3 +197,14 @@ notebook = "21_Customizing_PromptNode.ipynb"
 aliases = ["customizing-promptnode"]
 created_at = 2023-02-16
 featured = true
+
+[[tutorial]]
+title = "Creating a Generative QA Pipeline with PromptNode"
+description = "Use a large language model in your search system through PromptNode and Shaper."
+level = "advanced"
+weight = 105
+notebook = "22_Pipeline_with_PromptNode.ipynb"
+aliases = ["pipeline-with-promptnode"]
+completion_time = "15 min"
+created_at = 2023-03-13
+featured = true
