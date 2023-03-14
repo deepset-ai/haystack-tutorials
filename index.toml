@@ -195,8 +195,8 @@ level = "intermediate"
 weight = 57
 notebook = "21_Customizing_PromptNode.ipynb"
 aliases = ["customizing-promptnode"]
+completion_time = "20 min"
 created_at = 2023-02-16
-featured = true
 
 [[tutorial]]
 title = "Creating a Generative QA Pipeline with PromptNode"
