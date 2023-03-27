@@ -35,8 +35,7 @@ category: "QA"
 aliases: {aliases}
 download: "/downloads/{tutorial["notebook"]}"
 completion_time: {tutorial.get("completion_time", False)}
-created_at: {tutorial["created_at"]}
-    """
+created_at: {tutorial["created_at"]}"""
 
 
 def generate_markdown_from_notebook(tutorial, output_path, tutorials_path):
