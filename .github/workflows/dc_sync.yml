@@ -1,0 +1,90 @@
+name: Sync tutorial with dC workspace
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "./tutorials/[0-9]*.ipynb"
+
+jobs:
+  get-tutorials:
+    runs-on: ubuntu-latest
+    outputs:
+      modified-matrix: ${{ steps.create_matrix.outputs.modified-matrix }}
+      deleted-matrix: ${{ steps.create_matrix.outputs.deleted-matrix }}
+      any-changed: ${{ steps.files.outputs.any-changed }}
+      any-deleted: ${{ steps.files.outputs.any-deleted }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: files
+        uses: tj-actions/changed-files@v34
+        with:
+          json: true
+          files: |
+            ./tutorials/[0-9]*.ipynb
+
+      - name: Create matrixes
+        id: create_matrix
+        run: |
+          echo "modified-matrix={\"file\": ${{ steps.files.outputs.all_changed_files }}}" >> "$GITHUB_OUTPUT"
+          echo "deleted-matrix={\"file\": ${{ steps.files.outputs.deleted_files }}}" >> "$GITHUB_OUTPUT"
+
+  modified:
+    needs: get-tutorials
+    if: needs.get-tutorials.outputs.any-changed
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJSON(needs.get-tutorials.outputs.modified-matrix) }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Generate file to upload
+        id: file-generator
+        run: |
+          FILE="$(basename ${{ matrix.file }} .ipynb).txt"
+          echo "file=text/$FILE" >> "$GITHUB_OUTPUT"
+          METADATA="$(python scripts/generate_txt.py --print-metadata --notebooks ${{ matrix.file }})"
+          echo "metadata=$METADATA" >> "$GITHUB_OUTPUT"
+
+      - name: Upload tutorial to deepset Cloud
+        uses: silvanocerza/deepset-cloud-file-uploader@v1
+        with:
+          api-key: ${{ secrets.DEEPSET_CLOUD_API_KEY }}
+          workspace-name: ${{ secrets.DEEPSET_CLOUD_WORKSPACE }}
+          file: ${{ steps.file-generator.outputs.file }}
+          write-mode: OVERWRITE
+          metadata: ${{ steps.file-generator.outputs.metadata }}
+
+  deleted:
+    needs: get-tutorials
+    if: needs.get-tutorials.outputs.any-deleted
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJSON(needs.get-tutorials.outputs.deleted-matrix) }}
+
+    steps:
+      # This step is really important as when we remove a tutorial
+      # notebook we also want to remove the relative file from
+      # deepset Cloud, but since the remote file will have a .txt
+      # extension we must first the full file name with this step.
+      - name: Get file with correct extension
+        id: extension-changer
+        run: |
+          FILE="$(basename ${{ matrix.file }} .ipynb).txt"
+          echo "file=$FILE" >> "$GITHUB_OUTPUT"
+
+      - name: Delete file from deepset Cloud
+        uses: silvanocerza/deepset-cloud-file-deleter@v1
+        with:
+          api-key: ${{ secrets.DEEPSET_CLOUD_API_KEY }}
+          workspace-name: ${{ secrets.DEEPSET_CLOUD_WORKSPACE }}
+          file: ${{ steps.extension-changer.outputs.file}}
