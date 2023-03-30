@@ -199,6 +199,17 @@ completion_time = "20 min"
 created_at = 2023-02-16
 
 [[tutorial]]
+title = "Answering Multihop Questions with Agents"
+description = "Use Agent to answer multihop questions with extractive models"
+level = "intermediate"
+weight = 63
+notebook = "23_Answering_Multihop_Questions_with_Agents.ipynb"
+aliases = [multihop-qa-with-agents]
+completion_time = "10 min"
+created_at = 2023-03-27
+featured = true
+
+[[tutorial]]
 title = "Creating a Generative QA Pipeline with PromptNode"
 description = "Use a large language model in your search system through PromptNode and Shaper."
 level = "advanced"
