@@ -1,0 +1,26 @@
+name: Verify tutorials generation
+
+on:
+  pull_request:
+    paths:
+      - "tutorials/*.ipynb"
+      - "index.toml"
+
+jobs:
+  run-tutorials:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate all tutorials
+        run: |
+          mkdir output
+          python scripts/generate_markdowns.py --index index.toml --notebooks all --output ./output
