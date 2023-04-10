@@ -29,7 +29,6 @@ jobs:
           pip install nbconvert ipython
           pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
 
-      
       - name: Install Haystack Extras text2speech dependencies
         run: |
           pip install farm-haystack-text2speech
