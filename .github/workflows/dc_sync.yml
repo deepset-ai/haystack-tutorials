@@ -13,8 +13,8 @@ jobs:
     outputs:
       modified-matrix: ${{ steps.create_matrix.outputs.modified-matrix }}
       deleted-matrix: ${{ steps.create_matrix.outputs.deleted-matrix }}
-      any-changed: ${{ steps.files.outputs.any-changed }}
-      any-deleted: ${{ steps.files.outputs.any-deleted }}
+      any-changed: ${{ steps.files.outputs.any_changed }}
+      any-deleted: ${{ steps.files.outputs.any_deleted }}
 
     steps:
       - name: Checkout
