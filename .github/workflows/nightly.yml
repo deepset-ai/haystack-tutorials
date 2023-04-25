@@ -37,6 +37,9 @@ jobs:
           - 15_TableQA
           - 16_Document_Classifier_at_Index_Time
           - 17_Audio
+          - 19_Text_to_Image_search_pipeline_with_MultiModal_Retriever
+          - 21_Customizing_PromptNode
+          - 22_Pipeline_with_PromptNode
 
     env:
       HAYSTACK_TELEMETRY_ENABLED: "False"
@@ -53,6 +56,10 @@ jobs:
           pip install pyzmq==23.2.1
           pip install nbconvert ipython
           pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
+      
+      - name: Install Haystack Extras text2speech dependencies
+        run: |
+          pip install farm-haystack-text2speech
 
       - name: Convert notebook to Python
         run: |
