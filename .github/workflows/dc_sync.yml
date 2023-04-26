@@ -47,6 +47,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install requirements
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
       - name: Generate file to upload
         id: file-generator
         run: |
@@ -75,7 +84,7 @@ jobs:
       # This step is really important as when we remove a tutorial
       # notebook we also want to remove the relative file from
       # deepset Cloud, but since the remote file will have a .txt
-      # extension we must first the full file name with this step.
+      # extension we must first generate the full file name with this step.
       - name: Get file with correct extension
         id: extension-changer
         run: |
