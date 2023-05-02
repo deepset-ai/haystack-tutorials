@@ -62,7 +62,7 @@ jobs:
           FILE="$(basename ${{ matrix.file }} .ipynb).txt"
           echo "file=text/$FILE" >> "$GITHUB_OUTPUT"
           METADATA="$(python scripts/generate_txt.py --print-metadata --notebooks ${{ matrix.file }})"
-          echo "metadata=$METADATA" >> "$GITHUB_OUTPUT"
+          echo "$METADATA" >> "text/metadata.yml"
 
       - name: Upload tutorial to deepset Cloud
         uses: silvanocerza/deepset-cloud-file-uploader@v1
@@ -71,7 +71,7 @@ jobs:
           workspace-name: ${{ secrets.DEEPSET_CLOUD_WORKSPACE }}
           file: ${{ steps.file-generator.outputs.file }}
           write-mode: OVERWRITE
-          metadata: ${{ steps.file-generator.outputs.metadata }}
+          meta-file: text/metadata.yml
 
   deleted:
     needs: get-tutorials
