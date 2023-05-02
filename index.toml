@@ -212,8 +212,8 @@ featured = true
 [[tutorial]]
 title = "Creating a Generative QA Pipeline with PromptNode"
 description = "Use a large language model in your search system through PromptNode and Shaper."
-level = "advanced"
-weight = 105
+level = "intermediate"
+weight = 61
 notebook = "22_Pipeline_with_PromptNode.ipynb"
 aliases = ["pipeline-with-promptnode"]
 completion_time = "15 min"
