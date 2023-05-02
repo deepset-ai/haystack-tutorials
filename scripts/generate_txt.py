@@ -13,29 +13,13 @@ def read_index(path):
 
 
 def generate_metadata(config, tutorial):
-    aliases = []
-    if "aliases" in tutorial:
-        for alias in tutorial["aliases"]:
-            aliases.append(f"/tutorials/{alias}")
-
-    last_commit_date = (
-        check_output(f'git log -1 --pretty=format:"%cs" tutorials/{tutorial["notebook"]}'.split()).decode().strip()
-    )
-
-    return f"""layout: {config["layout"]}
-featured: {tutorial.get("featured", False)}
-colab: {tutorial.get("colab", f'{config["colab"]}{tutorial["notebook"]}')}
-toc: {config["toc"]}
+    return f"""featured: {tutorial.get("featured", False)}
 title: "{tutorial["title"]}"
-lastmod: {last_commit_date}
 level: "{tutorial["level"]}"
-weight: {tutorial["weight"]}
 description: {tutorial["description"]}
-category: "QA"
-aliases: {aliases}
-download: "/downloads/{tutorial["notebook"]}"
-completion_time: {tutorial.get("completion_time", False)}
-created_at: {tutorial["created_at"]}"""
+completion_time: {tutorial.get("completion_time", "")}
+link: {tutorial.get("slug", f'tutorials/{tutorial["notebook"][:-6]}')}
+"""
 
 
 def generate_markdown_from_notebook(tutorial, output_path, tutorials_path):
@@ -65,7 +49,7 @@ if __name__ == "__main__":
     notebooks_configs = {cfg["notebook"]: cfg for cfg in index["tutorial"]}
 
     for notebook in notebooks:
-        notebook_name = notebook.split("/")[-1]
+        notebook_name = str(notebook).split("/")[-1]
         tutorial_config = notebooks_configs.get(notebook_name)
         if tutorial_config:
             generate_markdown_from_notebook(tutorial_config, args.output, notebook)
