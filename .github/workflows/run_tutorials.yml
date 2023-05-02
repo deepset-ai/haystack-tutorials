@@ -32,6 +32,10 @@ jobs:
       - name: Install Haystack Extras text2speech dependencies
         run: |
           pip install farm-haystack-text2speech
+      
+      - name: Install Hugging Face datasets 
+        run: |
+          pip install datasets>=2.6.1
 
       - name: Checkout
         uses: actions/checkout@v3
