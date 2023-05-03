@@ -40,7 +40,7 @@ if __name__ == "__main__":
     parser.add_argument("--index", dest="index", default="index.toml")
     parser.add_argument("--notebooks", dest="notebooks", nargs="+", default=[])
     parser.add_argument("--output", dest="output", default="text")
-    parser.add_argument("--print-metadata", dest="metadata", action="store_true")
+    parser.add_argument("--metadata", dest="metadata", action="store_true")
     args = parser.parse_args()
     index = read_index(args.index)
 
@@ -59,4 +59,5 @@ if __name__ == "__main__":
 
             if args.metadata:
                 meta = generate_metadata(tutorial_config)
-                print(meta)
+                meta_file_name = f"{notebook_name.split('.')[0]}.yml"
+                Path(args.output, meta_file_name).write_text(meta)

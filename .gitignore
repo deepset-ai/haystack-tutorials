@@ -132,3 +132,6 @@ dmypy.json
 
 # Mac
 .DS_Store
+
+# Generate tutorial files for dc_sync.yml and full_dc_sync.yml
+text/**

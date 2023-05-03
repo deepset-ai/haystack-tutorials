@@ -13,8 +13,6 @@ jobs:
     outputs:
       modified-matrix: ${{ steps.create_matrix.outputs.modified-matrix }}
       deleted-matrix: ${{ steps.create_matrix.outputs.deleted-matrix }}
-      any-changed: ${{ steps.files.outputs.any_changed }}
-      any-deleted: ${{ steps.files.outputs.any_deleted }}
 
     steps:
       - name: Checkout
@@ -33,15 +31,16 @@ jobs:
       - name: Create matrixes
         id: create_matrix
         run: |
-          echo "modified-matrix={\"file\": ${{ steps.files.outputs.all_changed_files }}}" >> "$GITHUB_OUTPUT"
-          echo "deleted-matrix={\"file\": ${{ steps.files.outputs.deleted_files }}}" >> "$GITHUB_OUTPUT"
+          echo "modified-matrix=${{ steps.files.outputs.all_changed_files }}" >> "$GITHUB_OUTPUT"
+          echo "deleted-matrix=${{ steps.files.outputs.deleted_files }}" >> "$GITHUB_OUTPUT"
 
   modified:
     needs: get-tutorials
-    if: needs.get-tutorials.outputs.any-changed
+    if: ${{ needs.get-tutorials.outputs.modified-matrix != '[]' && needs.get-tutorials.outputs.modified-matrix != '' }}
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{ fromJSON(needs.get-tutorials.outputs.modified-matrix) }}
+      matrix:
+        file: ${{ fromJSON(needs.get-tutorials.outputs.modified-matrix) }}
 
     steps:
       - name: Checkout
@@ -60,9 +59,10 @@ jobs:
         id: file-generator
         run: |
           FILE="$(basename ${{ matrix.file }} .ipynb).txt"
+          METADATA_FILE="$(basename ${{ matrix.file }} .ipynb).yml"
           echo "file=text/$FILE" >> "$GITHUB_OUTPUT"
-          METADATA="$(python scripts/generate_txt.py --print-metadata --notebooks ${{ matrix.file }})"
-          echo "$METADATA" >> "text/metadata.yml"
+          echo "metadata_file=text/$METADATA_FILE" >> "$GITHUB_OUTPUT"
+          python scripts/generate_txt.py --metadata --notebooks ${{ matrix.file }}
 
       - name: Upload tutorial to deepset Cloud
         uses: silvanocerza/deepset-cloud-file-uploader@v1
@@ -71,14 +71,15 @@ jobs:
           workspace-name: ${{ secrets.DEEPSET_CLOUD_WORKSPACE }}
           file: ${{ steps.file-generator.outputs.file }}
           write-mode: OVERWRITE
-          meta-file: text/metadata.yml
+          meta-file: ${{ steps.file-generator.outputs.metadata_file }}
 
   deleted:
     needs: get-tutorials
-    if: needs.get-tutorials.outputs.any-deleted
+    if: ${{ needs.get-tutorials.outputs.deleted-matrix != '[]' && needs.get-tutorials.outputs.deleted-matrix != '' }}
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{ fromJSON(needs.get-tutorials.outputs.deleted-matrix) }}
+      matrix:
+        file: ${{ fromJSON(needs.get-tutorials.outputs.deleted-matrix) }}
 
     steps:
       # This step is really important as when we remove a tutorial

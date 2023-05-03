@@ -1,3 +1,5 @@
 nbconvert
 pre-commit
 tomli
+requests
+PyYAML
