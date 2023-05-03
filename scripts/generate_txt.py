@@ -53,7 +53,7 @@ if __name__ == "__main__":
     parser.add_argument("--index", dest="index", default="index.toml")
     parser.add_argument("--notebooks", dest="notebooks", nargs="+", default=[])
     parser.add_argument("--output", dest="output", default="text")
-    parser.add_argument("--print-metadata", dest="metadata", action="store_true")
+    parser.add_argument("--metadata", dest="metadata", action="store_true")
     args = parser.parse_args()
     index = read_index(args.index)
 
@@ -65,11 +65,12 @@ if __name__ == "__main__":
     notebooks_configs = {cfg["notebook"]: cfg for cfg in index["tutorial"]}
 
     for notebook in notebooks:
-        notebook_name = notebook.split("/")[-1]
+        notebook_name = str(notebook).split("/")[-1]
         tutorial_config = notebooks_configs.get(notebook_name)
         if tutorial_config:
             generate_markdown_from_notebook(tutorial_config, args.output, notebook)
 
             if args.metadata:
                 meta = generate_metadata(index["config"], tutorial_config)
-                print(meta)
+                meta_file_name = f"{notebook_name.split('.')[0]}.yml"
+                Path(args.output, meta_file_name).write_text(meta)
