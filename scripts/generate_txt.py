@@ -12,30 +12,17 @@ def read_index(path):
         return tomli.load(f)
 
 
-def generate_metadata(config, tutorial):
-    aliases = []
-    if "aliases" in tutorial:
-        for alias in tutorial["aliases"]:
-            aliases.append(f"/tutorials/{alias}")
+def generate_metadata(tutorial):
+    file_name = tutorial["notebook"].split(".")[0].lower()
+    slug = tutorial.get("slug", f"tutorials/{file_name}")
 
-    last_commit_date = (
-        check_output(f'git log -1 --pretty=format:"%cs" tutorials/{tutorial["notebook"]}'.split()).decode().strip()
-    )
-
-    return f"""layout: {config["layout"]}
-featured: {tutorial.get("featured", False)}
-colab: {tutorial.get("colab", f'{config["colab"]}{tutorial["notebook"]}')}
-toc: {config["toc"]}
+    return f"""featured: {tutorial.get("featured", False)}
 title: "{tutorial["title"]}"
-lastmod: {last_commit_date}
 level: "{tutorial["level"]}"
-weight: {tutorial["weight"]}
 description: {tutorial["description"]}
-category: "QA"
-aliases: {aliases}
-download: "/downloads/{tutorial["notebook"]}"
-completion_time: {tutorial.get("completion_time", False)}
-created_at: {tutorial["created_at"]}"""
+completion_time: {tutorial.get("completion_time", "")}
+link: {slug}
+"""
 
 
 def generate_markdown_from_notebook(tutorial, output_path, tutorials_path):
@@ -71,6 +58,6 @@ if __name__ == "__main__":
             generate_markdown_from_notebook(tutorial_config, args.output, notebook)
 
             if args.metadata:
-                meta = generate_metadata(index["config"], tutorial_config)
+                meta = generate_metadata(tutorial_config)
                 meta_file_name = f"{notebook_name.split('.')[0]}.yml"
                 Path(args.output, meta_file_name).write_text(meta)
