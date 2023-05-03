@@ -1,0 +1,25 @@
+name: Sync tutorial with dC workspace
+
+on:
+  workflow_dispatch:
+
+jobs:
+  full_sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install requirements
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate all tutorials and their metadata
+        run: python scripts/generate_txt.py --notebooks all --metadata
+
+      - name: Full sync
+        env:
+          DEEPSET_CLOUD_WORKSPACE: ${{ secrets.DEEPSET_CLOUD_WORKSPACE }}
+          DEEPSET_CLOUD_API_KEY: ${{ secrets.DEEPSET_CLOUD_API_KEY }}
+        run: python scripts/full_dc_sync.py
