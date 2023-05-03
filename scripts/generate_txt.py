@@ -20,7 +20,7 @@ def generate_metadata(tutorial):
 title: "{tutorial["title"]}"
 level: "{tutorial["level"]}"
 description: {tutorial["description"]}
-completion_time: {tutorial.get("completion_time", "")}
+completion_time: "{tutorial.get("completion_time", "")}"
 link: {slug}
 """
 
