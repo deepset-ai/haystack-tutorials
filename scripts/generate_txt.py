@@ -12,13 +12,16 @@ def read_index(path):
         return tomli.load(f)
 
 
-def generate_metadata(config, tutorial):
+def generate_metadata(tutorial):
+    file_name = tutorial["notebook"].split(".")[0].lower()
+    slug = tutorial.get("slug", f"tutorials/{file_name}")
+
     return f"""featured: {tutorial.get("featured", False)}
 title: "{tutorial["title"]}"
 level: "{tutorial["level"]}"
 description: {tutorial["description"]}
 completion_time: {tutorial.get("completion_time", "")}
-link: {tutorial.get("slug", f'tutorials/{tutorial["notebook"][:-6]}')}
+link: {slug}
 """
 
 
@@ -55,5 +58,5 @@ if __name__ == "__main__":
             generate_markdown_from_notebook(tutorial_config, args.output, notebook)
 
             if args.metadata:
-                meta = generate_metadata(index["config"], tutorial_config)
+                meta = generate_metadata(tutorial_config)
                 print(meta)
