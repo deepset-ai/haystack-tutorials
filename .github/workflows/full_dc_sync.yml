@@ -1,4 +1,4 @@
-name: Sync tutorial with dC workspace
+name: Sync all tutorials with dC workspace
 
 on:
   workflow_dispatch:
