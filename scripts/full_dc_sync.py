@@ -72,8 +72,6 @@ if __name__ == "__main__":
     delete_all_cloud_files(workspace)
     print(f"Deleted all files from workspace {workspace}")
 
-    loop = asyncio.get_event_loop()
-
     tutorials = Path(".", "text").glob("*.txt")
     loop = asyncio.get_event_loop()
     loop.run_until_complete(upload_files(tutorials, workspace))
