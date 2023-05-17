@@ -1,9 +1,9 @@
 name: Run Tutorials Nightly
 
 on:
-  workflow_dispatch:  # Activate this workflow manually
+  workflow_dispatch: # Activate this workflow manually
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
 
 jobs:
   run-tutorials:
@@ -55,12 +55,12 @@ jobs:
           pip install pyzmq==23.2.1
           pip install nbconvert ipython
           pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
-      
+
       - name: Install Haystack Extras text2speech dependencies
         run: |
           pip install farm-haystack-text2speech
-      
-      - name: Install Hugging Face datasets 
+
+      - name: Install Hugging Face datasets
         run: |
           pip install datasets>=2.6.1
 
@@ -80,7 +80,7 @@ jobs:
       SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
     steps:
       - name: Send Message to channel
-        if: jobs.run-tutorials.result != 'success'
+        if: needs.run-tutorials.result != 'success'
         uses: slackapi/slack-github-action@v1.23.0
         with:
           payload: |
