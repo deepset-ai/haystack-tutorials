@@ -30,7 +30,6 @@ jobs:
           - 06_Better_Retrieval_via_Embedding_Retrieval
           - 07_RAG_Generator
           - 08_Preprocessing
-          - 10_Knowledge_Graph
           - 11_Pipelines
           - 12_LFQA
           - 14_Query_Classifier
