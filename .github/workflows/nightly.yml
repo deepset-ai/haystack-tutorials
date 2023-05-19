@@ -45,6 +45,9 @@ jobs:
       ELASTICSEARCH_HOST: "elasticsearch"
 
     steps:
+      - name: Fake fail step
+        run: exit 1
+
       - name: Checkout
         uses: actions/checkout@v3
 
