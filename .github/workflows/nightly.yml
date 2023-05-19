@@ -1,9 +1,9 @@
 name: Run Tutorials Nightly
 
 on:
-  workflow_dispatch:  # Activate this workflow manually
+  workflow_dispatch: # Activate this workflow manually
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
 
 jobs:
   run-tutorials:
@@ -55,12 +55,12 @@ jobs:
           pip install pyzmq==23.2.1
           pip install nbconvert ipython
           pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
-      
+
       - name: Install Haystack Extras text2speech dependencies
         run: |
           pip install farm-haystack-text2speech
-      
-      - name: Install Hugging Face datasets 
+
+      - name: Install Hugging Face datasets
         run: |
           pip install datasets>=2.6.1
 
@@ -71,3 +71,20 @@ jobs:
       - name: Run the converted notebook
         run: |
           python ./tutorials/${{ matrix.notebook }}.py
+
+      - name: Send Failure to Datadog
+        if: failure()
+        uses: masci/datadog@v1
+        with:
+          api-key: ${{ secrets.CORE_DATADOG_API_KEY }}
+          api-url: https://api.datadoghq.eu
+          events: |
+            - title: "Tutorial ${{ matrix.notebook }} failed"
+              text: "Branch ${{ github.ref_name }} tests failed"
+              alert_type: "error"
+              source_type_name: "Github"
+              host: ${{ github.repository_owner }}
+              tags:
+                - "project:${{ github.repository }}"
+                - "name:${{ matrix.notebook }}"
+                - "url:https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
