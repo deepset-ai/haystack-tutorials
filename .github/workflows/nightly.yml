@@ -85,7 +85,7 @@ jobs:
             - title: "Tutorial ${{ matrix.notebook }} failed"
               text: "Branch ${{ github.ref_name }} tests failed"
               alert_type: "error"
-              source_type_name: "github apps"
+              source_type_name: "Github"
               host: ${{ github.repository_owner }}
               tags:
                 - "project:${{ github.repository }}"
