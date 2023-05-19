@@ -71,3 +71,16 @@ jobs:
       - name: Run the converted notebook
         run: |
           python ./tutorials/${{ matrix.notebook }}.py
+      
+      - name: Send Failure to Datadog
+        if: failure()
+        uses: masci/datadog@v1
+        with:
+          api-key: ${{ secrets.CORE_DATADOG_API_KEY }}
+          events: |
+            - title: "Tutorial ${{ matrix.notebook }} failed"
+              text: "Branch ${{ github.head_ref }} tests failed"
+              alert_type: "error"
+              host: ${{ github.repository_owner }}
+              tags:
+                - "project:${{ github.repository }}"
