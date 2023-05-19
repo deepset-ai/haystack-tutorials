@@ -1,9 +1,9 @@
 name: Run Tutorials Nightly
 
 on:
-  workflow_dispatch:  # Activate this workflow manually
+  workflow_dispatch: # Activate this workflow manually
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
 
 jobs:
   run-tutorials:
@@ -58,12 +58,12 @@ jobs:
           pip install pyzmq==23.2.1
           pip install nbconvert ipython
           pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
-      
+
       - name: Install Haystack Extras text2speech dependencies
         run: |
           pip install farm-haystack-text2speech
-      
-      - name: Install Hugging Face datasets 
+
+      - name: Install Hugging Face datasets
         run: |
           pip install datasets>=2.6.1
 
@@ -85,6 +85,7 @@ jobs:
             - title: "Tutorial ${{ matrix.notebook }} failed"
               text: "Branch ${{ github.ref_name }} tests failed"
               alert_type: "error"
+              source_type_name: "github apps"
               host: ${{ github.repository_owner }}
               tags:
                 - "project:${{ github.repository }}"
