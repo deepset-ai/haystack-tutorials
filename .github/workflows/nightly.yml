@@ -89,4 +89,5 @@ jobs:
               host: ${{ github.repository_owner }}
               tags:
                 - "project:${{ github.repository }}"
+                - "name:${{ matrix.notebook }}"
                 - "url:https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
