@@ -62,6 +62,7 @@ jobs:
               "tutorials/14_Query_Classifier.ipynb"
               "tutorials/18_GPL.ipynb"
               "tutorials/23_Answering_Multihop_Questions_with_Agents.ipynb"
+              "tutorials/24_Building_Chat_Application.ipynb"
           )
           for changed_file in ${{ steps.files.outputs.all_changed_files }}; do
             if [[ $changed_file == *".ipynb" ]]; then
