@@ -207,7 +207,6 @@ notebook = "23_Answering_Multihop_Questions_with_Agents.ipynb"
 aliases = ["multihop-qa-with-agents"]
 completion_time = "10 min"
 created_at = 2023-03-27
-featured = true
 
 [[tutorial]]
 title = "Creating a Generative QA Pipeline with PromptNode"
@@ -218,3 +217,14 @@ notebook = "22_Pipeline_with_PromptNode.ipynb"
 aliases = ["pipeline-with-promptnode"]
 completion_time = "15 min"
 created_at = 2023-03-13
+
+[[tutorial]]
+title = "Building a Conversational Chat App"
+description = "Use ConversationalAgent to build a human-like chat application"
+level = "intermediate"
+weight = 64
+notebook = "24_Building_Chat_App.ipynb"
+aliases = ["building-chat-app"]
+completion_time = "10 min"
+created_at = 2023-05-30
+featured = true
