@@ -98,8 +98,8 @@ created_at = 2021-08-12
 [[tutorial]]
 title = "How to Use Pipelines"
 description = "Learn about the many ways which you can route queries through the nodes in a pipeline."
-level = "intermediate"
-weight = 65
+level = "beginner"
+weight = 40
 notebook = "11_Pipelines.ipynb"
 aliases = ["pipelines"]
 created_at = 2021-08-12
