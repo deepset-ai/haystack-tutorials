@@ -67,6 +67,7 @@ weight = 60
 notebook = "07_RAG_Generator.ipynb"
 aliases = ["retrieval-augmented-generation"]
 created_at = 2021-08-12
+haystack_version = "1.17.2"
 
 [[tutorial]]
 title = "Preprocessing Your Documents"
@@ -94,6 +95,7 @@ weight = 120
 notebook = "10_Knowledge_Graph.ipynb"
 aliases = ["knowledge-graph"]
 created_at = 2021-08-12
+haystack_version = "1.16.1"
 
 [[tutorial]]
 title = "How to Use Pipelines"
@@ -112,6 +114,7 @@ weight = 70
 notebook = "12_LFQA.ipynb"
 aliases = ["lfqa"]
 created_at = 2021-08-12
+haystack_version = "1.17.2"
 
 [[tutorial]]
 title = "Question Generation"

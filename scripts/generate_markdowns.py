@@ -23,6 +23,7 @@ def generate_frontmatter(config, tutorial):
     frontmatter = f"""---
 layout: {config["layout"]}
 featured: {tutorial.get("featured", False)}
+haystack_version: "{tutorial.get("haystack_version", "latest")}"
 colab: {tutorial.get("colab", f'{config["colab"]}{tutorial["notebook"]}')}
 toc: {config["toc"]}
 title: "{tutorial["title"]}"
