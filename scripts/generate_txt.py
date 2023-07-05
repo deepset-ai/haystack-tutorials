@@ -18,6 +18,7 @@ def generate_metadata(tutorial):
 
     return f"""featured: {tutorial.get("featured", False)}
 title: "{tutorial["title"]}"
+haystack_version: "{tutorial.get("haystack_version", "latest")}"
 level: "{tutorial["level"]}"
 description: {tutorial["description"]}
 completion_time: "{tutorial.get("completion_time", "")}"
