@@ -230,4 +230,14 @@ notebook = "24_Building_Chat_App.ipynb"
 aliases = ["building-chat-app"]
 completion_time = "10 min"
 created_at = 2023-05-30
+
+[[tutorial]]
+title = "Customizing Agent to Chat with Your Documents"
+description = "Use Agent to chat with your documents"
+level = "advanced"
+weight = 117
+notebook = "25_Customizing_Agent.ipynb"
+aliases = ["customizing-agent"]
+completion_time = "15 min"
+created_at = 2023-07-19
 featured = true
