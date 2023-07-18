@@ -40,6 +40,6 @@ if __name__ == "__main__":
         if version[0] != "v":
             version = f"v{version}"
 
-        matrix.append({"notebook": notebook, "haystack_version": version})
+        matrix.append({"notebook": notebook[:-6], "haystack_version": version})
 
     print(json.dumps(matrix))

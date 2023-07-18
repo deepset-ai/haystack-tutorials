@@ -6,9 +6,25 @@ on:
     - cron: "0 0 * * *"
 
 jobs:
-  run-tutorials:
+  generate-matrix:
     runs-on: ubuntu-latest
-    container: deepset/haystack:base-cpu-main
+    outputs:
+      matrix: ${{ steps.generator.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - id: generator  
+        run: |
+          VERSION=$(gh api /repos/deepset-ai/haystack/releases/latest | jq -r .tag_name)
+          NOTEBOOKS=$(python ./scripts/generate_matrix.py --haystack-version "$VERSION")
+          echo "matrix={\"include\":$NOTEBOOKS}" >> "$GITHUB_OUTPUT"
+
+  run-tutorials:
+    needs: generate-matrix
+    runs-on: ubuntu-latest
+    container: deepset/haystack:base-cpu-${{ matrix.haystack_version }}
 
     services:
       elasticsearch:
@@ -20,23 +36,7 @@ jobs:
     strategy:
       max-parallel: 2
       fail-fast: false
-      matrix:
-        notebook:
-          # Note: use the name of the file without the extension
-          - 01_Basic_QA_Pipeline
-          - 03_Scalable_QA_System
-          - 04_FAQ_style_QA
-          - 05_Evaluation
-          - 06_Better_Retrieval_via_Embedding_Retrieval
-          - 08_Preprocessing
-          - 11_Pipelines
-          - 14_Query_Classifier
-          - 15_TableQA
-          - 16_Document_Classifier_at_Index_Time
-          - 17_Audio
-          - 19_Text_to_Image_search_pipeline_with_MultiModal_Retriever
-          - 21_Customizing_PromptNode
-          - 22_Pipeline_with_PromptNode
+      matrix: ${{ fromJSON(needs.generate-matrix.outputs.matrix) }}
 
     env:
       HAYSTACK_TELEMETRY_ENABLED: "False"
