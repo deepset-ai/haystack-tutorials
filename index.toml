@@ -233,7 +233,7 @@ created_at = 2023-05-30
 
 [[tutorial]]
 title = "Customizing Agent to Chat with Your Documents"
-description = "Use Agent to chat with your documents"
+description = "Advanced Customizations for Agents with Memory"
 level = "advanced"
 weight = 117
 notebook = "25_Customizing_Agent.ipynb"
