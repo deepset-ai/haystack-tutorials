@@ -21,6 +21,7 @@ weight = 50
 notebook = "02_Finetune_a_model_on_your_data.ipynb"
 aliases = ["fine-tuning-a-model"]
 created_at = 2021-08-12
+needs_gpu = true
 
 [[tutorial]]
 title = "Build a Scalable Question Answering System"
@@ -86,6 +87,7 @@ weight = 110
 notebook = "09_DPR_training.ipynb"
 aliases = ["train-dpr"]
 created_at = 2021-08-12
+needs_gpu = true
 
 [[tutorial]]
 title = "Question Answering on a Knowledge Graph"
@@ -124,6 +126,7 @@ weight = 75
 notebook = "13_Question_generation.ipynb"
 aliases = ["question-generation"]
 created_at = 2021-08-12
+needs_gpu = true
 
 [[tutorial]]
 title = "Query Classifier"
@@ -169,6 +172,7 @@ weight = 140
 notebook = "18_GPL.ipynb"
 aliases = ["gpl"]
 created_at = 2022-06-07
+needs_gpu = true
 
 [[tutorial]]
 title = "Text-To-Image Search Pipeline with Multimodal Retriever"
