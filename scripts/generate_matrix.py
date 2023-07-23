@@ -13,6 +13,7 @@ if __name__ == "__main__":
     parser.add_argument("--index", dest="index", default="index.toml")
     parser.add_argument("--notebooks", dest="notebooks", nargs="+", default=[])
     parser.add_argument("--haystack-version", dest="version", required=True)
+    parser.add_argument("--include-main", dest="main", action="store_true")
 
     args = parser.parse_args()
     index = read_index(args.index)
@@ -41,5 +42,9 @@ if __name__ == "__main__":
             version = f"v{version}"
 
         matrix.append({"notebook": notebook[:-6], "haystack_version": version})
+
+        if args.main and "haystack_version" not in tutorial:
+            # If a tutorial doesn't specify a version, we also test it on main
+            matrix.append({"notebook": notebook[:-6], "haystack_version": "main"})
 
     print(json.dumps(matrix))
