@@ -32,7 +32,7 @@ if __name__ == "__main__":
             # since we don't have a GPUs there
             continue
 
-        if tutorial.get("colab", False):
+        if not tutorial.get("colab", True):
             # This tutorial doesn't have any runnable Python code
             # so there's nothing to test
             continue
