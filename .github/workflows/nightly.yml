@@ -66,6 +66,10 @@ jobs:
       - name: Install Hugging Face datasets
         run: |
           pip install datasets>=2.6.1
+      
+      - name: Install ipywidgets for tutorial 24
+        run: |
+          pip install ipywidgets 
 
       - name: Convert notebook to Python
         run: |
