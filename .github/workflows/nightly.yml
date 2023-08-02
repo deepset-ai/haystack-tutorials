@@ -43,6 +43,8 @@ jobs:
     env:
       HAYSTACK_TELEMETRY_ENABLED: "False"
       ELASTICSEARCH_HOST: "elasticsearch"
+      HF_API_KEY: ${{ secrets.HF_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
     steps:
       - name: Checkout
@@ -64,6 +66,10 @@ jobs:
       - name: Install Hugging Face datasets
         run: |
           pip install datasets>=2.6.1
+      
+      - name: Install ipywidgets for tutorial 24
+        run: |
+          pip install ipywidgets 
 
       - name: Convert notebook to Python
         run: |
