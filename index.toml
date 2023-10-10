@@ -21,6 +21,7 @@ weight = 50
 notebook = "02_Finetune_a_model_on_your_data.ipynb"
 aliases = ["fine-tuning-a-model"]
 created_at = 2021-08-12
+completion_time = "15 min"
 needs_gpu = true
 
 [[tutorial]]
