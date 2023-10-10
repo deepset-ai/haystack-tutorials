@@ -246,3 +246,14 @@ aliases = ["customizing-agent"]
 completion_time = "15 min"
 created_at = 2023-07-19
 featured = true
+
+[[tutorial]]
+title = "Create an Hybrid Retrieval Pipeline"
+description = "Create an hybrid retrieval pipeline"
+level = "intermediate"
+weight = 63
+notebook = "26_Hybrid_Retrieval.ipynb"
+aliases = ["hybrid-retrieval"]
+colab = false
+completion_time = "15 min"
+created_at = 2023-10-10
