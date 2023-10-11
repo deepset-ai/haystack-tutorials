@@ -249,7 +249,7 @@ featured = true
 
 [[tutorial]]
 title = "Creating a Hybrid Retrieval Pipeline"
-description = "Create an hybrid retrieval pipeline"
+description = "Learn how to combine Retrievers to enhance retrieval"
 level = "intermediate"
 weight = 63
 notebook = "26_Hybrid_Retrieval.ipynb"
