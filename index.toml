@@ -248,7 +248,7 @@ created_at = 2023-07-19
 featured = true
 
 [[tutorial]]
-title = "Create an Hybrid Retrieval Pipeline"
+title = "Creating a Hybrid Retrieval Pipeline"
 description = "Create an hybrid retrieval pipeline"
 level = "intermediate"
 weight = 63
