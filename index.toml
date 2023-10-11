@@ -257,3 +257,4 @@ aliases = ["hybrid-retrieval"]
 colab = false
 completion_time = "15 min"
 created_at = 2023-10-10
+featured = true
