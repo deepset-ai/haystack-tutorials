@@ -247,3 +247,14 @@ aliases = ["customizing-agent"]
 completion_time = "15 min"
 created_at = 2023-07-19
 featured = true
+
+[[tutorial]]
+title = "Creating a Hybrid Retrieval Pipeline"
+description = "Learn how to combine Retrievers to enhance retrieval"
+level = "intermediate"
+weight = 63
+notebook = "26_Hybrid_Retrieval.ipynb"
+aliases = ["hybrid-retrieval"]
+completion_time = "15 min"
+created_at = 2023-10-10
+featured = true
