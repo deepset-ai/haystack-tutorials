@@ -55,7 +55,8 @@ if __name__ == "__main__":
     for notebook in notebooks:
         notebook_name = str(notebook).split("/")[-1]
         tutorial_config = notebooks_configs.get(notebook_name)
-        if tutorial_config:
+        if tutorial_config and not tutorial_config.get("hidden", False):
+            # Skip tutorials that needs to be hidden
             generate_markdown_from_notebook(tutorial_config, args.output, notebook)
 
             if args.metadata:
