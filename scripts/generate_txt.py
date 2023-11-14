@@ -51,14 +51,13 @@ if __name__ == "__main__":
         notebooks = tutorials_path.glob("[0-9]*.ipynb")
 
     notebooks_configs = {cfg["notebook"]: cfg for cfg in index["tutorial"]}
-    # print(notebooks_configs)
 
     for notebook in notebooks:
         notebook_name = str(notebook).split("/")[-1]
         tutorial_config = notebooks_configs.get(notebook_name)
         if tutorial_config and not tutorial_config.get("hidden", False):
+            # Skip tutorials that needs to be hidden
             generate_markdown_from_notebook(tutorial_config, args.output, notebook)
-            print(tutorial_config, "\n")
 
             if args.metadata:
                 meta = generate_metadata(tutorial_config)
