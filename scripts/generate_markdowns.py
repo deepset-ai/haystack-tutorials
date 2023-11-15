@@ -25,6 +25,7 @@ layout: {config["layout"]}
 featured: {tutorial.get("featured", False)}
 haystack_version: "{tutorial.get("haystack_version", "latest")}"
 hidden: {tutorial.get("hidden", False)}
+sitemap_exclude: {tutorial.get("sitemap_exclude", False)}
 colab: {tutorial.get("colab", f'{config["colab"]}{tutorial["notebook"]}')}
 toc: {config["toc"]}
 title: "{tutorial["title"]}"
