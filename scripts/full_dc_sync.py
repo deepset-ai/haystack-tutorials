@@ -23,7 +23,7 @@ def dc_token():
 
 
 async def upload_to_dc(workspace: str, file: Path, meta: Dict):
-    url = f"https://api.cloud.deepset.ai/api/v1/workspaces/{workspace}/files?write_mode=OVERWRITE"
+    url = f"https://api.cloud.deepset.ai/api/v1/workspaces/{workspace}/files"
     files = {"file": (file.name, file.open("rb"), "text/plain")}
     data = {"meta": json.dumps(meta, default=str)}
     print(f"Uploading {file.name}")
