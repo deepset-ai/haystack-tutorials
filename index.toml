@@ -261,3 +261,15 @@ aliases = ["hybrid-retrieval"]
 completion_time = "15 min"
 created_at = 2023-10-10
 featured = true
+
+[[tutorial]]
+title = "Generating Structured Output with Loop-Based Auto-Correction"
+description = "Learn how to extract structured data using an LLM, and to validate the generated output against a predefined schema."
+level = "intermediate"
+weight = 71
+notebook = "27_Structured_Output_With_Loop.ipynb"
+aliases = []
+completion_time = "15 min"
+created_at = 2023-11-30
+haystack_2 = true
+featured = true
