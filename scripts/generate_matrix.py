@@ -37,6 +37,10 @@ if __name__ == "__main__":
             # so there's nothing to test
             continue
 
+        if tutorial.get("haystack_2", False):
+            # Haystack 2.0 tutorials should be skipped for now
+            continue
+
         version = tutorial.get("haystack_version", args.version)
         if version[0] != "v":
             version = f"v{version}"
