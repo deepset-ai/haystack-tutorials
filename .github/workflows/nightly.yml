@@ -65,7 +65,7 @@ jobs:
 
       - name: Install Hugging Face datasets
         run: |
-          pip install datasets>=2.6.1
+          pip install "datasets>=2.6.1"
       
       - name: Install ipywidgets for tutorial 24
         run: |
