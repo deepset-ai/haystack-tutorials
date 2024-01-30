@@ -69,6 +69,7 @@ jobs:
               "tutorials/25_Customizing_Agent.ipynb"
               "tutorials/27_First_RAG_Pipeline.ipynb"
               "tutorials/28_Structured_Output_With_Loop.ipynb"
+              "tutorials/29_Serializing_Pipelines.ipynb"
           )
           for changed_file in ${{ steps.files.outputs.all_changed_files }}; do
             if [[ $changed_file == *".ipynb" ]]; then

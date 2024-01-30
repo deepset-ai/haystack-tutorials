@@ -286,3 +286,14 @@ aliases = []
 completion_time = "15 min"
 created_at = 2023-11-30
 haystack_2 = true
+
+[[tutorial]]
+title = "Serializing LLM Pipelines"
+description = "Learn how to serialize and deserialize your pipelines between YAML and Python"
+level = "beginner"
+weight = 6
+notebook = "29_Serializing_Pipelines.ipynb"
+aliases = []
+completion_time = "10 min"
+created_at = 2024-01-29
+haystack_2 = true
