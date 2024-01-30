@@ -289,7 +289,7 @@ haystack_2 = true
 
 [[tutorial]]
 title = "Serialize Your Pipelines"
-description = "Learn how to serialize and deserialize your pieplines between YAML and Python"
+description = "Learn how to serialize and deserialize your pipelines between YAML and Python"
 level = "beginner"
 weight = 6
 notebook = "29_Serializing_Pipelines.ipynb"
