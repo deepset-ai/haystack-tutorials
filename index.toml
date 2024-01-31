@@ -299,7 +299,7 @@ created_at = 2024-01-29
 haystack_2 = true
 
 [[tutorial]]
-title = "File Type Preprocessing Index Pipeline"
+title = "Preprocessing Different File Types"
 description = "Learn how to build an indexing pipeline that will preprocess files based on their file type"
 level = "beginner"
 weight = 72
