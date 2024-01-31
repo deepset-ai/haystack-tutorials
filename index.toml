@@ -300,7 +300,7 @@ haystack_2 = true
 
 [[tutorial]]
 title = "Filtering Documents with Metadata"
-description = "Learn how to filter down to specific documents at retieval time using metadata"
+description = "Learn how to filter down to specific documents at retrieval time using metadata"
 level = "beginner"
 weight = 4
 notebook = "31_Metadata_Filtering.ipynb"
