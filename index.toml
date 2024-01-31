@@ -300,7 +300,7 @@ haystack_2 = true
 
 [[tutorial]]
 title = "File Type Preprocessing Index Pipeline"
-description = "learned how to build an indexing pipeline that will preproecess files based on their file type"
+description = "Learn how to build an indexing pipeline that will preprocess files based on their file type"
 level = "beginner"
 weight = 72
 notebook = "29_Serializing_Pipelines.ipynb"
