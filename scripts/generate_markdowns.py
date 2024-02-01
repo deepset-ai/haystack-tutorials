@@ -23,6 +23,8 @@ def generate_frontmatter(config, tutorial):
     frontmatter = f"""---
 layout: {config["layout"]}
 featured: {tutorial.get("featured", False)}
+featured_image: /images/tutorials.png
+images: ["/images/tutorials.png"]
 haystack_version: "{tutorial.get("haystack_version", "latest")}"
 haystack_2: {tutorial.get("haystack_2", False)}
 hidden: {tutorial.get("hidden", False)}
