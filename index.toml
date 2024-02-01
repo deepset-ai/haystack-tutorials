@@ -299,12 +299,23 @@ created_at = 2024-01-29
 haystack_2 = true
 
 [[tutorial]]
+title = "Preprocessing Different File Types"
+description = "Learn how to build an indexing pipeline that will preprocess files based on their file type"
+level = "beginner"
+weight = 72
+notebook = "30_File_Type_Preprocessing_Index_Pipeline.ipynb"
+aliases = []
+completion_time = "10 min"
+created_at = 2024-01-30
+haystack_2 = true
+
+[[tutorial]]
 title = "Filtering Documents with Metadata"
 description = "Learn how to filter down to specific documents at retrieval time using metadata"
 level = "beginner"
 weight = 6
 notebook = "31_Metadata_Filtering.ipynb"
 aliases = []
-completion_time = "10 min"
+completion_time = "15 min"
 created_at = 2024-01-30
 haystack_2 = true
