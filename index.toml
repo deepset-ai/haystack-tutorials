@@ -321,6 +321,17 @@ created_at = 2024-01-30
 haystack_2 = true
 
 [[tutorial]]
+title = "Classifying Documents & Queries by Language"
+description = "Learn how to classify documents and route queries by language, for both indexing and RAG pipelines"
+level = "intermediate"
+weight = 75
+notebook = "32_Classifying_Documents_and_Queries_by_Language.ipynb"
+aliases = []
+completion_time = "15 min"
+created_at = 2024-02-06
+haystack_2 = true
+
+[[tutorial]]
 title = "Creating a Hybrid Retrieval Pipeline"
 description = "Learn how to combine keyword-based retrieval and dense retrieval to enhance retrieval"
 level = "intermediate"
