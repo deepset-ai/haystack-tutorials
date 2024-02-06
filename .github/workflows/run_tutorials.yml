@@ -72,6 +72,7 @@ jobs:
               "tutorials/29_Serializing_Pipelines.ipynb"
               "tutorials/30_File_Type_Preprocessing_Index_Pipeline.ipynb"
               "tutorials/31_Metadata_Filtering.ipynb"
+              "tutorials/33_Hybrid_Retrieval.ipynb"
           )
           for changed_file in ${{ steps.files.outputs.all_changed_files }}; do
             if [[ $changed_file == *".ipynb" ]]; then
