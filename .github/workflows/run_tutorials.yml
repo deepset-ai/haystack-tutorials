@@ -73,6 +73,7 @@ jobs:
               "tutorials/30_File_Type_Preprocessing_Index_Pipeline.ipynb"
               "tutorials/31_Metadata_Filtering.ipynb"
               "tutorials/32_Classifying_Documents_and_Queries_by_Language.ipynb"
+              "tutorials/33_Hybrid_Retrieval.ipynb"
               "tutorials/34_Extractive_QA_Pipeline.ipynb"
               "tutorials/35_Model_Based_Evaluation_of_RAG_Pipelines.ipynb"
           )
