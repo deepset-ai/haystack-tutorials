@@ -341,3 +341,14 @@ aliases = []
 completion_time = "10 min"
 created_at = 2024-02-09
 haystack_2 = true
+
+[[tutorial]]
+title = "Model-Based Evaluation of RAG Pipelines"
+description = "Learn how to evaluate your RAG pipelines using some of the model-based evaluation frameworkes integerated into Haystack"
+level = "intermediate"
+weight = 77
+notebook = "35_Model_Based_Evaluation_of_RAG_Pipelines.ipynb"
+aliases = []
+completion_time = "15 min"
+created_at = 2024-02-12
+haystack_2 = true

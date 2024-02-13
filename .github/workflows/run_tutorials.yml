@@ -74,6 +74,7 @@ jobs:
               "tutorials/31_Metadata_Filtering.ipynb"
               "tutorials/32_Classifying_Documents_and_Queries_by_Language.ipynb"
               "tutorials/34_Extractive_QA_Pipeline.ipynb"
+              "tutorials/35_Model_Based_Evaluation_of_RAG_Pipelines.ipynb"
           )
           for changed_file in ${{ steps.files.outputs.all_changed_files }}; do
             if [[ $changed_file == *".ipynb" ]]; then
