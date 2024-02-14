@@ -365,11 +365,11 @@ created_at = 2024-02-12
 haystack_2 = true
 
 [[tutorial]]
-title = "Building Pipelines with Conditional Routing"
+title = "Building Fallbacks to Websearch with Conditional Routing"
 description = "Learn how to direct the query to a web-based RAG route when necessary"
 level = "beginner"
 weight = 81
-notebook = "36_Building_Pipelines_With_Conditional_Routing.ipynb"
+notebook = "36_Building_Fallbacks_with_Conditional_Routing.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-14
