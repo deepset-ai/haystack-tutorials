@@ -374,3 +374,14 @@ aliases = []
 completion_time = "10 min"
 created_at = 2024-02-16
 haystack_2 = true
+
+[[tutorial]]
+title = "Simplifying Pipeline Inputs with Multiplexer"
+description = "Learn how to declutter the inputs of complex pipelines"
+level = "intermediate"
+weight = 84
+notebook = "37_Simplifying_Pipeline_Inputs_with_Multiplexer.ipynb"
+aliases = []
+completion_time = "10 min"
+created_at = 2024-02-19
+haystack_2 = true
