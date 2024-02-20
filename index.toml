@@ -377,7 +377,7 @@ haystack_2 = true
 
 [[tutorial]]
 title = "Simplifying Pipeline Inputs with Multiplexer"
-description = "Declutter the inputs of complex pipelines"
+description = "Learn how to declutter the inputs of complex pipelines"
 level = "intermediate"
 weight = 84
 notebook = "37_Simplifying_Pipeline_Inputs_with_Multiplexer.ipynb"
