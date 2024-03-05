@@ -79,7 +79,7 @@ jobs:
               "tutorials/36_Building_Fallbacks_with_Conditional_Routing.ipynb"
               "tutorials/37_Simplifying_Pipeline_Inputs_with_Multiplexer.ipynb"
               "tutorials/39_Embedding_Metadata_for_Improved_Retrieval.ipynb"
-              "tutorials/40_Building_Agent-like_Application_with_Function_Calling.ipynb"
+              "tutorials/40_Building_Chat_Application_with_Function_Calling.ipynb"
           )
           for changed_file in ${{ steps.files.outputs.all_changed_files }}; do
             if [[ $changed_file == *".ipynb" ]]; then
