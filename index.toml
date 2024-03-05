@@ -396,3 +396,14 @@ aliases = []
 completion_time = "10 min"
 created_at = 2024-02-20
 haystack_2 = true
+
+[[tutorial]]
+title = "Building an Agent-like Application with Function Calling"
+description = "Learn how to use OpenAIChatGenerator to build chat applications using tools"
+level = "intermediate"
+weight = 60
+notebook = "40_Building_Agent-like_Application_with_Function_Calling.ipynb"
+aliases = []
+completion_time = "20 min"
+created_at = 2024-03-05
+haystack_2 = true
