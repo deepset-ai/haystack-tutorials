@@ -1,10 +1,8 @@
 # Haystack Tutorials
 
-<p align="center" float="left">
-  <img alt="" src="https://raw.githubusercontent.com/deepset-ai/.github/main/deepset-logo-colored.png" width="30%"/>
-  <img alt="" src="https://raw.githubusercontent.com/deepset-ai/.github/main/haystack-logo-colored-on-dark.png#gh-dark-mode-only" width="30%"/>
-  <img alt="" src="https://raw.githubusercontent.com/deepset-ai/.github/main/haystack-logo-colored.png#gh-light-mode-only" width="30%"/>
-</p>
+<div align="center">
+  <a href="https://www.deepset.ai/haystack/"><img src="https://github.com/deepset-ai/haystack/blob/main/docs/img/banner_20.png" alt="Haystack"></a>
+</div>
 
 [**Haystack**](https://github.com/deepset-ai/haystack) is an open source framework by [**deepset**](https://deepset.ai) for building production-ready **LLM applications**, **retrieval-augmented generative pipelines** and **state-of-the-art search systems** that work intelligently over large document collections. It lets you quickly try out the latest models in natural language processing (NLP) while being flexible and easy to use.
 
