@@ -19,7 +19,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}  
         run: |
-          VERSION=$(gh api /repos/deepset-ai/haystack/releases/latest | jq -r .tag_name)
+          VERSION=v1.25.0
           NOTEBOOKS=$(python ./scripts/generate_matrix.py --haystack-version "$VERSION" --include-main)
           echo "matrix={\"include\":$NOTEBOOKS}" >> "$GITHUB_OUTPUT"
 
