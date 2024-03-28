@@ -130,7 +130,7 @@ jobs:
 
       - name: Install common dependencies
         run: |
-          # apt-get update && apt-get install -y build-essential gcc libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
+          apt-get update && apt-get install -y build-essential gcc libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
           pip install nbconvert ipython
           pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
 
