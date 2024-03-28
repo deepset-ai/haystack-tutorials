@@ -122,11 +122,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install dependencies
+        # TODO: Let's cache these
+      - name: Install common dependencies
         run: |
           apt-get update && apt-get install -y build-essential gcc libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
           pip install nbconvert ipython
           pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
+
+      - name: Install tutorial dependencies
+        if: matrix.dependencies
+        run: |
+          pip install "${{ join(matrix.dependencies, '" "')}}"
 
       - name: Convert notebook to Python
         run: |
