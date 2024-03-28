@@ -54,10 +54,22 @@ if __name__ == "__main__":
         if version[0] != "v":
             version = f"v{version}"
 
-        matrix.append({"notebook": notebook[:-6], "haystack_version": version})
+        matrix.append(
+            {
+                "notebook": notebook[:-6],
+                "haystack_version": version,
+                "dependencies": tutorial.get("dependencies", []),
+            }
+        )
 
         if args.main and "haystack_version" not in tutorial:
             # If a tutorial doesn't specify a version, we also test it on main
-            matrix.append({"notebook": notebook[:-6], "haystack_version": "main"})
+            matrix.append(
+                {
+                    "notebook": notebook[:-6],
+                    "haystack_version": "main",
+                    "dependencies": tutorial.get("dependencies", []),
+                }
+            )
 
     print(json.dumps(matrix))
