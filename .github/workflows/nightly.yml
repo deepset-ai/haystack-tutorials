@@ -114,7 +114,7 @@ jobs:
     container: deepset/haystack:base-${{ matrix.haystack_version }}
 
     strategy:
-      # max-parallel: 2
+      max-parallel: 2
       fail-fast: false
       matrix: ${{ fromJSON(needs.generate-matrix.outputs.matrix_v2) }}
 
