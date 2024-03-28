@@ -4,6 +4,9 @@ on:
   workflow_dispatch: # Activate this workflow manually
   schedule:
     - cron: "0 0 * * *"
+  push:
+    branch:
+      - tutorials-testing
 
 jobs:
   generate-matrix:
@@ -111,7 +114,7 @@ jobs:
     container: deepset/haystack:base-${{ matrix.haystack_version }}
 
     strategy:
-      max-parallel: 2
+      # max-parallel: 2
       fail-fast: false
       matrix: ${{ fromJSON(needs.generate-matrix.outputs.matrix_v2) }}
 
