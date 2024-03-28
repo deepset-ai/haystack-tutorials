@@ -1,6 +1,8 @@
-import tomllib
 import argparse
 import json
+import re
+
+import tomllib
 
 
 def read_index(path):
@@ -9,7 +11,9 @@ def read_index(path):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(usage="""python generate_matrix.py --haystack-version v1.18.1""")
+    parser = argparse.ArgumentParser(
+        usage="""python generate_matrix.py --haystack-version v1.18.1"""
+    )
     parser.add_argument("--index", dest="index", default="index.toml")
     parser.add_argument("--notebooks", dest="notebooks", nargs="+", default=[])
     parser.add_argument("--haystack-version", dest="version", required=True)
@@ -17,6 +21,8 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     index = read_index(args.index)
+
+    is_haystack2 = re.match("^v?2", args.version) is not None
 
     matrix = []
     for tutorial in index["tutorial"]:
@@ -37,8 +43,11 @@ if __name__ == "__main__":
             # so there's nothing to test
             continue
 
-        if tutorial.get("haystack_2", False):
-            # Haystack 2.0 tutorials should be skipped for now
+        if is_haystack2 and not tutorial.get("haystack_2", False):
+            # Skip Haystack 1.0 tutorials when testing Haystack 2.0
+            continue
+        elif not is_haystack2 and tutorial.get("haystack_2", False):
+            # Skip Haystack 2.0 tutorials when testing Haystack 1.0
             continue
 
         version = tutorial.get("haystack_version", args.version)
