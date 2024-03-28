@@ -108,10 +108,33 @@ jobs:
   #               - "name:${{ matrix.notebook }}"
   #               - "url:https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
-  run-tutorials-v2:
-    needs: generate-matrix
+  cache-v2-dependencies:
     runs-on: ubuntu-latest
-    container: deepset/haystack:base-${{ matrix.haystack_version }}
+    steps:
+      - name: Install common dependencies
+        run: |
+          apt-get update && apt-get install -y \
+              build-essential \
+              gcc \
+              libsndfile1 \
+              ffmpeg
+
+          pip install nbconvert ipython
+          pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
+
+      - uses: actions/cache/save@v3
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ runner.os }}-${{ github.run_id }}
+
+  run-tutorials-v2:
+    needs: [generate-matrix, cache-v2-dependencies]
+    runs-on: ubuntu-latest
+    container:
+      image: deepset/haystack:base-${{ matrix.haystack_version }}
+      volumes:
+        # We need this to properly restore the cache or we wouldn't have enough permissions
+        - ~/.cache/pip
 
     strategy:
       max-parallel: 2
@@ -128,11 +151,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install common dependencies
-        run: |
-          apt-get update && apt-get install -y build-essential gcc libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
-          pip install nbconvert ipython
-          pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
+      # - name: Install common dependencies
+      #   run: |
+      #     apt-get update && apt-get install -y \
+      #       build-essential \
+      #       gcc \
+      #       libsndfile1 \
+      #       ffmpeg
+
+      - name: Restore Python dependencies
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ runner.os }}-${{ github.run_id }}
 
       - name: Install tutorial dependencies
         if: matrix.dependencies
