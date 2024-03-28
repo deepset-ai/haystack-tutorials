@@ -140,7 +140,7 @@ jobs:
           pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
 
       - name: Install tutorial dependencies
-        if: matrix.dependencies != ''
+        if: bool(matrix.dependencies)
         run: |
           pip install "${{ join(matrix.dependencies, '" "')}}"
 
