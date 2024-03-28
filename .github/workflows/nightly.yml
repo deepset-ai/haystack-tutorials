@@ -25,13 +25,13 @@ jobs:
         run: |
           # Get tutorial notebooks for v1
           VERSION=$(gh api /repos/deepset-ai/haystack/releases | \
-            jq '[.[].tag_name | select(test("^v1.[0-9]+.[0-9]+$"))] | first')
+            jq -r '[.[].tag_name | select(test("^v1.[0-9]+.[0-9]+$"))] | first')
           NOTEBOOKS=$(python ./scripts/generate_matrix.py --haystack-version "$VERSION" --include-main)
           echo "matrix_v1={\"include\":$NOTEBOOKS}" >> "$GITHUB_OUTPUT"
 
           # Get tutorial notebooks for v2
           VERSION=$(gh api /repos/deepset-ai/haystack/releases | \
-            jq '[.[].tag_name | select(test("^v2.[0-9]+.[0-9]+$"))] | first')
+            jq -r '[.[].tag_name | select(test("^v2.[0-9]+.[0-9]+$"))] | first')
           NOTEBOOKS=$(python ./scripts/generate_matrix.py --haystack-version "$VERSION" --include-main)
           echo "matrix_v2={\"include\":$NOTEBOOKS}" >> "$GITHUB_OUTPUT"
 
