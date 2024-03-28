@@ -4,9 +4,6 @@ on:
   workflow_dispatch: # Activate this workflow manually
   schedule:
     - cron: "0 0 * * *"
-  push:
-    branches:
-      - tutorials-testing
 
 jobs:
   generate-matrix:
