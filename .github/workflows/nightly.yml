@@ -122,6 +122,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install dependencies
+        run: |
+          apt-get update && apt-get install -y build-essential gcc libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
+          pip install nbconvert ipython
+          pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
+
       - name: Convert notebook to Python
         run: |
           jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ./tutorials/${{ matrix.notebook }}.ipynb
