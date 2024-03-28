@@ -118,6 +118,11 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJSON(needs.generate-matrix.outputs.matrix_v2) }}
 
+    env:
+      HAYSTACK_TELEMETRY_ENABLED: "False"
+      HF_API_KEY: ${{ secrets.HF_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
