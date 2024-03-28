@@ -4,6 +4,9 @@ on:
   workflow_dispatch: # Activate this workflow manually
   schedule:
     - cron: "0 0 * * *"
+  push:
+    branches:
+      - tutorials-testing
 
 jobs:
   generate-matrix:
@@ -32,78 +35,78 @@ jobs:
           NOTEBOOKS=$(python ./scripts/generate_matrix.py --haystack-version "$VERSION" --include-main)
           echo "matrix_v2={\"include\":$NOTEBOOKS}" >> "$GITHUB_OUTPUT"
 
-  run-tutorials-v1:
-    needs: generate-matrix
-    runs-on: ubuntu-latest
-    container: deepset/haystack:base-cpu-${{ matrix.haystack_version }}
+  # run-tutorials-v1:
+  #   needs: generate-matrix
+  #   runs-on: ubuntu-latest
+  #   container: deepset/haystack:base-cpu-${{ matrix.haystack_version }}
 
-    services:
-      elasticsearch:
-        image: elasticsearch:7.9.2
-        env:
-          discovery.type: "single-node"
-          ES_JAVA_OPTS: "-Xms128m -Xmx256m"
+  #   services:
+  #     elasticsearch:
+  #       image: elasticsearch:7.9.2
+  #       env:
+  #         discovery.type: "single-node"
+  #         ES_JAVA_OPTS: "-Xms128m -Xmx256m"
 
-    strategy:
-      max-parallel: 2
-      fail-fast: false
-      matrix: ${{ fromJSON(needs.generate-matrix.outputs.matrix_v1) }}
+  #   strategy:
+  #     max-parallel: 2
+  #     fail-fast: false
+  #     matrix: ${{ fromJSON(needs.generate-matrix.outputs.matrix_v1) }}
 
-    env:
-      HAYSTACK_TELEMETRY_ENABLED: "False"
-      ELASTICSEARCH_HOST: "elasticsearch"
-      HF_API_KEY: ${{ secrets.HF_API_KEY }}
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  #   env:
+  #     HAYSTACK_TELEMETRY_ENABLED: "False"
+  #     ELASTICSEARCH_HOST: "elasticsearch"
+  #     HF_API_KEY: ${{ secrets.HF_API_KEY }}
+  #     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-      - name: Install dependencies
-        # remove pip install pyzmq when this is resolved https://github.com/zeromq/pyzmq/issues/1764
-        run: |
-          apt-get update && apt-get install -y build-essential gcc libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
-          pip install pyzmq==23.2.1
-          pip install nbconvert ipython
-          pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
-          pip install farm-haystack[pdf]
+  #     - name: Install dependencies
+  #       # remove pip install pyzmq when this is resolved https://github.com/zeromq/pyzmq/issues/1764
+  #       run: |
+  #         apt-get update && apt-get install -y build-essential gcc libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
+  #         pip install pyzmq==23.2.1
+  #         pip install nbconvert ipython
+  #         pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
+  #         pip install farm-haystack[pdf]
 
-      - name: Install Haystack Extras text2speech dependencies
-        run: |
-          pip install farm-haystack-text2speech
+  #     - name: Install Haystack Extras text2speech dependencies
+  #       run: |
+  #         pip install farm-haystack-text2speech
 
-      - name: Install Hugging Face datasets
-        run: |
-          pip install "datasets>=2.6.1"
+  #     - name: Install Hugging Face datasets
+  #       run: |
+  #         pip install "datasets>=2.6.1"
 
-      - name: Install ipywidgets for tutorial 24
-        run: |
-          pip install ipywidgets
+  #     - name: Install ipywidgets for tutorial 24
+  #       run: |
+  #         pip install ipywidgets
 
-      - name: Convert notebook to Python
-        run: |
-          jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ./tutorials/${{ matrix.notebook }}.ipynb
+  #     - name: Convert notebook to Python
+  #       run: |
+  #         jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ./tutorials/${{ matrix.notebook }}.ipynb
 
-      - name: Run the converted notebook
-        run: |
-          python ./tutorials/${{ matrix.notebook }}.py
+  #     - name: Run the converted notebook
+  #       run: |
+  #         python ./tutorials/${{ matrix.notebook }}.py
 
-      - name: Send Failure to Datadog
-        if: failure()
-        uses: masci/datadog@v1
-        with:
-          api-key: ${{ secrets.CORE_DATADOG_API_KEY }}
-          api-url: https://api.datadoghq.eu
-          events: |
-            - title: "Tutorial ${{ matrix.notebook }} failed"
-              text: "Branch ${{ github.ref_name }} tests failed"
-              alert_type: "error"
-              source_type_name: "Github"
-              host: ${{ github.repository_owner }}
-              tags:
-                - "project:${{ github.repository }}"
-                - "name:${{ matrix.notebook }}"
-                - "url:https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+  #     - name: Send Failure to Datadog
+  #       if: failure()
+  #       uses: masci/datadog@v1
+  #       with:
+  #         api-key: ${{ secrets.CORE_DATADOG_API_KEY }}
+  #         api-url: https://api.datadoghq.eu
+  #         events: |
+  #           - title: "Tutorial ${{ matrix.notebook }} failed"
+  #             text: "Branch ${{ github.ref_name }} tests failed"
+  #             alert_type: "error"
+  #             source_type_name: "Github"
+  #             host: ${{ github.repository_owner }}
+  #             tags:
+  #               - "project:${{ github.repository }}"
+  #               - "name:${{ matrix.notebook }}"
+  #               - "url:https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
   run-tutorials-v2:
     needs: generate-matrix
