@@ -141,6 +141,7 @@ jobs:
       HAYSTACK_TELEMETRY_ENABLED: "False"
       HF_API_KEY: ${{ secrets.HF_API_KEY }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      SERPERDEV_API_KEY: ${{ secrets.SERPERDEV_API_KEY }}
 
     steps:
       - name: Checkout
