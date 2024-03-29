@@ -1,0 +1,140 @@
+name: Run Tutorials for v1.x
+
+on:
+  workflow_dispatch: # Activate this workflow manually
+  pull_request:
+    paths:
+      # This workflow must run only for v1.x tutorials
+      # Some v1 tutorials are ignored in any case as we can't run those
+      # for different reasons
+      - "tutorials/01_Basic_QA_Pipeline.ipynb"
+      - "tutorials/03_Scalable_QA_System.ipynb"
+      - "tutorials/04_FAQ_style_QA.ipynb"
+      - "tutorials/05_Evaluation.ipynb"
+      - "tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb"
+      - "tutorials/08_Preprocessing.ipynb"
+      - "tutorials/11_Pipelines.ipynb"
+      - "tutorials/15_TableQA.ipynb"
+      - "tutorials/16_Document_Classifier_at_Index_Time.ipynb"
+      - "tutorials/17_Audio.ipynb"
+      - "tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
+      - "tutorials/20_Using_Haystack_with_REST_API.ipynb"
+      - "tutorials/21_Customizing_PromptNode.ipynb"
+      - "tutorials/26_Hybrid_Retrieval.ipynb"
+
+jobs:
+  generate-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.filter.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - id: generator
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Get tutorial notebooks for 1.x
+          VERSION=$(gh api /repos/deepset-ai/haystack/releases | \
+            jq -r '[.[].tag_name | select(test("^v1.[0-9]+.[0-9]+$"))] | first')
+          NOTEBOOKS=$(python ./scripts/generate_matrix.py --haystack-version "$VERSION" --include-main)
+          echo "matrix={\"include\":$NOTEBOOKS}" >> "$GITHUB_OUTPUT"
+
+      - name: Get changed files
+        id: files
+        uses: tj-actions/changed-files@v44
+        with:
+          # We only want v1 tutorials, this is a necessary duplication
+          files: |
+            tutorials/01_Basic_QA_Pipeline.ipynb
+            tutorials/03_Scalable_QA_System.ipynb
+            tutorials/04_FAQ_style_QA.ipynb
+            tutorials/05_Evaluation.ipynb
+            tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb
+            tutorials/08_Preprocessing.ipynb
+            tutorials/11_Pipelines.ipynb
+            tutorials/15_TableQA.ipynb
+            tutorials/16_Document_Classifier_at_Index_Time.ipynb
+            tutorials/17_Audio.ipynb
+            tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb
+            tutorials/20_Using_Haystack_with_REST_API.ipynb
+            tutorials/21_Customizing_PromptNode.ipynb
+            tutorials/26_Hybrid_Retrieval.ipynb
+
+      - name: Filter non changed notebooks
+        id: filter
+        shell: python
+        env:
+          MATRIX: ${{ steps.generator.outputs.matrix }}
+          CHANGED_FILES: ${{ steps.files.outputs.all_changed_files }}
+        run: |
+          import os
+          import json
+
+          matrix = json.loads(os.environ["MATRIX"])
+          changed_files = json.loads(os.environ["CHANGED_FILES"])
+          new_matrix = {"include": []}
+          for item in matrix:
+            notebook = item["notebook"]
+            if f"tutorials/{notebook}" not in changed_files:
+              continue
+            new_matrix["include"].append(item)
+
+          new_matrix = json.dumps(new_matrix)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+            print(f"matrix={new_matrix}", file=f)
+
+  run-tutorials:
+    runs-on: ubuntu-latest
+    needs: get-latest-version
+    container: deepset/haystack:base-cpu-${{ matrix.version }}
+
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.generate-matrix.outputs.matrix) }}
+
+    services:
+      elasticsearch:
+        image: elasticsearch:7.9.2
+        env:
+          discovery.type: "single-node"
+          ES_JAVA_OPTS: "-Xms128m -Xmx256m"
+
+    env:
+      HAYSTACK_TELEMETRY_ENABLED: "False"
+      ELASTICSEARCH_HOST: "elasticsearch"
+
+    steps:
+      - name: Install dependencies
+        run: |
+          apt-get update && apt-get install -y git build-essential gcc libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
+          pip install nbconvert ipython
+          pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
+          pip install farm-haystack[pdf]
+
+      - name: Install Haystack Extras text2speech dependencies
+        run: |
+          pip install farm-haystack-text2speech
+
+      - name: Install Hugging Face datasets
+        run: |
+          pip install "datasets>=2.6.1"
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # See https://github.com/actions/runner-images/issues/6775
+      - name: Change Owner of Container Working Directory
+        run: chown root:root .
+
+      - name: Convert notebook to Python
+        run: |
+          jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ./tutorials/${{ matrix.notebook }}.ipynb
+
+      - name: Run the converted notebook
+        run: |
+          python ./tutorials/${{ matrix.notebook }}.py
