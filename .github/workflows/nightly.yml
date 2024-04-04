@@ -113,8 +113,20 @@ jobs:
     strategy:
       max-parallel: 2
       fail-fast: false
-      matrix: ${{ fromJSON(needs.generate-matrix.outputs.matrix_v2) }}
-
+      matrix:
+        include: 
+          - notebook: 30_File_Type_Preprocessing_Index_Pipeline
+            haystack_version: v2.0.0
+            dependencies: ["sentence-transformers>=2.2.0", "markdown-it-py", "mdit_plain", "pypdf", "gdown"] 
+          - notebook: 36_Building_Fallbacks_with_Conditional_Routing
+            haystack_version: v2.0.0
+            dependencies: [] 
+          - notebook: 37_Simplifying_Pipeline_Inputs_with_Multiplexer
+            haystack_version: v2.0.0
+            dependencies: []
+          - notebook: 40_Building_Chat_Application_with_Function_Calling
+            haystack_version: v2.0.0
+            dependencies: ["sentence-transformers>=2.2.0", "gradio"] 
     env:
       HAYSTACK_TELEMETRY_ENABLED: "False"
       HF_API_TOKEN: ${{ secrets.HF_API_KEY }}
