@@ -305,7 +305,7 @@ aliases = []
 completion_time = "10 min"
 created_at = 2024-01-29
 haystack_2 = true
-dependencies = []
+dependencies = ["transformers[torch]"]
 
 [[tutorial]]
 title = "Preprocessing Different File Types"
@@ -322,6 +322,7 @@ dependencies = [
     "markdown-it-py",
     "mdit_plain",
     "pypdf",
+    "gdown"
 ]
 
 [[tutorial]]
