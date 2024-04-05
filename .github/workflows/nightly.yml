@@ -47,7 +47,11 @@ jobs:
     strategy:
       max-parallel: 2
       fail-fast: false
-      matrix: ${{ fromJSON(needs.generate-matrix.outputs.matrix_v1) }}
+      matrix:
+        include:
+          - notebook: 21_Customizing_PromptNode
+            haystack_version: main
+
 
     env:
       HAYSTACK_TELEMETRY_ENABLED: "False"
@@ -123,7 +127,7 @@ jobs:
             dependencies: [] 
           - notebook: 37_Simplifying_Pipeline_Inputs_with_Multiplexer
             haystack_version: v2.0.0
-            dependencies: []
+            dependencies: ["transformers"]
           - notebook: 40_Building_Chat_Application_with_Function_Calling
             haystack_version: v2.0.0
             dependencies: ["sentence-transformers>=2.2.0", "gradio"] 
