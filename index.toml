@@ -1,6 +1,6 @@
 [config]
 layout = "tutorial"
-toc = true 
+toc = true
 colab = "https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/"
 
 [[tutorial]]
@@ -9,7 +9,11 @@ description = "Get Started by creating a Retriever Reader pipeline."
 level = "beginner"
 weight = 10
 notebook = "01_Basic_QA_Pipeline.ipynb"
-aliases = ["first-qa-system", "without-elasticsearch", "03_basic_qa_pipeline_without_elasticsearch"]
+aliases = [
+    "first-qa-system",
+    "without-elasticsearch",
+    "03_basic_qa_pipeline_without_elasticsearch",
+]
 completion_time = "15 min"
 created_at = 2023-01-11
 
@@ -275,6 +279,7 @@ aliases = []
 completion_time = "10 min"
 created_at = 2023-12-05
 haystack_2 = true
+dependencies = ["datasets>=2.6.1", "sentence-transformers>=2.2.0"]
 featured = true
 
 [[tutorial]]
@@ -287,6 +292,7 @@ aliases = []
 completion_time = "15 min"
 created_at = 2023-11-30
 haystack_2 = true
+dependencies = ["colorama"]
 featured = true
 
 [[tutorial]]
@@ -299,6 +305,7 @@ aliases = []
 completion_time = "10 min"
 created_at = 2024-01-29
 haystack_2 = true
+dependencies = ["transformers[torch]"]
 
 [[tutorial]]
 title = "Preprocessing Different File Types"
@@ -310,6 +317,15 @@ aliases = []
 completion_time = "15 min"
 created_at = 2024-01-30
 haystack_2 = true
+dependencies = [
+    "sentence-transformers>=2.2.0",
+    "huggingface_hub>=0.22.0",
+    "transformers",
+    "markdown-it-py",
+    "mdit_plain",
+    "pypdf",
+    "gdown"
+]
 
 [[tutorial]]
 title = "Filtering Documents with Metadata"
@@ -321,6 +337,7 @@ aliases = []
 completion_time = "5 min"
 created_at = 2024-01-30
 haystack_2 = true
+dependencies = []
 
 [[tutorial]]
 title = "Classifying Documents & Queries by Language"
@@ -332,6 +349,7 @@ aliases = []
 completion_time = "15 min"
 created_at = 2024-02-06
 haystack_2 = true
+dependencies = ["langdetect"]
 
 [[tutorial]]
 title = "Creating a Hybrid Retrieval Pipeline"
@@ -343,6 +361,8 @@ aliases = []
 completion_time = "15 min"
 created_at = 2024-02-13
 haystack_2 = true
+dependencies = ["datasets>=2.6.1", "sentence-transformers>=2.2.0", "accelerate"]
+needs_gpu = true
 
 [[tutorial]]
 title = "Build an Extractive QA Pipeline"
@@ -354,6 +374,7 @@ aliases = []
 completion_time = "10 min"
 created_at = 2024-02-09
 haystack_2 = true
+dependencies = ["accelerate", "sentence-transformers", "datasets"]
 
 [[tutorial]]
 title = "Model-Based Evaluation of RAG Pipelines"
@@ -365,6 +386,7 @@ aliases = []
 completion_time = "15 min"
 created_at = 2024-02-12
 haystack_2 = true
+dependencies = ["pydantic<1.10.10", "datasets>=2.6.1", "deepeval-haystack", "ragas-haystack", "uptrain-haystack"]
 
 [[tutorial]]
 title = "Building Fallbacks to Websearch with Conditional Routing"
@@ -376,6 +398,7 @@ aliases = []
 completion_time = "10 min"
 created_at = 2024-02-16
 haystack_2 = true
+dependencies = []
 featured = true
 
 [[tutorial]]
@@ -388,6 +411,7 @@ aliases = []
 completion_time = "10 min"
 created_at = 2024-02-19
 haystack_2 = true
+dependencies = ["transformers", "huggingface_hub>=0.22.0"]
 
 [[tutorial]]
 title = "Embedding Metadata for Improved Retrieval"
@@ -399,6 +423,7 @@ aliases = []
 completion_time = "10 min"
 created_at = 2024-02-20
 haystack_2 = true
+dependencies = ["wikipedia", "sentence-transformers"]
 
 [[tutorial]]
 title = "Building a Chat Application with Function Calling"
@@ -410,4 +435,5 @@ aliases = []
 completion_time = "20 min"
 created_at = 2024-03-05
 haystack_2 = true
+dependencies = ["sentence-transformers>=2.2.0", "gradio"]
 featured = true
