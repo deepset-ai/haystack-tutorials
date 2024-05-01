@@ -378,7 +378,7 @@ dependencies = ["accelerate", "sentence-transformers", "datasets"]
 
 [[tutorial]]
 title = "Evaluating RAG Pipelines"
-description = "Learn how to evaluate your RAG pipelines using statistical and model-based evaluation  metrics"
+description = "Learn how to evaluate your RAG pipelines using statistical and model-based evaluation metrics"
 level = "intermediate"
 weight = 77
 notebook = "35_Evaluating_RAG_Pipelines.ipynb"
