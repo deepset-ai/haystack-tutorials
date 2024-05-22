@@ -26,11 +26,8 @@ if __name__ == "__main__":
 
     matrix = []
     for tutorial in index["tutorial"]:
-        notebook = tutorial["notebook"]
-
-        if args.notebooks and notebook not in args.notebooks:
-            # If the user specified a list of notebooks to run, only run those
-            # otherwise run all of them
+        if tutorial.get("hidden", False):
+            # Do not waste CI time on hidden tutorials
             continue
 
         if tutorial.get("needs_gpu", False):
@@ -46,8 +43,15 @@ if __name__ == "__main__":
         if is_haystack2 and not tutorial.get("haystack_2", False):
             # Skip Haystack 1.0 tutorials when testing Haystack 2.0
             continue
-        elif not is_haystack2 and tutorial.get("haystack_2", False):
+
+        if not is_haystack2 and tutorial.get("haystack_2", False):
             # Skip Haystack 2.0 tutorials when testing Haystack 1.0
+            continue
+
+        notebook = tutorial["notebook"]
+        if args.notebooks and notebook not in args.notebooks:
+            # If the user specified a list of notebooks to run, only run those
+            # otherwise run all of them
             continue
 
         version = tutorial.get("haystack_version", args.version)
