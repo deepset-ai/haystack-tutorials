@@ -33,14 +33,15 @@ colab: {tutorial.get("colab", f'{config["colab"]}{tutorial["notebook"]}')}
 toc: {config["toc"]}
 title: "{tutorial["title"]}"
 lastmod: {last_commit_date}
-level: "{tutorial["level"]}"
+level: "{tutorial.get("level", False)}"
 weight: {tutorial["weight"]}
 description: {tutorial["description"]}
 category: "QA"
 aliases: {aliases}
 download: "/downloads/{tutorial["notebook"]}"
 completion_time: {tutorial.get("completion_time", False)}
-created_at: {tutorial["created_at"]}
+created_at: {tutorial.get("created_at", False)}
+guide: {tutorial.get("guide", False)}
 ---
     """
     return frontmatter
