@@ -38,7 +38,7 @@ weight: {tutorial["weight"]}
 description: {tutorial["description"]}
 category: "QA"
 aliases: {aliases}
-download: "/downloads/{tutorial["notebook"]}"
+download: {tutorial.get("download", f'/downloads/{tutorial["notebook"]}')}
 completion_time: {tutorial.get("completion_time", False)}
 created_at: {tutorial.get("created_at", False)}
 guide: {tutorial.get("guide", False)}
