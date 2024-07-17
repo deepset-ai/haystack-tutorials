@@ -23,8 +23,8 @@ def generate_frontmatter(config, tutorial):
     frontmatter = f"""---
 layout: {config["layout"]}
 featured: {tutorial.get("featured", False)}
-featured_image: /images/tutorials.png
-images: ["/images/tutorials.png"]
+featured_image: /images/tutorial_walkthrough_thumbnail.png
+images: ["/images/tutorial_walkthrough_thumbnail.png"]
 haystack_version: "{tutorial.get("haystack_version", "latest")}"
 haystack_2: {tutorial.get("haystack_2", False)}
 hidden: {tutorial.get("hidden", False)}
@@ -38,7 +38,7 @@ weight: {tutorial["weight"]}
 description: {tutorial["description"]}
 category: "QA"
 aliases: {aliases}
-download: "/downloads/{tutorial["notebook"]}"
+download: {tutorial.get("download", f'/downloads/{tutorial["notebook"]}')}
 completion_time: {tutorial.get("completion_time", False)}
 created_at: {tutorial.get("created_at", False)}
 guide: {tutorial.get("guide", False)}

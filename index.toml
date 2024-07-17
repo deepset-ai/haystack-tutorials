@@ -439,10 +439,13 @@ dependencies = ["sentence-transformers>=2.2.0", "gradio"]
 featured = true
 
 [[tutorial]]
-title = "Full Walkthrough: Agents"
-description = "A guided walkthrough to learn everything about function calling, agents and agend support in Haystack"
+title = "Evaluation"
+description = "A guided walkthrough to learn everything about evaluation"
 weight = 110
-notebook = "guide_1.ipynb"
+notebook = "guide_evaluation.ipynb"
 aliases = []
 haystack_2 = true
 guide = true
+colab = false
+download = false
+created_at = 2024-07-17
