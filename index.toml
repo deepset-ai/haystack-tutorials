@@ -279,7 +279,7 @@ aliases = []
 completion_time = "10 min"
 created_at = 2023-12-05
 haystack_2 = true
-dependencies = ["datasets>=2.6.1", "sentence-transformers>=2.2.0"]
+dependencies = ["datasets>=2.6.1", "sentence-transformers>=3.0.0"]
 featured = true
 
 [[tutorial]]
@@ -318,8 +318,8 @@ completion_time = "15 min"
 created_at = 2024-01-30
 haystack_2 = true
 dependencies = [
-    "sentence-transformers>=2.2.0",
-    "huggingface_hub>=0.22.0",
+    "sentence-transformers>=3.0.0",
+    "huggingface_hub>=0.23.0",
     "transformers",
     "markdown-it-py",
     "mdit_plain",
@@ -361,7 +361,7 @@ aliases = []
 completion_time = "15 min"
 created_at = 2024-02-13
 haystack_2 = true
-dependencies = ["datasets>=2.6.1", "sentence-transformers>=2.2.0", "accelerate"]
+dependencies = ["datasets>=2.6.1", "sentence-transformers>=3.0.0", "accelerate"]
 needs_gpu = true
 
 [[tutorial]]
@@ -412,7 +412,7 @@ completion_time = "10 min"
 created_at = 2024-02-19
 haystack_2 = true
 haystack_version = "2.3.1"
-dependencies = ["transformers", "huggingface_hub>=0.22.0"]
+dependencies = ["transformers", "huggingface_hub>=0.23.0"]
 
 [[tutorial]]
 title = "Embedding Metadata for Improved Retrieval"
@@ -436,7 +436,7 @@ aliases = []
 completion_time = "20 min"
 created_at = 2024-03-05
 haystack_2 = true
-dependencies = ["sentence-transformers>=2.2.0", "gradio"]
+dependencies = ["sentence-transformers>=3.0.0", "gradio"]
 featured = true
 
 [[tutorial]]
