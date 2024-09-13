@@ -19,7 +19,6 @@ on:
       - "tutorials/14_Query_Classifier.ipynb"
       - "tutorials/15_TableQA.ipynb"
       - "tutorials/16_Document_Classifier_at_Index_Time.ipynb"
-      - "tutorials/17_Audio.ipynb"
       - "tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
       - "tutorials/20_Using_Haystack_with_REST_API.ipynb"
       - "tutorials/21_Customizing_PromptNode.ipynb"
@@ -69,7 +68,6 @@ jobs:
             tutorials/14_Query_Classifier.ipynb
             tutorials/15_TableQA.ipynb
             tutorials/16_Document_Classifier_at_Index_Time.ipynb
-            tutorials/17_Audio.ipynb
             tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb
             tutorials/20_Using_Haystack_with_REST_API.ipynb
             tutorials/21_Customizing_PromptNode.ipynb
