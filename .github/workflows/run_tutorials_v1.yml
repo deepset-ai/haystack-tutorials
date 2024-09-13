@@ -54,6 +54,7 @@ jobs:
         id: files
         uses: tj-actions/changed-files@v44
         with:
+          matrix: true
           # We only want v1 tutorials, this is a necessary duplication
           files: |
             tutorials/01_Basic_QA_Pipeline.ipynb
@@ -90,9 +91,9 @@ jobs:
           matrix = json.loads(os.environ["MATRIX"])
           changed_files = json.loads(os.environ["CHANGED_FILES"])
           new_matrix = {"include": []}
-          for item in matrix:
+          for item in matrix["include"]:
             notebook = item["notebook"]
-            if f"tutorials/{notebook}" not in changed_files:
+            if f"tutorials/{notebook}.ipynb" not in changed_files:
               continue
             new_matrix["include"].append(item)
 
