@@ -12,8 +12,8 @@ jobs:
       matrix_v1: ${{ steps.generator.outputs.matrix_v1 }}
       matrix_v2: ${{ steps.generator.outputs.matrix_v2 }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - id: generator
@@ -57,7 +57,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         # remove pip install pyzmq when this is resolved https://github.com/zeromq/pyzmq/issues/1764
@@ -115,7 +115,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install common dependencies
         run: |
