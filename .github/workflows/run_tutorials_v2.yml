@@ -140,7 +140,6 @@ jobs:
               ffmpeg
 
           pip install nbconvert ipython
-          pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
 
       - name: Install tutorial dependencies
         if: toJSON(matrix.dependencies) != '[]'
