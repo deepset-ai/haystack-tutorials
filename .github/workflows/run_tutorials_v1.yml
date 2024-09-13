@@ -102,7 +102,7 @@ jobs:
 
   run-tutorials:
     runs-on: ubuntu-latest
-    needs: get-latest-version
+    needs: generate-matrix
     container: deepset/haystack:base-cpu-${{ matrix.version }}
 
     strategy:
