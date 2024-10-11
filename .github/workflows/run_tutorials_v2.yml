@@ -1,0 +1,155 @@
+name: Run Haystack 2.x Tutorials
+
+on:
+  pull_request:
+    paths:
+      - "tutorials/*.ipynb"
+      # Exclude all v1.x tutorials, we can remove this when we drop support for it
+      - "!tutorials/01_Basic_QA_Pipeline.ipynb"
+      - "!tutorials/02_Finetune_a_model_on_your_data.ipynb"
+      - "!tutorials/03_Scalable_QA_System.ipynb"
+      - "!tutorials/04_FAQ_style_QA.ipynb"
+      - "!tutorials/05_Evaluation.ipynb"
+      - "!tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb"
+      - "!tutorials/07_RAG_Generator.ipynb"
+      - "!tutorials/08_Preprocessing.ipynb"
+      - "!tutorials/09_DPR_training.ipynb"
+      - "!tutorials/10_Knowledge_Graph.ipynb"
+      - "!tutorials/11_Pipelines.ipynb"
+      - "!tutorials/12_LFQA.ipynb"
+      - "!tutorials/13_Question_generation.ipynb"
+      - "!tutorials/14_Query_Classifier.ipynb"
+      - "!tutorials/15_TableQA.ipynb"
+      - "!tutorials/16_Document_Classifier_at_Index_Time.ipynb"
+      - "!tutorials/17_Audio.ipynb"
+      - "!tutorials/18_GPL.ipynb"
+      - "!tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
+      - "!tutorials/20_Using_Haystack_with_REST_API.ipynb"
+      - "!tutorials/21_Customizing_PromptNode.ipynb"
+      - "!tutorials/23_Answering_Multihop_Questions_with_Agents.ipynb"
+      - "!tutorials/22_Pipeline_with_PromptNode.ipynb"
+      - "!tutorials/24_Building_Chat_App.ipynb"
+      - "!tutorials/25_Customizing_Agent.ipynb"
+      - "!tutorials/26_Hybrid_Retrieval.ipynb"
+
+jobs:
+  generate-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.filter.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - id: generator
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Get tutorial notebooks for v2
+          VERSION=$(gh api /repos/deepset-ai/haystack/releases | \
+            jq -r '[.[].tag_name | select(test("^v2.[0-9]+.[0-9]+$"))] | first')
+          NOTEBOOKS=$(python ./scripts/generate_matrix.py --haystack-version "$VERSION" --include-main)
+          echo "matrix={\"include\":$NOTEBOOKS}" >> "$GITHUB_OUTPUT"
+
+      - name: Get changed files
+        id: files
+        uses: tj-actions/changed-files@v44
+        with:
+          matrix: true
+          files: tutorials/*.ipynb
+          # Ignore all 1.x tutorials, we can remove this as soon as we drop support for it
+          files_ignore: |
+            tutorials/01_Basic_QA_Pipeline.ipynb
+            tutorials/02_Finetune_a_model_on_your_data.ipynb
+            tutorials/03_Scalable_QA_System.ipynb
+            tutorials/04_FAQ_style_QA.ipynb
+            tutorials/05_Evaluation.ipynb
+            tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb
+            tutorials/07_RAG_Generator.ipynb
+            tutorials/08_Preprocessing.ipynb
+            tutorials/09_DPR_training.ipynb
+            tutorials/10_Knowledge_Graph.ipynb
+            tutorials/11_Pipelines.ipynb
+            tutorials/12_LFQA.ipynb
+            tutorials/13_Question_generation.ipynb
+            tutorials/14_Query_Classifier.ipynb
+            tutorials/15_TableQA.ipynb
+            tutorials/16_Document_Classifier_at_Index_Time.ipynb
+            tutorials/17_Audio.ipynb
+            tutorials/18_GPL.ipynb
+            tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb
+            tutorials/20_Using_Haystack_with_REST_API.ipynb
+            tutorials/21_Customizing_PromptNode.ipynb
+            tutorials/23_Answering_Multihop_Questions_with_Agents.ipynb
+            tutorials/22_Pipeline_with_PromptNode.ipynb
+            tutorials/24_Building_Chat_App.ipynb
+            tutorials/25_Customizing_Agent.ipynb
+            tutorials/26_Hybrid_Retrieval.ipynb
+
+      - name: Filter non changed notebooks
+        id: filter
+        shell: python
+        env:
+          MATRIX: ${{ steps.generator.outputs.matrix }}
+          CHANGED_FILES: ${{ steps.files.outputs.all_changed_files }}
+        run: |
+          import os
+          import json
+
+          matrix = json.loads(os.environ["MATRIX"])
+          changed_files = json.loads(os.environ["CHANGED_FILES"])
+          new_matrix = {"include": []}
+          for item in matrix["include"]:
+            notebook = item["notebook"]
+            if f"tutorials/{notebook}.ipynb" not in changed_files:
+              continue
+            new_matrix["include"].append(item)
+
+          new_matrix = json.dumps(new_matrix)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+            print(f"matrix={new_matrix}", file=f)
+
+  run-tutorials:
+    runs-on: ubuntu-latest
+    needs: generate-matrix
+    container: deepset/haystack:base-${{ matrix.haystack_version }}
+
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.generate-matrix.outputs.matrix) }}
+
+    env:
+      HAYSTACK_TELEMETRY_ENABLED: "False"
+      HF_API_TOKEN: ${{ secrets.HF_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      SERPERDEV_API_KEY: ${{ secrets.SERPERDEV_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install common dependencies
+        run: |
+          apt-get update && apt-get install -y \
+              build-essential \
+              gcc \
+              libsndfile1 \
+              ffmpeg
+
+          pip install nbconvert ipython
+
+      - name: Install tutorial dependencies
+        if: toJSON(matrix.dependencies) != '[]'
+        run: |
+          pip install "${{ join(matrix.dependencies, '" "')}}"
+
+      - name: Convert notebook to Python
+        run: |
+          jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ./tutorials/${{ matrix.notebook }}.ipynb
+
+      - name: Run the converted notebook
+        run: |
+          python ./tutorials/${{ matrix.notebook }}.py
