@@ -451,7 +451,7 @@ aliases = []
 completion_time = "25 min"
 created_at = 2024-10-15
 haystack_2 = true
-dependencies = ["sentence-transformers>=3.0.0", "gradio", "torch", "sentencepiece", "datasets"]
+dependencies = ["sentence-transformers>=3.0.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate"]
 featured = true
 
 [[tutorial]]
