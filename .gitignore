@@ -138,3 +138,4 @@ text/**
 
 tutorials/data
 saved_models
+tutorials/bbc-news-data.csv

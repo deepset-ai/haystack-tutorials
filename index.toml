@@ -455,6 +455,19 @@ dependencies = ["sentence-transformers>=3.0.0", "gradio", "torch", "sentencepiec
 featured = true
 
 [[tutorial]]
+title = "Retrieving a Context Window Around a Sentence"
+description = "Learn how to use the SentenceWindowRetriever to retrieve a context window"
+level = "beginner"
+weight = 105
+notebook = "42_Sentence_Window_Retriever.ipynb"
+aliases = []
+completion_time = "10 min"
+created_at = 2024-10-16
+haystack_2 = true
+dependencies = []
+featured = true
+
+[[tutorial]]
 title = "Evaluation"
 description = "A guided walkthrough to learn everything about evaluation"
 weight = 110
