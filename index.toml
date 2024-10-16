@@ -442,6 +442,19 @@ dependencies = ["sentence-transformers>=3.0.0", "gradio"]
 featured = true
 
 [[tutorial]]
+title = "Query Classification with TransformersTextRouter and TransformersZeroShotTextRouter"
+description = "Learn how to route user questions and other text inputs with classification models"
+level = "intermediate"
+weight = 105
+notebook = "41_Query_Classification_with_TransformersTextRouter_and_TransformersZeroShotTextRouter.ipynb"
+aliases = []
+completion_time = "25 min"
+created_at = 2024-10-15
+haystack_2 = true
+dependencies = ["sentence-transformers>=3.0.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate"]
+featured = true
+
+[[tutorial]]
 title = "Evaluation"
 description = "A guided walkthrough to learn everything about evaluation"
 weight = 110
