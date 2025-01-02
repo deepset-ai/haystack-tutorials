@@ -464,7 +464,7 @@ aliases = []
 completion_time = "10 min"
 created_at = 2024-10-16
 haystack_2 = true
-dependencies = []
+dependencies = ["nltk"]
 featured = true
 
 [[tutorial]]
