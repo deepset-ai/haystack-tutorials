@@ -23,7 +23,7 @@ jobs:
           # Get tutorial notebooks for v1
           VERSION=$(gh api /repos/deepset-ai/haystack/releases | \
             jq -r '[.[].tag_name | select(test("^v1.[0-9]+.[0-9]+$"))] | first')
-          NOTEBOOKS=$(python ./scripts/generate_matrix.py --haystack-version "$VERSION" --include-main)
+          NOTEBOOKS=$(python ./scripts/generate_matrix.py --haystack-version "$VERSION")
           echo "matrix_v1={\"include\":$NOTEBOOKS}" >> "$GITHUB_OUTPUT"
 
           # Get tutorial notebooks for v2
@@ -63,6 +63,7 @@ jobs:
         # remove pip install pyzmq when this is resolved https://github.com/zeromq/pyzmq/issues/1764
         run: |
           apt-get update && apt-get install -y build-essential gcc libsndfile1 ffmpeg && rm -rf /var/lib/apt/lists/*
+          pip install "numpy<2"
           pip install pyzmq==23.2.1
           pip install nbconvert ipython
           pip install "pyworld<=0.2.12" espnet espnet-model-zoo pydub
