@@ -388,7 +388,7 @@ aliases = ["35_Model_Based_Evaluation_of_RAG_Pipelines"]
 completion_time = "15 min"
 created_at = 2024-02-12
 haystack_2 = true
-dependencies = ["pydantic<1.10.10", "datasets>=2.6.1", "deepeval-haystack", "ragas-haystack", "uptrain-haystack"]
+dependencies = ["datasets>=2.6.1"]
 
 [[tutorial]]
 title = "Building Fallbacks to Websearch with Conditional Routing"
