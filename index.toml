@@ -429,7 +429,7 @@ haystack_2 = true
 dependencies = ["wikipedia", "sentence-transformers"]
 
 [[tutorial]]
-title = "Building a Chat Application with Function Calling"
+title = "Building a Chat Agent with Function Calling"
 description = "Learn how to build chat applications that have agent-like behavior with OpenAI function calling"
 level = "advanced"
 weight = 100
@@ -452,7 +452,6 @@ completion_time = "25 min"
 created_at = 2024-10-15
 haystack_2 = true
 dependencies = ["sentence-transformers>=3.0.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate"]
-featured = true
 
 [[tutorial]]
 title = "Retrieving a Context Window Around a Sentence"
