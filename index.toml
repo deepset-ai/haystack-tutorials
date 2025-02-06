@@ -414,7 +414,9 @@ completion_time = "10 min"
 created_at = 2024-02-19
 haystack_2 = true
 haystack_version = "2.3.1"
-dependencies = ["transformers", "huggingface_hub>=0.23.0"]
+dependencies = ["transformers", "huggingface_hub>=0.23.0, <0.28.0"]
+hidden = true
+sitemap_exclude = true
 
 [[tutorial]]
 title = "Embedding Metadata for Improved Retrieval"
