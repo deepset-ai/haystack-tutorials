@@ -16,6 +16,7 @@ aliases = [
 ]
 completion_time = "15 min"
 created_at = 2023-01-11
+hidden = true
 
 [[tutorial]]
 title = "Fine-Tuning a Model on Your Own Data"
@@ -27,6 +28,7 @@ aliases = ["fine-tuning-a-model"]
 created_at = 2021-08-12
 completion_time = "15 min"
 needs_gpu = true
+hidden = true
 
 [[tutorial]]
 title = "Build a Scalable Question Answering System"
@@ -37,6 +39,7 @@ notebook = "03_Scalable_QA_System.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2023-01-11
+hidden = true
 
 [[tutorial]]
 title = "Utilizing Existing FAQs for Question Answering"
@@ -46,6 +49,7 @@ weight = 20
 notebook = "04_FAQ_style_QA.ipynb"
 aliases = ["existing-faqs"]
 created_at = 2021-08-12
+hidden = true
 
 [[tutorial]]
 title = "Evaluation of a QA System"
@@ -55,6 +59,7 @@ weight = 105
 notebook = "05_Evaluation.ipynb"
 aliases = ["evaluation"]
 created_at = 2021-08-12
+hidden = true
 
 [[tutorial]]
 title = "Better Retrieval with Embedding Retrieval"
@@ -64,6 +69,7 @@ weight = 55
 notebook = "06_Better_Retrieval_via_Embedding_Retrieval.ipynb"
 aliases = ["embedding-retrieval"]
 created_at = 2022-03-08
+hidden = true
 
 [[tutorial]]
 title = "Generative QA with RAGenerator"
@@ -85,6 +91,7 @@ weight = 25
 notebook = "08_Preprocessing.ipynb"
 aliases = ["preprocessing"]
 created_at = 2021-08-12
+hidden = true
 
 [[tutorial]]
 title = "Training Your Own Dense Passage Retrieval Model"
@@ -95,6 +102,7 @@ notebook = "09_DPR_training.ipynb"
 aliases = ["train-dpr"]
 created_at = 2021-08-12
 needs_gpu = true
+hidden = true
 
 [[tutorial]]
 title = "Question Answering on a Knowledge Graph"
@@ -116,6 +124,7 @@ weight = 40
 notebook = "11_Pipelines.ipynb"
 aliases = ["pipelines"]
 created_at = 2021-08-12
+hidden = true
 
 [[tutorial]]
 title = "Generative QA with Seq2SeqGenerator"
@@ -138,6 +147,7 @@ notebook = "13_Question_generation.ipynb"
 aliases = ["question-generation"]
 created_at = 2021-08-12
 needs_gpu = true
+hidden = true
 
 [[tutorial]]
 title = "Query Classifier"
@@ -147,6 +157,7 @@ weight = 80
 notebook = "14_Query_Classifier.ipynb"
 aliases = ["query-classifier"]
 created_at = 2021-08-12
+hidden = true
 
 [[tutorial]]
 title = "Open-Domain QA on Tables"
@@ -156,6 +167,7 @@ weight = 130
 notebook = "15_TableQA.ipynb"
 aliases = ["table-qa"]
 created_at = 2021-08-12
+hidden = true
 
 [[tutorial]]
 title = "Document Classification at Index Time"
@@ -165,6 +177,7 @@ weight = 85
 notebook = "16_Document_Classifier_at_Index_Time.ipynb"
 aliases = ["doc-class-index"]
 created_at = 2021-08-12
+hidden = true
 
 [[tutorial]]
 title = "Make Your QA Pipelines Talk!"
@@ -186,6 +199,7 @@ notebook = "18_GPL.ipynb"
 aliases = ["gpl"]
 created_at = 2022-06-07
 needs_gpu = true
+hidden = true
 
 [[tutorial]]
 title = "Text-To-Image Search Pipeline with Multimodal Retriever"
@@ -196,6 +210,7 @@ notebook = "19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
 aliases = ["multimodal"]
 completion_time = "20 min"
 created_at = 2022-07-11
+hidden = true
 
 [[tutorial]]
 title = "Using Haystack with REST API"
@@ -207,6 +222,7 @@ aliases = ["using-haystack-with-rest-api"]
 colab = false
 completion_time = "30 min"
 created_at = 2023-01-11
+hidden = true
 
 [[tutorial]]
 title = "Customizing PromptNode for NLP Tasks"
@@ -217,6 +233,7 @@ notebook = "21_Customizing_PromptNode.ipynb"
 aliases = ["customizing-promptnode"]
 completion_time = "20 min"
 created_at = 2023-02-16
+hidden = true
 
 [[tutorial]]
 title = "Answering Multihop Questions with Agents"
@@ -227,6 +244,7 @@ notebook = "23_Answering_Multihop_Questions_with_Agents.ipynb"
 aliases = ["multihop-qa-with-agents"]
 completion_time = "10 min"
 created_at = 2023-03-27
+hidden = true
 
 [[tutorial]]
 title = "Creating a Generative QA Pipeline with Retrieval-Augmentation"
@@ -238,6 +256,7 @@ aliases = ["pipeline-with-promptnode", "retrieval-augmented-generation"]
 completion_time = "15 min"
 created_at = 2023-03-13
 featured = true
+hidden = true
 
 [[tutorial]]
 title = "Building a Conversational Chat App"
@@ -248,6 +267,7 @@ notebook = "24_Building_Chat_App.ipynb"
 aliases = ["building-chat-app"]
 completion_time = "10 min"
 created_at = 2023-05-30
+hidden = true
 
 [[tutorial]]
 title = "Customizing Agent to Chat with Your Documents"
@@ -259,6 +279,7 @@ aliases = ["customizing-agent"]
 completion_time = "15 min"
 created_at = 2023-07-19
 featured = true
+hidden = true
 
 [[tutorial]]
 title = "Creating a Hybrid Retrieval Pipeline"
@@ -270,6 +291,7 @@ aliases = ["hybrid-retrieval"]
 completion_time = "15 min"
 created_at = 2023-10-10
 featured = true
+hidden = true
 
 [[tutorial]]
 title = "Creating Your First QA Pipeline with Retrieval-Augmentation"
