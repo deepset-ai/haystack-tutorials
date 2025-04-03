@@ -512,5 +512,5 @@ aliases = []
 completion_time = "10 min"
 created_at = 2025-04-03
 haystack_2 = true
-dependencies = []
+dependencies = ["docstring-parser"]
 featured = true
