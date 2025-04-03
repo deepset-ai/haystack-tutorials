@@ -488,7 +488,6 @@ completion_time = "10 min"
 created_at = 2024-10-16
 haystack_2 = true
 dependencies = ["nltk"]
-featured = true
 
 [[tutorial]]
 title = "Evaluation"
@@ -501,3 +500,16 @@ guide = true
 colab = false
 download = false
 created_at = 2024-07-17
+
+[[tutorial]]
+title = "Build a Tool-Calling Agent"
+description = "Learn how to create an Agent that can use a web search tool to answer questions"
+level = "beginner"
+weight = 7
+notebook = "43_Building_a_Tool_Calling_Agent.ipynb"
+aliases = []
+completion_time = "10 min"
+created_at = 2025-04-03
+haystack_2 = true
+dependencies = ["docstring-parser", "trafilatura"]
+featured = true
