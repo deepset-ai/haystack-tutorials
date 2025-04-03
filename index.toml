@@ -503,7 +503,7 @@ download = false
 created_at = 2024-07-17
 
 [[tutorial]]
-title = "Retrieving a Context Window Around a Sentence"
+title = "Build a Tool-Calling Agent"
 description = "Learn how to create aan Agent that can use a web search tool to answer questions"
 level = "beginner"
 weight = 7
