@@ -106,7 +106,7 @@ hidden = true
 
 [[tutorial]]
 title = "Question Answering on a Knowledge Graph"
-description = "Experiment with a question answering system that draws upon knowledge graph.h"
+description = "Experiment with a question answering system that draws upon knowledge graph."
 level = "advanced"
 weight = 120
 notebook = "10_Knowledge_Graph.ipynb"
@@ -299,7 +299,18 @@ description = "Build your first generative QA pipeline with OpenAI GPT models"
 level = "beginner"
 weight = 5
 notebook = "27_First_RAG_Pipeline.ipynb"
-aliases = []
+aliases = [
+    "01_basic_qa_pipeline",
+    "03_scalable_qa_system",
+    "04_faq_style_qa",
+    "06_better_retrieval_via_embedding_retrieval",
+    "07_rag_generator",
+    "11_pipelines",
+    "12_lfqa".
+    "13_question_generation",
+    "21_customizing_promptnode",
+    "22_pipeline_with_promptnode"    
+]
 completion_time = "10 min"
 created_at = 2023-12-05
 haystack_2 = true
@@ -337,7 +348,7 @@ description = "Learn how to build an indexing pipeline that will preprocess file
 level = "beginner"
 weight = 7
 notebook = "30_File_Type_Preprocessing_Index_Pipeline.ipynb"
-aliases = []
+aliases = ["08_preprocessing"]
 completion_time = "15 min"
 created_at = 2024-01-30
 haystack_2 = true
@@ -369,7 +380,7 @@ description = "Learn how to classify documents and route queries by language, fo
 level = "intermediate"
 weight = 75
 notebook = "32_Classifying_Documents_and_Queries_by_Language.ipynb"
-aliases = []
+aliases = ["14_query_classifier"]
 completion_time = "15 min"
 created_at = 2024-02-06
 haystack_2 = true
@@ -381,7 +392,7 @@ description = "Learn how to combine keyword-based retrieval and dense retrieval 
 level = "intermediate"
 weight = 56
 notebook = "33_Hybrid_Retrieval.ipynb"
-aliases = []
+aliases = ["26_hybrid_retrieval"]
 completion_time = "15 min"
 created_at = 2024-02-13
 haystack_2 = true
@@ -406,7 +417,10 @@ description = "Learn how to evaluate your RAG pipelines using statistical and mo
 level = "intermediate"
 weight = 77
 notebook = "35_Evaluating_RAG_Pipelines.ipynb"
-aliases = ["35_Model_Based_Evaluation_of_RAG_Pipelines"]
+aliases = [
+    "35_Model_Based_Evaluation_of_RAG_Pipelines",
+    "05_evaluation",
+]
 completion_time = "15 min"
 created_at = 2024-02-12
 haystack_2 = true
@@ -458,7 +472,7 @@ description = "Learn how to build chat applications that have agent-like behavio
 level = "advanced"
 weight = 100
 notebook = "40_Building_Chat_Application_with_Function_Calling.ipynb"
-aliases = []
+aliases = ["24_building_chat_app"]
 completion_time = "20 min"
 created_at = 2024-03-05
 haystack_2 = true
@@ -471,7 +485,7 @@ description = "Learn how to route user questions and other text inputs with clas
 level = "intermediate"
 weight = 105
 notebook = "41_Query_Classification_with_TransformersTextRouter_and_TransformersZeroShotTextRouter.ipynb"
-aliases = []
+aliases = ["16_Document_Classifier_at_Index_Time", "14_query_classifier"]
 completion_time = "25 min"
 created_at = 2024-10-15
 haystack_2 = true
@@ -507,7 +521,7 @@ description = "Learn how to create an Agent that can use a web search tool to an
 level = "beginner"
 weight = 7
 notebook = "43_Building_a_Tool_Calling_Agent.ipynb"
-aliases = []
+aliases = ["23_answering_multihop_questions_with_agents"]
 completion_time = "10 min"
 created_at = 2025-04-03
 haystack_2 = true
