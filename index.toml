@@ -306,7 +306,7 @@ aliases = [
     "06_better_retrieval_via_embedding_retrieval",
     "07_rag_generator",
     "11_pipelines",
-    "12_lfqa".
+    "12_lfqa",
     "13_question_generation",
     "21_customizing_promptnode",
     "22_pipeline_with_promptnode"    
