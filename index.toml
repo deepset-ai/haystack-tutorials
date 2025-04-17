@@ -123,7 +123,7 @@ haystack_2 = true
 dependencies = ["datasets>=2.6.1", "sentence-transformers"]
 
 [[tutorial]]
-title = "Building Fallbacks to Websearch with Conditional Routing"
+title = "Building an Agentic RAG with Fallback to Websearch"
 description = "Learn how to direct the query to a web-based RAG route when necessary"
 level = "intermediate"
 weight = 81
