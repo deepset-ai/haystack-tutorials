@@ -1,36 +1,9 @@
-name: Run Haystack 2.x Tutorials
+name: Run Haystack Tutorials
 
 on:
   pull_request:
     paths:
       - "tutorials/*.ipynb"
-      # Exclude all v1.x tutorials, we can remove this when we drop support for it
-      - "!tutorials/01_Basic_QA_Pipeline.ipynb"
-      - "!tutorials/02_Finetune_a_model_on_your_data.ipynb"
-      - "!tutorials/03_Scalable_QA_System.ipynb"
-      - "!tutorials/04_FAQ_style_QA.ipynb"
-      - "!tutorials/05_Evaluation.ipynb"
-      - "!tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb"
-      - "!tutorials/07_RAG_Generator.ipynb"
-      - "!tutorials/08_Preprocessing.ipynb"
-      - "!tutorials/09_DPR_training.ipynb"
-      - "!tutorials/10_Knowledge_Graph.ipynb"
-      - "!tutorials/11_Pipelines.ipynb"
-      - "!tutorials/12_LFQA.ipynb"
-      - "!tutorials/13_Question_generation.ipynb"
-      - "!tutorials/14_Query_Classifier.ipynb"
-      - "!tutorials/15_TableQA.ipynb"
-      - "!tutorials/16_Document_Classifier_at_Index_Time.ipynb"
-      - "!tutorials/17_Audio.ipynb"
-      - "!tutorials/18_GPL.ipynb"
-      - "!tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
-      - "!tutorials/20_Using_Haystack_with_REST_API.ipynb"
-      - "!tutorials/21_Customizing_PromptNode.ipynb"
-      - "!tutorials/23_Answering_Multihop_Questions_with_Agents.ipynb"
-      - "!tutorials/22_Pipeline_with_PromptNode.ipynb"
-      - "!tutorials/24_Building_Chat_App.ipynb"
-      - "!tutorials/25_Customizing_Agent.ipynb"
-      - "!tutorials/26_Hybrid_Retrieval.ipynb"
 
 jobs:
   generate-matrix:
@@ -48,7 +21,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          # Get tutorial notebooks for v2
+          # Get tutorial notebooks
           VERSION=$(gh api /repos/deepset-ai/haystack/releases | \
             jq -r '[.[].tag_name | select(test("^v2.[0-9]+.[0-9]+$"))] | first')
           NOTEBOOKS=$(python ./scripts/generate_matrix.py --haystack-version "$VERSION" --include-main)
@@ -60,34 +33,6 @@ jobs:
         with:
           matrix: true
           files: tutorials/*.ipynb
-          # Ignore all 1.x tutorials, we can remove this as soon as we drop support for it
-          files_ignore: |
-            tutorials/01_Basic_QA_Pipeline.ipynb
-            tutorials/02_Finetune_a_model_on_your_data.ipynb
-            tutorials/03_Scalable_QA_System.ipynb
-            tutorials/04_FAQ_style_QA.ipynb
-            tutorials/05_Evaluation.ipynb
-            tutorials/06_Better_Retrieval_via_Embedding_Retrieval.ipynb
-            tutorials/07_RAG_Generator.ipynb
-            tutorials/08_Preprocessing.ipynb
-            tutorials/09_DPR_training.ipynb
-            tutorials/10_Knowledge_Graph.ipynb
-            tutorials/11_Pipelines.ipynb
-            tutorials/12_LFQA.ipynb
-            tutorials/13_Question_generation.ipynb
-            tutorials/14_Query_Classifier.ipynb
-            tutorials/15_TableQA.ipynb
-            tutorials/16_Document_Classifier_at_Index_Time.ipynb
-            tutorials/17_Audio.ipynb
-            tutorials/18_GPL.ipynb
-            tutorials/19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb
-            tutorials/20_Using_Haystack_with_REST_API.ipynb
-            tutorials/21_Customizing_PromptNode.ipynb
-            tutorials/23_Answering_Multihop_Questions_with_Agents.ipynb
-            tutorials/22_Pipeline_with_PromptNode.ipynb
-            tutorials/24_Building_Chat_App.ipynb
-            tutorials/25_Customizing_Agent.ipynb
-            tutorials/26_Hybrid_Retrieval.ipynb
 
       - name: Filter non changed notebooks
         id: filter
