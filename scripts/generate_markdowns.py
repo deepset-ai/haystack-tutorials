@@ -1,3 +1,5 @@
+## This file is used to convert tutorials into markdowns to display them in the Haystack website
+
 import argparse
 import tomli
 from nbconvert import MarkdownExporter
@@ -26,7 +28,6 @@ featured: {tutorial.get("featured", False)}
 featured_image: /images/tutorial_walkthrough_thumbnail.png
 images: ["/images/tutorial_walkthrough_thumbnail.png"]
 haystack_version: "{tutorial.get("haystack_version", "latest")}"
-haystack_2: {tutorial.get("haystack_2", False)}
 hidden: {tutorial.get("hidden", False)}
 sitemap_exclude: {tutorial.get("sitemap_exclude", False)}
 colab: {tutorial.get("colab", f'{config["colab"]}{tutorial["notebook"]}')}
