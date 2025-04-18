@@ -12,7 +12,6 @@ notebook = "27_First_RAG_Pipeline.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2023-12-05
-haystack_2 = true
 dependencies = ["datasets>=2.6.1", "sentence-transformers>=3.0.0"]
 featured = true
 
@@ -25,7 +24,6 @@ notebook = "28_Structured_Output_With_Loop.ipynb"
 aliases = []
 completion_time = "15 min"
 created_at = 2023-11-30
-haystack_2 = true
 dependencies = ["colorama"]
 featured = true
 
@@ -38,7 +36,6 @@ notebook = "29_Serializing_Pipelines.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-01-29
-haystack_2 = true
 dependencies = ["transformers[torch]"]
 
 [[tutorial]]
@@ -50,7 +47,6 @@ notebook = "30_File_Type_Preprocessing_Index_Pipeline.ipynb"
 aliases = []
 completion_time = "15 min"
 created_at = 2024-01-30
-haystack_2 = true
 dependencies = [
     "sentence-transformers>=3.0.0",
     "huggingface_hub>=0.23.0",
@@ -70,7 +66,6 @@ notebook = "31_Metadata_Filtering.ipynb"
 aliases = []
 completion_time = "5 min"
 created_at = 2024-01-30
-haystack_2 = true
 dependencies = []
 
 [[tutorial]]
@@ -82,7 +77,6 @@ notebook = "32_Classifying_Documents_and_Queries_by_Language.ipynb"
 aliases = []
 completion_time = "15 min"
 created_at = 2024-02-06
-haystack_2 = true
 dependencies = ["langdetect"]
 
 [[tutorial]]
@@ -94,7 +88,6 @@ notebook = "33_Hybrid_Retrieval.ipynb"
 aliases = []
 completion_time = "15 min"
 created_at = 2024-02-13
-haystack_2 = true
 dependencies = ["datasets>=2.6.1", "sentence-transformers>=3.0.0", "accelerate"]
 needs_gpu = true
 
@@ -107,7 +100,6 @@ notebook = "34_Extractive_QA_Pipeline.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-09
-haystack_2 = true
 dependencies = ["accelerate", "sentence-transformers", "datasets"]
 
 [[tutorial]]
@@ -119,7 +111,6 @@ notebook = "35_Evaluating_RAG_Pipelines.ipynb"
 aliases = ["35_Model_Based_Evaluation_of_RAG_Pipelines"]
 completion_time = "15 min"
 created_at = 2024-02-12
-haystack_2 = true
 dependencies = ["datasets>=2.6.1", "sentence-transformers"]
 
 [[tutorial]]
@@ -131,7 +122,6 @@ notebook = "36_Building_Fallbacks_with_Conditional_Routing.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-16
-haystack_2 = true
 dependencies = []
 featured = true
 
@@ -144,7 +134,6 @@ notebook = "37_Simplifying_Pipeline_Inputs_with_Multiplexer.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-19
-haystack_2 = true
 haystack_version = "2.3.1"
 dependencies = ["transformers", "huggingface_hub>=0.23.0, <0.28.0"]
 hidden = true
@@ -159,7 +148,6 @@ notebook = "39_Embedding_Metadata_for_Improved_Retrieval.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-20
-haystack_2 = true
 dependencies = ["wikipedia", "sentence-transformers"]
 
 [[tutorial]]
@@ -171,7 +159,6 @@ notebook = "40_Building_Chat_Application_with_Function_Calling.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2024-03-05
-haystack_2 = true
 dependencies = ["sentence-transformers>=3.0.0", "gradio"]
 featured = true
 
@@ -184,7 +171,6 @@ notebook = "41_Query_Classification_with_TransformersTextRouter_and_Transformers
 aliases = []
 completion_time = "25 min"
 created_at = 2024-10-15
-haystack_2 = true
 dependencies = ["sentence-transformers>=3.0.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate"]
 
 [[tutorial]]
@@ -196,7 +182,6 @@ notebook = "42_Sentence_Window_Retriever.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-10-16
-haystack_2 = true
 dependencies = ["nltk"]
 
 [[tutorial]]
@@ -205,7 +190,6 @@ description = "A guided walkthrough to learn everything about evaluation"
 weight = 110
 notebook = "guide_evaluation.ipynb"
 aliases = []
-haystack_2 = true
 guide = true
 colab = false
 download = false
@@ -220,6 +204,5 @@ notebook = "43_Building_a_Tool_Calling_Agent.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2025-04-03
-haystack_2 = true
 dependencies = ["docstring-parser", "trafilatura"]
 featured = true
