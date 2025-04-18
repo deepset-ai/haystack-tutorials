@@ -4,296 +4,6 @@ toc = true
 colab = "https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/"
 
 [[tutorial]]
-title = "Build Your First Question Answering System"
-description = "Get Started by creating a Retriever Reader pipeline."
-level = "beginner"
-weight = 10
-notebook = "01_Basic_QA_Pipeline.ipynb"
-aliases = [
-    "first-qa-system",
-    "without-elasticsearch",
-    "03_basic_qa_pipeline_without_elasticsearch",
-]
-completion_time = "15 min"
-created_at = 2023-01-11
-hidden = true
-
-[[tutorial]]
-title = "Fine-Tuning a Model on Your Own Data"
-description = "Improve the performance of your Reader by performing fine-tuning."
-level = "intermediate"
-weight = 50
-notebook = "02_Finetune_a_model_on_your_data.ipynb"
-aliases = ["fine-tuning-a-model"]
-created_at = 2021-08-12
-completion_time = "15 min"
-needs_gpu = true
-hidden = true
-
-[[tutorial]]
-title = "Build a Scalable Question Answering System"
-description = "Create a scalable Retriever Reader pipeline that uses an ElasticsearchDocumentStore."
-level = "beginner"
-weight = 15
-notebook = "03_Scalable_QA_System.ipynb"
-aliases = []
-completion_time = "20 min"
-created_at = 2023-01-11
-hidden = true
-
-[[tutorial]]
-title = "Utilizing Existing FAQs for Question Answering"
-description = "Create a smarter way to answer new questions using your existing FAQ documents."
-level = "beginner"
-weight = 20
-notebook = "04_FAQ_style_QA.ipynb"
-aliases = ["existing-faqs"]
-created_at = 2021-08-12
-hidden = true
-
-[[tutorial]]
-title = "Evaluation of a QA System"
-description = "Learn how to evaluate the performance of individual nodes as well as entire pipelines."
-level = "advanced"
-weight = 105
-notebook = "05_Evaluation.ipynb"
-aliases = ["evaluation"]
-created_at = 2021-08-12
-hidden = true
-
-[[tutorial]]
-title = "Better Retrieval with Embedding Retrieval"
-description = "Use Transformer based dense Retrievers to improve your system’s performance."
-level = "intermediate"
-weight = 55
-notebook = "06_Better_Retrieval_via_Embedding_Retrieval.ipynb"
-aliases = ["embedding-retrieval"]
-created_at = 2022-03-08
-hidden = true
-
-[[tutorial]]
-title = "Generative QA with RAGenerator"
-description = "Try out a generative model in place of the extractive Reader."
-level = "intermediate"
-weight = 60
-notebook = "07_RAG_Generator.ipynb"
-aliases = []
-created_at = 2021-08-12
-haystack_version = "1.17.2"
-hidden = true
-sitemap_exclude = true
-
-[[tutorial]]
-title = "Preprocessing Your Documents"
-description = "Start converting, cleaning, and splitting Documents using Haystack’s preprocessing capabilities."
-level = "beginner"
-weight = 25
-notebook = "08_Preprocessing.ipynb"
-aliases = ["preprocessing"]
-created_at = 2021-08-12
-hidden = true
-
-[[tutorial]]
-title = "Training Your Own Dense Passage Retrieval Model"
-description = "Learn about training a Dense Passage Retrieval model and the data needed to do so."
-level = "advanced"
-weight = 110
-notebook = "09_DPR_training.ipynb"
-aliases = ["train-dpr"]
-created_at = 2021-08-12
-needs_gpu = true
-hidden = true
-
-[[tutorial]]
-title = "Question Answering on a Knowledge Graph"
-description = "Experiment with a question answering system that draws upon knowledge graph.h"
-level = "advanced"
-weight = 120
-notebook = "10_Knowledge_Graph.ipynb"
-aliases = ["knowledge-graph"]
-created_at = 2021-08-12
-haystack_version = "1.16.1"
-hidden = true
-sitemap_exclude = true
-
-[[tutorial]]
-title = "How to Use Pipelines"
-description = "Learn about the many ways which you can route queries through the nodes in a pipeline."
-level = "beginner"
-weight = 40
-notebook = "11_Pipelines.ipynb"
-aliases = ["pipelines"]
-created_at = 2021-08-12
-hidden = true
-
-[[tutorial]]
-title = "Generative QA with Seq2SeqGenerator"
-description = "Try out a generative model in place of the extractive Reader."
-level = "intermediate"
-weight = 70
-notebook = "12_LFQA.ipynb"
-aliases = ["lfqa"]
-created_at = 2021-08-12
-haystack_version = "1.17.2"
-hidden = true
-sitemap_exclude = true
-
-[[tutorial]]
-title = "Question Generation"
-description = "Generate a set of questions that can be answered by a given Document."
-level = "intermediate"
-weight = 75
-notebook = "13_Question_generation.ipynb"
-aliases = ["question-generation"]
-created_at = 2021-08-12
-needs_gpu = true
-hidden = true
-
-[[tutorial]]
-title = "Query Classifier"
-description = "Classify incoming queries so that they can be routed to the nodes that are best at handling them."
-level = "intermediate"
-weight = 80
-notebook = "14_Query_Classifier.ipynb"
-aliases = ["query-classifier"]
-created_at = 2021-08-12
-hidden = true
-
-[[tutorial]]
-title = "Open-Domain QA on Tables"
-description = "Perform question answering on tabular data."
-level = "advanced"
-weight = 130
-notebook = "15_TableQA.ipynb"
-aliases = ["table-qa"]
-created_at = 2021-08-12
-hidden = true
-
-[[tutorial]]
-title = "Document Classification at Index Time"
-description = "Generate and attach classification labels to your Documents when indexing."
-level = "intermediate"
-weight = 85
-notebook = "16_Document_Classifier_at_Index_Time.ipynb"
-aliases = ["doc-class-index"]
-created_at = 2021-08-12
-hidden = true
-
-[[tutorial]]
-title = "Make Your QA Pipelines Talk!"
-description = "Convert text Answers into speech."
-level = "intermediate"
-weight = 90
-notebook = "17_Audio.ipynb"
-aliases = ["audio"]
-created_at = 2022-06-07
-hidden = true
-sitemap_exclude = true
-
-[[tutorial]]
-title = "Generative Pseudo Labeling for Domain Adaptation"
-description = "Use a Retriever and a query generator to perform unsupervised domain adaptation."
-level = "advanced"
-weight = 140
-notebook = "18_GPL.ipynb"
-aliases = ["gpl"]
-created_at = 2022-06-07
-needs_gpu = true
-hidden = true
-
-[[tutorial]]
-title = "Text-To-Image Search Pipeline with Multimodal Retriever"
-description = "Use a MultiModalRetriever to build a cross-modal search pipeline."
-level = "intermediate"
-weight = 95
-notebook = "19_Text_to_Image_search_pipeline_with_MultiModal_Retriever.ipynb"
-aliases = ["multimodal"]
-completion_time = "20 min"
-created_at = 2022-07-11
-hidden = true
-
-[[tutorial]]
-title = "Using Haystack with REST API"
-description = "Create a production-ready pipeline and interact with Haystack REST API."
-level = "advanced"
-weight = 115
-notebook = "20_Using_Haystack_with_REST_API.ipynb"
-aliases = ["using-haystack-with-rest-api"]
-colab = false
-completion_time = "30 min"
-created_at = 2023-01-11
-hidden = true
-
-[[tutorial]]
-title = "Customizing PromptNode for NLP Tasks"
-description = "Use PromptNode and PromptTemplate for your custom NLP tasks"
-level = "intermediate"
-weight = 57
-notebook = "21_Customizing_PromptNode.ipynb"
-aliases = ["customizing-promptnode"]
-completion_time = "20 min"
-created_at = 2023-02-16
-hidden = true
-
-[[tutorial]]
-title = "Answering Multihop Questions with Agents"
-description = "Use Agent to answer multihop questions with extractive models"
-level = "intermediate"
-weight = 63
-notebook = "23_Answering_Multihop_Questions_with_Agents.ipynb"
-aliases = ["multihop-qa-with-agents"]
-completion_time = "10 min"
-created_at = 2023-03-27
-hidden = true
-
-[[tutorial]]
-title = "Creating a Generative QA Pipeline with Retrieval-Augmentation"
-description = "Use a large language model in your search system through PromptNode"
-level = "intermediate"
-weight = 61
-notebook = "22_Pipeline_with_PromptNode.ipynb"
-aliases = ["pipeline-with-promptnode", "retrieval-augmented-generation"]
-completion_time = "15 min"
-created_at = 2023-03-13
-featured = true
-hidden = true
-
-[[tutorial]]
-title = "Building a Conversational Chat App"
-description = "Use ConversationalAgent to build a human-like chat application"
-level = "intermediate"
-weight = 64
-notebook = "24_Building_Chat_App.ipynb"
-aliases = ["building-chat-app"]
-completion_time = "10 min"
-created_at = 2023-05-30
-hidden = true
-
-[[tutorial]]
-title = "Customizing Agent to Chat with Your Documents"
-description = "Advanced Customizations for Agents with Memory"
-level = "advanced"
-weight = 117
-notebook = "25_Customizing_Agent.ipynb"
-aliases = ["customizing-agent"]
-completion_time = "15 min"
-created_at = 2023-07-19
-featured = true
-hidden = true
-
-[[tutorial]]
-title = "Creating a Hybrid Retrieval Pipeline"
-description = "Learn how to combine Retrievers to enhance retrieval"
-level = "intermediate"
-weight = 63
-notebook = "26_Hybrid_Retrieval.ipynb"
-aliases = ["hybrid-retrieval"]
-completion_time = "15 min"
-created_at = 2023-10-10
-featured = true
-hidden = true
-
-[[tutorial]]
 title = "Creating Your First QA Pipeline with Retrieval-Augmentation"
 description = "Build your first generative QA pipeline with OpenAI GPT models"
 level = "beginner"
@@ -302,7 +12,6 @@ notebook = "27_First_RAG_Pipeline.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2023-12-05
-haystack_2 = true
 dependencies = ["datasets>=2.6.1", "sentence-transformers>=3.0.0"]
 featured = true
 
@@ -315,7 +24,6 @@ notebook = "28_Structured_Output_With_Loop.ipynb"
 aliases = []
 completion_time = "15 min"
 created_at = 2023-11-30
-haystack_2 = true
 dependencies = ["colorama"]
 featured = true
 
@@ -328,7 +36,6 @@ notebook = "29_Serializing_Pipelines.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-01-29
-haystack_2 = true
 dependencies = ["transformers[torch]"]
 
 [[tutorial]]
@@ -340,7 +47,6 @@ notebook = "30_File_Type_Preprocessing_Index_Pipeline.ipynb"
 aliases = []
 completion_time = "15 min"
 created_at = 2024-01-30
-haystack_2 = true
 dependencies = [
     "sentence-transformers>=3.0.0",
     "huggingface_hub>=0.23.0",
@@ -360,7 +66,6 @@ notebook = "31_Metadata_Filtering.ipynb"
 aliases = []
 completion_time = "5 min"
 created_at = 2024-01-30
-haystack_2 = true
 dependencies = []
 
 [[tutorial]]
@@ -372,7 +77,6 @@ notebook = "32_Classifying_Documents_and_Queries_by_Language.ipynb"
 aliases = []
 completion_time = "15 min"
 created_at = 2024-02-06
-haystack_2 = true
 dependencies = ["langdetect"]
 
 [[tutorial]]
@@ -384,7 +88,6 @@ notebook = "33_Hybrid_Retrieval.ipynb"
 aliases = []
 completion_time = "15 min"
 created_at = 2024-02-13
-haystack_2 = true
 dependencies = ["datasets>=2.6.1", "sentence-transformers>=3.0.0", "accelerate"]
 needs_gpu = true
 
@@ -397,7 +100,6 @@ notebook = "34_Extractive_QA_Pipeline.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-09
-haystack_2 = true
 dependencies = ["accelerate", "sentence-transformers", "datasets"]
 
 [[tutorial]]
@@ -409,7 +111,6 @@ notebook = "35_Evaluating_RAG_Pipelines.ipynb"
 aliases = ["35_Model_Based_Evaluation_of_RAG_Pipelines"]
 completion_time = "15 min"
 created_at = 2024-02-12
-haystack_2 = true
 dependencies = ["datasets>=2.6.1", "sentence-transformers"]
 
 [[tutorial]]
@@ -421,7 +122,6 @@ notebook = "36_Building_Fallbacks_with_Conditional_Routing.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-16
-haystack_2 = true
 dependencies = []
 featured = true
 
@@ -434,7 +134,6 @@ notebook = "37_Simplifying_Pipeline_Inputs_with_Multiplexer.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-19
-haystack_2 = true
 haystack_version = "2.3.1"
 dependencies = ["transformers", "huggingface_hub>=0.23.0, <0.28.0"]
 hidden = true
@@ -449,7 +148,6 @@ notebook = "39_Embedding_Metadata_for_Improved_Retrieval.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-20
-haystack_2 = true
 dependencies = ["wikipedia", "sentence-transformers"]
 
 [[tutorial]]
@@ -461,7 +159,6 @@ notebook = "40_Building_Chat_Application_with_Function_Calling.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2024-03-05
-haystack_2 = true
 dependencies = ["sentence-transformers>=3.0.0", "gradio"]
 featured = true
 
@@ -474,7 +171,6 @@ notebook = "41_Query_Classification_with_TransformersTextRouter_and_Transformers
 aliases = []
 completion_time = "25 min"
 created_at = 2024-10-15
-haystack_2 = true
 dependencies = ["sentence-transformers>=3.0.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate"]
 
 [[tutorial]]
@@ -486,7 +182,6 @@ notebook = "42_Sentence_Window_Retriever.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-10-16
-haystack_2 = true
 dependencies = ["nltk"]
 
 [[tutorial]]
@@ -495,7 +190,6 @@ description = "A guided walkthrough to learn everything about evaluation"
 weight = 110
 notebook = "guide_evaluation.ipynb"
 aliases = []
-haystack_2 = true
 guide = true
 colab = false
 download = false
@@ -510,6 +204,5 @@ notebook = "43_Building_a_Tool_Calling_Agent.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2025-04-03
-haystack_2 = true
 dependencies = ["docstring-parser", "trafilatura"]
 featured = true

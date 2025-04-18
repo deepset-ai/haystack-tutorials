@@ -1,6 +1,7 @@
+## This script is used to create a metrix to test tutorials
+
 import argparse
 import json
-import re
 
 import tomllib
 
@@ -11,9 +12,7 @@ def read_index(path):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        usage="""python generate_matrix.py --haystack-version v1.18.1"""
-    )
+    parser = argparse.ArgumentParser(usage="""python generate_matrix.py --haystack-version v2.10.0""")
     parser.add_argument("--index", dest="index", default="index.toml")
     parser.add_argument("--notebooks", dest="notebooks", nargs="+", default=[])
     parser.add_argument("--haystack-version", dest="version", required=True)
@@ -21,8 +20,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     index = read_index(args.index)
-
-    is_haystack2 = re.match("^v?2", args.version) is not None
 
     matrix = []
     for tutorial in index["tutorial"]:
@@ -40,14 +37,6 @@ if __name__ == "__main__":
             # so there's nothing to test
             continue
 
-        if is_haystack2 and not tutorial.get("haystack_2", False):
-            # Skip Haystack 1.0 tutorials when testing Haystack 2.0
-            continue
-
-        if not is_haystack2 and tutorial.get("haystack_2", False):
-            # Skip Haystack 2.0 tutorials when testing Haystack 1.0
-            continue
-
         notebook = tutorial["notebook"]
         if args.notebooks and notebook not in args.notebooks:
             # If the user specified a list of notebooks to run, only run those
@@ -59,11 +48,7 @@ if __name__ == "__main__":
             version = f"v{version}"
 
         matrix.append(
-            {
-                "notebook": notebook[:-6],
-                "haystack_version": version,
-                "dependencies": tutorial.get("dependencies", []),
-            }
+            {"notebook": notebook[:-6], "haystack_version": version, "dependencies": tutorial.get("dependencies", [])}
         )
 
         if args.main and "haystack_version" not in tutorial:
