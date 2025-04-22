@@ -206,3 +206,15 @@ completion_time = "10 min"
 created_at = 2025-04-03
 dependencies = ["docstring-parser", "trafilatura"]
 featured = true
+
+[[tutorial]]
+title = "Creating Custom SuperComponents"
+description = "Learn how to use the @super_component decorator to create custom SuperComponents with input and output mappings"
+level = "intermediate"
+weight = 8
+notebook = "44_Creating_Custom_SuperComponents.ipynb"
+aliases = []
+completion_time = "20 min"
+created_at = 2025-04-22
+dependencies = ["sentence-transformers>=3.0.0", "datasets", "accelerate"]
+featured = true
