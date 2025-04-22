@@ -216,5 +216,5 @@ notebook = "44_Creating_Custom_SuperComponents.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2025-04-17
-dependencies = ["sentence-transformers>=3.0.0", "datasets"]
+dependencies = ["sentence-transformers>=3.0.0", "datasets", accelerate]
 featured = true
