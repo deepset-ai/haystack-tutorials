@@ -12,7 +12,7 @@ notebook = "27_First_RAG_Pipeline.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2023-12-05
-dependencies = ["datasets>=2.6.1", "sentence-transformers>=3.0.0"]
+dependencies = ["datasets>=2.6.1", "sentence-transformers>=4.1.0"]
 featured = true
 
 [[tutorial]]
@@ -48,7 +48,7 @@ aliases = []
 completion_time = "15 min"
 created_at = 2024-01-30
 dependencies = [
-    "sentence-transformers>=3.0.0",
+    "sentence-transformers>=4.1.0",
     "huggingface_hub>=0.23.0",
     "transformers",
     "markdown-it-py",
@@ -88,7 +88,7 @@ notebook = "33_Hybrid_Retrieval.ipynb"
 aliases = []
 completion_time = "15 min"
 created_at = 2024-02-13
-dependencies = ["datasets>=2.6.1", "sentence-transformers>=3.0.0", "accelerate"]
+dependencies = ["datasets>=2.6.1", "sentence-transformers>=4.1.0", "accelerate"]
 needs_gpu = true
 
 [[tutorial]]
@@ -159,7 +159,7 @@ notebook = "40_Building_Chat_Application_with_Function_Calling.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2024-03-05
-dependencies = ["sentence-transformers>=3.0.0", "gradio"]
+dependencies = ["sentence-transformers>=4.1.0", "gradio"]
 featured = true
 
 [[tutorial]]
@@ -171,7 +171,7 @@ notebook = "41_Query_Classification_with_TransformersTextRouter_and_Transformers
 aliases = []
 completion_time = "25 min"
 created_at = 2024-10-15
-dependencies = ["sentence-transformers>=3.0.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate"]
+dependencies = ["sentence-transformers>=4.1.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate"]
 
 [[tutorial]]
 title = "Retrieving a Context Window Around a Sentence"
@@ -216,5 +216,5 @@ notebook = "44_Creating_Custom_SuperComponents.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2025-04-22
-dependencies = ["sentence-transformers>=3.0.0", "datasets", "accelerate"]
+dependencies = ["sentence-transformers>=4.1.0", "datasets", "accelerate"]
 featured = true
