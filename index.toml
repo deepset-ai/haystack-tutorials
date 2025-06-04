@@ -219,7 +219,7 @@ dependencies = ["sentence-transformers>=4.1.0", "datasets", "accelerate"]
 featured = true
 
 [[tutorial]]
-title = "Creating a Multi-Agent System with Haystack
+title = "Creating a Multi-Agent System with Haystack"
 description = "Use agents specialized in specific tasks to build more complex, modular agent workflows"
 level = "advanced"
 weight = 10
