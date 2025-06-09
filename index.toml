@@ -25,7 +25,6 @@ aliases = []
 completion_time = "15 min"
 created_at = 2023-11-30
 dependencies = ["colorama"]
-featured = true
 
 [[tutorial]]
 title = "Serializing LLM Pipelines"
@@ -217,4 +216,16 @@ aliases = []
 completion_time = "20 min"
 created_at = 2025-04-22
 dependencies = ["sentence-transformers>=4.1.0", "datasets", "accelerate"]
+featured = true
+
+[[tutorial]]
+title = "Creating a Multi-Agent System with Haystack"
+description = "Use agents specialized in specific tasks to build more complex, modular agent workflows"
+level = "advanced"
+weight = 10
+notebook = "45_Creating_a_Multi_Agent_System.ipynb"
+aliases = []
+completion_time = "20 min"
+created_at = 2025-06-02
+dependencies = []
 featured = true
