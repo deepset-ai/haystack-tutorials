@@ -71,6 +71,7 @@ jobs:
       HF_API_TOKEN: ${{ secrets.HF_API_KEY }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       SERPERDEV_API_KEY: ${{ secrets.SERPERDEV_API_KEY }}
+      NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
 
     steps:
       - name: Checkout
