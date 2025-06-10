@@ -227,5 +227,5 @@ notebook = "45_Creating_a_Multi_Agent_System.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2025-06-02
-dependencies = ["duckduckgo-api-haystack"]
+dependencies = ["duckduckgo-api-haystack", "docstring-parser"]
 featured = true
