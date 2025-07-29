@@ -229,3 +229,15 @@ completion_time = "20 min"
 created_at = 2025-06-02
 dependencies = ["duckduckgo-api-haystack", "docstring-parser"]
 featured = true
+
+[[tutorial]]
+title = "Introduction to Multimodal RAG with Haystack"
+description = "Learn to build a Retrieval-Augmented Generation (RAG) pipeline that can answer questions grounded in both images and text."
+level = "advanced"
+weight = 11
+notebook = "46_Multimodal_RAG.ipynb"
+aliases = []
+completion_time = "20 min"
+created_at = 2025-07-29
+dependencies = ["pillow", "pypdfium2"]
+featured = true
