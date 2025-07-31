@@ -239,5 +239,5 @@ notebook = "46_Multimodal_RAG.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2025-07-29
-dependencies = ["pillow", "pypdfium2"]
+dependencies = ["pillow", "pypdfium2", "sentence-transformers>=4.1.0"]
 featured = true
