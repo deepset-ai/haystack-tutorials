@@ -16,13 +16,13 @@ dependencies = ["datasets>=2.6.1", "sentence-transformers>=4.1.0"]
 featured = true
 
 [[tutorial]]
-title = "Generating Structured Output with Loop-Based Auto-Correction"
-description = "Learn how to extract structured data using an LLM, and to validate the generated output against a predefined schema."
-level = "intermediate"
+title = "Generating Structured Output with OpenAIChatGenerator"
+description = "Learn how to generate structured output using OpenAIChatGenerator, and to validate the generated output against a predefined schema."
+level = "beginner"
 weight = 71
-notebook = "28_Structured_Output_With_Loop.ipynb"
+notebook = "28_Structured_Output_With_OpenAI.ipynb"
 aliases = []
-completion_time = "15 min"
+completion_time = "10 min"
 created_at = 2023-11-30
 dependencies = ["colorama"]
 
