@@ -241,3 +241,15 @@ completion_time = "20 min"
 created_at = 2025-08-04
 dependencies = ["pillow", "pypdf", "pypdfium2", "sentence-transformers>=4.1.0"]
 featured = true
+
+
+[[tutorial]]
+title = "Improving Postgres keyword search to avoid zero results"
+description = "Learn how to improve the default implementation and better transform your query to avoid getting zero results."
+level = "intermediate"
+weight = 60
+notebook = "47_Improving_pgvector_keyword_search.ipynb"
+aliases = []
+completion_time = "30 min"
+created_at = 2025-10-28
+dependencies = ["nltk"]
