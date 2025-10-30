@@ -216,7 +216,6 @@ aliases = []
 completion_time = "20 min"
 created_at = 2025-04-22
 dependencies = ["sentence-transformers>=4.1.0", "datasets", "accelerate"]
-featured = true
 
 [[tutorial]]
 title = "Creating a Multi-Agent System with Haystack"
@@ -240,4 +239,16 @@ aliases = []
 completion_time = "20 min"
 created_at = 2025-08-04
 dependencies = ["pillow", "pypdf", "pypdfium2", "sentence-transformers>=4.1.0"]
+featured = true
+
+[[tutorial]]
+title = "Human-in-the-Loop with Haystack Agents"
+description = "Learn how to use confirmation strategies to get user input before tool execution for safer, more controllable AI systems."
+level = "advanced"
+weight = 11
+notebook = "47_Human_in_the_Loop_Agent.ipynb"
+aliases = []
+completion_time = "20 min"
+created_at = 2025-10-30
+dependencies = [""]
 featured = true
