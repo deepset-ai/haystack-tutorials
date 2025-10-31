@@ -221,7 +221,7 @@ dependencies = ["sentence-transformers>=4.1.0", "datasets", "accelerate"]
 title = "Creating a Multi-Agent System with Haystack"
 description = "Use agents specialized in specific tasks to build more complex, modular agent workflows"
 level = "advanced"
-weight = 10
+weight = 11
 notebook = "45_Creating_a_Multi_Agent_System.ipynb"
 aliases = []
 completion_time = "20 min"
@@ -245,7 +245,7 @@ featured = true
 title = "Human-in-the-Loop with Haystack Agents"
 description = "Learn how to use confirmation strategies to get user input before tool execution for safer, more controllable AI systems."
 level = "advanced"
-weight = 11
+weight = 10
 notebook = "47_Human_in_the_Loop_Agent.ipynb"
 aliases = []
 completion_time = "20 min"
