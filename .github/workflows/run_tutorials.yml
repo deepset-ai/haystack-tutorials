@@ -98,4 +98,5 @@ jobs:
 
       - name: Run the converted notebook
         run: |
-          python ./tutorials/${{ matrix.notebook }}.py
+           # We add a prompt to confirm any user inputs in the HiTL notebook 
+           yes y | python ./tutorials/${{ matrix.notebook }}.py
