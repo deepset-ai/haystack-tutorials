@@ -99,11 +99,10 @@ jobs:
       - name: Run the converted notebook
         run: |
           NOTEBOOK="./tutorials/${{ matrix.notebook }}.py"
-          if [[ "${{ matrix.notebook }}" == "47_Human_in_the_Loop_Agent" ]]; then
-           # We add a prompt to confirm any user inputs in the HiTL notebook
+          if [ "${{ matrix.notebook }}" = "47_Human_in_the_Loop_Agent" ]; then
             yes y | python "$NOTEBOOK"
-          elif [[ "${{ matrix.notebook }}" == "48_Conversational_RAG" ]]; then
-            yes Q | python "$NOTEBOOK"
+          elif [ "${{ matrix.notebook }}" = "48_Conversational_RAG" ]; then
+            printf "Q\n" | python "$NOTEBOOK"
           else
             python "$NOTEBOOK"
           fi
