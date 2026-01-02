@@ -71,7 +71,7 @@ jobs:
           if [[ "${{ matrix.notebook }}" == "47_Human_in_the_Loop_Agent" ]]; then
            # We add a prompt to confirm any user inputs in the HiTL notebook 
             yes y | python "$NOTEBOOK"
-          elif [[ "${{ matrix.notebook }}" == "48_Chat_Message_Store" ]]; then
+          elif [[ "${{ matrix.notebook }}" == "48_Conversational_RAG" ]]; then
             yes Q | python "$NOTEBOOK"
           else
             python "$NOTEBOOK"
