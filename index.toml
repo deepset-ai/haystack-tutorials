@@ -110,7 +110,7 @@ notebook = "35_Evaluating_RAG_Pipelines.ipynb"
 aliases = ["35_model_based_evaluation_of_rag_pipelines"]
 completion_time = "15 min"
 created_at = 2024-02-12
-dependencies = ["datasets>=2.6.1", "sentence-transformers"]
+dependencies = ["datasets>=2.6.1", "sentence-transformers", "numpy>2, <2.4"]
 
 [[tutorial]]
 title = "Building an Agentic RAG with Fallback to Websearch"
