@@ -249,7 +249,7 @@ notebook = "47_Human_in_the_Loop_Agent.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2025-10-30
-dependencies = ["haystack-experimental>=0.16.0"]
+dependencies = ["haystack-ai>=2.24.0", "rich"]
 featured = true
 
 [[tutorial]]
