@@ -99,7 +99,7 @@ notebook = "34_Extractive_QA_Pipeline.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-09
-dependencies = ["accelerate", "sentence-transformers", "datasets"]
+dependencies = ["accelerate", "sentence-transformers", "datasets", "transformers<5"]
 
 [[tutorial]]
 title = "Evaluating RAG Pipelines"
@@ -169,7 +169,7 @@ notebook = "41_Query_Classification_with_TransformersTextRouter_and_Transformers
 aliases = []
 completion_time = "25 min"
 created_at = 2024-10-15
-dependencies = ["sentence-transformers>=4.1.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate"]
+dependencies = ["sentence-transformers>=4.1.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate", "transformers<5"]
 
 [[tutorial]]
 title = "Retrieving a Context Window Around a Sentence"
@@ -214,7 +214,7 @@ notebook = "44_Creating_Custom_SuperComponents.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2025-04-22
-dependencies = ["sentence-transformers>=4.1.0", "datasets", "accelerate"]
+dependencies = ["sentence-transformers>=4.1.0", "datasets", "accelerate", "transformers<5"]
 
 [[tutorial]]
 title = "Creating a Multi-Agent System with Haystack"
