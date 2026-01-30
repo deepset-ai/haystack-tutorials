@@ -99,7 +99,7 @@ notebook = "34_Extractive_QA_Pipeline.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-09
-dependencies = ["accelerate", "sentence-transformers", "datasets"]
+dependencies = ["accelerate", "sentence-transformers", "datasets", "transformers<5"]
 
 [[tutorial]]
 title = "Evaluating RAG Pipelines"
@@ -110,7 +110,7 @@ notebook = "35_Evaluating_RAG_Pipelines.ipynb"
 aliases = ["35_model_based_evaluation_of_rag_pipelines"]
 completion_time = "15 min"
 created_at = 2024-02-12
-dependencies = ["datasets>=2.6.1", "sentence-transformers", "numpy>2, <2.4"]
+dependencies = ["datasets>=2.6.1", "sentence-transformers"]
 
 [[tutorial]]
 title = "Building an Agentic RAG with Fallback to Websearch"
@@ -158,7 +158,7 @@ notebook = "40_Building_Chat_Application_with_Function_Calling.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2024-03-05
-dependencies = ["sentence-transformers>=4.1.0", "gradio"]
+dependencies = ["sentence-transformers>=4.1.0", "gradio", "pytz"]
 
 [[tutorial]]
 title = "Query Classification with TransformersTextRouter and TransformersZeroShotTextRouter"
@@ -169,7 +169,7 @@ notebook = "41_Query_Classification_with_TransformersTextRouter_and_Transformers
 aliases = []
 completion_time = "25 min"
 created_at = 2024-10-15
-dependencies = ["sentence-transformers>=4.1.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate"]
+dependencies = ["sentence-transformers>=4.1.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate", "transformers<5"]
 
 [[tutorial]]
 title = "Retrieving a Context Window Around a Sentence"
@@ -214,7 +214,7 @@ notebook = "44_Creating_Custom_SuperComponents.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2025-04-22
-dependencies = ["sentence-transformers>=4.1.0", "datasets", "accelerate"]
+dependencies = ["sentence-transformers>=4.1.0", "datasets", "accelerate", "transformers<5"]
 
 [[tutorial]]
 title = "Creating a Multi-Agent System with Haystack"
@@ -249,7 +249,7 @@ notebook = "47_Human_in_the_Loop_Agent.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2025-10-30
-dependencies = ["haystack-experimental>=0.16.0"]
+dependencies = ["haystack-ai>=2.23.0", "rich"]
 featured = true
 
 [[tutorial]]
