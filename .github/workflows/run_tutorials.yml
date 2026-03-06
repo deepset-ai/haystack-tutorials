@@ -7,13 +7,13 @@ on:
 
 jobs:
   generate-matrix:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     outputs:
       matrix: ${{ steps.filter.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
@@ -29,7 +29,7 @@ jobs:
 
       - name: Get changed files
         id: files
-        uses: tj-actions/changed-files@v46
+        uses: tj-actions/changed-files@v47
         with:
           matrix: true
           files: tutorials/*.ipynb
@@ -75,7 +75,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+
+      - name: Setup Python and uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.11"
 
       - name: Install common dependencies
         run: |
@@ -85,25 +90,26 @@ jobs:
               libsndfile1 \
               ffmpeg
 
-          pip install nbconvert ipython
+          uv venv
+          uv pip install nbconvert ipython
 
       - name: Install tutorial dependencies
         if: toJSON(matrix.dependencies) != '[]'
         run: |
-          pip install "${{ join(matrix.dependencies, '" "')}}"
+          uv pip install "${{ join(matrix.dependencies, '" "')}}"
 
       - name: Convert notebook to Python
         run: |
-          jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ./tutorials/${{ matrix.notebook }}.ipynb
+          uv run jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ./tutorials/${{ matrix.notebook }}.ipynb
 
       - name: Run the converted notebook
         run: |
           NOTEBOOK="./tutorials/${{ matrix.notebook }}.py"
           if [ "${{ matrix.notebook }}" = "47_Human_in_the_Loop_Agent" ]; then
             # We add a prompt to confirm any user inputs in the HiTL notebook
-            yes y | python "$NOTEBOOK"
+            yes y | uv run python "$NOTEBOOK"
           elif [ "${{ matrix.notebook }}" = "48_Conversational_RAG" ]; then
-            yes Q | python "$NOTEBOOK"
+            yes Q | uv run python "$NOTEBOOK"
           else
-            python "$NOTEBOOK"
+            uv run python "$NOTEBOOK"
           fi
