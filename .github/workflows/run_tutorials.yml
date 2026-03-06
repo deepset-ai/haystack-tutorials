@@ -60,7 +60,6 @@ jobs:
   run-tutorials:
     runs-on: ubuntu-latest
     needs: generate-matrix
-    container: deepset/haystack:base-${{ matrix.haystack_version }}
 
     strategy:
       fail-fast: false
@@ -84,13 +83,13 @@ jobs:
 
       - name: Install common dependencies
         run: |
-          apt-get update && apt-get install -y \
-              build-essential \
-              gcc \
-              libsndfile1 \
-              ffmpeg
-
           uv venv
+          if [ "${{ matrix.haystack_version }}" = "main" ]; then
+            uv pip install "haystack-ai @ git+https://github.com/deepset-ai/haystack.git@main"
+          else
+            VERSION="${{ matrix.haystack_version }}"
+            uv pip install "haystack-ai==${VERSION#v}"
+          fi
           uv pip install nbconvert ipython
 
       - name: Install tutorial dependencies
