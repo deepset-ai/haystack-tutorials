@@ -60,7 +60,8 @@ jobs:
               gcc \
               libsndfile1 \
               ffmpeg
-
+          
+          uv venv
           uv pip install nbconvert ipython
 
       - name: Install tutorial dependencies
@@ -89,3 +90,4 @@ jobs:
         uses: deepset-ai/notify-slack-action@v1
         with:
           slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL_NOTIFICATIONS }}
+          mention-here: false
