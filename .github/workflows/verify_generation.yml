@@ -7,20 +7,24 @@ on:
       - "index.toml"
 
 jobs:
-  run-tutorials:
-    runs-on: ubuntu-latest
+  verify-markdown-generation:
+    runs-on: ubuntu-slim
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python and uv
+        uses: astral-sh/setup-uv@v7
         with:
-          python-version: "3.10"
+          python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          uv venv
+          uv pip install -r requirements.txt
 
       - name: Generate all tutorials
         run: |
+          . .venv/bin/activate
           mkdir output
           python scripts/generate_markdowns.py --index index.toml --notebooks all --output ./output
