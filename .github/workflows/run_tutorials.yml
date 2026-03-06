@@ -100,18 +100,16 @@ jobs:
 
       - name: Convert notebook to Python
         run: |
-          source .venv/bin/activate
-          jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ./tutorials/${{ matrix.notebook }}.ipynb
+          uv run --no-project jupyter nbconvert --to python --RegexRemovePreprocessor.patterns '%%bash' ./tutorials/${{ matrix.notebook }}.ipynb
 
       - name: Run the converted notebook
         run: |
-          source .venv/bin/activate
           NOTEBOOK="./tutorials/${{ matrix.notebook }}.py"
           if [ "${{ matrix.notebook }}" = "47_Human_in_the_Loop_Agent" ]; then
             # We add a prompt to confirm any user inputs in the HiTL notebook
-            yes y | python "$NOTEBOOK"
+            yes y | uv run --no-project python "$NOTEBOOK"
           elif [ "${{ matrix.notebook }}" = "48_Conversational_RAG" ]; then
-            yes Q | python "$NOTEBOOK"
+            yes Q | uv run --no-project python "$NOTEBOOK"
           else
-            python "$NOTEBOOK"
+            uv run --no-project python "$NOTEBOOK"
           fi
