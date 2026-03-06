@@ -4,8 +4,6 @@ on:
   workflow_dispatch: # Activate this workflow manually
   schedule:
     - cron: "0 0 * * *"
-  # TODO: REMOVE TRIGGER AFTER TESTING
-  pull_request:
 
 jobs:
   generate-matrix:
@@ -90,4 +88,3 @@ jobs:
         uses: deepset-ai/notify-slack-action@v1
         with:
           slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL_NOTIFICATIONS }}
-          mention-here: false
