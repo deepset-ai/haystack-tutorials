@@ -32,7 +32,6 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-      max-parallel: 2
       fail-fast: false
       matrix: ${{ fromJSON(needs.generate-matrix.outputs.matrix) }}
 
@@ -86,9 +85,9 @@ jobs:
             python "$NOTEBOOK"
           fi
 
-      # - name: Notify Slack on nightly failure
-      #   if: failure()
-      #   uses: deepset-ai/notify-slack-action@v1
-      #   with:
-      #     slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL_NOTIFICATIONS }}
-      #     mention-here: false
+      - name: Notify Slack on nightly failure
+        if: failure()
+        uses: deepset-ai/notify-slack-action@v1
+        with:
+          slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL_NOTIFICATIONS }}
+          mention-here: false
