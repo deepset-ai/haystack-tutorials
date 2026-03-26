@@ -12,7 +12,7 @@ notebook = "27_First_RAG_Pipeline.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2023-12-05
-dependencies = ["datasets>=2.6.1", "sentence-transformers>=4.1.0"]
+dependencies = ["datasets>=2.6.1", "sentence-transformers>=4.1.0", "mistral-haystack"]
 featured = true
 
 [[tutorial]]
