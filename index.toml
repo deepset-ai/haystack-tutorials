@@ -261,3 +261,4 @@ completion_time = "20 min"
 created_at = 2026-03-30
 dependencies = ["haystack-ai", "turboquant-vllm", "transformers"]
 featured = false
+python_version = "3.12"
