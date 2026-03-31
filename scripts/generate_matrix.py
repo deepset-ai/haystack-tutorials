@@ -11,6 +11,9 @@ def read_index(path):
         return tomllib.load(f)
 
 
+DEFAULT_PYTHON = "3.11"
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(usage="""python generate_matrix.py --haystack-version v2.10.0""")
     parser.add_argument("--index", dest="index", default="index.toml")
@@ -47,8 +50,14 @@ if __name__ == "__main__":
         if version[0] != "v":
             version = f"v{version}"
 
+        python_version = tutorial.get("python_version", DEFAULT_PYTHON)
         matrix.append(
-            {"notebook": notebook[:-6], "haystack_version": version, "dependencies": tutorial.get("dependencies", [])}
+            {
+                "notebook": notebook[:-6],
+                "haystack_version": version,
+                "dependencies": tutorial.get("dependencies", []),
+                "python_version": python_version,
+            }
         )
 
         if args.main and "haystack_version" not in tutorial:
@@ -58,6 +67,7 @@ if __name__ == "__main__":
                     "notebook": notebook[:-6],
                     "haystack_version": "main",
                     "dependencies": tutorial.get("dependencies", []),
+                    "python_version": python_version,
                 }
             )
 
