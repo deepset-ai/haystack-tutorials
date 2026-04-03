@@ -249,3 +249,16 @@ completion_time = "20 min"
 created_at = 2025-12-30
 dependencies = ["haystack-experimental>=0.16.0", "datasets"]
 featured = true
+
+[[tutorial]]
+title = "Compress the KV Cache with TurboQuant and Haystack"
+description = "Use TurboQuant KV cache compression to run large LLMs on consumer GPUs with significant memory reduction"
+level = "advanced"
+weight = 12
+notebook = "49_TurboQuant_Quantization_with_HuggingFace.ipynb"
+aliases = []
+completion_time = "20 min"
+created_at = 2026-03-30
+dependencies = ["haystack-ai", "turboquant-vllm", "transformers"]
+featured = false
+python_version = "3.12"
