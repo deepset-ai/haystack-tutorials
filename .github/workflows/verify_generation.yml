@@ -19,9 +19,11 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
+        env:
+          UV_EXCLUDE_NEWER: P3D  # reject packages uploaded within the last 3 days (supply chain protection)
         run: |
           uv venv
-          uv pip install --exclude-newer P3D -r requirements.txt
+          uv pip install -r requirements.txt
 
       - name: Generate all tutorials
         run: |
