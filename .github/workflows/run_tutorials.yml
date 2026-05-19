@@ -97,12 +97,12 @@ jobs:
             VERSION="${{ matrix.haystack_version }}"
             uv pip install "haystack-ai==${VERSION#v}"
           fi
-          uv pip install nbconvert ipython
+          uv pip install --exclude-newer P3D nbconvert ipython
 
       - name: Install tutorial dependencies
         if: toJSON(matrix.dependencies) != '[]'
         run: |
-          uv pip install "${{ join(matrix.dependencies, '" "')}}"
+          uv pip install --exclude-newer P3D "${{ join(matrix.dependencies, '" "')}}"
 
       - name: Convert notebook to Python
         run: |
