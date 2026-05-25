@@ -97,10 +97,12 @@ jobs:
             VERSION="${{ matrix.haystack_version }}"
             uv pip install "haystack-ai==${VERSION#v}"
           fi
-          uv pip install nbconvert ipython
+          uv pip install --exclude-newer P3D nbconvert ipython  # P3D = 3-day cutoff; haystack-ai above is exempt
 
       - name: Install tutorial dependencies
         if: toJSON(matrix.dependencies) != '[]'
+        env:
+          UV_EXCLUDE_NEWER: P3D  # reject packages uploaded within the last 3 days (supply chain protection)
         run: |
           uv pip install "${{ join(matrix.dependencies, '" "')}}"
 
@@ -124,6 +126,6 @@ jobs:
 
       - name: Notify Slack on nightly failure
         if: failure() && github.event_name != 'pull_request'
-        uses: deepset-ai/notify-slack-action@3cda73b77a148f16f703274198e7771340cf862b # v1
+        uses: deepset-ai/notify-slack-action@a65def0c8bf91d6520286ab34280151c76a5a008 # v1.1.0
         with:
           slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL_NOTIFICATIONS }}
