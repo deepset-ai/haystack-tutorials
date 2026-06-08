@@ -48,8 +48,7 @@ completion_time = "15 min"
 created_at = 2024-01-30
 dependencies = [
     "sentence-transformers>=4.1.0",
-    "huggingface_hub>=0.23.0",
-    "transformers",
+    "huggingface-api-haystack",
     "markdown-it-py",
     "mdit_plain",
     "pypdf",
