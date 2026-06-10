@@ -12,7 +12,7 @@ notebook = "27_First_RAG_Pipeline.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2023-12-05
-dependencies = ["datasets>=2.6.1", "sentence-transformers>=4.1.0", "mistral-haystack"]
+dependencies = ["datasets>=2.6.1", "sentence-transformers>=4.1.0", "mistral-haystack", "transformers-haystack"]
 featured = true
 
 [[tutorial]]
@@ -35,7 +35,7 @@ notebook = "29_Serializing_Pipelines.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-01-29
-dependencies = ["transformers[torch]"]
+dependencies = ["transformers-haystack"]
 
 [[tutorial]]
 title = "Preprocessing Different File Types"
@@ -98,7 +98,7 @@ notebook = "34_Extractive_QA_Pipeline.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-09
-dependencies = ["accelerate", "sentence-transformers", "datasets", "transformers<5"]
+dependencies = ["accelerate", "sentence-transformers", "datasets", "transformers<5", "transformers-haystack"]
 
 [[tutorial]]
 title = "Evaluating RAG Pipelines"
@@ -154,7 +154,7 @@ notebook = "41_Query_Classification_with_TransformersTextRouter_and_Transformers
 aliases = []
 completion_time = "25 min"
 created_at = 2024-10-15
-dependencies = ["sentence-transformers>=4.1.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate", "transformers<5"]
+dependencies = ["sentence-transformers>=4.1.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate", "transformers<5", "transformers-haystack"]
 
 [[tutorial]]
 title = "Retrieving a Context Window Around a Sentence"
@@ -258,6 +258,6 @@ notebook = "49_TurboQuant_Quantization_with_HuggingFace.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2026-03-30
-dependencies = ["haystack-ai", "turboquant-vllm", "transformers"]
+dependencies = ["haystack-ai", "turboquant-vllm", "transformers-haystack"]
 featured = false
 python_version = "3.12"
