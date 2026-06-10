@@ -98,7 +98,7 @@ notebook = "34_Extractive_QA_Pipeline.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-09
-dependencies = ["accelerate", "sentence-transformers", "datasets", "transformers<5", "transformers-haystack"]
+dependencies = ["accelerate", "sentence-transformers", "datasets", "transformers-haystack"]
 
 [[tutorial]]
 title = "Evaluating RAG Pipelines"
@@ -154,7 +154,7 @@ notebook = "41_Query_Classification_with_TransformersTextRouter_and_Transformers
 aliases = []
 completion_time = "25 min"
 created_at = 2024-10-15
-dependencies = ["sentence-transformers>=4.1.0", "gradio", "torch", "sentencepiece", "datasets", "accelerate", "transformers<5", "transformers-haystack"]
+dependencies = ["sentence-transformers>=4.1.0", "gradio", "datasets", "accelerate", "transformers-haystack"]
 
 [[tutorial]]
 title = "Retrieving a Context Window Around a Sentence"
