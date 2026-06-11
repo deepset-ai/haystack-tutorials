@@ -5,3 +5,4 @@ exclude-newer = "P3D"
 # first-party dependencies can be excluded from the global cutoff by adding entries below
 [exclude-newer-package]
 haystack-ai = false
+transformers-haystack = false
