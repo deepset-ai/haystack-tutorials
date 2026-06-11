@@ -2,6 +2,6 @@
 # attacks via compromised dependencies.
 exclude-newer = "P3D"
 
-# first-party dependencies can be excluded from the global cutoff by uncommenting the following lines
-# [exclude-newer-package]
-# haystack-ai = false
+# first-party dependencies can be excluded from the global cutoff by adding entries below
+[exclude-newer-package]
+haystack-ai = false
