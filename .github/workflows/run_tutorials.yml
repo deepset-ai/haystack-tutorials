@@ -97,12 +97,10 @@ jobs:
             VERSION="${{ matrix.haystack_version }}"
             uv pip install "haystack-ai==${VERSION#v}"
           fi
-          uv pip install --exclude-newer P3D nbconvert ipython  # P3D = 3-day cutoff; haystack-ai above is exempt
+          uv pip install nbconvert ipython
 
       - name: Install tutorial dependencies
         if: toJSON(matrix.dependencies) != '[]'
-        env:
-          UV_EXCLUDE_NEWER: P3D  # reject packages uploaded within the last 3 days (supply chain protection)
         run: |
           uv pip install "${{ join(matrix.dependencies, '" "')}}"
 
