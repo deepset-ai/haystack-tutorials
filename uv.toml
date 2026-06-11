@@ -1,0 +1,7 @@
+# Exclude package versions published within the last 3 days to protect against supply chain
+# attacks via compromised dependencies.
+exclude-newer = "P3D"
+
+# first-party dependencies can be excluded from the global cutoff by uncommenting the following lines
+# [exclude-newer-package]
+# haystack-ai = false
