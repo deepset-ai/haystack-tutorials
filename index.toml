@@ -120,7 +120,7 @@ notebook = "36_Building_Fallbacks_with_Conditional_Routing.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-16
-dependencies = []
+dependencies = ["serperdev-haystack"]
 featured = true
 
 [[tutorial]]
@@ -187,7 +187,7 @@ notebook = "43_Building_a_Tool_Calling_Agent.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2025-04-03
-dependencies = ["docstring-parser", "trafilatura"]
+dependencies = ["docstring-parser", "trafilatura", "serperdev-haystack"]
 featured = true
 
 [[tutorial]]
