@@ -261,3 +261,14 @@ created_at = 2026-03-30
 dependencies = ["haystack-ai", "turboquant-vllm", "transformers-haystack"]
 featured = false
 python_version = "3.12"
+
+[[tutorial]]
+title = "Securing Pipelines Against Runaway Costs and PII Leaks"
+description = "Add deterministic governance to Haystack pipelines using TealTiger to prevent PII leaks, secret exposure, and runaway LLM costs"
+level = "intermediate"
+weight = 13
+notebook = "50_Securing_Pipelines_Against_Runaway_Costs_and_PII_Leaks.ipynb"
+aliases = []
+completion_time = "20 min"
+created_at = 2026-06-17
+dependencies = ["tealtiger"]
