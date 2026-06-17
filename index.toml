@@ -12,7 +12,7 @@ notebook = "27_First_RAG_Pipeline.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2023-12-05
-dependencies = ["datasets>=2.6.1", "sentence-transformers>=4.1.0", "mistral-haystack", "transformers-haystack"]
+dependencies = ["datasets>=2.6.1", "sentence-transformers-haystack", "mistral-haystack", "transformers-haystack"]
 featured = true
 
 [[tutorial]]
@@ -47,7 +47,7 @@ aliases = []
 completion_time = "15 min"
 created_at = 2024-01-30
 dependencies = [
-    "sentence-transformers>=4.1.0",
+    "sentence-transformers-haystack",
     "huggingface-api-haystack",
     "markdown-it-py",
     "mdit_plain",
@@ -86,7 +86,7 @@ notebook = "33_Hybrid_Retrieval.ipynb"
 aliases = []
 completion_time = "15 min"
 created_at = 2024-02-13
-dependencies = ["datasets>=2.6.1", "sentence-transformers>=4.1.0", "accelerate"]
+dependencies = ["datasets>=2.6.1", "sentence-transformers-haystack"]
 needs_gpu = true
 
 [[tutorial]]
@@ -98,7 +98,7 @@ notebook = "34_Extractive_QA_Pipeline.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-09
-dependencies = ["sentence-transformers", "datasets", "transformers-haystack"]
+dependencies = ["sentence-transformers-haystack", "datasets", "transformers-haystack"]
 
 [[tutorial]]
 title = "Evaluating RAG Pipelines"
@@ -109,7 +109,7 @@ notebook = "35_Evaluating_RAG_Pipelines.ipynb"
 aliases = ["35_model_based_evaluation_of_rag_pipelines"]
 completion_time = "15 min"
 created_at = 2024-02-12
-dependencies = ["datasets>=2.6.1", "sentence-transformers"]
+dependencies = ["datasets>=2.6.1", "sentence-transformers-haystack"]
 
 [[tutorial]]
 title = "Building an Agentic RAG with Fallback to Websearch"
@@ -132,7 +132,7 @@ notebook = "39_Embedding_Metadata_for_Improved_Retrieval.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-02-20
-dependencies = ["wikipedia", "sentence-transformers"]
+dependencies = ["wikipedia", "sentence-transformers-haystack"]
 
 [[tutorial]]
 title = "Building a Chat Agent with Function Calling"
@@ -143,7 +143,7 @@ notebook = "40_Building_Chat_Application_with_Function_Calling.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2024-03-05
-dependencies = ["sentence-transformers>=4.1.0", "gradio", "pytz"]
+dependencies = ["sentence-transformers-haystack", "gradio", "pytz"]
 
 [[tutorial]]
 title = "Query Classification with TransformersTextRouter and TransformersZeroShotTextRouter"
@@ -154,7 +154,7 @@ notebook = "41_Query_Classification_with_TransformersTextRouter_and_Transformers
 aliases = []
 completion_time = "25 min"
 created_at = 2024-10-15
-dependencies = ["sentence-transformers>=4.1.0", "gradio", "datasets", "transformers-haystack"]
+dependencies = ["sentence-transformers-haystack", "gradio", "datasets", "transformers-haystack"]
 
 [[tutorial]]
 title = "Retrieving a Context Window Around a Sentence"
@@ -199,7 +199,7 @@ notebook = "44_Creating_Custom_SuperComponents.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2025-04-22
-dependencies = ["sentence-transformers>=4.1.0", "datasets", "accelerate", "transformers<5"]
+dependencies = ["sentence-transformers-haystack", "datasets"]
 
 [[tutorial]]
 title = "Creating a Multi-Agent System with Haystack"
@@ -222,7 +222,7 @@ notebook = "46_Multimodal_RAG.ipynb"
 aliases = []
 completion_time = "20 min"
 created_at = 2025-08-04
-dependencies = ["pillow", "pypdf", "pypdfium2", "sentence-transformers>=4.1.0"]
+dependencies = ["pillow", "pypdf", "pypdfium2", "sentence-transformers-haystack"]
 featured = true
 
 [[tutorial]]
