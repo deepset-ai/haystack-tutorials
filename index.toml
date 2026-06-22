@@ -75,7 +75,7 @@ notebook = "32_Classifying_Documents_and_Queries_by_Language.ipynb"
 aliases = []
 completion_time = "15 min"
 created_at = 2024-02-06
-dependencies = ["langdetect"]
+dependencies = ["langdetect-haystack"]
 
 [[tutorial]]
 title = "Creating a Hybrid Retrieval Pipeline"
