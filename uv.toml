@@ -11,6 +11,7 @@ exclude-newer = "P3D"
 # script rather than this list by hand.
 [exclude-newer-package]
 haystack-ai = false
+haystack-experimental = false
 agent-pack-haystack = false
 aimlapi-haystack = false
 alloydb-haystack = false
