@@ -27,7 +27,7 @@ import sys
 from pathlib import Path
 
 # Packages that are first-party but not part of haystack-core-integrations.
-ALWAYS_INCLUDE = ["haystack-ai"]
+ALWAYS_INCLUDE = ["haystack-ai", "haystack-experimental"]
 
 HEADER = """\
 # Exclude package versions published within the last 3 days to protect against supply chain
