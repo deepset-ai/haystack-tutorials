@@ -165,7 +165,8 @@ notebook = "42_Sentence_Window_Retriever.ipynb"
 aliases = []
 completion_time = "10 min"
 created_at = 2024-10-16
-dependencies = ["nltk"]
+# https://github.com/nltk/nltk/issues/3730
+dependencies = ["nltk!=3.10.1"]
 
 [[tutorial]]
 title = "Evaluation"
