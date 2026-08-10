@@ -74,6 +74,7 @@ nvidia-haystack = false
 oauth-haystack = false
 ollama-haystack = false
 openapi-haystack = false
+opendataloader-pdf-haystack = false
 openrouter-haystack = false
 opensearch-haystack = false
 opentelemetry-haystack = false
