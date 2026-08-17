@@ -63,6 +63,7 @@ linkup-haystack = false
 litellm-haystack = false
 llama-cpp-haystack = false
 llama-stack-haystack = false
+mariadb-haystack = false
 markitdown-haystack = false
 mcp-haystack = false
 mem0-haystack = false
