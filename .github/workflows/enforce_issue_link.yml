@@ -1,0 +1,99 @@
+name: Enforce issue-first contribution for new tutorials
+
+on:
+  pull_request_target:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: read
+
+jobs:
+  enforce-issue-link:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const author = pr.user.login;
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+            });
+
+            const addsNewTutorial = files.some(
+              (f) =>
+                f.status === "added" &&
+                f.filename.startsWith("tutorials/") &&
+                f.filename.endsWith(".ipynb") &&
+                f.filename !== "tutorials/template.ipynb"
+            );
+
+            if (!addsNewTutorial) {
+              // Edits, fixes, and other non-new-tutorial PRs aren't gated.
+              return;
+            }
+
+            const body = pr.body || "";
+            const match = body.match(/\b(close[sd]?|fix(e[sd])?|resolve[sd]?)\s+#(\d+)\b/i);
+
+            const explain = async (message) => {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                body: message,
+              });
+              await github.rest.pulls.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                state: "closed",
+              });
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                labels: ["needs-issue"],
+              });
+            };
+
+            if (!match) {
+              await explain(
+                `Hi @${author} — this PR adds a new tutorial, and new tutorials must start as an issue before a PR is opened. ` +
+                `Please open an issue with the [new tutorial template](../../issues/new?template=new_tutorial.yml), ` +
+                `get it assigned to you by a maintainer, then reopen this PR with \`Closes #<issue>\` in the description. ` +
+                `See [CONTRIBUTING.md](../../blob/main/CONTRIBUTING.md).`
+              );
+              return;
+            }
+
+            const issueNumber = parseInt(match[3], 10);
+            let issue;
+            try {
+              issue = (await github.rest.issues.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+              })).data;
+            } catch (e) {
+              await explain(
+                `Hi @${author} — issue #${issueNumber} referenced in this PR could not be found. ` +
+                `Please link a valid, assigned issue. See [CONTRIBUTING.md](../../blob/main/CONTRIBUTING.md).`
+              );
+              return;
+            }
+
+            const assignees = (issue.assignees || []).map((a) => a.login.toLowerCase());
+            if (!assignees.includes(author.toLowerCase())) {
+              await explain(
+                `Hi @${author} — issue #${issueNumber} isn't assigned to you. ` +
+                `A maintainer needs to assign the issue to you before a PR for it is accepted. ` +
+                `See [CONTRIBUTING.md](../../blob/main/CONTRIBUTING.md).`
+              );
+              return;
+            }

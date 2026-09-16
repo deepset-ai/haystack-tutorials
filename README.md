@@ -6,7 +6,7 @@
 
 This is the repository where we keep all the Haystack tutorials 📓 👇 These tutorials are also published to the [Haystack Website](https://haystack.deepset.ai/tutorials/).
 
-To contribute to the tutorials, please check out our [Contributing Guidelines](./Contributing.md).
+To contribute to the tutorials, please check out our [Contributing Guidelines](./CONTRIBUTING.md). ⚠️ New tutorials must start as an issue and be assigned by a maintainer before a PR is opened — see [CONTRIBUTING.md](./CONTRIBUTING.md#new-tutorials-start-as-an-issue).
 
 [![Run Tutorials Nightly](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/nightly.yml/badge.svg)](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/nightly.yml)
 [![Publish tutorials on Haystack Home](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/publish_tutorials.yml/badge.svg)](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/publish_tutorials.yml)
