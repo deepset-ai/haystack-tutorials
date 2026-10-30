@@ -8,7 +8,7 @@ This is the repository where we keep all the Haystack tutorials 📓 👇 These 
 
 To contribute to the tutorials, please check out our [Contributing Guidelines](./Contributing.md).
 
-[![Run Tutorials Nightly](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/nightly.yml/badge.svg)](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/nightly.yml)
+[![Run Tutorials Nightly](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/run_tutorials.yml/badge.svg)](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/run_tutorials.yml)
 [![Publish tutorials on Haystack Home](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/publish_tutorials.yml/badge.svg)](https://github.com/deepset-ai/haystack-tutorials/actions/workflows/publish_tutorials.yml)
 
 ## Tutorials
