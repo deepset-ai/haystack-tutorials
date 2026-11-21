@@ -8,6 +8,17 @@ To make a request for a new tutorial or to suggest edits and fixes, submit an is
 
 - **New Tutorial Request 📓:** To suggest that we create a new tutorial.
 
+## New tutorials start as an issue
+
+⚠️ **A new tutorial must be proposed as an issue before any PR is opened.** Use the
+[new tutorial template](.github/ISSUE_TEMPLATE/new_tutorial.yml) to describe the Haystack feature it
+teaches and why it's a useful addition. A maintainer reviews the proposal and, once they assign the
+issue to you, you can open your PR referencing it with `Closes #<issue>`.
+
+A CI check (`.github/workflows/enforce_issue_link.yml`) automatically closes PRs that add a new
+tutorial without a linked, assigned issue. This does not apply to PRs that only fix or improve an
+existing tutorial — those can be opened directly.
+
 ## Contributing Edits or New Tutorials
 
 All of the Haystack tutorials live in the `tutorials` folder in this repo. Each tutorial is an interactive `.ipynb` file and we generate a Markdown file to accompany it.
@@ -19,10 +30,12 @@ Here's what you need to do to add or edit tutorials 👇:
    - Install the pre-commit hooks with `pre-commit install`. This utility will run some formatting/checking
    tasks right before all git commit operations.
 2. If you're **creating** a new tutorial:
+   - Make sure you have an issue assigned to you first (see above).
    - Create a copy of [tutorial template](/tutorials/template.ipynb) in `/tutorials` folder.
    - Rename the new `.ipynb` file by following the [naming convention](#naming-convention-for-file-names).
    - Follow the outline in the template as you create the tutorial.
    - After the tutorial is complete, add necessary information to [index.toml](/index.toml). Here, `weight` is the order in which your tutorial appears. For example, a tutorial with `weight = 15` comes after a tutorial with `weight = 10` and before `20`. Each tutorial comes with a Google Colab link and `Open in Colab` button on the top of the tutorial by default. If your new tutorial cannot be run on Google Colab, set `colab = false` not to display `Open in Colab` button on top the tutorial.
+   - Open your PR with `Closes #<issue>` in the description.
 3. If you're **editing** an existing tutorial:
    - Make necessary changes in the `.ipynb` file of the tutorial and save them.
 4. Create a pull request.
